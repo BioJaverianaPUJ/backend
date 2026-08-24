@@ -97,3 +97,34 @@ Las ramas deben tener un único propósito y evitar mezclar funcionalidades o co
 
 > [!WARNING]
 > Si encuentras un error en tu rama, corrígelo en una rama de corrección (hotfix/bugfix), haz un Pull Request hacia `main` y luego actualiza tu rama. Ramas marcadas como hotfix/bugfix cuentan con prioridad.
+
+### Convenciones de commits
+
+Los mensajes de commit deben escribirse en **tiempo presente** (modo imperativo) y, cuando sea posible, seguir el formato de **Conventional Commits**:
+
+Los tipos más comunes son:
+
+| Tipo | Uso |
+|------|-----|
+| `feat` | Nueva funcionalidad |
+| `fix` | Corrección de un error |
+| `refactor` | Cambios en el código que no corrigen errores ni agregan funcionalidades (reestructuración interna) |
+| `chore` | Tareas de mantenimiento (dependencias, configuración, scripts, etc.) que no afectan la lógica de la aplicación |
+| `docs` | Cambios en la documentación |
+| `test` | Agregar o corregir pruebas |
+| `style` | Cambios de formato (espacios, indentación, etc.) que no afectan la lógica |
+| `perf` | Cambios que mejoran el rendimiento |
+
+Ejemplos:
+```
+feat: agrega endpoint para consultar muestras por usuario
+fix: corrige validación de fecha en formulario de registro
+refactor: simplifica lógica de autenticación
+chore: actualiza dependencias de Spring Boot
+docs: actualiza instrucciones de configuración del Dev Container
+```
+
+Los commits pueden estar tanto en español como en ingles, pero se recomienda utilizar ingles.
+
+> [!TIP]
+> Usar tiempo presente ayuda a mantener consistencia en el historial: el mensaje debe completar la frase "Este commit **hace** ...", no "Este commit **hizo** ...".
