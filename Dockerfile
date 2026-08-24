@@ -2,10 +2,11 @@
 FROM eclipse-temurin:25-jdk-noble AS build
 WORKDIR /app
 
-# Copy gradle/maven wrapper + dependency files first for better layer caching
+# Copy gradle wrapper + build files first for better layer caching
 COPY gradlew .
 COPY gradle gradle
-COPY build.gradle settings.gradle ./
+COPY build.gradle.kts settings.gradle.kts ./
+RUN chmod +x gradlew
 RUN ./gradlew dependencies --no-daemon || true
 
 # Now copy the rest and build
