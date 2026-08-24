@@ -17,5 +17,9 @@
     "forwardPorts": [
         8080,
         5432
-    ]
+    ],
+
+    "features": {
+        "ghcr.io/devcontainers/features/git:1": {}
+    }
 }
