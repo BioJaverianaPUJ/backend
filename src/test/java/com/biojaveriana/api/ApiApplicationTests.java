@@ -1,4 +1,4 @@
-package com.biolens.api;
+package com.biojaveriana.api;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
