@@ -1,0 +1,140 @@
+# EditorConfig is awesome: https://EditorConfig.org
+
+# top-most EditorConfig file
+root = true
+
+# --- Java/Gradle Defaults ---
+
+[*.{java,jar,wadl,wsdl}]
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.gradle]
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- Gradle Build Files ---
+
+[*.gradle.kts]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- Java Source Files ---
+
+[*.{java,xml,json}]
+max_line_length = off
+
+[#.properties files - common in Java projects]
+[*.properties]
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- JSON with 4 Space Indentation ---
+
+[*.{json,json5}]
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+format = json
+
+[*.json]
+max_line_length = off
+
+# --- Gradle Wrapper Scripts ---
+
+[.gradle/wrapper/*]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+charset = utf-8
+
+# --- Maven/POM Files ---
+
+[pom.xml]
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[build.gradle]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- Test Files ---
+
+[*.{java,jsp}~*test*]
+indent_size = 4
+tab_width = 4
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- HTML files (VSCode web-related) ---
+
+[*.html]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- CSS files ---
+
+[*.css]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- JavaScript/TypeScript files ---
+
+[*.js,.browserslistrc]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+[*.{ts,tsx}]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- Markdown files ---
+
+[*.md]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
+
+# --- YAML files ---
+
+[*.yml,*.yaml]
+indent_size = 2
+tab_width = 2
+insert_final_newline = true
+trim_trailing_whitespace = true
+charset = utf-8
