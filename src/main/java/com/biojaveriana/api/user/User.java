@@ -28,20 +28,20 @@ import lombok.Setter;
 @Getter
 @Setter
 @NoArgsConstructor
-@AllArgsConstructor 
-@Builder 
+@AllArgsConstructor
+@Builder
 public class User {
-    @Id 
+    @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
-    @NotBlank 
+    @NotBlank
     @Size(min = 3, max = 25)
     @Column(nullable = false, unique = true, length = 25)
     private String username;
 
-    @Email 
-    @NotBlank 
+    @Email
+    @NotBlank
     @Column(nullable = false, unique = true)
     private String email;
 
@@ -57,10 +57,15 @@ public class User {
     @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @NotNull 
+    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "gender", nullable = false)
     private Gender gender;
+
+    @NotNull
+    @Enumerated(EnumType.STRING)
+    @Column(name = "role", nullable = false)
+    private Role role;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
