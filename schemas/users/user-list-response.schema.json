@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "UserListResponse",
+    "description": "Paginated list of users",
+    "type": "object",
+    "required": [
+        "content",
+        "pagination"
+    ],
+    "properties": {
+        "content": {
+            "type": "array",
+            "items": {
+                "$ref": "./user-response.schema.json"
+            },
+            "description": "Users on the current page"
+        },
+        "pagination": {
+            "$ref": "../common/pagination.schema.json"
+        }
+    },
+    "additionalProperties": false
+}
