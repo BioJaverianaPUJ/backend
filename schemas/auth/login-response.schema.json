@@ -1,0 +1,44 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "LoginResponse",
+    "description": "Successful authentication response",
+    "type": "object",
+    "required": [
+        "userId",
+        "email",
+        "role",
+        "token",
+        "expiresIn"
+    ],
+    "properties": {
+        "userId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Authenticated user's UUID"
+        },
+        "email": {
+            "type": "string",
+            "format": "email",
+            "description": "User's email address"
+        },
+        "role": {
+            "type": "string",
+            "enum": [
+                "USER",
+                "ADMIN"
+            ],
+            "description": "User's assigned role"
+        },
+        "token": {
+            "type": "string",
+            "minLength": 1,
+            "description": "JWT access token"
+        },
+        "expiresIn": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Token lifetime in seconds"
+        }
+    },
+    "additionalProperties": false
+}

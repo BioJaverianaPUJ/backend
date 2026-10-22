@@ -1,0 +1,45 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "Pagination",
+    "description": "Pagination metadata for paginated responses",
+    "type": "object",
+    "properties": {
+        "page": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Current page number, zero-based"
+        },
+        "size": {
+            "type": "integer",
+            "minimum": 1,
+            "description": "Maximum number of items per page"
+        },
+        "totalElements": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total number of matching items"
+        },
+        "totalPages": {
+            "type": "integer",
+            "minimum": 0,
+            "description": "Total number of pages"
+        },
+        "first": {
+            "type": "boolean",
+            "description": "Whether this is the first page"
+        },
+        "last": {
+            "type": "boolean",
+            "description": "Whether this is the last page"
+        }
+    },
+    "required": [
+        "page",
+        "size",
+        "totalElements",
+        "totalPages",
+        "first",
+        "last"
+    ],
+    "additionalProperties": false
+}

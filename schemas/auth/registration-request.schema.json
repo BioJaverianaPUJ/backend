@@ -1,0 +1,54 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "RegistrationRequest",
+    "description": "Request body for user registration",
+    "type": "object",
+    "required": [
+        "firstName",
+        "lastName",
+        "email",
+        "password"
+    ],
+    "properties": {
+        "firstName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "description": "User's first name"
+        },
+        "lastName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 50,
+            "description": "User's last name"
+        },
+        "username": {
+            "type": "string",
+            "minLength": 3,
+            "maxLength": 25,
+            "description": "User's username"
+        },
+        "email": {
+            "type": "string",
+            "format": "email",
+            "minLength": 5,
+            "maxLength": 100,
+            "description": "User's email address"
+        },
+        "gender": {
+            "type": "string",
+            "enum": [
+                "MALE",
+                "FEMALE",
+                "OTHER"
+            ]
+        },
+        "password": {
+            "type": "string",
+            "minLength": 8,
+            "maxLength": 100,
+            "description": "Password chosen during registration"
+        }
+    },
+    "additionalProperties": false
+}
