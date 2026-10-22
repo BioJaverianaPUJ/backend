@@ -1,4 +1,4 @@
-package com.biojaveriana.api.user;
+package com.biojaveriana.api.user.exceptions;
 
 import java.util.UUID;
 

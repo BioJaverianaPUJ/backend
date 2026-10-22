@@ -7,9 +7,11 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.user.exceptions.UserNotFoundException;
+
 import lombok.RequiredArgsConstructor;
 
-@Service 
+@Service
 @Transactional
 @RequiredArgsConstructor
 public class UserService {
