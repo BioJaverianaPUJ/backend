@@ -1,4 +1,4 @@
-package com.biojaveriana.api.observations;
+package com.biojaveriana.api.specimen;
 
 public enum HealthStatus {
     WELL,

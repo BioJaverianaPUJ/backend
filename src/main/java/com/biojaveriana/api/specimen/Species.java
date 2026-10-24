@@ -1,4 +1,4 @@
-package com.biojaveriana.api.observations;
+package com.biojaveriana.api.specimen;
 
 import java.util.UUID;
 

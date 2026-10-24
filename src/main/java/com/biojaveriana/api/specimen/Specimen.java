@@ -1,4 +1,4 @@
-package com.biojaveriana.api.observations;
+package com.biojaveriana.api.specimen;
 
 import java.time.Instant;
 import java.util.UUID;
@@ -28,7 +28,7 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Observation {
+public class Specimen {
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
