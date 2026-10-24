@@ -8,6 +8,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -39,7 +40,7 @@ public class Species {
     @Column(name = "family", nullable = false)
     private String family;
 
-    @NotBlank
-    @Column(name = "wood_density_g_cm3", nullable = false)
+    @DecimalMin(value = "0.0")
+    @Column(name = "wood_density_g_cm3", precision = 10, scale = 2)
     private Double woodDensity;
 }
