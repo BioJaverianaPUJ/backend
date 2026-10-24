@@ -1,0 +1,48 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SpecimenCreate",
+    "description": "Request body for creating a new specimen",
+    "type": "object",
+    "required": [
+        "speciesId",
+        "latitude",
+        "longitude",
+        "notes"
+    ],
+    "properties": {
+        "speciesId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Identifier of the species"
+        },
+        "latitude": {
+            "type": "number",
+            "description": "Latitude coordinate"
+        },
+        "longitude": {
+            "type": "number",
+            "description": "Longitude coordinate"
+        },
+        "circumference": {
+            "type": "number",
+            "description": "Circumference in centimeters"
+        },
+        "height": {
+            "type": "number",
+            "description": "Height in meters"
+        },
+        "healthStatus": {
+            "$ref": "./health-status.schema.json"
+        },
+        "notes": {
+            "type": "string",
+            "description": "Observational notes"
+        },
+        "observationDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of observation"
+        }
+    },
+    "additionalProperties": false
+}

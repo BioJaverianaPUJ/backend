@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SpeciesListResponse",
+    "description": "Paginated list of species",
+    "type": "object",
+    "required": [
+        "content",
+        "pagination"
+    ],
+    "properties": {
+        "content": {
+            "type": "array",
+            "items": {
+                "$ref": "./species-response.schema.json"
+            },
+            "description": "Species on the current page"
+        },
+        "pagination": {
+            "$ref": "../common/pagination.schema.json"
+        }
+    },
+    "additionalProperties": false
+}

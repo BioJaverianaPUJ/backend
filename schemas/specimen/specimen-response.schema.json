@@ -1,0 +1,60 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SpecimenResponse",
+    "description": "Representation of a specimen in API responses",
+    "type": "object",
+    "required": [
+        "id",
+        "speciesId",
+        "latitude",
+        "longitude",
+        "notes",
+        "createdAt"
+    ],
+    "properties": {
+        "id": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Specimen identifier"
+        },
+        "speciesId": {
+            "type": "string",
+            "format": "uuid",
+            "description": "Species identifier"
+        },
+        "latitude": {
+            "type": "number",
+            "description": "Latitude coordinate"
+        },
+        "longitude": {
+            "type": "number",
+            "description": "Longitude coordinate"
+        },
+        "circumference": {
+            "type": "number",
+            "description": "Circumference in centimeters"
+        },
+        "height": {
+            "type": "number",
+            "description": "Height in meters"
+        },
+        "healthStatus": {
+            "$ref": "./health-status.schema.json"
+        },
+        "notes": {
+            "type": "string",
+            "description": "Observational notes"
+        },
+        "observationDate": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Timestamp of observation"
+        },
+        "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "description": "Creation timestamp"
+        }
+    },
+    "additionalProperties": false
+}

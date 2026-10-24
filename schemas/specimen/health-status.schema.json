@@ -1,0 +1,8 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "HealthStatus",
+    "description": "Enumeration of specimen health status",
+    "type": "string",
+    "enum": ["WELL", "FAIR", "POOR", "DEAD"],
+    "additionalProperties": false
+}

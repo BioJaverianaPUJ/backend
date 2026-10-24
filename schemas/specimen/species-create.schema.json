@@ -1,0 +1,32 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SpeciesCreate",
+    "description": "Request body for creating a new species",
+    "type": "object",
+    "required": [
+        "scientificName",
+        "commonName",
+        "family",
+        "woodDensity"
+    ],
+    "properties": {
+        "scientificName": {
+            "type": "string",
+            "description": "Scientific name of the species"
+        },
+        "commonName": {
+            "type": "string",
+            "description": "Common name of the species"
+        },
+        "family": {
+            "type": "string",
+            "description": "Family to which the species belongs"
+        },
+        "woodDensity": {
+            "type": "number",
+            "minimum": 0.0,
+            "description": "Wood density of the species"
+        }
+    },
+    "additionalProperties": false
+}
