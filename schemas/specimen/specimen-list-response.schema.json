@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "SpecimenListResponse",
+    "description": "Paginated list of specimens",
+    "type": "object",
+    "required": [
+        "content",
+        "pagination"
+    ],
+    "properties": {
+        "content": {
+            "type": "array",
+            "items": {
+                "$ref": "./specimen-response.schema.json"
+            },
+            "description": "Specimens on the current page"
+        },
+        "pagination": {
+            "$ref": "../common/pagination.schema.json"
+        }
+    },
+    "additionalProperties": false
+}
