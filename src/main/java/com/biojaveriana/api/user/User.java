@@ -14,14 +14,15 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.Size;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.Builder.Default;
 
 @Entity
 @Table(name = "users")
@@ -37,7 +38,7 @@ public class User {
 
     @NotBlank
     @Size(min = 3, max = 25)
-    @Column(nullable = false, unique = true, length = 25)
+    @Column(nullable = false, unique = true)
     private String username;
 
     @Email
@@ -50,11 +51,13 @@ public class User {
     private String passwordHash;
 
     @NotBlank
-    @Column(name = "first_name", nullable = false)
+    @Size(min = 1, max = 50)
+    @Column(nullable = false)
     private String firstName;
 
     @NotBlank
-    @Column(name = "last_name", nullable = false)
+    @Size(min = 1, max = 50)
+    @Column(nullable = false)
     private String lastName;
 
     @NotNull
@@ -66,6 +69,10 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
+
+    @Default
+    @Column(name = "deactivated", nullable = false)
+    private boolean deactivated = false;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)

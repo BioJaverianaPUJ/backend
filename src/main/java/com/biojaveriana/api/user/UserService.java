@@ -8,6 +8,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
+import com.biojaveriana.api.user.exceptions.UsernameAlreadyExistsException;
+import com.biojaveriana.api.user.dto.UserUpdateRequest;
+import com.biojaveriana.api.user.dto.MeUserUpdateRequest;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,5 +32,77 @@ public class UserService {
     public User findByUsername(String username) {
         return userRepository.findByUsername(username)
             .orElseThrow(() -> new UserNotFoundException(username));
+    }
+
+    public User updateById(UUID id, UserUpdateRequest dto) {
+        var user = findById(id);
+        if (dto.firstName() != null) {
+            user.setFirstName(dto.firstName());
+        }
+
+        if (dto.lastName() != null) {
+            user.setLastName(dto.lastName());
+        }
+
+        if (dto.username() != null) {
+            if (!dto.username().equals(user.getUsername())) {
+                if (userRepository.existsByUsername(dto.username())) {
+                    throw new UsernameAlreadyExistsException(dto.username());
+                }
+                user.setUsername(dto.username());
+            }
+        }
+
+        if (dto.role() != null) {
+            user.setRole(dto.role());
+        }
+
+        if (dto.gender() != null) {
+            user.setGender(dto.gender());
+        }
+
+        if (dto.enabled() != null) {
+            user.setDeactivated(!dto.enabled());
+        }
+
+        return userRepository.save(user);
+    }
+
+    public void deleteById(UUID id) {
+        var user = findById(id);
+        userRepository.delete(user);
+    }
+
+
+    public User disableUser(UUID id) {
+        var user = findById(id);
+        user.setDeactivated(true);
+        return userRepository.save(user);
+    }
+
+    public User updateMe(User user, MeUserUpdateRequest dto) {
+        if (dto.firstName() != null) {
+            user.setFirstName(dto.firstName());
+        }
+
+        if (dto.lastName() != null) {
+            user.setLastName(dto.lastName());
+        }
+
+        if (dto.username() != null) {
+            if (!dto.username().equals(user.getUsername())) {
+                if (userRepository.existsByUsername(dto.username())) {
+                    throw new UsernameAlreadyExistsException(dto.username());
+                }
+
+                user.setUsername(dto.username());
+            }
+        }
+
+        if (dto.gender() != null) {
+            user.setGender(dto.gender());
+        }
+
+        return userRepository.save(user);
     }
 }
