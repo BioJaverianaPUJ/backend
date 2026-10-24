@@ -11,6 +11,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.biojaveriana.api.specimen.exceptions.SpeciesNotFoundException;
+import com.biojaveriana.api.specimen.exceptions.SpeciesAlreadyExistsException;
 
 import lombok.RequiredArgsConstructor;
 
@@ -29,6 +30,14 @@ public class SpeciesService {
     }
 
     public Species create(@Valid SpeciesCreateDTO dto) {
+        if (speciesRepository.existsByScientificName(dto.scientificName())) {
+            throw new SpeciesAlreadyExistsException(dto.scientificName(), null);
+        }
+
+        if (speciesRepository.existsByCommonName(dto.commonName())) {
+            throw new SpeciesAlreadyExistsException(null, dto.commonName());
+        }
+
         return speciesRepository.save(dto.toEntity());
     }
 
@@ -39,15 +48,19 @@ public class SpeciesService {
         if (dto.scientificName() != null) {
             species.setScientificName(dto.scientificName());
         }
+
         if (dto.commonName() != null) {
             species.setCommonName(dto.commonName());
         }
+
         if (dto.family() != null) {
             species.setFamily(dto.family());
         }
+
         if (dto.woodDensity() != null) {
             species.setWoodDensity(dto.woodDensity());
         }
+
         return speciesRepository.save(species);
     }
 
