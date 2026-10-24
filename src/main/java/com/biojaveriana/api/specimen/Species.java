@@ -33,7 +33,7 @@ public class Species {
     private String scientificName;
 
     @NotBlank
-    @Column(name = "common_name", nullable = false, unique = true)
+    @Column(name = "common_name", nullable = false)
     private String commonName;
 
     @NotBlank
