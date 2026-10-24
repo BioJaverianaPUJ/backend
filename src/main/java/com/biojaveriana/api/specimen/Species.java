@@ -41,6 +41,6 @@ public class Species {
     private String family;
 
     @DecimalMin(value = "0.0")
-    @Column(name = "wood_density_g_cm3", precision = 10, scale = 2)
+    @Column(name = "wood_density_g_cm3")
     private Double woodDensity;
 }

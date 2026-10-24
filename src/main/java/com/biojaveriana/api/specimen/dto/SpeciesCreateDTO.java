@@ -21,10 +21,10 @@ public record SpeciesCreateDTO(
 ) {
     public Species toEntity() {
         return Species.builder()
-                .scientificName(scientificName)
-                .commonName(commonName)
-                .family(family)
-                .woodDensity(woodDensity)
-                .build();
+            .scientificName(scientificName)
+            .commonName(commonName)
+            .family(family)
+            .woodDensity(woodDensity)
+            .build();
     }
 }
