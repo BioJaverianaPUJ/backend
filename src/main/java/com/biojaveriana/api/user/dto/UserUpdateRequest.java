@@ -10,5 +10,7 @@ public record UserUpdateRequest(
     @Size(min = 3, max = 25) String username,
     Role role,
     Gender gender,
-    Boolean enabled
+    Boolean enabled,
+    String profilePictureKey,
+    String bannerKey
 ) {}

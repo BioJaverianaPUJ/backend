@@ -80,4 +80,10 @@ public class User {
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
+
+    @Column(name = "profile_picture_key")
+    private String profilePictureKey;
+
+    @Column(name = "banner_key")
+    private String bannerKey;
 }

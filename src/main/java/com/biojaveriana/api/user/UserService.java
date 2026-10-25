@@ -39,12 +39,12 @@ public class UserService {
 
     public User updateById(UUID id, UserUpdateRequest dto) {
         var user = findById(id);
-        if (dto.firstName() != null) {
-            user.setFirstName(dto.firstName());
+        if (dto.profilePictureKey() != null) {
+            user.setProfilePictureKey(dto.profilePictureKey());
         }
 
-        if (dto.lastName() != null) {
-            user.setLastName(dto.lastName());
+        if (dto.bannerKey() != null) {
+            user.setBannerKey(dto.bannerKey());
         }
 
         if (dto.username() != null) {
