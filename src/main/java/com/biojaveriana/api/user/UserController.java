@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biojaveriana.api.security.CurrentUser;
+import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.dto.MeUserUpdateRequest;
 import com.biojaveriana.api.user.dto.UserListResponse;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
@@ -66,6 +67,7 @@ public class UserController {
     }
 
     @PatchMapping("/{id}")
+    @HasRole(value = Role.ADMIN)
     public UserResponse update(@PathVariable String id, @Valid @RequestBody UserUpdateRequest dto) {
         var user = userService.updateById(UUID.fromString(id), dto);
         return UserResponse.from(user, urlGenerator);
@@ -78,6 +80,7 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
+    @HasRole(value = Role.ADMIN)
     public void delete(@PathVariable String id) {
         userService.deleteById(UUID.fromString(id));
     }

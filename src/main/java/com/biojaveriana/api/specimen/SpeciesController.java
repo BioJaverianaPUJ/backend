@@ -17,8 +17,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.biojaveriana.api.specimen.dto.SpeciesListResponse;
 import com.biojaveriana.api.specimen.dto.SpeciesResponse;
+import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.specimen.dto.SpeciesCreateDTO;
 import com.biojaveriana.api.specimen.dto.SpeciesUpdateDTO;
+import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
@@ -49,12 +51,14 @@ public class SpeciesController {
     }
 
     @PostMapping
+    @HasRole(value = Role.ADMIN)
     public SpeciesResponse create(@Valid @RequestBody SpeciesCreateDTO speciesRequest) {
         var species = speciesService.create(speciesRequest);
         return SpeciesResponse.from(species);
     }
 
     @PatchMapping("/{id}")
+    @HasRole(value = Role.ADMIN)
     public SpeciesResponse update(
             @PathVariable String id,
             @Valid @RequestBody SpeciesUpdateDTO speciesUpdate
@@ -64,6 +68,7 @@ public class SpeciesController {
     }
 
     @DeleteMapping("/{id}")
+    @HasRole(value = Role.ADMIN)
     public void delete(@PathVariable String id) {
         speciesService.delete(UUID.fromString(id));
     }

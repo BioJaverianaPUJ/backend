@@ -15,10 +15,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.specimen.dto.SpecimenCreateDTO;
 import com.biojaveriana.api.specimen.dto.SpecimenListResponse;
 import com.biojaveriana.api.specimen.dto.SpecimenResponse;
 import com.biojaveriana.api.specimen.dto.SpecimenUpdateDTO;
+import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
@@ -49,12 +51,14 @@ public class SpecimenController {
     }
 
     @PostMapping
+    @HasRole(value = Role.ADMIN)
     public SpecimenResponse create(@Valid @RequestBody SpecimenCreateDTO specimenRequest) {
         var specimen = specimenService.create(specimenRequest);
         return SpecimenResponse.from(specimen);
     }
 
     @PatchMapping("/{id}")
+    @HasRole(value = Role.ADMIN)
     public SpecimenResponse update(
         @PathVariable String id,
         @Valid @RequestBody SpecimenUpdateDTO specimenUpdate
@@ -64,6 +68,7 @@ public class SpecimenController {
     }
 
     @DeleteMapping("/{id}")
+    @HasRole(value = Role.ADMIN)
     public void delete(@PathVariable String id) {
         specimenService.delete(UUID.fromString(id));
     }
