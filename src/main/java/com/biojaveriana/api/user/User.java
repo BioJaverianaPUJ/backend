@@ -74,6 +74,9 @@ public class User {
     @Column(name = "deactivated", nullable = false)
     private boolean deactivated = false;
 
+    @Column(name = "username_last_update")
+    private Instant usernameLastUpdate;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;

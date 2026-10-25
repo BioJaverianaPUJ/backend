@@ -1,6 +1,8 @@
 package com.biojaveriana.api.user;
 
 import java.util.UUID;
+import java.time.Instant;
+import java.time.Duration;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -9,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
 import com.biojaveriana.api.user.exceptions.UsernameAlreadyExistsException;
+import com.biojaveriana.api.user.exceptions.UsernameChangeCooldownException;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
 import com.biojaveriana.api.user.dto.MeUserUpdateRequest;
 
@@ -95,6 +98,17 @@ public class UserService {
                     throw new UsernameAlreadyExistsException(dto.username());
                 }
 
+
+                Instant now = Instant.now();
+                Instant lastUpdate = user.getUsernameLastUpdate();
+                if (lastUpdate != null) {
+                    Duration diff = Duration.between(lastUpdate, now);
+                    if (diff.toDays() < 14) {
+                        throw new UsernameChangeCooldownException();
+                    }
+                }
+
+                user.setUsernameLastUpdate(now);
                 user.setUsername(dto.username());
             }
         }
