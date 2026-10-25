@@ -10,12 +10,45 @@ services:
       - "5432:5432"
     volumes:
       - postgres-data:/var/lib/postgresql
-
+      
   adminer:
     image: adminer
+  # ----- SeaweedFS Object Storage -----
+  seaweedfs-master:
+    image: chrislusf/seaweedfs:latest
+    command: weed master -ip 0.0.0.0
     restart: unless-stopped
     ports:
-      - "8080:8080"
+      - "9333:9333"
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:9333/health']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  seaweedfs-volume:
+    image: chrislusf/seaweedfs:latest
+    command: weed volume -dir /seaweedfs -max=5 -port 8080 -ip 0.0.0.0
+    restart: unless-stopped
+    volumes:
+      - seaweed-data:/seaweedfs
+    depends_on:
+      - seaweedfs-master
+    healthcheck:
+      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  seaweedfs-s3:
+    image: chrislusf/seaweedfs:latest
+    command: weed s3 -port 8333 -master seaweedfs-master:9333
+    restart: unless-stopped
+    depends_on:
+      - seaweedfs-master
+      - seaweedfs-volume
+    ports:
+      - "8333:8333"
 
   app:
     build:
@@ -27,6 +60,8 @@ services:
     command: sleep infinity
     depends_on:
       - postgres
+      - seaweedfs-s3
 
 volumes:
   postgres-data:
+  seaweed-data:
