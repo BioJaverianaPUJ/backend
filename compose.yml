@@ -13,55 +13,24 @@ services:
       
   adminer:
     image: adminer
-  # ----- SeaweedFS Object Storage -----
-  seaweedfs-master:
-    image: chrislusf/seaweedfs:latest
-    command: weed master -ip 0.0.0.0
+
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: bj-rustfs
     restart: unless-stopped
+    environment:
+      RUSTFS_ACCESS_KEY: rustfsadmin
+      RUSTFS_SECRET_KEY: rustfsadmin
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: ":9000"
+      RUSTFS_CONSOLE_ADDRESS: ":9001"
+      RUSTFS_CONSOLE_ENABLE: "true"
     ports:
-      - "9333:9333"
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:9333/health']
-      interval: 30s
-      timeout: 10s
-      retries: 5
-
-  seaweedfs-volume:
-    image: chrislusf/seaweedfs:latest
-    command: weed volume -dir /seaweedfs -max=5 -port 8080 -ip 0.0.0.0
-    restart: unless-stopped
+      - "9000:9000"
+      - "9001:9001"
     volumes:
-      - seaweed-data:/seaweedfs
-    depends_on:
-      - seaweedfs-master
-    healthcheck:
-      test: ['CMD', 'curl', '-f', 'http://localhost:8080/health']
-      interval: 30s
-      timeout: 10s
-      retries: 5
-
-  seaweedfs-s3:
-    image: chrislusf/seaweedfs:latest
-    command: weed s3 -port 8333 -master seaweedfs-master:9333
-    restart: unless-stopped
-    depends_on:
-      - seaweedfs-master
-      - seaweedfs-volume
-    ports:
-      - "8333:8333"
-
-  app:
-    build:
-      context: .
-      dockerfile: .devcontainer/Dockerfile
-    volumes:
-      - .:/workspace:cached
-    working_dir: /workspace
-    command: sleep infinity
-    depends_on:
-      - postgres
-      - seaweedfs-s3
+      - rustfs-data:/data
 
 volumes:
   postgres-data:
-  seaweed-data:
+  rustfs-data:
