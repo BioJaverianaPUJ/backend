@@ -12,6 +12,7 @@ RUN ./gradlew dependencies --no-daemon || true
 # Now copy the rest and build
 COPY src src
 RUN ./gradlew bootJar --no-daemon
+RUN ls -l /app/build/libs
 
 # --- Runtime stage ---
 FROM eclipse-temurin:25-jre-noble
@@ -21,6 +22,7 @@ RUN useradd --create-home --shell /bin/bash spring
 USER spring
 
 COPY --from=build /app/build/libs/*.jar app.jar
+RUN ls -l /app
 
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
