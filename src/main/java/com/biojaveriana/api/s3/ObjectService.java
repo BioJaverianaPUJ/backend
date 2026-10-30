@@ -2,12 +2,9 @@ package com.biojaveriana.api.s3;
 
 import java.time.Duration;
 import java.time.Instant;
-import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
-
-import com.biojaveriana.api.s3.exceptions.UnsupportedContentType;
 
 import lombok.RequiredArgsConstructor;
 import software.amazon.awssdk.services.s3.S3Client;
@@ -21,12 +18,6 @@ import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignReques
 @Service
 @RequiredArgsConstructor
 public class ObjectService implements S3UrlGenerator {
-    private static final Map<String, String> ALLOWED_TYPES = Map.of(
-        "image/jpeg", "jpg",
-        "image/png", "png",
-        "image/webp", "webp"
-    );
-
     private final S3Presigner presigner;
     private final S3Client s3Client;
 
@@ -37,11 +28,6 @@ public class ObjectService implements S3UrlGenerator {
     private String endpoint;
 
     public UploadPresign createPresign(String key, String contentType) {
-        var extension = ALLOWED_TYPES.get(contentType);
-        if (extension == null) {
-            throw new UnsupportedContentType(contentType);
-        }
-
         var request = PutObjectRequest.builder()
             .bucket(bucket)
             .key(key)
