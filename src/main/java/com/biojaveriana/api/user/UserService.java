@@ -39,13 +39,6 @@ public class UserService {
 
     public User updateById(UUID id, UserUpdateRequest dto) {
         var user = findById(id);
-        if (dto.profilePictureKey() != null) {
-            user.setProfilePictureKey(dto.profilePictureKey());
-        }
-
-        if (dto.bannerKey() != null) {
-            user.setBannerKey(dto.bannerKey());
-        }
 
         if (dto.username() != null) {
             if (!dto.username().equals(user.getUsername())) {
@@ -117,6 +110,24 @@ public class UserService {
             user.setGender(dto.gender());
         }
 
+        return userRepository.save(user);
+    }
+
+    public User setProfilePicture(UUID id, String key) {
+        var user = findById(id);
+        user.setProfilePictureKey(key);
+
+        return userRepository.save(user);
+    }
+
+    public User setBanner(UUID id, String key) {
+        var user = findById(id);
+        user.setBannerKey(key);
+
+        return userRepository.save(user);
+    }
+
+    public User save(User user) {
         return userRepository.save(user);
     }
 }
