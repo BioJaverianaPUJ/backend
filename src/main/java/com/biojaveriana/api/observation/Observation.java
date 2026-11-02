@@ -20,7 +20,6 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -58,19 +57,18 @@ public class Observation {
     @Column(name = "hidden", nullable = false)
     private boolean hidden = false;
 
+    @Default
+    @Column(name = "checked", nullable = false)
+    private boolean checked = false;
+
+    @Default
+    @Column(name = "validation_requested", nullable = false)
+    private boolean validationRequested = false;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
 
-    @NotNull
-    @Enumerated(EnumType.STRING)
-    @Column(name = "job_status", nullable = false)
-    private IdentificationJobStatus jobStatus;
-
-    @Column(name = "retries", nullable = false)
-    private int retries;
-
-    @NotNull
     @Enumerated(EnumType.STRING)
     @Column(name = "observation_type", nullable = true)
     private ObservationType observationType;
@@ -79,7 +77,7 @@ public class Observation {
     private String speciesCommonName;
 
     @Column(name = "certainty", nullable = true)
-    private double certainty;
+    private Double certainty;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "specimen_id", nullable = true)

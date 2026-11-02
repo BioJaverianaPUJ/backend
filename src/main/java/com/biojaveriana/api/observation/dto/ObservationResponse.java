@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.observation.Observation;
-import com.biojaveriana.api.observation.IdentificationJobStatus;
 import com.biojaveriana.api.observation.ObservationType;
 
 public record ObservationResponse(
@@ -12,11 +11,12 @@ public record ObservationResponse(
     String referencePictureUrl,
     double latitude,
     double longitude,
-    IdentificationJobStatus jobStatus,
     ObservationType observationType,
     String speciesCommonName,
     double certainty,
-    UUID specimenId
+    UUID specimenId,
+    boolean checked,
+    boolean validationRequested
 ) {
     public static ObservationResponse from(Observation observation, S3UrlGenerator generator) {
         return new ObservationResponse(
@@ -24,11 +24,12 @@ public record ObservationResponse(
             generator.generateUrl(observation.getReferencePictureKey()),
             observation.getLatitude(),
             observation.getLongitude(),
-            observation.getJobStatus(),
             observation.getObservationType(),
             observation.getSpeciesCommonName(),
             observation.getCertainty(),
-            observation.getSpecimen() != null ? observation.getSpecimen().getId() : null
+            observation.getSpecimen() != null ? observation.getSpecimen().getId() : null,
+            observation.isChecked(),
+            observation.isValidationRequested()
         );
     }
 }

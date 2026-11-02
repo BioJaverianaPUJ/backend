@@ -1,11 +1,13 @@
 package com.biojaveriana.api.observation;
 
 import java.io.IOException;
+import java.util.Map;
 import java.util.UUID;
 
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.biojaveriana.api.job.JobService;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.exceptions.UnsupportedContentTypeException;
 import com.biojaveriana.api.user.User;
@@ -19,6 +21,7 @@ import lombok.RequiredArgsConstructor;
 public class ObservationService {
     private final ObservationRepository observationRepository;
     private final ObjectService objectService;
+    private final JobService jobService;
 
     public Observation createObservation(User user, MultipartFile file, double latitude, double longitude) {
         if (file.isEmpty()) {
@@ -42,15 +45,18 @@ public class ObservationService {
             .referencePictureKey(key)
             .latitude(latitude)
             .longitude(longitude)
-            .jobStatus(IdentificationJobStatus.QUEUED)
-            .retries(0)
             .observationType(null)
             .speciesCommonName(null)
-            .certainty(0.0)
+            .certainty(null)
             .specimen(null)
             .build();
 
-        return observationRepository.save(observation);
+        observation = observationRepository.save(observation);
+
+        String payload = Map.of("observationId", observation.getId().toString()).toString();
+        jobService.createJob(payload, "jobs:observation:identification");
+
+        return observation;
     }
 
     private String generateKey(User user, String contentType) {
