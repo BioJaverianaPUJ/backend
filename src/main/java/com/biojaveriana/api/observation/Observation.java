@@ -23,6 +23,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Builder.Default;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -52,6 +53,10 @@ public class Observation {
 
     @Column(name = "longitude", nullable = false)
     private double longitude;
+
+    @Default
+    @Column(name = "hidden", nullable = false)
+    private boolean hidden = false;
 
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
