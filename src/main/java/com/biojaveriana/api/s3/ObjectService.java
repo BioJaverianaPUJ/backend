@@ -1,5 +1,6 @@
 package com.biojaveriana.api.s3;
 
+import java.io.InputStream;
 import java.time.Duration;
 import java.time.Instant;
 
@@ -7,6 +8,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import lombok.RequiredArgsConstructor;
+import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.S3Exception;
 import software.amazon.awssdk.services.s3.model.DeleteObjectRequest;
@@ -62,7 +64,11 @@ public class ObjectService implements S3UrlGenerator {
             s3Client.headObject(request);
             return true;
         } catch (S3Exception e) {
-            return e.awsErrorDetails() != null && "404".equals(e.awsErrorDetails().errorCode());
+            // 404 means the object doesn't exist → upload not confirmed
+            if ("NoSuchKey".equals(e.awsErrorDetails().errorCode()) || "NotFound".equals(e.awsErrorDetails().errorCode())) {
+                return false;
+            }
+            throw e;
         }
     }
 
@@ -73,6 +79,19 @@ public class ObjectService implements S3UrlGenerator {
             .build();
 
         s3Client.deleteObject(request);
+    }
+
+    public void upload(String key, InputStream stream, long size, String contentType) {
+        var request = PutObjectRequest.builder()
+            .bucket(bucket)
+            .key(key)
+            .contentType(contentType)
+            .build();
+
+        s3Client.putObject(
+            request,
+            RequestBody.fromInputStream(stream, size)
+        );
     }
 
     public String generateUrl(String key) {

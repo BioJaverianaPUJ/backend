@@ -4,8 +4,8 @@ import java.time.Instant;
 
 public record UploadPresign(
     String key,
-    String uploadUrl,
+    String url,
     String method,
     String contentType,
-    Instant expiresIn
+    Instant expiresAt
 ) {}
