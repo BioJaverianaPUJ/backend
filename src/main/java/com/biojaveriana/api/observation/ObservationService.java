@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.biojaveriana.api.s3.ObjectService;
+import com.biojaveriana.api.s3.exceptions.UnsupportedContentTypeException;
 import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.observation.exceptions.InvalidObservationException;
 import com.biojaveriana.api.observation.exceptions.ObservationUploadException;
@@ -63,7 +64,7 @@ public class ObservationService {
             case "image/jpg" -> ".jpg";
             case "image/png" -> ".png";
             case "image/gif" -> ".gif";
-            default -> ".bin";
+            default -> throw new UnsupportedContentTypeException(contentType);
         };
     }
 }

@@ -2,6 +2,8 @@ package com.biojaveriana.api.user;
 
 import java.util.UUID;
 
+import com.biojaveriana.api.s3.exceptions.UnsupportedContentTypeException;
+
 public enum Media {
     PROFILE_PICTURE("profile-picture"),
     BANNER("banner");
@@ -16,6 +18,7 @@ public enum Media {
         if (this == PROFILE_PICTURE) {
             return user.getProfilePictureKey();
         }
+
         return user.getBannerKey();
     }
 
@@ -34,12 +37,13 @@ public enum Media {
 
     private static String contentTypeToExtension(String contentType) {
         if (contentType == null) return "";
+
         return switch (contentType.toLowerCase()) {
             case "image/jpeg" -> ".jpg";
             case "image/png"  -> ".png";
             case "image/webp" -> ".webp";
             case "image/gif"  -> ".gif";
-            default           -> "";
+            default           -> throw new UnsupportedContentTypeException(contentType);
         };
     }
 }
