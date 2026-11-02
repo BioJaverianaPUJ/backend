@@ -13,10 +13,18 @@ spring:
       ddl-auto: ${JPA_DDL_AUTO:update}
       show-sql: ${JPA_SHOW_SQL:true}
 
-  data:
-    redis:
-      host: ${REDIS_HOST:localhost}
-      port: ${REDIS_PORT:6379}
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:rabbitmq}
+    password: ${RABBITMQ_PASSWORD:rabbitmq}
+
+  amqp:
+    template:
+      exchange: outbox.exchange
+    listener:
+      simple:
+        auto-declare: true
 
 server:
   port: ${SERVER_PORT:8000}
@@ -24,6 +32,13 @@ server:
 app:
   jwt:
     secret: ${JWT_SECRET:M+n7MHJvcNwm6NqYcTNVRgpuGziL/jvM+BHBC7iQ1d8=}
+
+  rabbitmq:
+    queue-names: "default"
+
+  outbox:
+    processing:
+      delayMs: 10000
 
   s3:
     bucket: ${S3_BUCKET:biojaveriana}

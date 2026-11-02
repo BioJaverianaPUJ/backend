@@ -10,6 +10,8 @@ import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.PrePersist;
+import jakarta.persistence.PreUpdate;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -56,4 +58,22 @@ public class Job {
 
     @Column(name = "completed_at", nullable = true)
     private Instant completedAt;
+
+    @Column(name = "queue_key", nullable = false)
+    private String queueKey;
+
+    @Column(name = "updated_at")
+    private Instant updatedAt;
+
+    @PreUpdate
+    public void onUpdate() {
+        setUpdatedAt(Instant.now());
+    }
+
+    @PrePersist
+    public void onCreate() {
+        if (updatedAt == null) {
+            setUpdatedAt(Instant.now());
+        }
+    }
 }
