@@ -1,5 +1,6 @@
 package com.biojaveriana.api.user;
 
+import java.io.IOException;
 import java.util.UUID;
 
 import org.springframework.data.domain.PageRequest;
@@ -23,6 +24,7 @@ import com.biojaveriana.api.user.dto.UserListResponse;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
 import com.biojaveriana.api.user.dto.UserResponse;
 import com.biojaveriana.api.s3.ObjectService;
+import com.biojaveriana.api.user.exceptions.InvalidMediaTypeException;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
@@ -88,7 +90,7 @@ public class UserController {
     ) throws java.io.IOException {
         var mediaType = parseMediaType(type);
         if (mediaType == null) {
-            throw new IllegalArgumentException("Invalid media type: " + type);
+            throw new InvalidMediaTypeException(type);
         }
 
         var oldKey = mediaType.getOldKey(user);
@@ -111,7 +113,7 @@ public class UserController {
     ) {
         var mediaType = parseMediaType(type);
         if (mediaType == null) {
-            throw new IllegalArgumentException("Invalid media type: " + type);
+            throw new InvalidMediaTypeException(type);
         }
 
         var key = mediaType.getOldKey(user);
@@ -145,7 +147,7 @@ public class UserController {
 
         var mediaType = parseMediaType(type);
         if (mediaType == null) {
-            throw new IllegalArgumentException("Invalid media type: " + type);
+            throw new InvalidMediaTypeException(type);
         }
 
         var key = mediaType.getOldKey(user);
@@ -169,10 +171,10 @@ public class UserController {
         return null;
     }
 
-    private UserResponse uploadMediaInternal(User user, String type, MultipartFile file) throws java.io.IOException {
+    private UserResponse uploadMediaInternal(User user, String type, MultipartFile file) throws IOException {
         var mediaType = parseMediaType(type);
         if (mediaType == null) {
-            throw new IllegalArgumentException("Invalid media type: " + type);
+            throw new InvalidMediaTypeException(type);
         }
 
         var oldKey = mediaType.getOldKey(user);
