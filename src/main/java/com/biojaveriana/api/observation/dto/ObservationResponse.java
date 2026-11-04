@@ -16,12 +16,17 @@ public record ObservationResponse(
     double certainty,
     UUID specimenId,
     boolean checked,
-    boolean validationRequested
+    boolean revisionRequested
 ) {
     public static ObservationResponse from(Observation observation, S3UrlGenerator generator) {
+        String referencePictureUrl = null;
+        if (generator != null && observation.getReferencePictureKey() != null) {
+            referencePictureUrl = generator.generateUrl(observation.getReferencePictureKey());
+        }
+        
         return new ObservationResponse(
             observation.getId(),
-            generator.generateUrl(observation.getReferencePictureKey()),
+            referencePictureUrl,
             observation.getLatitude(),
             observation.getLongitude(),
             observation.getObservationType(),
@@ -29,7 +34,7 @@ public record ObservationResponse(
             observation.getCertainty(),
             observation.getSpecimen() != null ? observation.getSpecimen().getId() : null,
             observation.isChecked(),
-            observation.isValidationRequested()
+            observation.isRevisionRequested()
         );
     }
 }

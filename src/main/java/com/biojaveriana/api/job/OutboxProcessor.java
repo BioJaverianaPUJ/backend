@@ -50,7 +50,6 @@ public class OutboxProcessor {
 
     @Transactional
     void publishToRabbit(OutboxEvent event) {
-        event.setStatus(OutboxEventStatus.FAILED);
         event.setAttempts(event.getAttempts() + 1);
         event.setUpdatedAt(Instant.now());
 
@@ -80,6 +79,8 @@ public class OutboxProcessor {
         } catch (Exception e) {
             log.error("Failed to publish outbox event {} to RabbitMQ: {}",
                     event.getId(), e.getMessage());
+            event.setStatus(OutboxEventStatus.FAILED);
+            event.setUpdatedAt(Instant.now());
         } finally {
             outboxRepository.save(event);
         }

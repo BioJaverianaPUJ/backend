@@ -31,6 +31,15 @@ public class Job {
     @GeneratedValue(strategy = GenerationType.UUID)
     private UUID id;
 
+    // --- Polymorphic ownership (Approach 1) ---
+    // The type of entity that owns this job, e.g. "Observation", "SpeciesRecord"
+    @Column(name = "resource_type", nullable = false)
+    private String resourceType;
+
+    // The PK of the owning entity — nullable for jobs without a specific owner
+    @Column(name = "resource_id", nullable = true)
+    private UUID resourceId;
+
     @Column(name = "payload", nullable = true)
     private String payload;
 
@@ -64,6 +73,26 @@ public class Job {
 
     @Column(name = "updated_at")
     private Instant updatedAt;
+
+    // --- Convenience helpers ---
+
+    /**
+     * Returns the unique resource key used for queue routing:
+     * e.g. "jobs:Observation:a3b1c2d3-e4f5..."
+     */
+    public String getQueueKeyForResource() {
+        if (resourceId == null || resourceType == null) {
+            return queueKey; // fall back to explicit queueKey set at creation time
+        }
+        return "jobs:" + resourceType + ":" + resourceId.toString();
+    }
+
+    /**
+     * Checks if this job is the active/deferred job for its owning resource.
+     */
+    public boolean isDefered() {
+        return status == JobStatus.COMPLETED || status == JobStatus.FAILED;
+    }
 
     @PreUpdate
     public void onUpdate() {

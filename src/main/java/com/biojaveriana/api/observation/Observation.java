@@ -13,6 +13,7 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
+import jakarta.persistence.ForeignKey;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -40,8 +41,11 @@ public class Observation {
     private UUID id;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_observation_user"))
     private User user;
+
+    // The Job entity no longer holds a back‑reference to Observation.
+    // Jobs are queried by their polymorphic resource fields (resourceType/resourceId).
 
     @NotBlank
     @Column(name = "reference_picture_key", nullable = false)
@@ -61,10 +65,6 @@ public class Observation {
     @Column(name = "checked", nullable = false)
     private boolean checked = false;
 
-    @Default
-    @Column(name = "validation_requested", nullable = false)
-    private boolean validationRequested = false;
-
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
@@ -82,4 +82,16 @@ public class Observation {
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "specimen_id", nullable = true)
     private Specimen specimen;
+
+    // --- Long-polling deadline ---
+    @Column(name = "wait_until", nullable = true)
+    private Instant waitUntil;
+
+    // --- Revision tracking ---
+    @Column(name = "revision_requested", nullable = false)
+    @Builder.Default
+    private boolean revisionRequested = false;
+
+    @Column(name = "revised_at", nullable = true)
+    private Instant revisedAt;
 }

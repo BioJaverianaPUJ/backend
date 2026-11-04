@@ -34,7 +34,7 @@ app:
     secret: ${JWT_SECRET:M+n7MHJvcNwm6NqYcTNVRgpuGziL/jvM+BHBC7iQ1d8=}
 
   rabbitmq:
-    queue-names: "default"
+    queue-names: "jobs:observation:identification"
 
   outbox:
     processing:

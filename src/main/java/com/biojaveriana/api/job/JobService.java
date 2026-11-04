@@ -18,14 +18,26 @@ public class JobService {
     private final OutboxRepository outboxRepository;
 
     public Job createJob(String payload, String queueKey) {
-        return createJobInternal(payload, 3, queueKey);
+        return createJobInternal(payload, 3, queueKey, null, null);
     }
 
     public Job createJob(String payload, int maxRetries, String queueKey) {
-        return createJobInternal(payload, maxRetries, queueKey);
+        return createJobInternal(payload, maxRetries, queueKey, null, null);
     }
 
-    private Job createJobInternal(String payload, int maxRetries, String queueKey) {
+    /**
+     * Creates a job with polymorphic resource linkage.
+     * @param payload         JSON payload describing the job context
+     * @param maxRetries      Maximum retry attempts
+     * @param queueKey        RabbitMQ routing key
+     * @param resourceType    Type of the owning entity (e.g. "Observation")
+     * @param resourceId      Primary key of the owning entity
+     */
+    public Job createJob(String payload, int maxRetries, String queueKey, String resourceType, UUID resourceId) {
+        return createJobInternal(payload, maxRetries, queueKey, resourceType, resourceId);
+    }
+
+    private Job createJobInternal(String payload, int maxRetries, String queueKey, String resourceType, UUID resourceId) {
         Job job = Job.builder()
             .payload(payload)
             .result(null)
@@ -37,6 +49,8 @@ public class JobService {
             .startedAt(null)
             .completedAt(null)
             .queueKey(queueKey)
+            .resourceType(resourceType != null ? resourceType : "Unknown")
+            .resourceId(resourceId)
             .build();
 
         job = jobRepository.save(job);
@@ -44,6 +58,16 @@ public class JobService {
 
         log.info("Job {} created and queued via outbox pattern for queue '{}'", job.getId(), queueKey);
         return job;
+    }
+
+    @Transactional
+    public Job findById(UUID jobId) {
+        return jobRepository.findById(jobId).orElse(null);
+    }
+
+    @Transactional
+    public Job update(Job job) {
+        return jobRepository.save(job);
     }
 
     @Transactional
@@ -106,6 +130,12 @@ public class JobService {
         jobRepository.save(job);
 
         log.info("Job {} started processing", jobId);
+    }
+
+    // --- Polymorphic ownership ---
+    @Transactional(readOnly = true)
+    public java.util.Optional<Job> findByResourceTypeAndResourceId(String resourceType, UUID resourceId) {
+        return jobRepository.findByResourceTypeAndResourceId(resourceType, resourceId);
     }
 
     private void enqueueViaOutbox(Job job, String queueKey) {

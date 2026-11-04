@@ -7,7 +7,7 @@ import java.lang.annotation.ElementType;
 
 import com.biojaveriana.api.user.Role;
 
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface HasRole {
     Role[] value();
