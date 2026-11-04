@@ -1,40 +1,43 @@
 package com.biojaveriana.api.observation.dto;
 
+import java.time.Instant;
 import java.util.UUID;
 
-import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationType;
+import com.biojaveriana.api.s3.S3UrlGenerator;
 
-public record ObservationResponse(
-    UUID id,
-    String referencePictureUrl,
-    double latitude,
-    double longitude,
-    ObservationType observationType,
-    String speciesCommonName,
-    double certainty,
-    UUID specimenId,
-    boolean checked,
-    boolean revisionRequested
-) {
-    public static ObservationResponse from(Observation observation, S3UrlGenerator generator) {
-        String referencePictureUrl = null;
-        if (generator != null && observation.getReferencePictureKey() != null) {
-            referencePictureUrl = generator.generateUrl(observation.getReferencePictureKey());
-        }
-        
-        return new ObservationResponse(
-            observation.getId(),
-            referencePictureUrl,
-            observation.getLatitude(),
-            observation.getLongitude(),
-            observation.getObservationType(),
-            observation.getSpeciesCommonName(),
-            observation.getCertainty(),
-            observation.getSpecimen() != null ? observation.getSpecimen().getId() : null,
-            observation.isChecked(),
-            observation.isRevisionRequested()
-        );
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
+@Getter
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+public class ObservationResponse {
+    private UUID id;
+    private Double latitude;
+    private Double longitude;
+    private boolean checked;
+    private String speciesCommonName;
+    private Double certainty;
+    private ObservationType observationType;
+    private String imageUrl;
+    private Instant createdAt;
+
+    public static ObservationResponse from(Observation observation, S3UrlGenerator urlGenerator) {
+        return ObservationResponse.builder()
+                .id(observation.getId())
+                .latitude(observation.getLatitude())
+                .longitude(observation.getLongitude())
+                .checked(observation.isChecked())
+                .speciesCommonName(observation.getSpeciesCommonName())
+                .certainty(observation.getCertainty())
+                .observationType(observation.getObservationType())
+                .imageUrl(urlGenerator.generateUrl(observation.getReferencePictureKey()))
+                .createdAt(observation.getCreatedAt())
+                .build();
     }
 }

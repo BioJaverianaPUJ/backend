@@ -34,7 +34,10 @@ app:
     secret: ${JWT_SECRET:M+n7MHJvcNwm6NqYcTNVRgpuGziL/jvM+BHBC7iQ1d8=}
 
   rabbitmq:
-    queue-names: "jobs:observation:identification"
+    queue-names: "observation.jobs"
+    response-queue: "observation.jobs.response"
+    dead-letter-queue: "observation.jobs.dlq"
+    job-expiry-hours: 24
 
   outbox:
     processing:

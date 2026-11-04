@@ -1,10 +1,8 @@
-package com.biojaveriana.api.job;
+package com.biojaveriana.api.observation;
 
 public enum JobStatus {
     PENDING,
-    QUEUED,
     PROCESSING,
     COMPLETED,
-    FAILED,
-    CANCELED
+    FAILED
 }

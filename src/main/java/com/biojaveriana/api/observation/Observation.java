@@ -44,9 +44,6 @@ public class Observation {
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_observation_user"))
     private User user;
 
-    // The Job entity no longer holds a back‑reference to Observation.
-    // Jobs are queried by their polymorphic resource fields (resourceType/resourceId).
-
     @NotBlank
     @Column(name = "reference_picture_key", nullable = false)
     private String referencePictureKey;
@@ -65,10 +62,6 @@ public class Observation {
     @Column(name = "checked", nullable = false)
     private boolean checked = false;
 
-    @CreationTimestamp
-    @Column(name = "created_at", nullable = false, updatable = false)
-    private Instant createdAt;
-
     @Enumerated(EnumType.STRING)
     @Column(name = "observation_type", nullable = true)
     private ObservationType observationType;
@@ -83,15 +76,11 @@ public class Observation {
     @JoinColumn(name = "specimen_id", nullable = true)
     private Specimen specimen;
 
-    // --- Long-polling deadline ---
-    @Column(name = "wait_until", nullable = true)
-    private Instant waitUntil;
-
-    // --- Revision tracking ---
     @Column(name = "revision_requested", nullable = false)
-    @Builder.Default
+    @Default
     private boolean revisionRequested = false;
 
-    @Column(name = "revised_at", nullable = true)
-    private Instant revisedAt;
+    @CreationTimestamp
+    @Column(name = "created_at", nullable = false, updatable = false)
+    private Instant createdAt;
 }
