@@ -34,7 +34,7 @@ class BioClipModelClient:
 
     def load_model(self) -> None:
         logger.info("Loading BioCLIP-2 model on device %s (%s precision)...", self._device, config.MODEL_PRECISION)
-        self.model, self.train_processors, self.preprocess = open_clip.create_model_and_transforms(model_name=config.MODEL_NAME, pretrained="hf-hub")
+        self.model, self.train_processors, self.preprocess = open_clip.create_model_and_transforms(model_name=f"hf-hub:{config.MODEL_NAME}")
         self.tokenizer = open_clip.get_tokenizer(config.MODEL_NAME)
         self.model.eval()
         if self._device == "cuda":

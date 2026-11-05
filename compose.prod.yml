@@ -138,6 +138,7 @@ services:
       S3_FORCE_PATH_STYLE: "true"
       MODEL_NAME: imageomics/bioclip-2
       DEVICE: cuda
+      HF_HOME: /models/hf
       MODEL_PRECISION: float16
       INFERENCE_TEMPERATURE: "100.0"
       CONSUMER_COUNT: "4"

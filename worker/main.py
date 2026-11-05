@@ -53,7 +53,7 @@ def setup_logging() -> None:
 def signal_handler(signum, frame) -> None:
     """Handle shutdown signals."""
     logger.info("Received signal %d, shutting down...", signum)
-    if _rabbitmq_client and _rabbitmq_client.is_open:
+    if _rabbitmq_client and _rabbitmq_client.connection and _rabbitmq_client.connection.is_open:
         _rabbitmq_client.close()
     sys.exit(0)
 

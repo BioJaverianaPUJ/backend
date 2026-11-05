@@ -54,6 +54,7 @@ services:
     environment:
       MODEL_NAME: imageomics/bioclip-2
       DEVICE: cuda
+      HF_HOME: /models/hf
       MODEL_PRECISION: float16
       RABBITMQ_HOST: rabbitmq
       RABBITMQ_PORT: 5672
@@ -84,7 +85,7 @@ services:
       - rabbitmq
       - rustfs
     volumes:
-      - model-cache:/root/.cache/huggingface
+      - model-cache:/models/hf
 
 volumes:
   postgres-data:

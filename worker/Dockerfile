@@ -1,25 +1,21 @@
 # BioCLIP-2 Observation Worker
 
-FROM python:3.11-slim
-
-# Install system dependencies
-RUN apt-get update && apt-get install -y --no-install-recommends \
-    libgl1-mesa-glx \
-    libglib2.0-0 \
-    libsm6 \
-    libxext6 \
-    libxrender1 \
-    && rm -rf /var/lib/apt/lists/*
+FROM python:3.11-slim-bookworm
 
 WORKDIR /app
 
 COPY worker/requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Optional: bake the model weights into the image (larger image, faster startup).
+# Skip this if you mount a volume at HF_HOME instead.
+# RUN python -c "import open_clip; open_clip.create_model_and_transforms('hf-hub:imageomics/bioclip-2')"
+
 COPY worker/ ./worker/
 
 ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
+    HF_HOME=/models/hf \
     MODEL_NAME=imageomics/bioclip-2 \
     DEVICE=cuda \
     MODEL_PRECISION=float16 \
@@ -42,7 +38,8 @@ ENV PYTHONUNBUFFERED=1 \
     LOG_LEVEL=INFO \
     SHUTDOWN_TIMEOUT=30.0
 
-HEALTHCHECK --interval=30s --timeout=10s --start-period=120s --retries=3 \
-    CMD python -c "import torch; print('CUDA available:', torch.cuda.is_available())" || exit 1
+# Fails if CUDA isn't available. Importing torch is heavy, so check less often.
+HEALTHCHECK --interval=60s --timeout=15s --start-period=120s --retries=3 \
+    CMD python -c "import torch, sys; sys.exit(0 if torch.cuda.is_available() else 1)"
 
 CMD ["python", "worker/main.py"]

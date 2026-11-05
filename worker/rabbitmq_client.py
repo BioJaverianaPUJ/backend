@@ -31,8 +31,10 @@ class RabbitMQClient:
             logger.info("Confirmed input queue %s", config.RABBITMQ_INPUT_QUEUE)
             self.channel.queue_declare(queue=config.RABBITMQ_RESPONSE_QUEUE, durable=True, arguments={"x-message-ttl": 86400000, "x-dead-letter-exchange": "", "x-dead-letter-routing-key": f"{config.RABBITMQ_RESPONSE_QUEUE}.dlq"})
             logger.info("Confirmed response queue %s", config.RABBITMQ_RESPONSE_QUEUE)
+            self.channel.exchange_declare(exchange=config.RABBITMQ_EXCHANGE, exchange_type='direct', durable=True)
             self.channel.queue_bind(queue=config.RABBITMQ_INPUT_QUEUE, exchange=config.RABBITMQ_EXCHANGE, routing_key=config.RABBITMQ_INPUT_QUEUE)
             logger.info("Bound queue %s to exchange %s", config.RABBITMQ_INPUT_QUEUE, config.RABBITMQ_EXCHANGE)
+            self.channel.queue_bind(queue=config.RABBITMQ_RESPONSE_QUEUE, exchange=config.RABBITMQ_EXCHANGE, routing_key=config.RABBITMQ_RESPONSE_QUEUE)
             self._connection_attempts = 0
             logger.info("Connected to RabbitMQ at %s:%d", config.RABBITMQ_HOST, config.RABBITMQ_PORT)
         except pika.exceptions.AMQPConnectionError as e:

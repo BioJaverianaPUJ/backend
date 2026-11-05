@@ -6,7 +6,7 @@ Orchestrates the full pipeline: consume message -> download image -> classify ->
 
 import json
 import logging
-from typing import Optional
+from typing import Any, Optional
 
 import pika
 
@@ -34,7 +34,7 @@ class ObservationProcessor:
     def process_message(
         self,
         ch: pika.channel.Channel,
-        method: pika.spec.Basic.Delivered,
+        method: Any,
         properties: pika.BasicProperties,
         body: bytes,
     ) -> None:
