@@ -23,6 +23,10 @@ public class ObservationImageUploader {
         return objectService.createPresign(key, contentType);
     }
 
+    public UploadPresign createPresign(String key, String contentType) {
+        return objectService.createPresign(key, contentType);
+    }
+
     public String confirmUpload(String key) {
         if (!objectService.confirmUpload(key)) {
             throw new com.biojaveriana.api.s3.exceptions.UploadNotFoundException();

@@ -21,6 +21,7 @@ public class ObservationResponse {
     private Double latitude;
     private Double longitude;
     private boolean checked;
+    private boolean revisionRequested;
     private String speciesCommonName;
     private Double certainty;
     private ObservationType observationType;
@@ -33,6 +34,7 @@ public class ObservationResponse {
             .latitude(observation.getLatitude())
             .longitude(observation.getLongitude())
             .checked(observation.isChecked())
+            .revisionRequested(observation.isRevisionRequested())
             .speciesCommonName(observation.getSpeciesCommonName())
             .certainty(observation.getCertainty())
             .observationType(observation.getObservationType())

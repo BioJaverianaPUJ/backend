@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.observation.exceptions.ObservationNotFoundException;
+import com.biojaveriana.api.observation.exceptions.ObservationForbiddenException;
 import com.biojaveriana.api.observation.dto.ObservationCreateRequest;
 import com.biojaveriana.api.observation.dto.ObservationJobStatusResponse;
 import com.biojaveriana.api.observation.dto.ObservationListResponse;
@@ -21,6 +22,7 @@ import com.biojaveriana.api.observation.dto.ObservationMessage;
 import com.biojaveriana.api.observation.rabbitmq.ObservationMessageProducer;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.s3.UploadPresign;
+import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
 
 import lombok.RequiredArgsConstructor;
@@ -37,8 +39,9 @@ public class ObservationService {
     private final S3UrlGenerator urlGenerator;
 
     @Transactional
-    public UploadPresign createPresign(ObservationUploadPresignRequest request) {
-        return imageUploader.createPresign(request.getContentType());
+    public UploadPresign createPresign(User user, ObservationUploadPresignRequest request) {
+        String key = String.format("observations/%s/%s", user.getId(), UUID.randomUUID());
+        return imageUploader.createPresign(key, request.getContentType());
     }
 
     @Transactional
@@ -110,9 +113,13 @@ public class ObservationService {
     }
 
     @Transactional(readOnly = true)
-    public ObservationJobStatusResponse getJobStatus(UUID observationId) {
+    public ObservationJobStatusResponse getJobStatus(UUID observationId, User user) {
         var observation = observationRepository.findById(observationId)
                 .orElseThrow(() -> new ObservationNotFoundException(observationId));
+
+        if (!observation.getUser().getId().equals(user.getId())) {
+            throw new ObservationForbiddenException();
+        }
 
         var job = jobService.findByObservationId(observationId);
 
@@ -120,9 +127,13 @@ public class ObservationService {
     }
 
     @Transactional(readOnly = true)
-    public ObservationResponse getObservation(UUID observationId) {
+    public ObservationResponse getObservation(UUID observationId, User user) {
         var observation = observationRepository.findById(observationId)
             .orElseThrow(() -> new ObservationNotFoundException(observationId));
+
+        if (!observation.getUser().getId().equals(user.getId())) {
+            throw new ObservationForbiddenException();
+        }
 
         return ObservationResponse.from(observation, urlGenerator);
     }
@@ -131,6 +142,56 @@ public class ObservationService {
     public ObservationListResponse listObservations(User user, int page, int size) {
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
         Page<Observation> pageResult = observationRepository.findByUserOrderByCreatedAtDesc(user, pageable);
+
+        var content = pageResult.getContent().stream()
+            .map(o -> ObservationResponse.from(o, urlGenerator))
+            .toList();
+
+        return ObservationListResponse.from(
+            content,
+            pageResult.getNumber(),
+            pageResult.getSize(),
+            pageResult.getTotalElements(),
+            pageResult.getTotalPages()
+        );
+    }
+
+    @Transactional
+    public void requestRevision(UUID observationId, User user) {
+        var observation = observationRepository.findById(observationId)
+            .orElseThrow(() -> new ObservationNotFoundException(observationId));
+
+        if (!observation.getUser().getId().equals(user.getId())) {
+            throw new ObservationForbiddenException();
+        }
+
+        if (!observation.isChecked()) {
+            throw new com.biojaveriana.api.common.exceptions.ValidationException(
+                "Cannot request revision on an observation that has not been checked yet"
+            );
+        }
+
+        observation.setRevisionRequested(true);
+        observationRepository.save(observation);
+        log.info("Revision requested for observation id={} by user id={}", observationId, user.getId());
+    }
+
+    @Transactional(readOnly = true)
+    public ObservationListResponse listAllForAdmin(User user, boolean includeHidden, boolean revisionRequested, int page, int size) {
+        if (user.getRole() != Role.ADMIN) {
+            throw new ObservationForbiddenException();
+        }
+
+        Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
+        Page<Observation> pageResult;
+
+        if (revisionRequested) {
+            pageResult = observationRepository.findByRevisionRequestedTrueOrderByCreatedAtDesc(pageable);
+        } else if (includeHidden) {
+            pageResult = observationRepository.findAllByOrderByCreatedAtDesc(pageable);
+        } else {
+            pageResult = observationRepository.findByHiddenFalseOrderByCreatedAtDesc(pageable);
+        }
 
         var content = pageResult.getContent().stream()
             .map(o -> ObservationResponse.from(o, urlGenerator))
