@@ -6,8 +6,8 @@ import org.springframework.stereotype.Component;
 
 import com.biojaveriana.api.observation.dto.ObservationMessage;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.json.JsonMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -17,7 +17,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class ObservationMessageProducer {
     private final RabbitTemplate rabbitTemplate;
-    private final ObjectMapper objectMapper;
+    private final JsonMapper objectMapper;
 
     @Value("${app.rabbitmq.exchange:observation.jobs.exchange}")
     private String exchange;
@@ -27,7 +27,7 @@ public class ObservationMessageProducer {
             String body = objectMapper.writeValueAsString(message);
             rabbitTemplate.convertAndSend(exchange, "observation.jobs", body);
             log.info("Published observation job for observationId={}", message.getObservationId());
-        } catch (JsonProcessingException e) {
+        } catch (JacksonException e) {
             log.error("Failed to serialize observation message for observationId={}", message.getObservationId(), e);
             throw new RuntimeException("Failed to serialize observation message", e);
         }

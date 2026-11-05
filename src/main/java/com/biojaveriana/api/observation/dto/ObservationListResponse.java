@@ -18,11 +18,11 @@ public class ObservationListResponse {
 
     public static ObservationListResponse from(java.util.List<ObservationResponse> content, int page, int size, long totalElements, int totalPages) {
         return ObservationListResponse.builder()
-                .content(content)
-                .page(page)
-                .size(size)
-                .totalElements(totalElements)
-                .totalPages(totalPages)
-                .build();
+            .content(content)
+            .page(page)
+            .size(size)
+            .totalElements(totalElements)
+            .totalPages(totalPages)
+            .build();
     }
 }

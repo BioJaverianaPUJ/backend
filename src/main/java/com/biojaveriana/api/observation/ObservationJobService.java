@@ -28,6 +28,7 @@ public class ObservationJobService {
                 .maxRetries(3)
                 .expiresAt(Instant.now().plus(Duration.ofHours(jobExpiryHours)))
                 .build();
+
         return jobRepository.save(job);
     }
 

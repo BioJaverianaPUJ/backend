@@ -3,6 +3,9 @@ package com.biojaveriana.api.observation.dto;
 import java.util.UUID;
 
 import com.biojaveriana.api.observation.JobStatus;
+import com.biojaveriana.api.observation.Observation;
+import com.biojaveriana.api.observation.ObservationJob;
+import com.biojaveriana.api.s3.S3UrlGenerator;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -20,14 +23,14 @@ public class ObservationJobStatusResponse {
     private String errorMessage;
     private int retryCount;
 
-    public static ObservationJobStatusResponse from(com.biojaveriana.api.observation.ObservationJob job, com.biojaveriana.api.observation.Observation observation, com.biojaveriana.api.s3.S3UrlGenerator urlGenerator) {
+    public static ObservationJobStatusResponse from(ObservationJob job, Observation observation, S3UrlGenerator urlGenerator) {
         var builder = ObservationJobStatusResponse.builder()
                 .jobId(job.getId())
                 .status(job.getStatus())
                 .errorMessage(job.getErrorMessage())
                 .retryCount(job.getRetryCount());
 
-        if (observation != null && observation.isChecked()) {
+        if (observation != null) {
             builder.observation(ObservationResponse.from(observation, urlGenerator));
         }
 

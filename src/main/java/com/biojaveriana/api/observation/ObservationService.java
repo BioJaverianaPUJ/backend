@@ -20,6 +20,7 @@ import com.biojaveriana.api.observation.dto.ObservationUploadPresignRequest;
 import com.biojaveriana.api.observation.dto.ObservationMessage;
 import com.biojaveriana.api.observation.rabbitmq.ObservationMessageProducer;
 import com.biojaveriana.api.s3.S3UrlGenerator;
+import com.biojaveriana.api.s3.UploadPresign;
 import com.biojaveriana.api.user.User;
 
 import lombok.RequiredArgsConstructor;
@@ -36,7 +37,7 @@ public class ObservationService {
     private final S3UrlGenerator urlGenerator;
 
     @Transactional
-    public com.biojaveriana.api.s3.UploadPresign createPresign(ObservationUploadPresignRequest request) {
+    public UploadPresign createPresign(ObservationUploadPresignRequest request) {
         return imageUploader.createPresign(request.getContentType());
     }
 
@@ -45,14 +46,14 @@ public class ObservationService {
         log.info("Confirmed upload for key={}", request.getReferencePictureKey());
 
         var observation = Observation.builder()
-                .user(user)
-                .referencePictureKey(request.getReferencePictureKey())
-                .latitude(request.getLatitude())
-                .longitude(request.getLongitude())
-                .checked(false)
-                .hidden(false)
-                .revisionRequested(false)
-                .build();
+            .user(user)
+            .referencePictureKey(request.getReferencePictureKey())
+            .latitude(request.getLatitude())
+            .longitude(request.getLongitude())
+            .checked(false)
+            .hidden(false)
+            .revisionRequested(false)
+            .build();
 
         observation = observationRepository.save(observation);
         log.info("Created observation id={}", observation.getId());
@@ -61,13 +62,13 @@ public class ObservationService {
         log.info("Created job id={} for observation id={}", job.getId(), observation.getId());
 
         var message = ObservationMessage.builder()
-                .observationId(observation.getId())
-                .s3Key(request.getReferencePictureKey())
-                .latitude(request.getLatitude())
-                .longitude(request.getLongitude())
-                .retryCount(0)
-                .maxRetries(3)
-                .build();
+            .observationId(observation.getId())
+            .s3Key(request.getReferencePictureKey())
+            .latitude(request.getLatitude())
+            .longitude(request.getLongitude())
+            .retryCount(0)
+            .maxRetries(3)
+            .build();
 
         messageProducer.sendMessage(message);
         log.info("Published observation job to queue for observation id={}", observation.getId());
@@ -76,7 +77,7 @@ public class ObservationService {
             return pollForResult(job.getId(), request.getWaitTimeoutSeconds(), user);
         }
 
-        return ObservationJobStatusResponse.from(job, null, urlGenerator);
+        return ObservationJobStatusResponse.from(job, observation, urlGenerator);
     }
 
     private ObservationJobStatusResponse pollForResult(UUID jobId, int timeoutSeconds, User user) {
@@ -85,14 +86,14 @@ public class ObservationService {
         while (Instant.now().isBefore(deadline)) {
             var job = jobService.findById(jobId);
             var status = job.getStatus();
+            var observation = observationRepository.findById(job.getObservation().getId()).orElse(null);
 
             if (status == JobStatus.COMPLETED) {
-                var observation = observationRepository.findById(job.getObservation().getId()).orElse(null);
                 return ObservationJobStatusResponse.from(job, observation, urlGenerator);
             }
 
             if (status == JobStatus.FAILED) {
-                return ObservationJobStatusResponse.from(job, null, urlGenerator);
+                return ObservationJobStatusResponse.from(job, observation, urlGenerator);
             }
 
             try {

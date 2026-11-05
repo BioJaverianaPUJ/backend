@@ -29,15 +29,15 @@ public class ObservationResponse {
 
     public static ObservationResponse from(Observation observation, S3UrlGenerator urlGenerator) {
         return ObservationResponse.builder()
-                .id(observation.getId())
-                .latitude(observation.getLatitude())
-                .longitude(observation.getLongitude())
-                .checked(observation.isChecked())
-                .speciesCommonName(observation.getSpeciesCommonName())
-                .certainty(observation.getCertainty())
-                .observationType(observation.getObservationType())
-                .imageUrl(urlGenerator.generateUrl(observation.getReferencePictureKey()))
-                .createdAt(observation.getCreatedAt())
-                .build();
+            .id(observation.getId())
+            .latitude(observation.getLatitude())
+            .longitude(observation.getLongitude())
+            .checked(observation.isChecked())
+            .speciesCommonName(observation.getSpeciesCommonName())
+            .certainty(observation.getCertainty())
+            .observationType(observation.getObservationType())
+            .imageUrl(urlGenerator.generateUrl(observation.getReferencePictureKey()))
+            .createdAt(observation.getCreatedAt())
+            .build();
     }
 }

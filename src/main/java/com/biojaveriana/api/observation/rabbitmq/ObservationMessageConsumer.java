@@ -12,8 +12,8 @@ import com.biojaveriana.api.observation.ObservationJob;
 import com.biojaveriana.api.observation.ObservationJobRepository;
 import com.biojaveriana.api.observation.ObservationRepository;
 import com.biojaveriana.api.observation.dto.ObservationMessageResponse;
-import com.fasterxml.jackson.core.JsonProcessingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.json.JsonMapper;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @RequiredArgsConstructor
 public class ObservationMessageConsumer {
-    private final ObjectMapper objectMapper;
+    private final JsonMapper objectMapper;
     private final ObservationRepository observationRepository;
     private final ObservationJobRepository observationJobRepository;
 
@@ -34,7 +34,7 @@ public class ObservationMessageConsumer {
         ObservationMessageResponse response;
         try {
             response = objectMapper.readValue(payload, ObservationMessageResponse.class);
-        } catch (JsonProcessingException e) {
+        } catch (JacksonException e) {
             log.error("Failed to deserialize observation response", e);
             return;
         }
