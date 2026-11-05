@@ -13,6 +13,19 @@ spring:
       ddl-auto: ${JPA_DDL_AUTO:update}
       show-sql: ${JPA_SHOW_SQL:true}
 
+  rabbitmq:
+    host: ${RABBITMQ_HOST:localhost}
+    port: ${RABBITMQ_PORT:5672}
+    username: ${RABBITMQ_USER:rabbitmq}
+    password: ${RABBITMQ_PASSWORD:rabbitmq}
+
+  amqp:
+    template:
+      exchange: outbox.exchange
+    listener:
+      simple:
+        auto-declare: true
+
 server:
   port: ${SERVER_PORT:8000}
 
@@ -20,6 +33,19 @@ app:
   jwt:
     secret: ${JWT_SECRET:M+n7MHJvcNwm6NqYcTNVRgpuGziL/jvM+BHBC7iQ1d8=}
 
+  rabbitmq:
+    queue-names: "observation.jobs"
+    response-queue: "observation.jobs.response"
+    dead-letter-queue: "observation.jobs.dlq"
+    job-expiry-hours: 24
+
+  outbox:
+    processing:
+      delayMs: 10000
+
   s3:
     bucket: ${S3_BUCKET:biojaveriana}
     endpoint: ${S3_ENDPOINT:http://localhost:9000}
+    region: ${S3_REGION:us-east-1}
+    access-key: ${S3_ACCESS_KEY:rustfsadmin}
+    secret-key: ${S3_SECRET_KEY:rustfsadmin}

@@ -13,6 +13,9 @@ services:
       
   adminer:
     image: adminer
+    restart: unless-stopped
+    ports:
+      - "8080:8080"
 
   rustfs:
     image: rustfs/rustfs:latest
@@ -30,6 +33,17 @@ services:
       - "9001:9001"
     volumes:
       - rustfs-data:/data
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    container_name: bj-rabbitmq
+    restart: unless-stopped
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
 
 volumes:
   postgres-data:
