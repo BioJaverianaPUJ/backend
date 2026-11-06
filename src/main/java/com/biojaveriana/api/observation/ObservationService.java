@@ -143,17 +143,7 @@ public class ObservationService {
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
         Page<Observation> pageResult = observationRepository.findByUserOrderByCreatedAtDesc(user, pageable);
 
-        var content = pageResult.getContent().stream()
-            .map(o -> ObservationResponse.from(o, urlGenerator))
-            .toList();
-
-        return ObservationListResponse.from(
-            content,
-            pageResult.getNumber(),
-            pageResult.getSize(),
-            pageResult.getTotalElements(),
-            pageResult.getTotalPages()
-        );
+        return ObservationListResponse.from(pageResult, urlGenerator);
     }
 
     @Transactional
@@ -193,16 +183,6 @@ public class ObservationService {
             pageResult = observationRepository.findByHiddenFalseOrderByCreatedAtDesc(pageable);
         }
 
-        var content = pageResult.getContent().stream()
-            .map(o -> ObservationResponse.from(o, urlGenerator))
-            .toList();
-
-        return ObservationListResponse.from(
-            content,
-            pageResult.getNumber(),
-            pageResult.getSize(),
-            pageResult.getTotalElements(),
-            pageResult.getTotalPages()
-        );
+        return ObservationListResponse.from(pageResult, urlGenerator);
     }
 }

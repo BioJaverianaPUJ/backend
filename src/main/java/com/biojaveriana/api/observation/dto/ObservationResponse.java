@@ -6,6 +6,7 @@ import java.util.UUID;
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationType;
 import com.biojaveriana.api.s3.S3UrlGenerator;
+import com.biojaveriana.api.specimen.dto.SpecimenResponse;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -25,6 +26,7 @@ public class ObservationResponse {
     private String speciesCommonName;
     private Double certainty;
     private ObservationType observationType;
+    private SpecimenResponse specimen;
     private String imageUrl;
     private Instant createdAt;
 
@@ -39,6 +41,7 @@ public class ObservationResponse {
             .certainty(observation.getCertainty())
             .observationType(observation.getObservationType())
             .imageUrl(urlGenerator.generateUrl(observation.getReferencePictureKey()))
+            .specimen(observation.getSpecimen() != null ? SpecimenResponse.from(observation.getSpecimen()) : null)
             .createdAt(observation.getCreatedAt())
             .build();
     }

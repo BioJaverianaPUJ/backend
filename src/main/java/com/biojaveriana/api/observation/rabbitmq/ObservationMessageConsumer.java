@@ -13,6 +13,7 @@ import com.biojaveriana.api.observation.ObservationJob;
 import com.biojaveriana.api.observation.ObservationJobRepository;
 import com.biojaveriana.api.observation.ObservationRepository;
 import com.biojaveriana.api.observation.dto.ObservationMessageResponse;
+import com.biojaveriana.api.specimen.SpecimenMatcherService;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -26,6 +27,7 @@ public class ObservationMessageConsumer {
     private final JsonMapper objectMapper;
     private final ObservationRepository observationRepository;
     private final ObservationJobRepository observationJobRepository;
+    private final SpecimenMatcherService specimenMatcherService;
 
     @Value("${app.rabbitmq.response-queue:observation.jobs.response}")
     private String responseQueue;
@@ -55,6 +57,10 @@ public class ObservationMessageConsumer {
             observation.setSpeciesCommonName(response.getSpeciesCommonName());
             observation.setCertainty(response.getCertainty());
             observation.setObservationType(response.getObservationType());
+
+            // Try to match to an existing specimen (plant observations only)
+            specimenMatcherService.matchPlantSpecimen(observation).ifPresent(observation::setSpecimen);
+
             observationRepository.save(observation);
 
             // Mark job as completed
