@@ -17,7 +17,7 @@ ENV PYTHONUNBUFFERED=1 \
     PYTHONDONTWRITEBYTECODE=1 \
     HF_HOME=/models/hf \
     MODEL_NAME=imageomics/bioclip-2 \
-    DEVICE=cuda \
+    DEVICE=cpu \
     MODEL_PRECISION=float16 \
     RABBITMQ_HOST=rabbitmq \
     RABBITMQ_PORT=5672 \
@@ -38,8 +38,8 @@ ENV PYTHONUNBUFFERED=1 \
     LOG_LEVEL=INFO \
     SHUTDOWN_TIMEOUT=30.0
 
-# Fails if CUDA isn't available. Importing torch is heavy, so check less often.
+# Healthcheck verifies the worker can initialize (imports torch and open_clip).
 HEALTHCHECK --interval=60s --timeout=15s --start-period=120s --retries=3 \
-    CMD python -c "import torch, sys; sys.exit(0 if torch.cuda.is_available() else 1)"
+    CMD python -c "import torch, open_clip, sys; sys.exit(0)"
 
 CMD ["python", "worker/main.py"]
