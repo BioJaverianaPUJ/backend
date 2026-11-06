@@ -29,6 +29,7 @@ class BioClipModelClient:
         self.tokenizer: Optional[callable] = None
         self._kingdom_embeddings: Optional[torch.Tensor] = None
         self._animal_embeddings: Optional[torch.Tensor] = None
+        self._plant_embeddings: Optional[torch.Tensor] = None
         self._device: str = config.DEVICE
         self._temperature: float = config.TEMPERATURE
 
@@ -64,6 +65,15 @@ class BioClipModelClient:
             text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
             self._animal_embeddings = text_embeddings
 
+    def _compute_plant_embeddings(self) -> None:
+        labels = config.get_plant_labels()
+        logger.info("Computing plant species label embeddings (%d labels)...", len(labels))
+        text_inputs = self.tokenizer(labels).to(self._device)
+        with torch.no_grad():
+            text_embeddings = self.model.encode_text(text_inputs)
+            text_embeddings = text_embeddings / text_embeddings.norm(dim=-1, keepdim=True)
+            self._plant_embeddings = text_embeddings
+
     def _apply_softmax(self, logits: torch.Tensor, temperature: float) -> np.ndarray:
         logits = logits / temperature
         exp_logits = torch.exp(logits - logits.max())
@@ -74,6 +84,9 @@ class BioClipModelClient:
         if kingdom_result["kingdom"] == "Animalia":
             species_result = self._classify_species(image)
             return ClassificationResult(is_animal=True, kingdom=kingdom_result["kingdom"], species=species_result["species"], certainty=species_result["certainty"], all_scores=[(l, s) for l, s in species_result["all_scores"][:10]])
+        elif kingdom_result["kingdom"] == "Plantae":
+            species_result = self._classify_plant_species(image)
+            return ClassificationResult(is_animal=False, kingdom=kingdom_result["kingdom"], species=species_result["species"], certainty=species_result["certainty"], all_scores=[(l, s) for l, s in species_result["all_scores"][:10]])
         else:
             return ClassificationResult(is_animal=False, kingdom=kingdom_result["kingdom"], species=kingdom_result["best_label"], certainty=kingdom_result["best_score"], all_scores=list(kingdom_result["all_scores"]))
 
@@ -112,6 +125,26 @@ class BioClipModelClient:
         sorted_indices = np.argsort(probs)[::-1][:10]
         all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
         logger.info("Species classification (animal): %s (%.4f)", species_names[top_idx], top_score)
+        return {"species": species_names[top_idx], "certainty": top_score, "all_scores": all_scores}
+
+    def _classify_plant_species(self, image: Image.Image) -> dict:
+        if self._plant_embeddings is None:
+            self._compute_plant_embeddings()
+        image_tensor = self.preprocess(image).unsqueeze(0).to(self._device)
+        if config.MODEL_PRECISION == "float16" and self._device == "cuda":
+            image_tensor = image_tensor.half()
+        with torch.no_grad():
+            image_embedding = self.model.encode_image(image_tensor)
+            image_embedding = image_embedding / image_embedding.norm(dim=-1, keepdim=True)
+            logits = torch.matmul(image_embedding, self._plant_embeddings.T).squeeze(0)
+        probs = self._apply_softmax(logits, self._temperature)
+        labels = config.get_plant_labels()
+        species_names = [label.replace("a photo of ", "") for label in labels]
+        top_idx = int(np.argmax(probs))
+        top_score = float(probs[top_idx])
+        sorted_indices = np.argsort(probs)[::-1][:10]
+        all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
+        logger.info("Species classification (plant): %s (%.4f)", species_names[top_idx], top_score)
         return {"species": species_names[top_idx], "certainty": top_score, "all_scores": all_scores}
 
 
