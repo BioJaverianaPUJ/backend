@@ -6,6 +6,7 @@ import java.util.UUID;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationJob;
@@ -30,6 +31,7 @@ public class ObservationMessageConsumer {
     private String responseQueue;
 
     @RabbitListener(queues = "${app.rabbitmq.response-queue:observation.jobs.response}")
+    @Transactional
     public void handleResponse(String payload) {
         ObservationMessageResponse response;
         try {

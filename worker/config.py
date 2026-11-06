@@ -468,6 +468,7 @@ class Config:
         "Salvia leucantha",
         "Neobartsia santolinifolia",
         "Myrcianthes rhopaloides",
+        "Solanum sessiliflorum",
     ]
     PLANT_SPECIES_LIST: list[str] = []
     TEMPERATURE: float = _get_env_float("INFERENCE_TEMPERATURE", 100.0)
