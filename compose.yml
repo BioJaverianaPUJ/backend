@@ -45,49 +45,6 @@ services:
       RABBITMQ_DEFAULT_USER: rabbitmq
       RABBITMQ_DEFAULT_PASS: rabbitmq
 
-  worker:
-    build:
-      context: .
-      dockerfile: worker/Dockerfile
-    container_name: bj-bioclip-worker
-    restart: unless-stopped
-    environment:
-      MODEL_NAME: imageomics/bioclip-2
-      DEVICE: cuda
-      HF_HOME: /models/hf
-      MODEL_PRECISION: float16
-      RABBITMQ_HOST: rabbitmq
-      RABBITMQ_PORT: 5672
-      RABBITMQ_USER: rabbitmq
-      RABBITMQ_PASSWORD: rabbitmq
-      RABBITMQ_EXCHANGE: observation.jobs.exchange
-      RABBITMQ_INPUT_QUEUE: observation.jobs
-      RABBITMQ_RESPONSE_QUEUE: observation.jobs.response
-      RABBITMQ_RESPONSE_ROUTING_KEY: observation.jobs.response
-      S3_ENDPOINT: http://rustfs:9000
-      S3_BUCKET: biojaveriana
-      S3_ACCESS_KEY: rustfsadmin
-      S3_SECRET_KEY: rustfsadmin
-      S3_REGION: us-east-1
-      S3_FORCE_PATH_STYLE: true
-      INFERENCE_TEMPERATURE: 100.0
-      CONSUMER_COUNT: 4
-      LOG_LEVEL: INFO
-      SHUTDOWN_TIMEOUT: 30.0
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
-    depends_on:
-      - rabbitmq
-      - rustfs
-    volumes:
-      - model-cache:/models/hf
-
 volumes:
   postgres-data:
   rustfs-data:
-  model-cache:

@@ -137,20 +137,13 @@ services:
       S3_REGION: us-east-1
       S3_FORCE_PATH_STYLE: "true"
       MODEL_NAME: imageomics/bioclip-2
-      DEVICE: cuda
+      DEVICE: cpu
       HF_HOME: /models/hf
       MODEL_PRECISION: float16
       INFERENCE_TEMPERATURE: "100.0"
       CONSUMER_COUNT: "4"
       LOG_LEVEL: INFO
       SHUTDOWN_TIMEOUT: "30.0"
-    deploy:
-      resources:
-        reservations:
-          devices:
-            - driver: nvidia
-              count: 1
-              capabilities: [gpu]
     networks:
       - common
 
