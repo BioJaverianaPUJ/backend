@@ -49,3 +49,8 @@ app:
     region: ${S3_REGION:us-east-1}
     access-key: ${S3_ACCESS_KEY:rustfsadmin}
     secret-key: ${S3_SECRET_KEY:rustfsadmin}
+
+  specimen-matching:
+    enabled: true
+    min-certainty: 0.00315 # 95% for 301 species
+    max-distance-meters: 50

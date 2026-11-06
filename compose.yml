@@ -16,7 +16,7 @@ services:
     restart: unless-stopped
     ports:
       - "8080:8080"
-
+  
   rustfs:
     image: rustfs/rustfs:latest
     container_name: bj-rustfs
@@ -33,7 +33,7 @@ services:
       - "9001:9001"
     volumes:
       - rustfs-data:/data
-
+  
   rabbitmq:
     image: rabbitmq:3-management-alpine
     container_name: bj-rabbitmq
