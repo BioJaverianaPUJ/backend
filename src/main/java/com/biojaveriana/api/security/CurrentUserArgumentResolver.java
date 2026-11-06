@@ -12,7 +12,7 @@ import org.springframework.web.context.request.NativeWebRequest;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.ModelAndViewContainer;
 
-import com.biojaveriana.api.auth.exceptions.UnauthorizedException;
+import com.biojaveriana.api.common.exceptions.NotAuthorizedException;
 import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.user.UserService;
 
@@ -43,17 +43,17 @@ public class CurrentUserArgumentResolver implements HandlerMethodArgumentResolve
             .getAuthentication();
 
         if (authentication == null || !authentication.isAuthenticated()) {
-            throw new UnauthorizedException();
+            throw new NotAuthorizedException();
         }
 
         if (!(authentication.getPrincipal() instanceof Jwt jwt)) {
-            throw new UnauthorizedException();
+            throw new NotAuthorizedException();
         }
 
         var userId = UUID.fromString(jwt.getSubject());
         var user = userService.findById(userId);
         if (user == null) {
-            throw new UnauthorizedException();
+            throw new NotAuthorizedException();
         }
 
         return user;

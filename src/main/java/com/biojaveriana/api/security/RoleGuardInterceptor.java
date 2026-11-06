@@ -13,7 +13,7 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.biojaveriana.api.common.exceptions.ForbiddenException;
-import com.biojaveriana.api.auth.exceptions.UnauthorizedException;
+import com.biojaveriana.api.common.exceptions.NotAuthorizedException;
 import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.user.UserService;
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
@@ -47,11 +47,11 @@ public class RoleGuardInterceptor implements HandlerInterceptor {
         // We get the current authenticated user
         var authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication == null || !authentication.isAuthenticated()) {
-            throw new UnauthorizedException();
+            throw new NotAuthorizedException();
         }
 
         if (!(authentication.getPrincipal() instanceof Jwt jwt)) {
-            throw new UnauthorizedException();
+            throw new NotAuthorizedException();
         }
 
         UUID userId = UUID.fromString(jwt.getSubject());
@@ -60,7 +60,7 @@ public class RoleGuardInterceptor implements HandlerInterceptor {
         try {
             user = userService.findById(userId);
         } catch (UserNotFoundException e) {
-            throw new UnauthorizedException();
+            throw new NotAuthorizedException();
         }
 
         // Verify role
