@@ -77,9 +77,52 @@ def health_status(value):
     return result
 
 
+def normalize_scientific_name(name):
+    """Normalize a scientific name to standard binomial format.
+
+    Standard convention: genus capitalized, species epithet lowercase.
+    Handles multi-part names (e.g. genus species subspecies) and
+    trailing authority/citation text like 'L.' or '(Mill.)'.
+    """
+    if name is None:
+        return None
+    name = name.strip()
+    parts = name.split()
+    if not parts:
+        return name
+
+    # Keep the first word (genus) title-cased, lowercase the rest.
+    normalized_parts = [parts[0].capitalize()]
+    for part in parts[1:]:
+        # Strip trailing punctuation that might be part of an authority
+        stripped = part.rstrip(".,;:")
+        if stripped:
+            normalized_parts.append(stripped.lower())
+        else:
+            normalized_parts.append(part)
+    return " ".join(normalized_parts)
+
+
+def normalize_common_name(name):
+    """Capitalize a common name in title case for consistency."""
+    if name is None:
+        return None
+    return name.title()
+
+
+def normalize_family_name(name):
+    """Ensure family name is properly capitalized."""
+    if name is None:
+        return None
+    return name.capitalize()
+
+
 def main():
     # The first CSV row is a title, the second contains column names.
-    df = pd.read_csv(CSV_PATH, skiprows=1)
+    # Read coordinate columns as strings to avoid pandas misinterpreting
+    # period-separated values like "-74.064.892" as decimal numbers.
+    coord_cols = ["Coordenada X", "Coordenada Y"]
+    df = pd.read_csv(CSV_PATH, skiprows=1, dtype={c: str for c in coord_cols})
     df.columns = [str(c).strip() for c in df.columns]
 
     # Helper to convert Python values to SQL literals
@@ -102,9 +145,9 @@ def main():
         sql_file.write("BEGIN;\n")
         imported = 0
         for row_num, row in df.iterrows():
-            scientific = clean(row["Nombre cientifico"])
-            common = clean(row["Nombre común"])
-            family = clean(row["Familia"])
+            scientific = normalize_scientific_name(clean(row["Nombre cientifico"]))
+            common = normalize_common_name(clean(row["Nombre común"]))
+            family = normalize_family_name(clean(row["Familia"]))
 
             # Ignore completely empty rows.
             if not any([scientific, common, family]):

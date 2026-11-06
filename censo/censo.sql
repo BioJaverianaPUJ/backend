@@ -3,7 +3,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25,7 +25,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -47,7 +47,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -69,7 +69,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -91,7 +91,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -113,7 +113,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -135,7 +135,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -157,7 +157,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -179,7 +179,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -201,7 +201,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -223,7 +223,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -245,7 +245,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -267,7 +267,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -289,7 +289,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho arborescente', 'CYATHEACEAE', 0.56)
+                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho Arborescente', 'Cyatheaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -311,7 +311,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -333,7 +333,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -355,7 +355,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -377,7 +377,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -399,7 +399,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho arborescente', 'CYATHEACEAE', 0.56)
+                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho Arborescente', 'Cyatheaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -421,7 +421,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho arborescente', 'CYATHEACEAE', 0.56)
+                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho Arborescente', 'Cyatheaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -443,7 +443,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -465,7 +465,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -487,7 +487,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -509,7 +509,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -531,7 +531,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -553,7 +553,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -575,7 +575,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia elata', 'acacia', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia elata', 'Acacia', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -597,7 +597,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia elata', 'Acacia', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia elata', 'Acacia', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -619,7 +619,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -641,7 +641,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -663,7 +663,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -685,7 +685,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -707,7 +707,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -729,7 +729,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -751,7 +751,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -773,7 +773,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -795,7 +795,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -817,7 +817,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -839,7 +839,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -861,7 +861,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -883,7 +883,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -905,7 +905,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -927,7 +927,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -949,7 +949,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -971,7 +971,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -993,7 +993,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1015,7 +1015,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1037,7 +1037,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1059,7 +1059,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1103,7 +1103,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1125,7 +1125,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1147,7 +1147,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1169,7 +1169,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1191,7 +1191,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1213,7 +1213,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1235,7 +1235,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1257,7 +1257,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1279,7 +1279,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1301,7 +1301,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1323,7 +1323,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1345,7 +1345,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1367,7 +1367,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1389,7 +1389,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1411,7 +1411,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1433,7 +1433,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba de tierra fria', 'BOMBACACEAE', 0.56)
+                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba De Tierra Fria', 'Bombacaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1455,7 +1455,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1477,7 +1477,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1499,7 +1499,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1521,7 +1521,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1543,7 +1543,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1565,7 +1565,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1587,7 +1587,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1609,7 +1609,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1631,7 +1631,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1653,7 +1653,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1675,7 +1675,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1697,7 +1697,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1719,7 +1719,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1741,7 +1741,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1763,7 +1763,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'LAURACEAE', 0.51)
+                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'Lauraceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1785,7 +1785,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1807,7 +1807,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1829,7 +1829,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1851,7 +1851,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1873,7 +1873,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1895,7 +1895,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1917,7 +1917,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1939,7 +1939,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus cinerea', 'Eucalipto plateado', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus cinerea', 'Eucalipto Plateado', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1961,7 +1961,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -1983,7 +1983,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2005,7 +2005,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2027,7 +2027,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2049,7 +2049,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2071,7 +2071,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'arrayan', 'MYRTACEAE', 0.76)
+                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'Myrtaceae', 0.76)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2093,7 +2093,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2115,7 +2115,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2137,7 +2137,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2159,7 +2159,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2181,7 +2181,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2203,7 +2203,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2225,7 +2225,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2247,7 +2247,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2269,7 +2269,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2291,7 +2291,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2313,7 +2313,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2335,7 +2335,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2357,7 +2357,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2379,7 +2379,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2401,7 +2401,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2423,7 +2423,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2445,7 +2445,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'ARAUCARACEAE', 0.47)
+                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'Araucaraceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2467,7 +2467,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'ARAUCARACEAE', 0.47)
+                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'Araucaraceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2489,7 +2489,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2511,7 +2511,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2533,7 +2533,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2555,7 +2555,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2577,7 +2577,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2599,7 +2599,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2621,7 +2621,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'ARAUCARACEAE', 0.47)
+                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'Araucaraceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2643,7 +2643,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2665,7 +2665,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Phyllanthus salviifolius', 'Cedrillo', 'PHYLLANTHACEAE', 0.58)
+                (gen_random_uuid(), 'Phyllanthus salviifolius', 'Cedrillo', 'Phyllanthaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2687,7 +2687,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2709,7 +2709,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2731,7 +2731,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2753,7 +2753,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2775,7 +2775,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2797,7 +2797,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2819,7 +2819,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2841,7 +2841,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2863,7 +2863,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2885,7 +2885,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2907,7 +2907,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2929,7 +2929,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2951,7 +2951,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2973,7 +2973,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -2995,7 +2995,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3017,7 +3017,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3039,7 +3039,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3061,7 +3061,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3083,7 +3083,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3105,7 +3105,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3127,7 +3127,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3149,7 +3149,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3171,7 +3171,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3193,7 +3193,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3215,7 +3215,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3237,7 +3237,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3259,7 +3259,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3281,7 +3281,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3303,7 +3303,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3325,7 +3325,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3347,7 +3347,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3369,7 +3369,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3391,7 +3391,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba de tierra fria', 'BOMBACACEAE', 0.56)
+                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba De Tierra Fria', 'Bombacaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3413,7 +3413,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3435,7 +3435,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3457,7 +3457,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3479,7 +3479,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3501,7 +3501,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3523,7 +3523,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3545,7 +3545,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3567,7 +3567,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3589,7 +3589,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3611,7 +3611,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3633,7 +3633,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3655,7 +3655,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3677,7 +3677,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3699,7 +3699,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3721,7 +3721,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho arborescente', 'CYATHEACEAE', 0.56)
+                (gen_random_uuid(), 'Cyathea caracasana', 'Helecho Arborescente', 'Cyatheaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3743,7 +3743,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3765,7 +3765,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3787,7 +3787,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3809,7 +3809,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3831,7 +3831,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3853,7 +3853,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3875,7 +3875,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3897,7 +3897,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3919,7 +3919,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3941,7 +3941,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3963,7 +3963,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -3985,7 +3985,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4007,7 +4007,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4029,7 +4029,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4051,7 +4051,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4073,7 +4073,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4095,7 +4095,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4117,7 +4117,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4139,7 +4139,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4161,7 +4161,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4183,7 +4183,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4205,7 +4205,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4227,7 +4227,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4249,7 +4249,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4271,7 +4271,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4293,7 +4293,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Erythrina rubrinervia', 'chocho', 'FABACEAE', 0.29)
+                (gen_random_uuid(), 'Erythrina rubrinervia', 'Chocho', 'Fabaceae', 0.29)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4315,7 +4315,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4337,7 +4337,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4359,7 +4359,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4381,7 +4381,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4403,7 +4403,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba de tierra fria', 'BOMBACACEAE', 0.56)
+                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba De Tierra Fria', 'Bombacaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4425,7 +4425,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'ARAUCARACEAE', 0.47)
+                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'Araucaraceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4447,7 +4447,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4469,7 +4469,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4491,7 +4491,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4513,7 +4513,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4535,7 +4535,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4557,7 +4557,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4579,7 +4579,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4601,7 +4601,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4623,7 +4623,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4645,7 +4645,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4667,7 +4667,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4689,7 +4689,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4711,7 +4711,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4733,7 +4733,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4755,7 +4755,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4777,7 +4777,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4799,7 +4799,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4821,7 +4821,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4843,7 +4843,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'arrayan', 'MYRTACEAE', 0.76)
+                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'Myrtaceae', 0.76)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4865,7 +4865,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4887,7 +4887,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'ARAUCARACEAE', 0.47)
+                (gen_random_uuid(), 'Araucaria heterophylla', 'Araucaria', 'Araucaraceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4909,7 +4909,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4931,7 +4931,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4953,7 +4953,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'SALICACEAE', 0.56)
+                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'Salicaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4975,7 +4975,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -4997,7 +4997,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5019,7 +5019,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5041,7 +5041,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5063,7 +5063,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5085,7 +5085,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5107,7 +5107,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5129,7 +5129,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5151,7 +5151,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5173,7 +5173,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5217,7 +5217,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5239,7 +5239,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5261,7 +5261,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5283,7 +5283,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5305,7 +5305,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5327,7 +5327,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5349,7 +5349,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5371,7 +5371,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5393,7 +5393,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5415,7 +5415,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cedrela montana', 'Cedro', 'MELIACEAE', 0.34)
+                (gen_random_uuid(), 'Cedrela montana', 'Cedro', 'Meliaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5437,7 +5437,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5459,7 +5459,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5481,7 +5481,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'ficus tequendamae', 'Ficus del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Ficus Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5493,7 +5493,7 @@ BEGIN;
             )
             VALUES (
                 gen_random_uuid(),
-                (SELECT id FROM species WHERE scientific_name = 'ficus tequendamae'),
+                (SELECT id FROM species WHERE scientific_name = 'Ficus tequendamae'),
                 4.626758, -74.065184,
                 1.84, 23.2,
                 'WELL', NULL, NULL,
@@ -5503,7 +5503,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5525,7 +5525,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5547,7 +5547,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5569,7 +5569,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5591,7 +5591,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5613,7 +5613,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5635,7 +5635,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5657,7 +5657,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5679,7 +5679,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5701,7 +5701,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5723,7 +5723,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5745,7 +5745,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5767,7 +5767,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5789,7 +5789,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5811,7 +5811,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5833,7 +5833,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5855,7 +5855,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5877,7 +5877,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5899,7 +5899,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5921,7 +5921,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5943,7 +5943,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Callistemon viminalis', 'lava botella', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Callistemon viminalis', 'Lava Botella', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5965,7 +5965,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Callistemon viminalis', 'lava botella', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Callistemon viminalis', 'Lava Botella', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -5987,7 +5987,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6009,7 +6009,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6031,7 +6031,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6053,7 +6053,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6075,7 +6075,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba de tierra fria', 'BOMBACACEAE', 0.56)
+                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba De Tierra Fria', 'Bombacaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6097,7 +6097,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6119,7 +6119,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6141,7 +6141,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Monochaetum myrtoideum', 'Angelito', 'MELASTOMATACEAE', 0.67)
+                (gen_random_uuid(), 'Monochaetum myrtoideum', 'Angelito', 'Melastomataceae', 0.67)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6163,7 +6163,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6185,7 +6185,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6207,7 +6207,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6229,7 +6229,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'arrayan', 'MYRTACEAE', 0.76)
+                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'Myrtaceae', 0.76)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6251,7 +6251,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6273,7 +6273,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6317,7 +6317,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6339,7 +6339,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6361,7 +6361,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6383,7 +6383,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6405,7 +6405,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6427,7 +6427,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6449,7 +6449,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6471,7 +6471,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6493,7 +6493,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6515,7 +6515,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'PRIMULACEAE', 0.74)
+                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'Primulaceae', 0.74)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6537,7 +6537,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6559,7 +6559,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6581,7 +6581,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6603,7 +6603,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6625,7 +6625,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6647,7 +6647,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6669,7 +6669,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6691,7 +6691,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6713,7 +6713,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6735,7 +6735,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6757,7 +6757,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6779,7 +6779,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6801,7 +6801,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6823,7 +6823,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'LAURACEAE', 0.51)
+                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'Lauraceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6845,7 +6845,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6867,7 +6867,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6889,7 +6889,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6911,7 +6911,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6933,7 +6933,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6955,7 +6955,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6977,7 +6977,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -6999,7 +6999,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7021,7 +7021,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7043,7 +7043,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus cinerea', 'Eucalipto plateado', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus cinerea', 'Eucalipto Plateado', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7065,7 +7065,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7087,7 +7087,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'arrayan', 'MYRTACEAE', 0.76)
+                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'Myrtaceae', 0.76)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7109,7 +7109,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia telenitida', 'Yarumo blanco', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia telenitida', 'Yarumo Blanco', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7131,7 +7131,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia telenitida', 'Yarumo blanco', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia telenitida', 'Yarumo Blanco', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7153,7 +7153,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia telenitida', 'Yarumo blanco', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia telenitida', 'Yarumo Blanco', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7175,7 +7175,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7197,7 +7197,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7219,7 +7219,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7241,7 +7241,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7263,7 +7263,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7285,7 +7285,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7307,7 +7307,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7329,7 +7329,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7351,7 +7351,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7373,7 +7373,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7395,7 +7395,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus cinerea', 'Eucalipto plateado', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus cinerea', 'Eucalipto Plateado', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7417,7 +7417,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cedrela montana', 'Cedro', 'MELIACEAE', 0.34)
+                (gen_random_uuid(), 'Cedrela montana', 'Cedro', 'Meliaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7439,7 +7439,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7461,7 +7461,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7483,7 +7483,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7505,7 +7505,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7527,7 +7527,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7549,7 +7549,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7571,7 +7571,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'CARICACEAE', 0.23)
+                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'Caricaceae', 0.23)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7593,7 +7593,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7615,7 +7615,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7637,7 +7637,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7659,7 +7659,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7681,7 +7681,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Oreopanax incisus', 'Mano de oso', 'ARALIACEAE', 0.52)
+                (gen_random_uuid(), 'Oreopanax incisus', 'Mano De Oso', 'Araliaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7703,7 +7703,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7725,7 +7725,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7747,7 +7747,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7769,7 +7769,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7791,7 +7791,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7835,7 +7835,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7857,7 +7857,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7879,7 +7879,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7901,7 +7901,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cedrela montana', 'Cedro', 'MELIACEAE', 0.34)
+                (gen_random_uuid(), 'Cedrela montana', 'Cedro', 'Meliaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7923,7 +7923,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7945,7 +7945,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7967,7 +7967,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -7989,7 +7989,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8011,7 +8011,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8033,7 +8033,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8055,7 +8055,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8077,7 +8077,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8099,7 +8099,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8121,7 +8121,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8143,7 +8143,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Critoniella acuminata', 'Salvio', 'ASTERACEAE', 0.64)
+                (gen_random_uuid(), 'Critoniella acuminata', 'Salvio', 'Asteraceae', 0.64)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8165,7 +8165,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8187,7 +8187,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8209,7 +8209,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8231,7 +8231,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8253,7 +8253,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8275,7 +8275,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8297,7 +8297,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8319,7 +8319,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8341,7 +8341,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8363,7 +8363,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8385,7 +8385,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8407,7 +8407,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8429,7 +8429,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8451,7 +8451,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8473,7 +8473,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8495,7 +8495,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8517,7 +8517,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8539,7 +8539,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8561,7 +8561,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8583,7 +8583,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8605,7 +8605,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8627,7 +8627,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8649,7 +8649,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8671,7 +8671,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8693,7 +8693,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8715,7 +8715,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8737,7 +8737,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8759,7 +8759,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8781,7 +8781,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8803,7 +8803,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8825,7 +8825,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8847,7 +8847,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8869,7 +8869,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8891,7 +8891,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8913,7 +8913,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8935,7 +8935,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8957,7 +8957,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -8979,7 +8979,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9001,7 +9001,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9023,7 +9023,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9045,7 +9045,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9067,7 +9067,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9089,7 +9089,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9111,7 +9111,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9133,7 +9133,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9155,7 +9155,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9177,7 +9177,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9199,7 +9199,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9221,7 +9221,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9243,7 +9243,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9265,7 +9265,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9287,7 +9287,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9309,7 +9309,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9331,7 +9331,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9353,7 +9353,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9375,7 +9375,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9397,7 +9397,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9419,7 +9419,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9441,7 +9441,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9463,7 +9463,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9507,7 +9507,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'CARICACEAE', 0.23)
+                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'Caricaceae', 0.23)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9529,7 +9529,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9551,7 +9551,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9573,7 +9573,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9595,7 +9595,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9617,7 +9617,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9639,7 +9639,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9661,7 +9661,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9683,7 +9683,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9705,7 +9705,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9727,7 +9727,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9749,7 +9749,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9771,7 +9771,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9793,7 +9793,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9815,7 +9815,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9837,7 +9837,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9859,7 +9859,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9881,7 +9881,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9903,7 +9903,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9925,7 +9925,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9947,7 +9947,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9969,7 +9969,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -9991,7 +9991,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus sempervirens', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10013,7 +10013,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10035,7 +10035,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Oreopanax incisus', 'Mano de oso', 'ARALIACEAE', 0.52)
+                (gen_random_uuid(), 'Oreopanax incisus', 'Mano De Oso', 'Araliaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10057,7 +10057,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10079,7 +10079,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10101,7 +10101,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10123,7 +10123,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10145,7 +10145,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'LAURACEAE', 0.51)
+                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'Lauraceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10167,7 +10167,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10189,7 +10189,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Erythrina rubrinervia', 'chocho', 'FABACEAE', 0.29)
+                (gen_random_uuid(), 'Erythrina rubrinervia', 'Chocho', 'Fabaceae', 0.29)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10211,7 +10211,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10233,7 +10233,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10255,7 +10255,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10277,7 +10277,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10299,7 +10299,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10321,7 +10321,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10343,7 +10343,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10365,7 +10365,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10387,7 +10387,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10409,7 +10409,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10431,7 +10431,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10453,7 +10453,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10475,7 +10475,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10497,7 +10497,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10519,7 +10519,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10541,7 +10541,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10563,7 +10563,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10585,7 +10585,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10607,7 +10607,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10629,7 +10629,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10651,7 +10651,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10673,7 +10673,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10695,7 +10695,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10717,7 +10717,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10739,7 +10739,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10761,7 +10761,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10783,7 +10783,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10805,7 +10805,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10827,7 +10827,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10849,7 +10849,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10871,7 +10871,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10893,7 +10893,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10915,7 +10915,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10937,7 +10937,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -10981,7 +10981,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11003,7 +11003,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11025,7 +11025,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11047,7 +11047,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11069,7 +11069,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11091,7 +11091,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11113,7 +11113,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11135,7 +11135,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11157,7 +11157,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11179,7 +11179,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11201,7 +11201,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11223,7 +11223,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11245,7 +11245,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11267,7 +11267,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11289,7 +11289,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11311,7 +11311,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11333,7 +11333,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11355,7 +11355,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11377,7 +11377,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11399,7 +11399,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11421,7 +11421,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11443,7 +11443,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11465,7 +11465,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11487,7 +11487,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11509,7 +11509,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11531,7 +11531,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11553,7 +11553,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11575,7 +11575,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11597,7 +11597,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11619,7 +11619,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11641,7 +11641,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11663,7 +11663,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11685,7 +11685,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11707,7 +11707,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'ficus tequendamae', 'Ficus del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Ficus Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11719,7 +11719,7 @@ BEGIN;
             )
             VALUES (
                 gen_random_uuid(),
-                (SELECT id FROM species WHERE scientific_name = 'ficus tequendamae'),
+                (SELECT id FROM species WHERE scientific_name = 'Ficus tequendamae'),
                 4.627612, -74.062603,
                 0.344, 6.9,
                 'WELL', NULL, NULL,
@@ -11729,7 +11729,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11751,7 +11751,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11773,7 +11773,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11795,7 +11795,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11817,7 +11817,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11839,7 +11839,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11861,7 +11861,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11883,7 +11883,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11905,7 +11905,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11927,7 +11927,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11949,7 +11949,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'ficus tequendamae', 'Ficus del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Ficus Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11961,7 +11961,7 @@ BEGIN;
             )
             VALUES (
                 gen_random_uuid(),
-                (SELECT id FROM species WHERE scientific_name = 'ficus tequendamae'),
+                (SELECT id FROM species WHERE scientific_name = 'Ficus tequendamae'),
                 4.628944, -74.062536,
                 0.314, 7.5,
                 'WELL', NULL, NULL,
@@ -11971,7 +11971,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -11993,7 +11993,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12015,7 +12015,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12037,7 +12037,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12059,7 +12059,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12081,7 +12081,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12103,7 +12103,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12125,7 +12125,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12147,7 +12147,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12169,7 +12169,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12191,7 +12191,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12213,7 +12213,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12235,7 +12235,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12257,7 +12257,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12279,7 +12279,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12301,7 +12301,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12323,7 +12323,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12345,7 +12345,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12367,7 +12367,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12389,7 +12389,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12411,7 +12411,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12433,7 +12433,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12455,7 +12455,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12477,7 +12477,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12499,7 +12499,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12521,7 +12521,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12543,7 +12543,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12565,7 +12565,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12587,7 +12587,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12609,7 +12609,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12631,7 +12631,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12653,7 +12653,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12675,7 +12675,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Hyeronima macrocarpa', 'chuguaca', 'PHYLLANTHACEAE', 0.61)
+                (gen_random_uuid(), 'Hyeronima macrocarpa', 'Chuguaca', 'Phyllanthaceae', 0.61)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12697,7 +12697,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12719,7 +12719,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12741,7 +12741,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12763,7 +12763,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12785,7 +12785,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12807,7 +12807,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12829,7 +12829,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12851,7 +12851,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12873,7 +12873,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12895,7 +12895,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12917,7 +12917,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12939,7 +12939,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12961,7 +12961,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -12983,7 +12983,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13005,7 +13005,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Hyeronima macrocarpa', 'chuguaca', 'PHYLLANTHACEAE', 0.61)
+                (gen_random_uuid(), 'Hyeronima macrocarpa', 'Chuguaca', 'Phyllanthaceae', 0.61)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13027,7 +13027,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13049,7 +13049,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13071,7 +13071,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13093,7 +13093,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13115,7 +13115,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13137,7 +13137,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13159,7 +13159,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13181,7 +13181,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13203,7 +13203,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13225,7 +13225,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13247,7 +13247,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13269,7 +13269,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13291,7 +13291,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13313,7 +13313,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13335,7 +13335,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13357,7 +13357,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13379,7 +13379,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13401,7 +13401,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13423,7 +13423,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13445,7 +13445,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13467,7 +13467,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Hyeronima macrocarpa', 'chuguaca', 'PHYLLANTHACEAE', 0.61)
+                (gen_random_uuid(), 'Hyeronima macrocarpa', 'Chuguaca', 'Phyllanthaceae', 0.61)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13489,7 +13489,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13511,7 +13511,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13533,7 +13533,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13555,7 +13555,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13577,7 +13577,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13599,7 +13599,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13621,7 +13621,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13643,7 +13643,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13665,7 +13665,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13687,7 +13687,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13709,7 +13709,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13731,7 +13731,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13753,7 +13753,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13775,7 +13775,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13797,7 +13797,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13819,7 +13819,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13841,7 +13841,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13863,7 +13863,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13885,7 +13885,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13907,7 +13907,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13929,7 +13929,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13951,7 +13951,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13973,7 +13973,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -13995,7 +13995,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14017,7 +14017,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14039,7 +14039,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14061,7 +14061,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14083,7 +14083,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Caesalpinia spinosa', 'Divi divi', 'FABACEAE', 0.99)
+                (gen_random_uuid(), 'Caesalpinia spinosa', 'Divi Divi', 'Fabaceae', 0.99)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14105,7 +14105,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14127,7 +14127,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14149,7 +14149,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14171,7 +14171,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14193,7 +14193,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14215,7 +14215,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14237,7 +14237,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14259,7 +14259,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14281,7 +14281,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14303,7 +14303,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14325,7 +14325,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14347,7 +14347,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14369,7 +14369,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14391,7 +14391,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14413,7 +14413,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14435,7 +14435,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14457,7 +14457,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14479,7 +14479,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14501,7 +14501,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14523,7 +14523,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14545,7 +14545,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14567,7 +14567,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14589,7 +14589,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14611,7 +14611,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14633,7 +14633,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14655,7 +14655,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14677,7 +14677,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14699,7 +14699,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14721,7 +14721,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14743,7 +14743,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14765,7 +14765,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14787,7 +14787,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14809,7 +14809,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14831,7 +14831,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14853,7 +14853,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14875,7 +14875,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14897,7 +14897,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14919,7 +14919,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14941,7 +14941,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14963,7 +14963,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -14985,7 +14985,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15007,7 +15007,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15029,7 +15029,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15051,7 +15051,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15073,7 +15073,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15095,7 +15095,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15117,7 +15117,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15139,7 +15139,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15161,7 +15161,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15183,7 +15183,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15205,7 +15205,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15227,7 +15227,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15249,7 +15249,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15271,7 +15271,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Solanum asperolanatum', 'cariño de suegra', 'SOLANACEAE', 0.41)
+                (gen_random_uuid(), 'Solanum asperolanatum', 'Cariño De Suegra', 'Solanaceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15293,7 +15293,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Solanum asperolanatum', 'cariño de suegra', 'SOLANACEAE', 0.41)
+                (gen_random_uuid(), 'Solanum asperolanatum', 'Cariño De Suegra', 'Solanaceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15315,7 +15315,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15337,7 +15337,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15359,7 +15359,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15381,7 +15381,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15403,7 +15403,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'PRIMULACEAE', 0.74)
+                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'Primulaceae', 0.74)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15425,7 +15425,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Oreopanax incisus', 'Mano de oso', 'ARALIACEAE', 0.52)
+                (gen_random_uuid(), 'Oreopanax incisus', 'Mano De Oso', 'Araliaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15447,7 +15447,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Oreopanax incisus', 'Mano de oso', 'ARALIACEAE', 0.52)
+                (gen_random_uuid(), 'Oreopanax incisus', 'Mano De Oso', 'Araliaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15469,7 +15469,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15491,7 +15491,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15513,7 +15513,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'JUGLANDACEAE', 0.49)
+                (gen_random_uuid(), 'Juglans neotropica', 'Nogal', 'Juglandaceae', 0.49)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15535,7 +15535,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo negro', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo Negro', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15557,7 +15557,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15579,7 +15579,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15601,7 +15601,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15623,7 +15623,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'PRIMULACEAE', 0.74)
+                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'Primulaceae', 0.74)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15645,7 +15645,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15667,7 +15667,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15689,7 +15689,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15711,7 +15711,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo negro', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo Negro', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15733,7 +15733,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15755,7 +15755,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15777,7 +15777,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'PRIMULACEAE', 0.74)
+                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'Primulaceae', 0.74)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15799,7 +15799,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15821,7 +15821,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15843,7 +15843,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15865,7 +15865,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15887,7 +15887,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15909,7 +15909,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15931,7 +15931,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15953,7 +15953,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15975,7 +15975,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'PRIMULACEAE', 0.74)
+                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'Primulaceae', 0.74)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -15997,7 +15997,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Smallanthus pyramidalis', 'Árbol loco', 'ASTERACEAE', 0.64)
+                (gen_random_uuid(), 'Smallanthus pyramidalis', 'Árbol Loco', 'Asteraceae', 0.64)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16019,7 +16019,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16041,7 +16041,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16063,7 +16063,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16085,7 +16085,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16107,7 +16107,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16129,7 +16129,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Podocarpus oleifolius', 'pino romeron', 'PODOCARPACEAE', 0.45)
+                (gen_random_uuid(), 'Podocarpus oleifolius', 'Pino Romeron', 'Podocarpaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16151,7 +16151,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16173,7 +16173,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16195,7 +16195,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16217,7 +16217,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16239,7 +16239,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'SALICACEAE', 0.56)
+                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'Salicaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16261,7 +16261,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16283,7 +16283,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16305,7 +16305,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16327,7 +16327,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16349,7 +16349,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16371,7 +16371,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16393,7 +16393,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16415,7 +16415,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Phyllanthus salviifolius', 'Cedrillo', 'PHYLLANTHACEAE', 0.58)
+                (gen_random_uuid(), 'Phyllanthus salviifolius', 'Cedrillo', 'Phyllanthaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16437,7 +16437,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'SALICACEAE', 0.56)
+                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'Salicaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16459,7 +16459,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16481,7 +16481,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'SALICACEAE', 0.56)
+                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'Salicaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16503,7 +16503,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16525,7 +16525,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16547,7 +16547,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16569,7 +16569,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16591,7 +16591,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16613,7 +16613,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16635,7 +16635,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16657,7 +16657,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16679,7 +16679,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16701,7 +16701,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16723,7 +16723,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16745,7 +16745,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16767,7 +16767,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16789,7 +16789,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16811,7 +16811,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16833,7 +16833,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16855,7 +16855,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16877,7 +16877,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16899,7 +16899,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16921,7 +16921,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16943,7 +16943,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16965,7 +16965,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -16987,7 +16987,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'SALICACEAE', 0.56)
+                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'Salicaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17009,7 +17009,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'URTICACEAE', 0.34)
+                (gen_random_uuid(), 'Cecropia angustifolia', 'Yarumo', 'Urticaceae', 0.34)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17031,7 +17031,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17053,7 +17053,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'PRIMULACEAE', 0.74)
+                (gen_random_uuid(), 'Myrsine guianensis', 'Cucharo', 'Primulaceae', 0.74)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17075,7 +17075,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17097,7 +17097,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17119,7 +17119,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'MYRTACEAE', 0.76)
+                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'Myrtaceae', 0.76)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17141,7 +17141,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17163,7 +17163,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'SALICACEAE', 0.56)
+                (gen_random_uuid(), 'Abatia parviflora', 'Duraznillo', 'Salicaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17185,7 +17185,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17207,7 +17207,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17229,7 +17229,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Duranta mutisii', 'Garbanzillo', 'VERBENACEAE', 0.56)
+                (gen_random_uuid(), 'Duranta mutisii', 'Garbanzillo', 'Verbenaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17251,7 +17251,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Duranta mutisii', 'Garbanzillo', 'VERBENACEAE', 0.56)
+                (gen_random_uuid(), 'Duranta mutisii', 'Garbanzillo', 'Verbenaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17273,7 +17273,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17295,7 +17295,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'MYRTACEAE', 0.76)
+                (gen_random_uuid(), 'Myrcianthes leucoxyla', 'Arrayan', 'Myrtaceae', 0.76)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17317,7 +17317,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17339,7 +17339,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17361,7 +17361,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17383,7 +17383,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17405,7 +17405,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17427,7 +17427,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Billia rosea', 'Cariseco', 'SAPINDACEAE', 0.69)
+                (gen_random_uuid(), 'Billia rosea', 'Cariseco', 'Sapindaceae', 0.69)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17449,7 +17449,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Styrax cordatus', 'Estoraque blanco', 'STYRACACEA', 0.42)
+                (gen_random_uuid(), 'Styrax cordatus', 'Estoraque Blanco', 'Styracacea', 0.42)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17471,7 +17471,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Billia rosea', 'Cariseco', 'SAPINDACEAE', 0.69)
+                (gen_random_uuid(), 'Billia rosea', 'Cariseco', 'Sapindaceae', 0.69)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17493,7 +17493,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17515,7 +17515,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17537,7 +17537,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17559,7 +17559,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17581,7 +17581,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Billia rosea', 'Cariseco', 'SAPINDACEAE', 0.69)
+                (gen_random_uuid(), 'Billia rosea', 'Cariseco', 'Sapindaceae', 0.69)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17603,7 +17603,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17625,7 +17625,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Erythrina edulis', 'Chachafruto', 'FABACEAE', 0.22)
+                (gen_random_uuid(), 'Erythrina edulis', 'Chachafruto', 'Fabaceae', 0.22)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17647,7 +17647,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17669,7 +17669,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17691,7 +17691,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17713,7 +17713,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17735,7 +17735,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17757,7 +17757,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17801,7 +17801,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17823,7 +17823,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella pubescens', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella pubescens', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17845,7 +17845,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Phyllanthus salviifolius', 'Cedrillo', 'PHYLLANTHACEAE', 0.58)
+                (gen_random_uuid(), 'Phyllanthus salviifolius', 'Cedrillo', 'Phyllanthaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17867,7 +17867,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17889,7 +17889,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Erythrina edulis', 'Chachafruto', 'FABACEAE', 0.22)
+                (gen_random_uuid(), 'Erythrina edulis', 'Chachafruto', 'Fabaceae', 0.22)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17911,7 +17911,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17933,7 +17933,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17955,7 +17955,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17977,7 +17977,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -17999,7 +17999,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18021,7 +18021,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Ficus sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Ficus Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18043,7 +18043,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18065,7 +18065,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18087,7 +18087,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18109,7 +18109,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18131,7 +18131,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18153,7 +18153,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18175,7 +18175,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18197,7 +18197,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18219,7 +18219,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18241,7 +18241,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18263,7 +18263,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18285,7 +18285,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18307,7 +18307,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18329,7 +18329,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18351,7 +18351,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18373,7 +18373,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18395,7 +18395,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18417,7 +18417,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18439,7 +18439,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia japonesa', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia melanoxylon', 'Acacia Japonesa', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18461,7 +18461,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18483,7 +18483,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18505,7 +18505,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18527,7 +18527,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18549,7 +18549,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18571,7 +18571,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18593,7 +18593,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18615,7 +18615,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18681,7 +18681,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18703,7 +18703,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18725,7 +18725,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18747,7 +18747,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18769,7 +18769,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18791,7 +18791,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18813,7 +18813,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18835,7 +18835,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18857,7 +18857,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18879,7 +18879,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18901,7 +18901,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18923,7 +18923,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18945,7 +18945,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18967,7 +18967,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -18989,7 +18989,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19011,7 +19011,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19033,7 +19033,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19055,7 +19055,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19077,7 +19077,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19099,7 +19099,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19121,7 +19121,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19143,7 +19143,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19165,7 +19165,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19187,7 +19187,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19209,7 +19209,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19231,7 +19231,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19253,7 +19253,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19275,7 +19275,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19297,7 +19297,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19319,7 +19319,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19341,7 +19341,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19363,7 +19363,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19385,7 +19385,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19407,7 +19407,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19429,7 +19429,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19451,7 +19451,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19473,7 +19473,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19495,7 +19495,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19517,7 +19517,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19539,7 +19539,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19561,7 +19561,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19583,7 +19583,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19605,7 +19605,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19627,7 +19627,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19649,7 +19649,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19671,7 +19671,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19693,7 +19693,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19715,7 +19715,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19737,7 +19737,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19759,7 +19759,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19781,7 +19781,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19803,7 +19803,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19825,7 +19825,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19847,7 +19847,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19869,7 +19869,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19891,7 +19891,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19913,7 +19913,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19935,7 +19935,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19957,7 +19957,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'HAMAMELIDACEAE', 0.52)
+                (gen_random_uuid(), 'Liquidambar styraciflua', 'Liquidambar', 'Hamamelidaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -19979,7 +19979,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20001,7 +20001,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20023,7 +20023,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20045,7 +20045,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20067,7 +20067,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20089,7 +20089,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20111,7 +20111,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20133,7 +20133,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20155,7 +20155,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20177,7 +20177,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20199,7 +20199,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20287,7 +20287,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20309,7 +20309,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20331,7 +20331,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20353,7 +20353,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20375,7 +20375,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Symplocos theiformis', 'Té de bogotá', 'SYMPLOCACEAE', 0.53)
+                (gen_random_uuid(), 'Symplocos theiformis', 'Té De Bogotá', 'Symplocaceae', 0.53)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20397,7 +20397,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Symplocos theiformis', 'Té de bogotá', 'SYMPLOCACEAE', 0.53)
+                (gen_random_uuid(), 'Symplocos theiformis', 'Té De Bogotá', 'Symplocaceae', 0.53)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20419,7 +20419,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20441,7 +20441,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20463,7 +20463,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20485,7 +20485,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20507,7 +20507,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20529,7 +20529,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20551,7 +20551,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20573,7 +20573,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20595,7 +20595,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20617,7 +20617,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20639,7 +20639,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20661,7 +20661,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20683,7 +20683,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20705,7 +20705,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20727,7 +20727,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20749,7 +20749,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20771,7 +20771,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20793,7 +20793,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20815,7 +20815,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20837,7 +20837,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20859,7 +20859,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20881,7 +20881,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20903,7 +20903,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20925,7 +20925,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20947,7 +20947,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20969,7 +20969,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -20991,7 +20991,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21013,7 +21013,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma payasa', 'ARECACEAE', 0.83)
+                (gen_random_uuid(), 'Archontophoenix cunninghamiana', 'Palma Payasa', 'Arecaceae', 0.83)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21035,7 +21035,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21057,7 +21057,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21079,7 +21079,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21101,7 +21101,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba de tierra fria', 'BOMBACACEAE', 0.56)
+                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba De Tierra Fria', 'Bombacaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21123,7 +21123,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba de tierra fria', 'BOMBACACEAE', 0.56)
+                (gen_random_uuid(), 'Spirotheca rhodostyla', 'Ceiba De Tierra Fria', 'Bombacaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21145,7 +21145,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21167,7 +21167,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21189,7 +21189,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21211,7 +21211,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21233,7 +21233,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'BETULACEAE', 0.37)
+                (gen_random_uuid(), 'Alnus acuminata', 'Aliso', 'Betulaceae', 0.37)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21255,7 +21255,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21277,7 +21277,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21299,7 +21299,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21365,7 +21365,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21387,7 +21387,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21409,7 +21409,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21431,7 +21431,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21453,7 +21453,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce llorón', 'SALICACEAE', 0.4)
+                (gen_random_uuid(), 'Salix humboldtiana', 'Sauce Llorón', 'Salicaceae', 0.4)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21475,7 +21475,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21497,7 +21497,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21519,7 +21519,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21541,7 +21541,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21563,7 +21563,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21585,7 +21585,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21607,7 +21607,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21629,7 +21629,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21651,7 +21651,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21673,7 +21673,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21695,7 +21695,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'FAGACEAE', 0.7)
+                (gen_random_uuid(), 'Quercus humboldtii', 'Roble', 'Fagaceae', 0.7)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21717,7 +21717,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21739,7 +21739,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21761,7 +21761,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21783,7 +21783,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21805,7 +21805,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21827,7 +21827,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21849,7 +21849,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21871,7 +21871,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21893,7 +21893,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21915,7 +21915,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho del tequendama', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus tequendamae', 'Caucho Del Tequendama', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21937,7 +21937,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21959,7 +21959,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -21981,7 +21981,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22003,7 +22003,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'PINACEAE', 0.39)
+                (gen_random_uuid(), 'Pinus radiata', 'Pino', 'Pinaceae', 0.39)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22025,7 +22025,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'LAURACEAE', 0.51)
+                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'Lauraceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22047,7 +22047,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'LAURACEAE', 0.51)
+                (gen_random_uuid(), 'Persea americana', 'Aguacate', 'Lauraceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22069,7 +22069,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22091,7 +22091,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22113,7 +22113,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'CARICACEAE', 0.23)
+                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'Caricaceae', 0.23)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22135,7 +22135,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'CARICACEAE', 0.23)
+                (gen_random_uuid(), 'Vasconcellea pubescens', 'Papayuelo', 'Caricaceae', 0.23)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22157,7 +22157,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22179,7 +22179,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22201,7 +22201,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22223,7 +22223,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22245,7 +22245,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22267,7 +22267,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22289,7 +22289,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22311,7 +22311,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22333,7 +22333,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22355,7 +22355,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22377,7 +22377,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22399,7 +22399,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'MAGNOLIACEAE', 0.5)
+                (gen_random_uuid(), 'Magnolia grandiflora', 'Magnolio', 'Magnoliaceae', 0.5)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22421,7 +22421,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22443,7 +22443,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22465,7 +22465,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22487,7 +22487,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22509,7 +22509,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22531,7 +22531,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22553,7 +22553,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22575,7 +22575,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22597,7 +22597,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22619,7 +22619,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22641,7 +22641,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22650,7 +22650,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22672,7 +22672,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22694,7 +22694,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22716,7 +22716,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22738,7 +22738,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22760,7 +22760,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22782,7 +22782,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22804,7 +22804,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22826,7 +22826,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22848,7 +22848,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22870,7 +22870,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22892,7 +22892,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22914,7 +22914,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22936,7 +22936,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22958,7 +22958,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -22980,7 +22980,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23002,7 +23002,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23024,7 +23024,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23046,7 +23046,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23068,7 +23068,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Vallea stipularis', 'Raque', 'ELAEOCARPACEAE', 0.55)
+                (gen_random_uuid(), 'Vallea stipularis', 'Raque', 'Elaeocarpaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23090,7 +23090,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Vallea stipularis', 'Raque', 'ELAEOCARPACEAE', 0.55)
+                (gen_random_uuid(), 'Vallea stipularis', 'Raque', 'Elaeocarpaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23112,7 +23112,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23134,7 +23134,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23156,7 +23156,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23178,7 +23178,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23200,7 +23200,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23222,7 +23222,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23244,7 +23244,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23266,7 +23266,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly liso', 'ROSACEAE', 0.62)
+                (gen_random_uuid(), 'Cotoneaster multiflorus', 'Holly Liso', 'Rosaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23288,7 +23288,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23310,7 +23310,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cordyline australis', 'Palma yuca', 'AGAVACEAE', 0.56)
+                (gen_random_uuid(), 'Cordyline australis', 'Palma Yuca', 'Agavaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23332,7 +23332,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23354,7 +23354,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23376,7 +23376,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella parvifolia', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella parvifolia', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23398,7 +23398,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Morella parvifolia', 'laurel de cera', 'MYRICACEAE', 0.58)
+                (gen_random_uuid(), 'Morella parvifolia', 'Laurel De Cera', 'Myricaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23420,7 +23420,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23442,7 +23442,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23464,7 +23464,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Mangle', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Mangle', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23486,7 +23486,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Mangle', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Mangle', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23508,7 +23508,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23530,7 +23530,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Sambucus nigra', 'sauco', 'ADOXACEAE', 0.45)
+                (gen_random_uuid(), 'Sambucus nigra', 'Sauco', 'Adoxaceae', 0.45)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23552,7 +23552,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23574,7 +23574,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23596,7 +23596,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23618,7 +23618,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23640,7 +23640,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23662,7 +23662,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23684,7 +23684,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23706,7 +23706,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23728,7 +23728,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23750,7 +23750,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23772,7 +23772,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23794,7 +23794,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23816,7 +23816,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto comun', 'MYRTACEAE', 0.8)
+                (gen_random_uuid(), 'Eucalyptus globulus', 'Eucalipto Comun', 'Myrtaceae', 0.8)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23838,7 +23838,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23860,7 +23860,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Acacia decurrens', 'Acacia negra', 'FABACEAE', 0.77)
+                (gen_random_uuid(), 'Acacia decurrens', 'Acacia Negra', 'Fabaceae', 0.77)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23882,7 +23882,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23904,7 +23904,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23926,7 +23926,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23948,7 +23948,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23970,7 +23970,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -23992,7 +23992,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'MYRTACEAE', 0.65)
+                (gen_random_uuid(), 'Syzygium paniculatum', 'Eugenia', 'Myrtaceae', 0.65)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24014,7 +24014,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24036,7 +24036,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24058,7 +24058,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Solanum asperolanatum', 'cariño de suegra', 'SOLANACEAE', 0.41)
+                (gen_random_uuid(), 'Solanum asperolanatum', 'Cariño De Suegra', 'Solanaceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24080,7 +24080,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Solanum asperolanatum', 'cariño de suegra', 'SOLANACEAE', 0.41)
+                (gen_random_uuid(), 'Solanum asperolanatum', 'Cariño De Suegra', 'Solanaceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24102,7 +24102,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24124,7 +24124,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24146,7 +24146,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24168,7 +24168,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24190,7 +24190,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24212,7 +24212,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus benjamina', 'Caucho benjamina', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus benjamina', 'Caucho Benjamina', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24234,7 +24234,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Oreopanax incisus', 'Mano de oso', 'ARALIACEAE', 0.52)
+                (gen_random_uuid(), 'Oreopanax incisus', 'Mano De Oso', 'Araliaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24256,7 +24256,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Oreopanax incisus', 'Mano de oso', 'ARALIACEAE', 0.52)
+                (gen_random_uuid(), 'Oreopanax incisus', 'Mano De Oso', 'Araliaceae', 0.52)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24278,7 +24278,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24300,7 +24300,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24322,7 +24322,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24344,7 +24344,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24366,7 +24366,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'CUPRESSACEAE', 0.43)
+                (gen_random_uuid(), 'Cupressus lusitanica', 'Cipres', 'Cupressaceae', 0.43)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24388,7 +24388,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24410,7 +24410,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24432,7 +24432,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24454,7 +24454,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'VERBENACEAE', 0.66)
+                (gen_random_uuid(), 'Citharexylum subflavescens', 'Cajeto', 'Verbenaceae', 0.66)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24476,7 +24476,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24498,7 +24498,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24520,7 +24520,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'ADOXACEAE', 0.63)
+                (gen_random_uuid(), 'Viburnum tinoides', 'Garrocho', 'Adoxaceae', 0.63)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24542,7 +24542,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24564,7 +24564,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24586,7 +24586,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24608,7 +24608,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24630,7 +24630,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24652,7 +24652,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24674,7 +24674,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24696,7 +24696,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24718,7 +24718,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24740,7 +24740,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24762,7 +24762,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24784,7 +24784,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'BIGNONACEAE', 0.47)
+                (gen_random_uuid(), 'Tecoma stans', 'Chicala', 'Bignonaceae', 0.47)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24806,7 +24806,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24828,7 +24828,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24850,7 +24850,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24872,7 +24872,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24894,7 +24894,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24916,7 +24916,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin del Cabo', 'PITTOSPORACEAE', 0.62)
+                (gen_random_uuid(), 'Pittosporum undulatum', 'Jazmin Del Cabo', 'Pittosporaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24938,7 +24938,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24960,7 +24960,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'SAXIFRAGACEAE', 0.57)
+                (gen_random_uuid(), 'Escallonia pendula', 'Tibar', 'Saxifragaceae', 0.57)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -24982,7 +24982,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25004,7 +25004,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'BIGNONACEAE', 0.56)
+                (gen_random_uuid(), 'Delostoma integrifolium', 'Curapin', 'Bignonaceae', 0.56)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25026,7 +25026,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25048,7 +25048,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25070,7 +25070,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25092,7 +25092,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán de Manizales', 'LYTHRACEAE', 0.79)
+                (gen_random_uuid(), 'Lafoensia acuminata', 'Guayacán De Manizales', 'Lythraceae', 0.79)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25114,7 +25114,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25136,7 +25136,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25158,7 +25158,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25180,7 +25180,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'ROSACEAE', 0.58)
+                (gen_random_uuid(), 'Prunus serotina', 'Cerezo', 'Rosaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25202,7 +25202,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25224,7 +25224,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'EUPHORBIACEAE', 0.51)
+                (gen_random_uuid(), 'Croton sp', 'Sangregado', 'Euphorbiaceae', 0.51)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25246,7 +25246,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25268,7 +25268,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25290,7 +25290,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25312,7 +25312,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25334,7 +25334,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25356,7 +25356,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25378,7 +25378,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25400,7 +25400,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25422,7 +25422,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'OLEACEAE', 0.55)
+                (gen_random_uuid(), 'Fraxinus uhdei', 'Urapan', 'Oleaceae', 0.55)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25444,7 +25444,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25466,7 +25466,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Senna viarum', 'Alcaparro grande', 'FABACEAE', 0.62)
+                (gen_random_uuid(), 'Senna viarum', 'Alcaparro Grande', 'Fabaceae', 0.62)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25488,7 +25488,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25510,7 +25510,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'FABACEAE', 0.58)
+                (gen_random_uuid(), 'Inga bogotensis', 'Guamo', 'Fabaceae', 0.58)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25532,7 +25532,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25554,7 +25554,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25576,7 +25576,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
@@ -25598,7 +25598,7 @@ BEGIN;
             INSERT INTO species
                 (id, scientific_name, common_name, family, wood_density_g_cm3)
             VALUES
-                (gen_random_uuid(), 'Ficus soatensis', 'Caucho sabanero', 'MORACEAE', 0.41)
+                (gen_random_uuid(), 'Ficus soatensis', 'Caucho Sabanero', 'Moraceae', 0.41)
             ON CONFLICT (scientific_name) DO UPDATE SET
                 common_name = EXCLUDED.common_name,
                 family = EXCLUDED.family,
