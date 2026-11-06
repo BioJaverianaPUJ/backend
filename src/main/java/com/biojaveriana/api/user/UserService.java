@@ -57,10 +57,6 @@ public class UserService {
             user.setGender(dto.gender());
         }
 
-        if (dto.enabled() != null) {
-            user.setDeactivated(!dto.enabled());
-        }
-
         return userRepository.save(user);
     }
 
@@ -69,12 +65,6 @@ public class UserService {
         userRepository.delete(user);
     }
 
-
-    public User disableUser(UUID id) {
-        var user = findById(id);
-        user.setDeactivated(true);
-        return userRepository.save(user);
-    }
 
     public User updateMe(User user, MeUserUpdateRequest dto) {
         if (dto.firstName() != null) {

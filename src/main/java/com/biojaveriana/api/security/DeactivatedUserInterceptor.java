@@ -12,15 +12,14 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 
 import com.biojaveriana.api.common.exceptions.NotAuthorizedException;
-import com.biojaveriana.api.user.User;
-import com.biojaveriana.api.user.UserService;
+import com.biojaveriana.api.user.BanService;
 import com.biojaveriana.api.user.exceptions.UserDeactivatedException;
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
 
 @Component
 @RequiredArgsConstructor
 public class DeactivatedUserInterceptor implements HandlerInterceptor {
-    private final UserService userService;
+    private final BanService banService;
 
     @Override
     public boolean preHandle(
@@ -38,16 +37,13 @@ public class DeactivatedUserInterceptor implements HandlerInterceptor {
         }
 
         UUID userId = UUID.fromString(jwt.getSubject());
-        User user;
 
         try {
-            user = userService.findById(userId);
+            banService.checkActiveBan(userId);
+        } catch (UserDeactivatedException e) {
+            throw e;
         } catch (UserNotFoundException e) {
             throw new NotAuthorizedException();
-        }
-
-        if (user.isDeactivated()) {
-            throw new UserDeactivatedException();
         }
 
         return true;

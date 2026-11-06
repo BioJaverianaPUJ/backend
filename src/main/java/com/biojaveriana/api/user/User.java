@@ -22,7 +22,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Builder.Default;
 
 @Entity
 @Table(name = "users")
@@ -69,10 +68,6 @@ public class User {
     @Enumerated(EnumType.STRING)
     @Column(name = "role", nullable = false)
     private Role role;
-
-    @Default
-    @Column(name = "deactivated", nullable = false)
-    private boolean deactivated = false;
 
     @Column(name = "username_last_update")
     private Instant usernameLastUpdate;
