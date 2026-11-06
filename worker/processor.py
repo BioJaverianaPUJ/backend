@@ -74,7 +74,11 @@ class ObservationProcessor:
                 "success": True,
                 "speciesCommonName": result.species,
                 "certainty": result.certainty,
-                "observationType": "ANIMAL" if result.is_animal else "PLANT",
+                "observationType": {
+                    "Animalia": "ANIMAL",
+                    "Plantae": "PLANT",
+                    "Fungi": "FUNGI",
+                }.get(result.kingdom, "UNKNOWN"),
                 "errorMessage": None,
             }
 
