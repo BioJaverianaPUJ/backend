@@ -94,12 +94,16 @@ def main() -> None:
 
     # Start consuming
     logger.info("Starting %d consumer(s)...", config.CONSUMER_COUNT)
+    consumers = []
 
     try:
         for i in range(config.CONSUMER_COUNT):
-            # Start consumer in a thread
+            # Each consumer needs its own connection/channel to call start_consuming() concurrently
+            consumer_client = connect_rabbitmq()
+            consumer_processor = ObservationProcessor(model_client, s3_client, consumer_client)
             t = ThreadPoolExecutor(max_workers=1)
-            future = t.submit(rabbitmq_client.consume, processor.process_message)
+            future = t.submit(consumer_client.consume, consumer_processor.process_message, consumer_tag=f"worker-consumer-{i}")
+            consumers.append((t, future, consumer_client))
             logger.info("Consumer %d started (thread pool future: %s)", i + 1, id(future))
     except KeyboardInterrupt:
         logger.info("Worker interrupted by user.")
@@ -115,7 +119,13 @@ def main() -> None:
     except KeyboardInterrupt:
         logger.info("Shutting down...")
     finally:
-        logger.info("Closing RabbitMQ connection...")
+        # Close all consumer connections
+        for executor, future, client in consumers:
+            try:
+                client.close()
+            except Exception as e:
+                logger.warning("Error closing consumer connection: %s", e)
+        logger.info("Closing main RabbitMQ connection...")
         rabbitmq_client.close()
         logger.info("Worker stopped.")
 

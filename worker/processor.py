@@ -121,7 +121,7 @@ class ObservationProcessor:
 
         try:
             self.rabbitmq_client.publish_response(response)
-            ch.basic_ack(delivery_tag=ch.last_delivery_tag)
+            ch.basic_ack(delivery_tag=method.delivery_tag)
             logger.info("Published error response for observation %s", observation_id)
         except Exception as e:
             logger.error("Failed to publish error response for observation %s: %s", observation_id, e)

@@ -77,7 +77,8 @@ class BioClipModelClient:
     def _apply_softmax(self, logits: torch.Tensor, temperature: float) -> np.ndarray:
         logits = logits / temperature
         exp_logits = torch.exp(logits - logits.max())
-        return exp_logits / exp_logits.sum()
+        probs = exp_logits / exp_logits.sum()
+        return probs.cpu().numpy()
 
     def classify(self, image: Image.Image) -> ClassificationResult:
         kingdom_result = self._classify_kingdom(image)
@@ -122,8 +123,11 @@ class BioClipModelClient:
         species_names = [label.replace("a photo of ", "") for label in labels]
         top_idx = int(np.argmax(probs))
         top_score = float(probs[top_idx])
-        sorted_indices = np.argsort(probs)[::-1][:10]
-        all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
+        if len(probs) > 0:
+            sorted_indices = np.argsort(probs)[::-1][:10]
+            all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
+        else:
+            all_scores = []
         logger.info("Species classification (animal): %s (%.4f)", species_names[top_idx], top_score)
         return {"species": species_names[top_idx], "certainty": top_score, "all_scores": all_scores}
 
@@ -142,8 +146,11 @@ class BioClipModelClient:
         species_names = [label.replace("a photo of ", "") for label in labels]
         top_idx = int(np.argmax(probs))
         top_score = float(probs[top_idx])
-        sorted_indices = np.argsort(probs)[::-1][:10]
-        all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
+        if len(probs) > 0:
+            sorted_indices = np.argsort(probs)[::-1][:10]
+            all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
+        else:
+            all_scores = []
         logger.info("Species classification (plant): %s (%.4f)", species_names[top_idx], top_score)
         return {"species": species_names[top_idx], "certainty": top_score, "all_scores": all_scores}
 
