@@ -30,7 +30,8 @@ public class GlobalExceptionHandler {
                 ex.getCode(),
                 ex.getDescription(),
                 request.getRequestURI(),
-                Instant.now());
+                Instant.now(),
+                ex.getDetails());
 
         return new ResponseEntity<>(errorResponse, ex.getStatus());
     }
@@ -56,7 +57,8 @@ public class GlobalExceptionHandler {
                 "INTERNAL_SERVER_ERROR",
                 "An unexpected error occurred.",
                 request.getRequestURI(),
-                Instant.now());
+                Instant.now(),
+                null);
 
         return ResponseEntity
                 .status(HttpStatus.INTERNAL_SERVER_ERROR)

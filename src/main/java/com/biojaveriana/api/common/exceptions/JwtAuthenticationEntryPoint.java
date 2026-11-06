@@ -33,7 +33,8 @@ public class JwtAuthenticationEntryPoint implements AuthenticationEntryPoint {
                 "UNAUTHORIZED",
                 "Authentication required. Please provide a valid JWT token.",
                 request.getRequestURI(),
-                Instant.now()
+                Instant.now(),
+                null
         );
 
         jsonMapper.writeValue(response.getOutputStream(), errorResponse);

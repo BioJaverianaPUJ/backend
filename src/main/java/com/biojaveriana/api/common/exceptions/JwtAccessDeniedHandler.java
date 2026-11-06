@@ -33,7 +33,8 @@ public class JwtAccessDeniedHandler implements AccessDeniedHandler {
                 "FORBIDDEN",
                 "You do not have permission to access this resource.",
                 request.getRequestURI(),
-                Instant.now()
+                Instant.now(),
+                null
         );
 
         jsonMapper.writeValue(response.getOutputStream(), errorResponse);

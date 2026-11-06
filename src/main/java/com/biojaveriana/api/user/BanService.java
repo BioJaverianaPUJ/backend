@@ -93,7 +93,7 @@ public class BanService {
                 ban.setStatus(BanStatus.EXPIRED);
                 banRepository.save(ban);
             } else {
-                throw new UserDeactivatedException();
+                throw new UserDeactivatedException(ban.getBanType(), ban.getExpiresAt());
             }
         });
     }
