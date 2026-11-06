@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -102,10 +104,22 @@ public class BanService {
     }
 
     @Transactional(readOnly = true)
+    public Page<Ban> findAllBansPageable(Pageable pageable) {
+        return banRepository.findByOrderByCreatedAtDesc(pageable);
+    }
+
+    @Transactional(readOnly = true)
     public List<Ban> findBansByUserId(UUID userId) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new UserNotFoundException(userId));
         return banRepository.findByUserOrderByCreatedAtDesc(user);
+    }
+
+    @Transactional(readOnly = true)
+    public Page<Ban> findBansByUserIdPageable(UUID userId, Pageable pageable) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new UserNotFoundException(userId));
+        return banRepository.findByUserOrderByCreatedAtDesc(user, pageable);
     }
 
     @Transactional(readOnly = true)

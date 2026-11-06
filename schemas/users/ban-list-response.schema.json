@@ -1,0 +1,23 @@
+{
+    "$schema": "http://json-schema.org/draft-07/schema#",
+    "title": "BanListResponse",
+    "description": "Paginated list of bans",
+    "type": "object",
+    "required": [
+        "content",
+        "pagination"
+    ],
+    "properties": {
+        "content": {
+            "type": "array",
+            "items": {
+                "$ref": "./ban-response.schema.json"
+            },
+            "description": "Bans on the current page"
+        },
+        "pagination": {
+            "$ref": "../common/pagination.schema.json"
+        }
+    },
+    "additionalProperties": false
+}

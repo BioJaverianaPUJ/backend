@@ -1,8 +1,8 @@
 package com.biojaveriana.api.user;
 
 import java.util.UUID;
-import java.util.List;
-
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -11,14 +11,18 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biojaveriana.api.security.CurrentUser;
 import com.biojaveriana.api.security.HasRole;
+import com.biojaveriana.api.user.dto.BanListResponse;
 import com.biojaveriana.api.user.dto.BanResponse;
 import com.biojaveriana.api.user.dto.CreateBanRequest;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
 
 @RestController
@@ -66,21 +70,30 @@ public class BanController {
 
     @GetMapping
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<List<BanResponse>> findAllBans() {
-        return ResponseEntity.ok(
-            banService.findAllBans().stream()
-                .map(BanResponse::from)
-                .collect(java.util.stream.Collectors.toList())
+    public ResponseEntity<BanListResponse> findAllBans(
+        @RequestParam(defaultValue = "0") @Min(0) int page,
+        @RequestParam(defaultValue = "20") @Max(100) int size
+    ) {
+        var pageable = PageRequest.of(
+            page, size,
+            Sort.by("createdAt").descending()
         );
+        var banPage = banService.findAllBansPageable(pageable);
+        return ResponseEntity.ok(BanListResponse.from(banPage));
     }
 
     @GetMapping("/user/{userId}")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<List<BanResponse>> findBansByUser(@PathVariable UUID userId) {
-        return ResponseEntity.ok(
-            banService.findBansByUserId(userId).stream()
-                .map(BanResponse::from)
-                .collect(java.util.stream.Collectors.toList())
+    public ResponseEntity<BanListResponse> findBansByUser(
+        @PathVariable UUID userId,
+        @RequestParam(defaultValue = "0") @Min(0) int page,
+        @RequestParam(defaultValue = "20") @Max(100) int size
+    ) {
+        var pageable = PageRequest.of(
+            page, size,
+            Sort.by("createdAt").descending()
         );
+        var banPage = banService.findBansByUserIdPageable(userId, pageable);
+        return ResponseEntity.ok(BanListResponse.from(banPage));
     }
 }
