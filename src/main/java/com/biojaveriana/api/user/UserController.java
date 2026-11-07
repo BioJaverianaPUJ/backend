@@ -91,7 +91,7 @@ public class UserController {
         @CurrentUser User user,
         @RequestParam String type,
         @RequestPart("file") @Valid MultipartFile file
-    ) throws java.io.IOException {
+    ) throws IOException {
         var mediaType = parseMediaType(type);
         if (mediaType == null) {
             throw new InvalidMediaTypeException(type);
@@ -136,7 +136,7 @@ public class UserController {
         @PathVariable String username,
         @RequestParam String type,
         @RequestPart("file") @Valid MultipartFile file
-    ) throws java.io.IOException {
+    ) throws IOException {
         var user = userService.findByUsername(username);
         return uploadMediaInternal(user, type, file);
     }
