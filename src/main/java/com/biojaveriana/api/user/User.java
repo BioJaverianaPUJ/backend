@@ -81,4 +81,7 @@ public class User {
 
     @Column(name = "banner_key")
     private String bannerKey;
+
+    @Column(name = "last_observation_time")
+    private Instant lastObservationTime;
 }

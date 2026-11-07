@@ -58,3 +58,7 @@ app:
     enabled: true
     min-certainty: 0.00315 # 95% for 301 species
     max-distance-meters: 50
+
+  observation-rate-limit:
+    enabled: true
+    cooldown-seconds: 300
