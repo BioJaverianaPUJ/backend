@@ -2,8 +2,9 @@ package com.biojaveriana.api.comment;
 
 import java.util.Comparator;
 import java.util.List;
-import java.util.UUID;
 import java.util.Map;
+import java.util.UUID;
+import java.util.stream.Collectors;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -207,9 +208,9 @@ public class CommentService {
     private CommentResponse toResponse(Comment comment, CommentReaction existingReaction) {
         Map<ReactionType, List<UserSummaryResponse>> reactionMap = comment.getReactions() != null
             ? comment.getReactions().stream()
-                .collect(java.util.stream.Collectors.groupingBy(
+                .collect(Collectors.groupingBy(
                     reaction -> reaction.getEmoji(),
-                    java.util.stream.Collectors.mapping(
+                    Collectors.mapping(
                         r -> new UserSummaryResponse(
                             r.getUser().getId(),
                             r.getUser().getUsername(),
@@ -218,10 +219,10 @@ public class CommentService {
                             r.getUser().getProfilePictureKey() != null
                                 ? s3UrlGenerator.generateUrl(r.getUser().getProfilePictureKey())
                                 : null),
-                        java.util.stream.Collectors.toList()
+                        Collectors.toList()
                     )
                 ))
-            : java.util.Map.of();
+            : Map.of();
 
         List<ReactionSummaryResponse> reactions = reactionMap.entrySet().stream()
             .map(entry -> new ReactionSummaryResponse(

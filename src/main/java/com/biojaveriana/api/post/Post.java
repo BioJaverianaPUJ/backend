@@ -1,6 +1,8 @@
 package com.biojaveriana.api.post;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -77,9 +79,9 @@ public class Post {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "post")
     @Builder.Default
-    private java.util.List<PostImage> images = new java.util.ArrayList<>();
+    private List<PostImage> images = new ArrayList<>();
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "post")
     @Builder.Default
-    private java.util.List<PostVote> votes = new java.util.ArrayList<>();
+    private List<PostVote> votes = new ArrayList<>();
 }

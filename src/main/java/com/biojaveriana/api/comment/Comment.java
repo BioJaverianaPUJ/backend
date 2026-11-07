@@ -1,6 +1,8 @@
 package com.biojaveriana.api.comment;
 
 import java.time.Instant;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -76,5 +78,5 @@ public class Comment {
 
     @OneToMany(fetch = FetchType.LAZY, mappedBy = "comment")
     @Builder.Default
-    private java.util.List<CommentReaction> reactions = new java.util.ArrayList<>();
+    private List<CommentReaction> reactions = new ArrayList<>();
 }

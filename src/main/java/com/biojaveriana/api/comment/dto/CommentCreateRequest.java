@@ -1,5 +1,6 @@
 package com.biojaveriana.api.comment.dto;
 
+import java.util.UUID;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -16,5 +17,5 @@ public class CommentCreateRequest {
     @Size(max = 5000, message = "Content must be at most 5000 characters")
     private String content;
 
-    private java.util.UUID parentId;
+    private UUID parentId;
 }

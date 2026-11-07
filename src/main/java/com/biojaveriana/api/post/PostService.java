@@ -1,5 +1,8 @@
 package com.biojaveriana.api.post;
 
+import java.time.Duration;
+import java.time.Instant;
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
@@ -36,7 +39,6 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 public class PostService {
-
     private static final int MAX_IMAGES = 10;
     private static final String POSTS_PREFIX = "posts/";
 
@@ -48,8 +50,8 @@ public class PostService {
 
     @Transactional
     public UploadPresign createPresign(User user, String contentType) {
-        String key = POSTS_PREFIX + user.getId() + "/" + java.util.UUID.randomUUID() + "." + getFileExtension(contentType);
-        return new UploadPresign(key, "", "PUT", contentType, java.time.Instant.now().plus(java.time.Duration.ofMinutes(5)));
+        String key = POSTS_PREFIX + user.getId() + "/" + UUID.randomUUID() + "." + getFileExtension(contentType);
+        return new UploadPresign(key, "", "PUT", contentType, Instant.now().plus(Duration.ofMinutes(5)));
     }
 
     @Transactional
@@ -72,7 +74,7 @@ public class PostService {
         post = postRepository.save(post);
 
         if (request.getImageKeys() != null) {
-            List<PostImage> images = new java.util.ArrayList<>();
+            List<PostImage> images = new ArrayList<>();
             for (int i = 0; i < request.getImageKeys().length; i++) {
                 var image = PostImage.builder()
                     .post(post)
