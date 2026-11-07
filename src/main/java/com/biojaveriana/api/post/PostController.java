@@ -27,10 +27,16 @@ import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import org.springframework.validation.annotation.Validated;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/posts")
+@Validated
 @RequiredArgsConstructor
 public class PostController {
 
@@ -76,8 +82,9 @@ public class PostController {
     @GetMapping
     public ResponseEntity<PostListResponse> list(
             @CurrentUser User user,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
+            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @RequestParam(defaultValue = "20") @Max(value = 100) int size) {
+        log.info("Listing posts for user {}", user.getId());
         return ResponseEntity.ok(postService.list(user, page, size));
     }
 
@@ -85,8 +92,9 @@ public class PostController {
     public ResponseEntity<PostListResponse> listByAuthor(
             @PathVariable UUID authorId,
             @CurrentUser User currentUser,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
+            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @RequestParam(defaultValue = "20") @Max(value = 100) int size) {
+        log.info("Listing posts by author {}", authorId);
         return ResponseEntity.ok(postService.listByAuthor(authorId, currentUser, page, size));
     }
 
@@ -108,8 +116,9 @@ public class PostController {
     @GetMapping("/admin")
     @HasRole(value = Role.ADMIN)
     public ResponseEntity<PostListResponse> listAllForAdmin(
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "50") int size) {
+            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @RequestParam(defaultValue = "50") @Max(value = 100) int size) {
+        log.info("Listing all posts for admin");
         return ResponseEntity.ok(postService.listAllForAdmin(page, size));
     }
 

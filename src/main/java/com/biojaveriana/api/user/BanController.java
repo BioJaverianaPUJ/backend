@@ -3,6 +3,7 @@ package com.biojaveriana.api.user;
 import java.util.UUID;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,7 +25,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/bans")
 @Validated
@@ -58,7 +61,7 @@ public class BanController {
             );
         }
 
-        return ResponseEntity.ok(BanResponse.from(ban));
+        return ResponseEntity.status(HttpStatus.CREATED).body(BanResponse.from(ban));
     }
 
     @PatchMapping("/{id}/cancel")

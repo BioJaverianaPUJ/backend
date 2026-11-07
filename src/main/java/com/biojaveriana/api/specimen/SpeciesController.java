@@ -17,18 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biojaveriana.api.security.CurrentUser;
+import com.biojaveriana.api.security.HasRole;
+import com.biojaveriana.api.specimen.dto.SpeciesCreateRequest;
 import com.biojaveriana.api.specimen.dto.SpeciesListResponse;
 import com.biojaveriana.api.specimen.dto.SpeciesResponse;
-import com.biojaveriana.api.security.HasRole;
-import com.biojaveriana.api.specimen.dto.SpeciesCreateDTO;
-import com.biojaveriana.api.specimen.dto.SpeciesUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpeciesUpdateRequest;
 import com.biojaveriana.api.user.Role;
+import com.biojaveriana.api.user.User;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/species")
 @Validated
@@ -47,14 +51,18 @@ public class SpeciesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SpeciesResponse> getSpeciesById(@PathVariable String id) {
-        var species = speciesService.findById(UUID.fromString(id));
+    public ResponseEntity<SpeciesResponse> getSpeciesById(@PathVariable UUID id) {
+        var species = speciesService.findById(id);
         return ResponseEntity.ok(SpeciesResponse.from(species));
     }
 
     @PostMapping
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<SpeciesResponse> create(@Valid @RequestBody SpeciesCreateDTO speciesRequest) {
+    public ResponseEntity<SpeciesResponse> create(
+        @CurrentUser User admin,
+        @Valid @RequestBody SpeciesCreateRequest speciesRequest
+    ) {
+        log.info("Creating species by admin id={}", admin.getId());
         var species = speciesService.create(speciesRequest);
         return ResponseEntity.status(HttpStatus.CREATED).body(SpeciesResponse.from(species));
     }
@@ -62,17 +70,23 @@ public class SpeciesController {
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
     public ResponseEntity<SpeciesResponse> update(
-            @PathVariable String id,
-            @Valid @RequestBody SpeciesUpdateDTO speciesUpdate
+        @PathVariable UUID id,
+        @CurrentUser User admin,
+        @Valid @RequestBody SpeciesUpdateRequest speciesUpdate
     ) {
-        var updatedSpecies = speciesService.update(UUID.fromString(id), speciesUpdate);
+        log.info("Updating species {} by admin id={}", id, admin.getId());
+        var updatedSpecies = speciesService.update(id, speciesUpdate);
         return ResponseEntity.ok(SpeciesResponse.from(updatedSpecies));
     }
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        speciesService.delete(UUID.fromString(id));
+    public ResponseEntity<Void> delete(
+        @PathVariable UUID id,
+        @CurrentUser User admin
+    ) {
+        log.info("Deleting species {} by admin id={}", id, admin.getId());
+        speciesService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }

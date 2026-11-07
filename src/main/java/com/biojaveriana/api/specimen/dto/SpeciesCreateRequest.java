@@ -6,7 +6,7 @@ import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.NotBlank;
 
 
-public record SpeciesCreateDTO(
+public record SpeciesCreateRequest(
     @NotBlank
     String scientificName,
 

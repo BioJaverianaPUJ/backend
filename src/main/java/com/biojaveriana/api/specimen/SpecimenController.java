@@ -17,18 +17,22 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.biojaveriana.api.security.CurrentUser;
 import com.biojaveriana.api.security.HasRole;
-import com.biojaveriana.api.specimen.dto.SpecimenCreateDTO;
+import com.biojaveriana.api.specimen.dto.SpecimenCreateRequest;
 import com.biojaveriana.api.specimen.dto.SpecimenListResponse;
 import com.biojaveriana.api.specimen.dto.SpecimenResponse;
-import com.biojaveriana.api.specimen.dto.SpecimenUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpecimenUpdateRequest;
 import com.biojaveriana.api.user.Role;
+import com.biojaveriana.api.user.User;
 
 import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/specimens")
 @Validated
@@ -47,32 +51,42 @@ public class SpecimenController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SpecimenResponse> getSpecimenById(@PathVariable String id) {
-        var specimen = specimenService.findById(UUID.fromString(id));
+    public ResponseEntity<SpecimenResponse> getSpecimenById(@PathVariable UUID id) {
+        var specimen = specimenService.findById(id);
         return ResponseEntity.ok(SpecimenResponse.from(specimen));
     }
 
     @PostMapping
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<SpecimenResponse> create(@Valid @RequestBody SpecimenCreateDTO specimenRequest) {
-        var specimen = specimenService.create(specimenRequest);
+    public ResponseEntity<SpecimenResponse> create(
+        @CurrentUser User admin,
+        @Valid @RequestBody SpecimenCreateRequest request
+    ) {
+        log.info("Creating specimen by admin id={}", admin.getId());
+        var specimen = specimenService.create(request);
         return ResponseEntity.status(HttpStatus.CREATED).body(SpecimenResponse.from(specimen));
     }
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
     public ResponseEntity<SpecimenResponse> update(
-        @PathVariable String id,
-        @Valid @RequestBody SpecimenUpdateDTO specimenUpdate
+        @PathVariable UUID id,
+        @CurrentUser User admin,
+        @Valid @RequestBody SpecimenUpdateRequest specimenUpdate
     ) {
-        var updatedSpecimen = specimenService.update(UUID.fromString(id), specimenUpdate);
+        log.info("Updating specimen {} by admin id={}", id, admin.getId());
+        var updatedSpecimen = specimenService.update(id, specimenUpdate);
         return ResponseEntity.ok(SpecimenResponse.from(updatedSpecimen));
     }
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        specimenService.delete(UUID.fromString(id));
+    public ResponseEntity<Void> delete(
+        @PathVariable UUID id,
+        @CurrentUser User admin
+    ) {
+        log.info("Deleting specimen {} by admin id={}", id, admin.getId());
+        specimenService.delete(id);
         return ResponseEntity.noContent().build();
     }
 }

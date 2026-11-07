@@ -3,7 +3,7 @@ package com.biojaveriana.api.specimen.dto;
 import com.biojaveriana.api.specimen.HealthStatus;
 import java.time.Instant;
 
-public record SpecimenUpdateDTO(
+public record SpecimenUpdateRequest(
     Double latitude,
     Double longitude,
     Double circumference,

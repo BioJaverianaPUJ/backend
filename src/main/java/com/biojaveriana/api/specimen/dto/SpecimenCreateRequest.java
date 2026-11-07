@@ -9,7 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import java.time.Instant;
 import java.util.UUID;
 
-public record SpecimenCreateDTO(
+public record SpecimenCreateRequest(
         UUID speciesId,
         @NotNull Double latitude,
         @NotNull Double longitude,

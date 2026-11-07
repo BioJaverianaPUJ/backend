@@ -28,7 +28,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/observations")
 @Validated
@@ -49,13 +51,13 @@ public class ObservationController {
     }
 
     @GetMapping("/{id}/job-status")
-    public ResponseEntity<ObservationJobStatusResponse> getJobStatus(@CurrentUser User user, @PathVariable String id) {
-        return ResponseEntity.ok(observationService.getJobStatus(UUID.fromString(id), user));
+    public ResponseEntity<ObservationJobStatusResponse> getJobStatus(@CurrentUser User user, @PathVariable UUID id) {
+        return ResponseEntity.ok(observationService.getJobStatus(id, user));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ObservationResponse> getObservation(@CurrentUser User user, @PathVariable String id) {
-        return ResponseEntity.ok(observationService.getObservation(UUID.fromString(id), user));
+    public ResponseEntity<ObservationResponse> getObservation(@CurrentUser User user, @PathVariable UUID id) {
+        return ResponseEntity.ok(observationService.getObservation(id, user));
     }
 
     @GetMapping
@@ -76,8 +78,8 @@ public class ObservationController {
     }
 
     @PostMapping("/{id}/revision-request")
-    public ResponseEntity<ObservationResponse> requestRevision(@CurrentUser User user, @PathVariable String id) {
-        observationService.requestRevision(UUID.fromString(id), user);
-        return ResponseEntity.ok(observationService.getObservation(UUID.fromString(id), user));
+    public ResponseEntity<ObservationResponse> requestRevision(@CurrentUser User user, @PathVariable UUID id) {
+        observationService.requestRevision(id, user);
+        return ResponseEntity.ok(observationService.getObservation(id, user));
     }
 }

@@ -32,7 +32,9 @@ import jakarta.validation.Valid;
 import jakarta.validation.constraints.Max;
 import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/users")
 @Validated
@@ -49,8 +51,8 @@ public class UserController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable String id) {
-        var user = userService.findById(UUID.fromString(id));
+    public ResponseEntity<UserResponse> getUserById(@PathVariable UUID id) {
+        var user = userService.findById(id);
         return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
@@ -76,8 +78,8 @@ public class UserController {
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<UserResponse> update(@PathVariable String id, @Valid @RequestBody UserUpdateRequest dto) {
-        var user = userService.updateById(UUID.fromString(id), dto);
+    public ResponseEntity<UserResponse> update(@PathVariable UUID id, @Valid @RequestBody UserUpdateRequest dto) {
+        var user = userService.updateById(id, dto);
         return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
@@ -182,13 +184,17 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<Void> delete(@PathVariable String id) {
-        var user = userService.findById(UUID.fromString(id));
+    public ResponseEntity<Void> delete(
+        @PathVariable UUID id,
+        @CurrentUser User admin
+    ) {
+        var user = userService.findById(id);
         if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
             throw new SuperAdminDeletionException();
         }
 
-        userService.deleteById(UUID.fromString(id));
+        log.info("Deleting user {} by admin id={}", id, admin.getId());
+        userService.deleteById(id);
         return ResponseEntity.noContent().build();
     }
 }
