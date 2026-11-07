@@ -42,4 +42,4 @@ ENV PYTHONUNBUFFERED=1 \
 HEALTHCHECK --interval=60s --timeout=15s --start-period=120s --retries=3 \
     CMD python -c "import torch, open_clip, sys; sys.exit(0)"
 
-CMD ["python", "worker/main.py"]
+CMD ["python", "-m", "worker.main"]
