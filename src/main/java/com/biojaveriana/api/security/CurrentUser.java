@@ -7,6 +7,4 @@ import java.lang.annotation.RetentionPolicy;
 
 @Target(ElementType.PARAMETER)
 @Retention(RetentionPolicy.RUNTIME)
-public @interface CurrentUser {
-    boolean required() default true;
-}
+public @interface CurrentUser {}

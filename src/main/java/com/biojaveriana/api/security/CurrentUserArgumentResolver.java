@@ -38,21 +38,6 @@ public class CurrentUserArgumentResolver implements HandlerMethodArgumentResolve
         NativeWebRequest webRequest,
         @Nullable WebDataBinderFactory binderFactory
     ) throws Exception {
-        var currentUserAnnotation = parameter.getParameterAnnotation(CurrentUser.class);
-        if (currentUserAnnotation != null && !currentUserAnnotation.required()) {
-            // Optional user - return null if not authenticated
-            var authentication = SecurityContextHolder
-                .getContext()
-                .getAuthentication();
-            if (authentication == null || !authentication.isAuthenticated()) {
-                return null;
-            }
-            if (!(authentication.getPrincipal() instanceof Jwt jwt)) {
-                return null;
-            }
-            // User is authenticated but not required - continue to resolve
-        }
-
         var authentication = SecurityContextHolder
             .getContext()
             .getAuthentication();

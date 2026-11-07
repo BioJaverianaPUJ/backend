@@ -1,5 +1,6 @@
 package com.biojaveriana.api.post;
 
+import java.util.Comparator;
 import java.util.List;
 import java.util.UUID;
 
@@ -282,7 +283,7 @@ public class PostService {
     private PostResponse toResponse(Post post, PostVote existingVote) {
         List<PostImageResponse> images = post.getImages() != null
             ? post.getImages().stream()
-                .sorted(java.util.Comparator.comparingInt(PostImage::getOrderIndex))
+                .sorted(Comparator.comparingInt(image -> image.getOrderIndex()))
                 .map(img -> new PostImageResponse(
                     img.getId(),
                     img.getS3Key(),

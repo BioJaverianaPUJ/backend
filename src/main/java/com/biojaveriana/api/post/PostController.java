@@ -68,13 +68,13 @@ public class PostController {
     @GetMapping("/{postId}")
     public ResponseEntity<PostResponse> getById(
             @PathVariable UUID postId,
-            @CurrentUser(required = false) User user) {
+            @CurrentUser User user) {
         return ResponseEntity.ok(postService.getById(postId, user));
     }
 
     @GetMapping
     public ResponseEntity<PostListResponse> list(
-            @CurrentUser(required = false) User user,
+            @CurrentUser User user,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size) {
         return ResponseEntity.ok(postService.list(user, page, size));
@@ -83,7 +83,7 @@ public class PostController {
     @GetMapping("/authors/{authorId}")
     public ResponseEntity<PostListResponse> listByAuthor(
             @PathVariable UUID authorId,
-            @CurrentUser(required = false) User currentUser,
+            @CurrentUser User currentUser,
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "20") int size) {
         return ResponseEntity.ok(postService.listByAuthor(authorId, currentUser, page, size));
