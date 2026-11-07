@@ -45,6 +45,10 @@ public class UserService {
     public User updateById(UUID id, UserUpdateRequest dto) {
         var user = findById(id);
 
+        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+            throw new SuperAdminRoleModificationException();
+        }
+
         if (dto.username() != null) {
             if (!dto.username().equals(user.getUsername())) {
                 if (userRepository.existsByUsername(dto.username())) {
@@ -55,10 +59,6 @@ public class UserService {
         }
 
         if (dto.role() != null) {
-            if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
-                throw new SuperAdminRoleModificationException();
-            }
-
             user.setRole(dto.role());
         }
 
