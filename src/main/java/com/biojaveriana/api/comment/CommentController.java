@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,13 +20,15 @@ import com.biojaveriana.api.comment.dto.CommentReactionRequest;
 import com.biojaveriana.api.comment.dto.CommentResponse;
 import com.biojaveriana.api.comment.dto.CommentUpdateRequest;
 import com.biojaveriana.api.security.CurrentUser;
+import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.User;
+import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/comments")
+@RequestMapping("/api/v1/comments")
 @RequiredArgsConstructor
 public class CommentController {
 
@@ -99,7 +100,7 @@ public class CommentController {
         return ResponseEntity.noContent().build();
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @HasRole(value = Role.ADMIN)
     @PutMapping("/{commentId}/toggle-hidden")
     public ResponseEntity<CommentResponse> toggleHidden(
             @PathVariable UUID commentId,
@@ -107,7 +108,7 @@ public class CommentController {
         return ResponseEntity.ok(commentService.toggleHidden(commentId, user));
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
+    @HasRole(value = Role.ADMIN)
     @PutMapping("/{commentId}/toggle-banned")
     public ResponseEntity<CommentResponse> toggleBanned(
             @PathVariable UUID commentId,

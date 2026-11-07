@@ -2,7 +2,9 @@ package com.biojaveriana.api.report.dto;
 
 import com.biojaveriana.api.common.Pagination;
 
+import java.util.List;
+
 public record ReportListResponse(
-    java.util.List<ReportSummaryResponse> content,
+    List<ReportSummaryResponse> content,
     Pagination pagination
 ) {}

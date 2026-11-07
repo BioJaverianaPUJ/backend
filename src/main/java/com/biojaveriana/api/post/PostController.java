@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -23,13 +22,15 @@ import com.biojaveriana.api.post.dto.PostUpdateRequest;
 import com.biojaveriana.api.post.dto.PostVoteRequest;
 import com.biojaveriana.api.s3.UploadPresign;
 import com.biojaveriana.api.security.CurrentUser;
+import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.User;
+import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 
 @RestController
-@RequestMapping("/api/posts")
+@RequestMapping("/api/v1/posts")
 @RequiredArgsConstructor
 public class PostController {
 
@@ -104,24 +105,24 @@ public class PostController {
         return ResponseEntity.ok(postService.removeVote(postId, user));
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @GetMapping("/admin")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<PostListResponse> listAllForAdmin(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "50") int size) {
         return ResponseEntity.ok(postService.listAllForAdmin(page, size));
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{postId}/toggle-hidden")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<PostResponse> toggleHidden(
             @PathVariable UUID postId,
             @CurrentUser User user) {
         return ResponseEntity.ok(postService.toggleHidden(postId, user));
     }
 
-    @PreAuthorize("hasRole('ADMIN')")
     @PutMapping("/{postId}/toggle-banned")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<PostResponse> toggleBanned(
             @PathVariable UUID postId,
             @CurrentUser User user) {

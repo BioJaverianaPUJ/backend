@@ -4,7 +4,6 @@ import java.util.UUID;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PutMapping;
@@ -19,7 +18,9 @@ import com.biojaveriana.api.report.dto.ReportListResponse;
 import com.biojaveriana.api.report.dto.ReportResponse;
 import com.biojaveriana.api.report.dto.ReportUpdateStatusRequest;
 import com.biojaveriana.api.security.CurrentUser;
+import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.User;
+import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
@@ -27,10 +28,9 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
-@RequestMapping("/api/reports")
+@RequestMapping("/api/v1/reports")
 @RequiredArgsConstructor
 public class ReportController {
-
     private final ReportService reportService;
 
     @PostMapping
@@ -43,8 +43,7 @@ public class ReportController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReportResponse> getReport(
-            @PathVariable UUID id) {
+    public ResponseEntity<ReportResponse> getReport(@PathVariable UUID id) {
         log.info("Getting report id={}", id);
         ReportResponse response = reportService.getReport(id);
         return ResponseEntity.ok(response);
@@ -61,7 +60,7 @@ public class ReportController {
     }
 
     @GetMapping("/by-reported-user")
-    @PreAuthorize("hasAnyRole(\"ADMIN\", \"SUPERADMIN\")")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<ReportListResponse> getReportsByReportedUser(
             @RequestParam UUID reportedUserId,
             @RequestParam(defaultValue = "0") int page,
@@ -72,7 +71,7 @@ public class ReportController {
     }
 
     @GetMapping("/admin/all")
-    @PreAuthorize("hasAnyRole(\"ADMIN\", \"SUPERADMIN\")")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<ReportListResponse> getAllReportsForAdmin(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
@@ -82,7 +81,7 @@ public class ReportController {
     }
 
     @GetMapping("/admin/pending")
-    @PreAuthorize("hasAnyRole(\"ADMIN\", \"SUPERADMIN\")")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<ReportListResponse> getPendingReportsForAdmin(
             @RequestParam(defaultValue = "0") int page,
             @RequestParam(defaultValue = "10") int size) {
@@ -92,7 +91,7 @@ public class ReportController {
     }
 
     @PutMapping("/{id}/status")
-    @PreAuthorize("hasAnyRole(\"ADMIN\", \"SUPERADMIN\")")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<ReportResponse> updateReportStatus(
             @PathVariable UUID id,
             @RequestBody @Valid ReportUpdateStatusRequest request) {
