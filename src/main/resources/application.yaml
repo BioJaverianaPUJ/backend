@@ -56,8 +56,8 @@ app:
 
   specimen-matching:
     enabled: true
-    min-certainty: 0.95
-    max-distance-meters: 50
+    min-similarity-score: 0.25
+    max-distance-meters: 5000
 
   observation-rate-limit:
     enabled: true

@@ -19,6 +19,7 @@ class ClassificationResult:
     kingdom: str
     species: str
     certainty: float
+    similarityScore: float
     all_scores: list[tuple[str, float]]
 
 
@@ -84,12 +85,12 @@ class BioClipModelClient:
         kingdom_result = self._classify_kingdom(image)
         if kingdom_result["kingdom"] == "Animalia":
             species_result = self._classify_species(image)
-            return ClassificationResult(is_animal=True, kingdom=kingdom_result["kingdom"], species=species_result["species"], certainty=species_result["certainty"], all_scores=[(l, s) for l, s in species_result["all_scores"][:10]])
+            return ClassificationResult(is_animal=True, kingdom=kingdom_result["kingdom"], species=species_result["species"], certainty=species_result["certainty"], similarityScore=species_result["similarityScore"], all_scores=[(l, s) for l, s in species_result["all_scores"][:10]])
         elif kingdom_result["kingdom"] == "Plantae":
             species_result = self._classify_plant_species(image)
-            return ClassificationResult(is_animal=False, kingdom=kingdom_result["kingdom"], species=species_result["species"], certainty=species_result["certainty"], all_scores=[(l, s) for l, s in species_result["all_scores"][:10]])
+            return ClassificationResult(is_animal=False, kingdom=kingdom_result["kingdom"], species=species_result["species"], certainty=species_result["certainty"], similarityScore=species_result["similarityScore"], all_scores=[(l, s) for l, s in species_result["all_scores"][:10]])
         else:
-            return ClassificationResult(is_animal=False, kingdom=kingdom_result["kingdom"], species=kingdom_result["best_label"], certainty=kingdom_result["best_score"], all_scores=list(kingdom_result["all_scores"]))
+            return ClassificationResult(is_animal=False, kingdom=kingdom_result["kingdom"], species=kingdom_result["best_label"], certainty=kingdom_result["best_score"], similarityScore=kingdom_result["best_score"], all_scores=list(kingdom_result["all_scores"]))
 
     def _classify_kingdom(self, image: Image.Image) -> dict:
         image_tensor = self.preprocess(image).unsqueeze(0).to(self._device)
@@ -118,6 +119,7 @@ class BioClipModelClient:
             image_embedding = self.model.encode_image(image_tensor)
             image_embedding = image_embedding / image_embedding.norm(dim=-1, keepdim=True)
             logits = torch.matmul(image_embedding, self._animal_embeddings.T).squeeze(0)
+            similarityScore = float(logits.max())
         probs = self._apply_softmax(logits, self._temperature)
         labels = config.get_animal_labels()
         species_names = [label.replace("a photo of ", "") for label in labels]
@@ -128,8 +130,8 @@ class BioClipModelClient:
             all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
         else:
             all_scores = []
-        logger.info("Species classification (animal): %s (%.4f)", species_names[top_idx], top_score)
-        return {"species": species_names[top_idx], "certainty": top_score, "all_scores": all_scores}
+        logger.info("Species classification (animal): %s (%.4f, similarity=%.4f)", species_names[top_idx], top_score, similarityScore)
+        return {"species": species_names[top_idx], "certainty": top_score, "similarityScore": similarityScore, "all_scores": all_scores}
 
     def _classify_plant_species(self, image: Image.Image) -> dict:
         if self._plant_embeddings is None:
@@ -141,6 +143,7 @@ class BioClipModelClient:
             image_embedding = self.model.encode_image(image_tensor)
             image_embedding = image_embedding / image_embedding.norm(dim=-1, keepdim=True)
             logits = torch.matmul(image_embedding, self._plant_embeddings.T).squeeze(0)
+            similarityScore = float(logits.max())
         probs = self._apply_softmax(logits, self._temperature)
         labels = config.get_plant_labels()
         species_names = [label.replace("a photo of ", "") for label in labels]
@@ -151,8 +154,8 @@ class BioClipModelClient:
             all_scores = [(species_names[i], float(probs[i])) for i in sorted_indices]
         else:
             all_scores = []
-        logger.info("Species classification (plant): %s (%.4f)", species_names[top_idx], top_score)
-        return {"species": species_names[top_idx], "certainty": top_score, "all_scores": all_scores}
+        logger.info("Species classification (plant): %s (%.4f, similarity=%.4f)", species_names[top_idx], top_score, similarityScore)
+        return {"species": species_names[top_idx], "certainty": top_score, "similarityScore": similarityScore, "all_scores": all_scores}
 
 
 _model_client: Optional[BioClipModelClient] = None
