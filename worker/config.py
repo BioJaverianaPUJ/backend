@@ -471,7 +471,7 @@ class Config:
         "Solanum sessiliflorum",
     ]
     PLANT_SPECIES_LIST: list[str] = []
-    TEMPERATURE: float = _get_env_float("INFERENCE_TEMPERATURE", 100.0)
+    TEMPERATURE: float = _get_env_float("INFERENCE_TEMPERATURE", 1.0)
 
     # --- Concurrency ---
     CONSUMER_COUNT: int = _get_env_int("CONSUMER_COUNT", 4)

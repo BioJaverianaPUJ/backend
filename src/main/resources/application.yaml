@@ -56,7 +56,7 @@ app:
 
   specimen-matching:
     enabled: true
-    min-certainty: 0.00315 # 95% for 301 species
+    min-certainty: 0.95
     max-distance-meters: 50
 
   observation-rate-limit:
