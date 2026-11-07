@@ -24,6 +24,7 @@ import com.biojaveriana.api.user.dto.UserListResponse;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
 import com.biojaveriana.api.user.dto.UserResponse;
 import com.biojaveriana.api.s3.ObjectService;
+import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
 import com.biojaveriana.api.user.exceptions.InvalidMediaTypeException;
 
 import jakarta.validation.Valid;
@@ -36,6 +37,8 @@ import lombok.RequiredArgsConstructor;
 @Validated
 @RequiredArgsConstructor
 public class UserController {
+    private static final String SUPERADMIN_USERNAME = "superadmin";
+
     private final UserService userService;
     private final ObjectService objectService;
 
@@ -65,6 +68,7 @@ public class UserController {
             page, size,
             Sort.by("username").ascending()
         );
+
         var userPage = userService.findAll(pageable);
         return UserListResponse.from(userPage);
     }
@@ -193,6 +197,11 @@ public class UserController {
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
     public void delete(@PathVariable String id) {
+        var user = userService.findById(UUID.fromString(id));
+        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+            throw new SuperAdminDeletionException();
+        }
+
         userService.deleteById(UUID.fromString(id));
     }
 }

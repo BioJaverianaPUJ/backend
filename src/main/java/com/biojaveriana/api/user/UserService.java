@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
+import com.biojaveriana.api.user.exceptions.SuperAdminRoleModificationException;
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
 import com.biojaveriana.api.user.exceptions.UsernameAlreadyExistsException;
 import com.biojaveriana.api.user.exceptions.UsernameChangeCooldownException;
@@ -21,6 +23,9 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class UserService {
+
+    private static final String SUPERADMIN_USERNAME = "superadmin";
+
     private final UserRepository userRepository;
 
     public Page<User> findAll(Pageable pageable) {
@@ -50,6 +55,10 @@ public class UserService {
         }
 
         if (dto.role() != null) {
+            if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+                throw new SuperAdminRoleModificationException();
+            }
+
             user.setRole(dto.role());
         }
 
@@ -62,6 +71,10 @@ public class UserService {
 
     public void deleteById(UUID id) {
         var user = findById(id);
+        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+            throw new SuperAdminDeletionException();
+        }
+
         userRepository.delete(user);
     }
 
