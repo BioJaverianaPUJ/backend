@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
+import com.biojaveriana.api.user.exceptions.SuperAdminRoleModificationException;
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
 import com.biojaveriana.api.user.exceptions.UsernameAlreadyExistsException;
 import com.biojaveriana.api.user.exceptions.UsernameChangeCooldownException;
@@ -21,6 +23,9 @@ import lombok.RequiredArgsConstructor;
 @Transactional
 @RequiredArgsConstructor
 public class UserService {
+
+    private static final String SUPERADMIN_USERNAME = "superadmin";
+
     private final UserRepository userRepository;
 
     public Page<User> findAll(Pageable pageable) {
@@ -40,6 +45,10 @@ public class UserService {
     public User updateById(UUID id, UserUpdateRequest dto) {
         var user = findById(id);
 
+        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+            throw new SuperAdminRoleModificationException();
+        }
+
         if (dto.username() != null) {
             if (!dto.username().equals(user.getUsername())) {
                 if (userRepository.existsByUsername(dto.username())) {
@@ -57,24 +66,18 @@ public class UserService {
             user.setGender(dto.gender());
         }
 
-        if (dto.enabled() != null) {
-            user.setDeactivated(!dto.enabled());
-        }
-
         return userRepository.save(user);
     }
 
     public void deleteById(UUID id) {
         var user = findById(id);
+        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+            throw new SuperAdminDeletionException();
+        }
+
         userRepository.delete(user);
     }
 
-
-    public User disableUser(UUID id) {
-        var user = findById(id);
-        user.setDeactivated(true);
-        return userRepository.save(user);
-    }
 
     public User updateMe(User user, MeUserUpdateRequest dto) {
         if (dto.firstName() != null) {

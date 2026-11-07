@@ -20,6 +20,7 @@ public class ObservationMessageResponse {
     private boolean success;
     private String speciesCommonName;
     private Double certainty;
+    private Double similarityScore;
     private ObservationType observationType;
     private String errorMessage;
 }

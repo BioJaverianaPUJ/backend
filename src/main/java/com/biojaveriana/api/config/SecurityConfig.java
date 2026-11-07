@@ -20,6 +20,8 @@ import org.springframework.security.oauth2.jwt.NimbusJwtDecoder;
 import org.springframework.security.oauth2.jwt.NimbusJwtEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
+import com.biojaveriana.api.common.exceptions.JwtAccessDeniedHandler;
+import com.biojaveriana.api.common.exceptions.JwtAuthenticationEntryPoint;
 import com.nimbusds.jose.jwk.source.ImmutableSecret;
 
 @Configuration
@@ -48,7 +50,9 @@ public class SecurityConfig {
     }
 
     @Bean
-    public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
+    public SecurityFilterChain securityFilterChain(HttpSecurity http,
+                                                   JwtAuthenticationEntryPoint authenticationEntryPoint,
+                                                   JwtAccessDeniedHandler accessDeniedHandler) throws Exception {
         return http
             .csrf(csrf -> csrf.disable())
             .sessionManagement(session -> session
@@ -59,7 +63,9 @@ public class SecurityConfig {
                 .anyRequest().authenticated()
             )
             .oauth2ResourceServer(oauth2 -> oauth2
-                .jwt(Customizer.withDefaults()))
+                .jwt(Customizer.withDefaults())
+                .authenticationEntryPoint(authenticationEntryPoint)
+                .accessDeniedHandler(accessDeniedHandler))
             .build();
     }
 }

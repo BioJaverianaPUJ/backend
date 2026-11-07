@@ -16,11 +16,13 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class JwtService {
+    private static final long TOKEN_EXPIRY_SECONDS = 1209600; // 2 weeks
+
     private final JwtEncoder jwtEncoder;
 
     public Token generateToken(User user) {
         var now = Instant.now();
-        var expiry = now.plusSeconds(3600);
+        var expiry = now.plusSeconds(TOKEN_EXPIRY_SECONDS);
 
         var claims = JwtClaimsSet.builder()
             .issuer("bio-javeriana")

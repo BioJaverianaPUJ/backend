@@ -140,7 +140,7 @@ services:
       DEVICE: cpu
       HF_HOME: /models/hf
       MODEL_PRECISION: float16
-      INFERENCE_TEMPERATURE: "100.0"
+      INFERENCE_TEMPERATURE: "1.0"
       CONSUMER_COUNT: "4"
       LOG_LEVEL: INFO
       SHUTDOWN_TIMEOUT: "30.0"

@@ -56,6 +56,7 @@ public class ObservationMessageConsumer {
             observation.setChecked(true);
             observation.setSpeciesCommonName(response.getSpeciesCommonName());
             observation.setCertainty(response.getCertainty());
+            observation.setSimilarityScore(response.getSimilarityScore());
             observation.setObservationType(response.getObservationType());
 
             // Try to match to an existing specimen (plant observations only)

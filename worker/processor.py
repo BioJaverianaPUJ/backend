@@ -74,6 +74,7 @@ class ObservationProcessor:
                 "success": True,
                 "speciesCommonName": result.species,
                 "certainty": result.certainty,
+                "similarityScore": result.similarityScore,
                 "observationType": {
                     "Animalia": "ANIMAL",
                     "Plantae": "PLANT",
@@ -115,6 +116,7 @@ class ObservationProcessor:
             "success": False,
             "speciesCommonName": None,
             "certainty": 0.0,
+            "similarityScore": None,
             "observationType": None,
             "errorMessage": error_message,
         }

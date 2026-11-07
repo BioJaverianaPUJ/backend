@@ -50,10 +50,11 @@ public class SpecimenMatcherService {
             return Optional.empty();
         }
 
+        Double similarityScore = observation.getSimilarityScore();
         Double certainty = observation.getCertainty();
-        if (certainty == null || certainty < matchingProperties.getMinCertainty()) {
-            log.debug("Certainty {:.4f} is below threshold {:.4f} for observation {} - skipping specimen matching",
-                    certainty != null ? certainty : 0.0, matchingProperties.getMinCertainty(), observation.getId());
+        if (similarityScore == null || similarityScore < matchingProperties.getMinSimilarityScore()) {
+            log.debug("Similarity score {:.4f} (certainty {:.4f}) is below threshold {:.4f} for observation {} - skipping specimen matching",
+                    similarityScore != null ? similarityScore : 0.0, certainty != null ? certainty : 0.0, matchingProperties.getMinSimilarityScore(), observation.getId());
             return Optional.empty();
         }
 
@@ -66,8 +67,8 @@ public class SpecimenMatcherService {
         // Stage 1: Broad DB-level search - any specimen whose scientific name contains the observed name
         List<Specimen> candidatesByName = specimenRepository.findBySpeciesScientificNameContainingIgnoreCase(observedSpecies);
 
-        log.debug("Found {} candidate specimens for observation {} (species='{}', certainty={:.4f}, distanceThreshold={:.0f}m)",
-                candidatesByName.size(), observation.getId(), observedSpecies, certainty, matchingProperties.getMaxDistanceMeters());
+        log.debug("Found {} candidate specimens for observation {} (species='{}', similarity={:.4f}, certainty={:.4f}, distanceThreshold={:.0f}m)",
+                candidatesByName.size(), observation.getId(), observedSpecies, similarityScore, certainty, matchingProperties.getMaxDistanceMeters());
 
         if (candidatesByName.isEmpty()) {
             log.debug("No candidate specimens found for observation {} (species='{}')", observation.getId(), observedSpecies);
@@ -97,11 +98,12 @@ public class SpecimenMatcherService {
                 .min(Comparator.comparingDouble((DistanceCandidate candidate) -> candidate.distanceMeters()))
                 .orElseThrow();
 
-        log.info("Matched observation {} to specimen {} (species='{}', distance={:.0f}m, certainty={:.4f})",
+        log.info("Matched observation {} to specimen {} (species='{}', distance={:.0f}m, similarity={:.4f}, certainty={:.4f})",
                 observation.getId(),
                 bestMatch.specimen().getId(),
                 bestMatch.specimen().getSpecies().getScientificName(),
                 bestMatch.distanceMeters(),
+                similarityScore,
                 certainty);
 
         return Optional.of(bestMatch.specimen());

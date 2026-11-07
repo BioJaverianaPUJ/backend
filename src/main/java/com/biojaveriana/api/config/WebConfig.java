@@ -7,6 +7,7 @@ import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import com.biojaveriana.api.security.RoleGuardInterceptor;
+import com.biojaveriana.api.security.DeactivatedUserInterceptor;
 
 import com.biojaveriana.api.security.CurrentUserArgumentResolver;
 
@@ -16,6 +17,7 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class WebConfig implements WebMvcConfigurer {
     private final CurrentUserArgumentResolver currentUserArgumentResolver;
+    private final DeactivatedUserInterceptor deactivatedUserInterceptor;
     private final RoleGuardInterceptor roleGuardInterceptor;
 
     @Override
@@ -25,6 +27,7 @@ public class WebConfig implements WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
+        registry.addInterceptor(deactivatedUserInterceptor);
         registry.addInterceptor(roleGuardInterceptor);
     }
 }

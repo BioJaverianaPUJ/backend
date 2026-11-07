@@ -25,6 +25,7 @@ public class ObservationResponse {
     private boolean revisionRequested;
     private String speciesCommonName;
     private Double certainty;
+    private Double similarityScore;
     private ObservationType observationType;
     private SpecimenResponse specimen;
     private String imageUrl;
@@ -39,6 +40,7 @@ public class ObservationResponse {
             .revisionRequested(observation.isRevisionRequested())
             .speciesCommonName(observation.getSpeciesCommonName())
             .certainty(observation.getCertainty())
+            .similarityScore(observation.getSimilarityScore())
             .observationType(observation.getObservationType())
             .imageUrl(urlGenerator.generateUrl(observation.getReferencePictureKey()))
             .specimen(observation.getSpecimen() != null ? SpecimenResponse.from(observation.getSpecimen()) : null)
