@@ -21,14 +21,12 @@ import com.biojaveriana.api.comment.dto.ReactionSummaryResponse;
 import com.biojaveriana.api.comment.dto.UserSummaryResponse;
 import com.biojaveriana.api.comment.exceptions.CommentForbiddenException;
 import com.biojaveriana.api.comment.exceptions.CommentNotFoundException;
-import com.biojaveriana.api.comment.exceptions.CommentReactionDuplicateException;
 import com.biojaveriana.api.common.Pagination;
 import com.biojaveriana.api.post.Post;
 import com.biojaveriana.api.post.PostRepository;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
-import com.biojaveriana.api.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,13 +35,10 @@ import lombok.extern.slf4j.Slf4j;
 @Service
 @RequiredArgsConstructor
 public class CommentService {
-
     private final CommentRepository commentRepository;
     private final CommentReactionRepository commentReactionRepository;
     private final PostRepository postRepository;
-    private final UserRepository userRepository;
     private final S3UrlGenerator s3UrlGenerator;
-
 
     @Transactional
     public CommentResponse create(UUID postId, User user, CommentCreateRequest request) {
@@ -213,7 +208,7 @@ public class CommentService {
         Map<ReactionType, List<UserSummaryResponse>> reactionMap = comment.getReactions() != null
             ? comment.getReactions().stream()
                 .collect(java.util.stream.Collectors.groupingBy(
-                    CommentReaction::getEmoji,
+                    reaction -> reaction.getEmoji(),
                     java.util.stream.Collectors.mapping(
                         r -> new UserSummaryResponse(
                             r.getUser().getId(),
