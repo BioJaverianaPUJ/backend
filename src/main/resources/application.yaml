@@ -43,10 +43,6 @@ app:
     dead-letter-queue: "observation.jobs.dlq"
     job-expiry-hours: 24
 
-  outbox:
-    processing:
-      delayMs: 10000
-
   s3:
     bucket: ${S3_BUCKET:biojaveriana}
     endpoint: ${S3_ENDPOINT:http://localhost:9000}
@@ -57,7 +53,7 @@ app:
   specimen-matching:
     enabled: true
     min-similarity-score: 0.25
-    max-distance-meters: 5000
+    max-distance-meters: 20
 
   observation-rate-limit:
     enabled: true
