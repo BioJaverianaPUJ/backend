@@ -3,8 +3,8 @@ package com.biojaveriana.api.specimen;
 import java.util.UUID;
 
 import jakarta.validation.Valid;
-import com.biojaveriana.api.specimen.dto.SpeciesCreateDTO;
-import com.biojaveriana.api.specimen.dto.SpeciesUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpeciesCreateRequest;
+import com.biojaveriana.api.specimen.dto.SpeciesUpdateRequest;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -29,7 +29,7 @@ public class SpeciesService {
             .orElseThrow(() -> new SpeciesNotFoundException(id));
     }
 
-    public Species create(@Valid SpeciesCreateDTO dto) {
+    public Species create(@Valid SpeciesCreateRequest dto) {
         if (speciesRepository.existsByScientificName(dto.scientificName())) {
             throw new SpeciesAlreadyExistsException(dto.scientificName(), null);
         }
@@ -41,7 +41,7 @@ public class SpeciesService {
         return speciesRepository.save(dto.toEntity());
     }
 
-    public Species update(UUID id, @Valid SpeciesUpdateDTO dto) {
+    public Species update(UUID id, @Valid SpeciesUpdateRequest dto) {
         var species = speciesRepository.findById(id)
                 .orElseThrow(() -> new SpeciesNotFoundException(id));
 

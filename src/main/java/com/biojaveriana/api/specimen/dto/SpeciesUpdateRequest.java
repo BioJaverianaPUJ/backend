@@ -2,7 +2,7 @@ package com.biojaveriana.api.specimen.dto;
 
 import jakarta.validation.constraints.DecimalMin;
 
-public record SpeciesUpdateDTO(
+public record SpeciesUpdateRequest(
     String scientificName,
     String commonName,
     String family,

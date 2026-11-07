@@ -25,10 +25,16 @@ import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.user.Role;
 
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.validation.annotation.Validated;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/comments")
+@Validated
 @RequiredArgsConstructor
 public class CommentController {
 
@@ -70,16 +76,18 @@ public class CommentController {
     @GetMapping
     public ResponseEntity<CommentListResponse> listByPost(
             @RequestParam UUID postId,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
+            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @RequestParam(defaultValue = "20") @Max(value = 100) int size) {
+        log.info("Listing comments for post {}", postId);
         return ResponseEntity.ok(commentService.listByPost(postId, page, size));
     }
 
     @GetMapping("/{parentId}/replies")
     public ResponseEntity<CommentListResponse> listReplies(
             @PathVariable UUID parentId,
-            @RequestParam(defaultValue = "0") int page,
-            @RequestParam(defaultValue = "20") int size) {
+            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @RequestParam(defaultValue = "20") @Max(value = 100) int size) {
+        log.info("Listing replies for parent comment {}", parentId);
         return ResponseEntity.ok(commentService.listReplies(parentId, page, size));
     }
 
