@@ -63,6 +63,12 @@ public class RoleGuardInterceptor implements HandlerInterceptor {
             throw new NotAuthorizedException();
         }
 
+
+        // Superadmin bypasses all role checks
+        if (user.getRole() == Role.SUPERADMIN) {
+            return true;
+        }
+
         // Verify role
         Role[] requiredRoles = hasRole.value();
         for (Role role : requiredRoles) {
