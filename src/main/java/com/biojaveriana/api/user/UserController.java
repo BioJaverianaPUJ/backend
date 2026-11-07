@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -43,24 +44,24 @@ public class UserController {
     private final ObjectService objectService;
 
     @GetMapping("/me")
-    public UserResponse getCurrentUser(@CurrentUser User user) {
-        return UserResponse.from(user, objectService);
+    public ResponseEntity<UserResponse> getCurrentUser(@CurrentUser User user) {
+        return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @GetMapping("/{id}")
-    public UserResponse getUserById(@PathVariable String id) {
+    public ResponseEntity<UserResponse> getUserById(@PathVariable String id) {
         var user = userService.findById(UUID.fromString(id));
-        return UserResponse.from(user, objectService);
+        return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @GetMapping("/@{username}")
-    public UserResponse getUserByAtUsername(@PathVariable String username) {
+    public ResponseEntity<UserResponse> getUserByAtUsername(@PathVariable String username) {
         var user = userService.findByUsername(username);
-        return UserResponse.from(user, objectService);
+        return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @GetMapping
-    public UserListResponse findAll(
+    public ResponseEntity<UserListResponse> findAll(
         @RequestParam(defaultValue = "0") @Min(0) int page,
         @RequestParam(defaultValue = "20") @Max(100) int size
     ) {
@@ -70,48 +71,33 @@ public class UserController {
         );
 
         var userPage = userService.findAll(pageable);
-        return UserListResponse.from(userPage);
+        return ResponseEntity.ok(UserListResponse.from(userPage));
     }
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public UserResponse update(@PathVariable String id, @Valid @RequestBody UserUpdateRequest dto) {
+    public ResponseEntity<UserResponse> update(@PathVariable String id, @Valid @RequestBody UserUpdateRequest dto) {
         var user = userService.updateById(UUID.fromString(id), dto);
-        return UserResponse.from(user, objectService);
+        return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @PatchMapping("/me")
-    public UserResponse updateMe(@CurrentUser User user, @Valid @RequestBody MeUserUpdateRequest dto) {
+    public ResponseEntity<UserResponse> updateMe(@CurrentUser User user, @Valid @RequestBody MeUserUpdateRequest dto) {
         var updated = userService.updateMe(user, dto);
-        return UserResponse.from(updated, objectService);
+        return ResponseEntity.ok(UserResponse.from(updated, objectService));
     }
 
     @PatchMapping("/me/media")
-    public UserResponse uploadMedia(
+    public ResponseEntity<UserResponse> uploadMedia(
         @CurrentUser User user,
         @RequestParam String type,
         @RequestPart("file") @Valid MultipartFile file
     ) throws IOException {
-        var mediaType = parseMediaType(type);
-        if (mediaType == null) {
-            throw new InvalidMediaTypeException(type);
-        }
-
-        var oldKey = mediaType.getOldKey(user);
-        if (oldKey != null) {
-            objectService.delete(oldKey);
-        }
-
-        String newKey = mediaType.generateKey(user, file.getContentType());
-        objectService.upload(newKey, file.getInputStream(), file.getSize(), file.getContentType());
-        mediaType.setKey(user, newKey);
-        userService.save(user);
-
-        return UserResponse.from(user, objectService);
+        return ResponseEntity.ok(uploadMediaInternal(user, type, file));
     }
 
     @DeleteMapping("/me/media")
-    public UserResponse deleteMedia(
+    public ResponseEntity<UserResponse> deleteMedia(
         @CurrentUser User user,
         @RequestParam String type
     ) {
@@ -127,23 +113,23 @@ public class UserController {
             userService.save(user);
         }
 
-        return UserResponse.from(user, objectService);
+        return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @PatchMapping("/@{username}/media")
     @HasRole(value = Role.ADMIN)
-    public UserResponse uploadMediaForAdmin(
+    public ResponseEntity<UserResponse> uploadMediaForAdmin(
         @PathVariable String username,
         @RequestParam String type,
         @RequestPart("file") @Valid MultipartFile file
     ) throws IOException {
         var user = userService.findByUsername(username);
-        return uploadMediaInternal(user, type, file);
+        return ResponseEntity.ok(uploadMediaInternal(user, type, file));
     }
 
     @DeleteMapping("/@{username}/media")
     @HasRole(value = Role.ADMIN)
-    public UserResponse deleteMediaForAdmin(
+    public ResponseEntity<UserResponse> deleteMediaForAdmin(
         @PathVariable String username,
         @RequestParam String type
     ) {
@@ -161,7 +147,7 @@ public class UserController {
             userService.save(user);
         }
 
-        return UserResponse.from(user, objectService);
+        return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     private Media parseMediaType(String type) {
@@ -196,12 +182,13 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public void delete(@PathVariable String id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         var user = userService.findById(UUID.fromString(id));
         if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
             throw new SuperAdminDeletionException();
         }
 
         userService.deleteById(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
     }
 }

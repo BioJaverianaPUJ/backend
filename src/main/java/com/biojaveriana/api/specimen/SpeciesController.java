@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,41 +37,42 @@ public class SpeciesController {
     private final SpeciesService speciesService;
 
     @GetMapping
-    public SpeciesListResponse findAll(
+    public ResponseEntity<SpeciesListResponse> findAll(
             @RequestParam(defaultValue = "0") @Min(value = 0) int page,
             @RequestParam(defaultValue = "20") @Max(value = 100) int size
     ) {
         var pageable = PageRequest.of(page, size, Sort.by("scientificName").ascending());
         var speciesPage = speciesService.findAll(pageable);
-        return SpeciesListResponse.from(speciesPage);
+        return ResponseEntity.ok(SpeciesListResponse.from(speciesPage));
     }
 
     @GetMapping("/{id}")
-    public SpeciesResponse getSpeciesById(@PathVariable String id) {
+    public ResponseEntity<SpeciesResponse> getSpeciesById(@PathVariable String id) {
         var species = speciesService.findById(UUID.fromString(id));
-        return SpeciesResponse.from(species);
+        return ResponseEntity.ok(SpeciesResponse.from(species));
     }
 
     @PostMapping
     @HasRole(value = Role.ADMIN)
-    public SpeciesResponse create(@Valid @RequestBody SpeciesCreateDTO speciesRequest) {
+    public ResponseEntity<SpeciesResponse> create(@Valid @RequestBody SpeciesCreateDTO speciesRequest) {
         var species = speciesService.create(speciesRequest);
-        return SpeciesResponse.from(species);
+        return ResponseEntity.status(HttpStatus.CREATED).body(SpeciesResponse.from(species));
     }
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public SpeciesResponse update(
+    public ResponseEntity<SpeciesResponse> update(
             @PathVariable String id,
             @Valid @RequestBody SpeciesUpdateDTO speciesUpdate
     ) {
         var updatedSpecies = speciesService.update(UUID.fromString(id), speciesUpdate);
-        return SpeciesResponse.from(updatedSpecies);
+        return ResponseEntity.ok(SpeciesResponse.from(updatedSpecies));
     }
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public void delete(@PathVariable String id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         speciesService.delete(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
     }
 }

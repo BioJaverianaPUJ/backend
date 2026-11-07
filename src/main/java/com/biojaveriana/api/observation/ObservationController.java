@@ -2,6 +2,8 @@ package com.biojaveriana.api.observation;
 
 import java.util.UUID;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -35,47 +37,47 @@ public class ObservationController {
     private final ObservationService observationService;
 
     @PostMapping("/upload-presign")
-    public UploadPresign createPresign(@CurrentUser User user,
+    public ResponseEntity<UploadPresign> createPresign(@CurrentUser User user,
             @Valid @RequestBody ObservationUploadPresignRequest request) {
-        return observationService.createPresign(user, request);
+        return ResponseEntity.ok(observationService.createPresign(user, request));
     }
 
     @PostMapping
-    public ObservationJobStatusResponse create(@CurrentUser User user,
+    public ResponseEntity<ObservationJobStatusResponse> create(@CurrentUser User user,
             @Valid @RequestBody ObservationCreateRequest request) {
-        return observationService.createObservation(request, user);
+        return ResponseEntity.status(HttpStatus.CREATED).body(observationService.createObservation(request, user));
     }
 
     @GetMapping("/{id}/job-status")
-    public ObservationJobStatusResponse getJobStatus(@CurrentUser User user, @PathVariable String id) {
-        return observationService.getJobStatus(UUID.fromString(id), user);
+    public ResponseEntity<ObservationJobStatusResponse> getJobStatus(@CurrentUser User user, @PathVariable String id) {
+        return ResponseEntity.ok(observationService.getJobStatus(UUID.fromString(id), user));
     }
 
     @GetMapping("/{id}")
-    public ObservationResponse getObservation(@CurrentUser User user, @PathVariable String id) {
-        return observationService.getObservation(UUID.fromString(id), user);
+    public ResponseEntity<ObservationResponse> getObservation(@CurrentUser User user, @PathVariable String id) {
+        return ResponseEntity.ok(observationService.getObservation(UUID.fromString(id), user));
     }
 
     @GetMapping
-    public ObservationListResponse list(@CurrentUser User user,
+    public ResponseEntity<ObservationListResponse> list(@CurrentUser User user,
             @RequestParam(defaultValue = "0") @Min(value = 0) int page,
             @RequestParam(defaultValue = "20") @Max(value = 100) int size) {
-        return observationService.listObservations(user, page, size);
+        return ResponseEntity.ok(observationService.listObservations(user, page, size));
     }
 
     @HasRole(value = Role.ADMIN)
     @GetMapping("/admin")
-    public ObservationListResponse listAllForAdmin(@CurrentUser User user,
+    public ResponseEntity<ObservationListResponse> listAllForAdmin(@CurrentUser User user,
             @RequestParam(defaultValue = "false") boolean includeHidden,
             @RequestParam(defaultValue = "false") boolean revisionRequested,
             @RequestParam(defaultValue = "0") @Min(value = 0) int page,
             @RequestParam(defaultValue = "20") @Max(value = 100) int size) {
-        return observationService.listAllForAdmin(user, includeHidden, revisionRequested, page, size);
+        return ResponseEntity.ok(observationService.listAllForAdmin(user, includeHidden, revisionRequested, page, size));
     }
 
     @PostMapping("/{id}/revision-request")
-    public ObservationResponse requestRevision(@CurrentUser User user, @PathVariable String id) {
+    public ResponseEntity<ObservationResponse> requestRevision(@CurrentUser User user, @PathVariable String id) {
         observationService.requestRevision(UUID.fromString(id), user);
-        return observationService.getObservation(UUID.fromString(id), user);
+        return ResponseEntity.ok(observationService.getObservation(UUID.fromString(id), user));
     }
 }

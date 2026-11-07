@@ -4,6 +4,8 @@ import java.util.UUID;
 
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -35,41 +37,42 @@ public class SpecimenController {
     private final SpecimenService specimenService;
 
     @GetMapping
-    public SpecimenListResponse findAll(
+    public ResponseEntity<SpecimenListResponse> findAll(
         @RequestParam(defaultValue = "0") @Min(value = 0) int page,
         @RequestParam(defaultValue = "20") @Max(value = 100) int size
     ) {
         var pageable = PageRequest.of(page, size, Sort.by("id").ascending());
         var specimenPage = specimenService.findAll(pageable);
-        return SpecimenListResponse.from(specimenPage);
+        return ResponseEntity.ok(SpecimenListResponse.from(specimenPage));
     }
 
     @GetMapping("/{id}")
-    public SpecimenResponse getSpecimenById(@PathVariable String id) {
+    public ResponseEntity<SpecimenResponse> getSpecimenById(@PathVariable String id) {
         var specimen = specimenService.findById(UUID.fromString(id));
-        return SpecimenResponse.from(specimen);
+        return ResponseEntity.ok(SpecimenResponse.from(specimen));
     }
 
     @PostMapping
     @HasRole(value = Role.ADMIN)
-    public SpecimenResponse create(@Valid @RequestBody SpecimenCreateDTO specimenRequest) {
+    public ResponseEntity<SpecimenResponse> create(@Valid @RequestBody SpecimenCreateDTO specimenRequest) {
         var specimen = specimenService.create(specimenRequest);
-        return SpecimenResponse.from(specimen);
+        return ResponseEntity.status(HttpStatus.CREATED).body(SpecimenResponse.from(specimen));
     }
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public SpecimenResponse update(
+    public ResponseEntity<SpecimenResponse> update(
         @PathVariable String id,
         @Valid @RequestBody SpecimenUpdateDTO specimenUpdate
     ) {
         var updatedSpecimen = specimenService.update(UUID.fromString(id), specimenUpdate);
-        return SpecimenResponse.from(updatedSpecimen);
+        return ResponseEntity.ok(SpecimenResponse.from(updatedSpecimen));
     }
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public void delete(@PathVariable String id) {
+    public ResponseEntity<Void> delete(@PathVariable String id) {
         specimenService.delete(UUID.fromString(id));
+        return ResponseEntity.noContent().build();
     }
 }
