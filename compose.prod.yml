@@ -1,0 +1,159 @@
+# Production Compose for BioJaveriana Backend + Worker
+# Usage: docker compose -f compose.prod.yml up -d
+#
+# This file is fully self-contained. Do not rely on compose.yml (development).
+
+services:
+  postgres:
+    image: postgres:18
+    container_name: bj-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    networks:
+      - common
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 15s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
+
+  adminer:
+    image: adminer
+    container_name: bj-adminer
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - common
+      - coffee-net
+    ports:
+      - "8080:8080"
+
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: bj-rustfs
+    restart: unless-stopped
+    environment:
+      RUSTFS_ACCESS_KEY: rustfsadmin
+      RUSTFS_SECRET_KEY: rustfsadmin
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: ":9000"
+      RUSTFS_CONSOLE_ADDRESS: ":9001"
+      RUSTFS_CONSOLE_ENABLE: "true"
+    volumes:
+      - rustfs-data:/data
+    networks:
+      - common
+      - coffee-net
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:9000/health"]
+      interval: 30s
+      timeout: 10s
+      start_period: 40s
+      retries: 3
+      
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: bj-rabbitmq
+    restart: unless-stopped
+    environment:
+      RABBITMQ_DEFAULT_USER: rabbitmq
+      RABBITMQ_DEFAULT_PASS: rabbitmq
+    volumes:
+      - rabbitmq-data:/var/lib/rabbitmq
+    networks:
+      - common
+      - coffee-net
+    ports:
+      - "15672:15672"
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 15s
+      timeout: 10s
+      start_period: 30s
+      retries: 5
+
+  backend:
+    image: ghcr.io/biojaverianapuj/backend:main
+    container_name: bj-backend
+    restart: unless-stopped
+    command: java -jar app.jar
+    environment:
+      POSTGRES_URL: jdbc:postgresql://postgres:5432/postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      JWT_SECRET: M+n7MHJvcNwm6NqYcTNVRgpuGziL/jvM+BHBC7iQ1d8=
+      S3_BUCKET: biojaveriana
+      S3_ENDPOINT: http://rustfs:9000
+      S3_ACCESS_KEY: rustfsadmin
+      S3_SECRET_KEY: rustfsadmin
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: rabbitmq
+      RABBITMQ_PASSWORD: rabbitmq
+    depends_on:
+      postgres:
+        condition: service_healthy
+      rustfs:
+        condition: service_healthy
+      rabbitmq:
+        condition: service_healthy
+    networks:
+      - common
+      - coffee-net
+
+  worker:
+    image: ghcr.io/biojaverianapuj/backend/worker:main
+    container_name: bj-worker
+    restart: unless-stopped
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+      rustfs:
+        condition: service_healthy
+    environment:
+      RABBITMQ_HOST: rabbitmq
+      RABBITMQ_PORT: 5672
+      RABBITMQ_USER: rabbitmq
+      RABBITMQ_PASSWORD: rabbitmq
+      RABBITMQ_EXCHANGE: observation.jobs.exchange
+      RABBITMQ_INPUT_QUEUE: observation.jobs
+      RABBITMQ_RESPONSE_QUEUE: observation.jobs.response
+      RABBITMQ_RESPONSE_ROUTING_KEY: observation.jobs.response
+      S3_ENDPOINT: http://rustfs:9000
+      S3_BUCKET: biojaveriana
+      S3_ACCESS_KEY: rustfsadmin
+      S3_SECRET_KEY: rustfsadmin
+      S3_REGION: us-east-1
+      S3_FORCE_PATH_STYLE: "true"
+      MODEL_NAME: imageomics/bioclip-2
+      DEVICE: cpu
+      HF_HOME: /models/hf
+      MODEL_PRECISION: float16
+      INFERENCE_TEMPERATURE: "1.0"
+      CONSUMER_COUNT: "4"
+      LOG_LEVEL: INFO
+      SHUTDOWN_TIMEOUT: "30.0"
+    networks:
+      - common
+
+volumes:
+  postgres-data:
+  rustfs-data:
+  rabbitmq-data:
+
+networks:
+  common:
+    driver: bridge
+  coffee-net:
+    external: true

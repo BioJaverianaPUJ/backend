@@ -2,6 +2,10 @@ spring:
   application:
     name: api
 
+  mvc:
+    throw-exception-if-no-handler-found: true
+    throw-exception-if-no-handler-found-on-prior-requests: true
+
   datasource:
     url: ${POSTGRES_URL:jdbc:postgresql://localhost:5432/postgres}
     username: ${POSTGRES_USER:postgres}
@@ -39,13 +43,18 @@ app:
     dead-letter-queue: "observation.jobs.dlq"
     job-expiry-hours: 24
 
-  outbox:
-    processing:
-      delayMs: 10000
-
   s3:
     bucket: ${S3_BUCKET:biojaveriana}
     endpoint: ${S3_ENDPOINT:http://localhost:9000}
     region: ${S3_REGION:us-east-1}
     access-key: ${S3_ACCESS_KEY:rustfsadmin}
     secret-key: ${S3_SECRET_KEY:rustfsadmin}
+
+  specimen-matching:
+    enabled: true
+    min-similarity-score: 0.25
+    max-distance-meters: 20
+
+  observation-rate-limit:
+    enabled: true
+    cooldown-seconds: 300

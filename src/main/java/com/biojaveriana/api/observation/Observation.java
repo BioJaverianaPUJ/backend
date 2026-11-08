@@ -72,6 +72,9 @@ public class Observation {
     @Column(name = "certainty", nullable = true)
     private Double certainty;
 
+    @Column(name = "similarity_score", nullable = true)
+    private Double similarityScore;
+
     @ManyToOne(fetch = FetchType.LAZY, optional = true)
     @JoinColumn(name = "specimen_id", nullable = true)
     private Specimen specimen;

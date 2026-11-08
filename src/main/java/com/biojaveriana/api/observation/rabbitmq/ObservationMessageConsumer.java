@@ -6,12 +6,14 @@ import java.util.UUID;
 import org.springframework.amqp.rabbit.annotation.RabbitListener;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationJob;
 import com.biojaveriana.api.observation.ObservationJobRepository;
 import com.biojaveriana.api.observation.ObservationRepository;
 import com.biojaveriana.api.observation.dto.ObservationMessageResponse;
+import com.biojaveriana.api.specimen.SpecimenMatcherService;
 import tools.jackson.core.JacksonException;
 import tools.jackson.databind.json.JsonMapper;
 
@@ -25,11 +27,13 @@ public class ObservationMessageConsumer {
     private final JsonMapper objectMapper;
     private final ObservationRepository observationRepository;
     private final ObservationJobRepository observationJobRepository;
+    private final SpecimenMatcherService specimenMatcherService;
 
     @Value("${app.rabbitmq.response-queue:observation.jobs.response}")
     private String responseQueue;
 
     @RabbitListener(queues = "${app.rabbitmq.response-queue:observation.jobs.response}")
+    @Transactional
     public void handleResponse(String payload) {
         ObservationMessageResponse response;
         try {
@@ -52,7 +56,12 @@ public class ObservationMessageConsumer {
             observation.setChecked(true);
             observation.setSpeciesCommonName(response.getSpeciesCommonName());
             observation.setCertainty(response.getCertainty());
+            observation.setSimilarityScore(response.getSimilarityScore());
             observation.setObservationType(response.getObservationType());
+
+            // Try to match to an existing specimen (plant observations only)
+            specimenMatcherService.matchPlantSpecimen(observation).ifPresent(observation::setSpecimen);
+
             observationRepository.save(observation);
 
             // Mark job as completed

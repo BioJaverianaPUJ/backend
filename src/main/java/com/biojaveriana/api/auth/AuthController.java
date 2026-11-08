@@ -1,5 +1,7 @@
 package com.biojaveriana.api.auth;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,7 +15,9 @@ import com.biojaveriana.api.user.User;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/auth")
 @RequiredArgsConstructor
@@ -21,20 +25,20 @@ public class AuthController {
     private final AuthService authService;
 
     @PostMapping("/login")
-    public LoginResponse login(@Valid @RequestBody LoginRequest request) {
+    public ResponseEntity<LoginResponse> login(@Valid @RequestBody LoginRequest request) {
         var session = authService.login(request.email(), request.password());
-        return LoginResponse.from(session);
+        return ResponseEntity.ok(LoginResponse.from(session));
     }
 
     @PostMapping("/refresh-token")
-    public LoginResponse refreshToken(@CurrentUser User user) {
+    public ResponseEntity<LoginResponse> refreshToken(@CurrentUser User user) {
         var session = authService.refreshToken(user);
-        return LoginResponse.from(session);
+        return ResponseEntity.ok(LoginResponse.from(session));
     }
 
     @PostMapping("/register")
-    public LoginResponse register(@Valid @RequestBody RegistrationRequest request) {
+    public ResponseEntity<LoginResponse> register(@Valid @RequestBody RegistrationRequest request) {
         var session = authService.register(request);
-        return LoginResponse.from(session);
+        return ResponseEntity.status(HttpStatus.CREATED).body(LoginResponse.from(session));
     }
 }

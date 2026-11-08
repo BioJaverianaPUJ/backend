@@ -2,27 +2,21 @@ package com.biojaveriana.api.observation.dto;
 
 import java.util.List;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
+import org.springframework.data.domain.Page;
 
-@Getter
-@Builder
-@AllArgsConstructor
-public class ObservationListResponse {
-    private List<ObservationResponse> content;
-    private int page;
-    private int size;
-    private long totalElements;
-    private int totalPages;
+import com.biojaveriana.api.common.Pagination;
+import com.biojaveriana.api.observation.Observation;
+import com.biojaveriana.api.s3.S3UrlGenerator;
 
-    public static ObservationListResponse from(java.util.List<ObservationResponse> content, int page, int size, long totalElements, int totalPages) {
-        return ObservationListResponse.builder()
-            .content(content)
-            .page(page)
-            .size(size)
-            .totalElements(totalElements)
-            .totalPages(totalPages)
-            .build();
+public record ObservationListResponse(
+    List<ObservationResponse> content,
+    Pagination pagination
+) {
+    public static ObservationListResponse from(Page<Observation> page, S3UrlGenerator urlGenerator) {
+        List<ObservationResponse> content = page.getContent().stream()
+            .map(o -> ObservationResponse.from(o, urlGenerator))
+            .toList();
+
+        return new ObservationListResponse(content, Pagination.from(page));
     }
 }

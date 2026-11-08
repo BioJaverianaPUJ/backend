@@ -11,6 +11,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.observation.config.ObservationRateLimitConfig;
+import com.biojaveriana.api.observation.exceptions.ObservationRateLimitException;
 import com.biojaveriana.api.observation.exceptions.ObservationNotFoundException;
 import com.biojaveriana.api.observation.exceptions.ObservationForbiddenException;
 import com.biojaveriana.api.observation.dto.ObservationCreateRequest;
@@ -24,6 +26,7 @@ import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.s3.UploadPresign;
 import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
+import com.biojaveriana.api.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -33,10 +36,12 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class ObservationService {
     private final ObservationRepository observationRepository;
+    private final UserRepository userRepository;
     private final ObservationJobService jobService;
     private final ObservationImageUploader imageUploader;
     private final ObservationMessageProducer messageProducer;
     private final S3UrlGenerator urlGenerator;
+    private final ObservationRateLimitConfig rateLimitConfig;
 
     @Transactional
     public UploadPresign createPresign(User user, ObservationUploadPresignRequest request) {
@@ -47,6 +52,26 @@ public class ObservationService {
     @Transactional
     public ObservationJobStatusResponse createObservation(ObservationCreateRequest request, User user) {
         log.info("Confirmed upload for key={}", request.getReferencePictureKey());
+
+        // Rate limit check
+        if (rateLimitConfig.isEnabled()) {
+            Role role = user.getRole();
+            if (role != Role.ADMIN && role != Role.SUPERADMIN) {
+                Instant now = Instant.now();
+                Instant lastObservation = user.getLastObservationTime();
+
+                if (lastObservation != null) {
+                    long elapsedSeconds = Duration.between(lastObservation, now).getSeconds();
+                    if (elapsedSeconds < rateLimitConfig.getCooldownSeconds()) {
+                        long retryAfter = rateLimitConfig.getCooldownSeconds() - elapsedSeconds;
+                        throw new ObservationRateLimitException(retryAfter);
+                    }
+                }
+
+                user.setLastObservationTime(now);
+                userRepository.save(user);
+            }
+        }
 
         var observation = Observation.builder()
             .user(user)
@@ -143,17 +168,7 @@ public class ObservationService {
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
         Page<Observation> pageResult = observationRepository.findByUserOrderByCreatedAtDesc(user, pageable);
 
-        var content = pageResult.getContent().stream()
-            .map(o -> ObservationResponse.from(o, urlGenerator))
-            .toList();
-
-        return ObservationListResponse.from(
-            content,
-            pageResult.getNumber(),
-            pageResult.getSize(),
-            pageResult.getTotalElements(),
-            pageResult.getTotalPages()
-        );
+        return ObservationListResponse.from(pageResult, urlGenerator);
     }
 
     @Transactional
@@ -193,16 +208,6 @@ public class ObservationService {
             pageResult = observationRepository.findByHiddenFalseOrderByCreatedAtDesc(pageable);
         }
 
-        var content = pageResult.getContent().stream()
-            .map(o -> ObservationResponse.from(o, urlGenerator))
-            .toList();
-
-        return ObservationListResponse.from(
-            content,
-            pageResult.getNumber(),
-            pageResult.getSize(),
-            pageResult.getTotalElements(),
-            pageResult.getTotalPages()
-        );
+        return ObservationListResponse.from(pageResult, urlGenerator);
     }
 }

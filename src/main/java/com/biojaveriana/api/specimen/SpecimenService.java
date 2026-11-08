@@ -6,8 +6,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import com.biojaveriana.api.specimen.dto.SpecimenCreateDTO;
-import com.biojaveriana.api.specimen.dto.SpecimenUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpecimenCreateRequest;
+import com.biojaveriana.api.specimen.dto.SpecimenUpdateRequest;
 import com.biojaveriana.api.specimen.exceptions.SpecimenNotFoundException;
 import com.biojaveriana.api.specimen.exceptions.SpeciesNotFoundException;
 
@@ -28,7 +28,7 @@ public class SpecimenService {
             .orElseThrow(() -> new SpecimenNotFoundException(id));
     }
 
-    public Specimen create(SpecimenCreateDTO dto) {
+    public Specimen create(SpecimenCreateRequest dto) {
         var species = speciesRepository.findById(dto.speciesId())
             .orElseThrow(() -> new SpeciesNotFoundException(dto.speciesId()));
 
@@ -36,7 +36,7 @@ public class SpecimenService {
         return specimenRepository.save(specimen);
     }
 
-    public Specimen update(UUID id, SpecimenUpdateDTO dto) {
+    public Specimen update(UUID id, SpecimenUpdateRequest dto) {
         var specimen = specimenRepository.findById(id)
                 .orElseThrow(() -> new SpecimenNotFoundException(id));
 

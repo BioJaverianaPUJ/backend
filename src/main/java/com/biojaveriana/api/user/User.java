@@ -22,7 +22,6 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import lombok.Builder.Default;
 
 @Entity
 @Table(name = "users")
@@ -70,10 +69,6 @@ public class User {
     @Column(name = "role", nullable = false)
     private Role role;
 
-    @Default
-    @Column(name = "deactivated", nullable = false)
-    private boolean deactivated = false;
-
     @Column(name = "username_last_update")
     private Instant usernameLastUpdate;
 
@@ -86,4 +81,7 @@ public class User {
 
     @Column(name = "banner_key")
     private String bannerKey;
+
+    @Column(name = "last_observation_time")
+    private Instant lastObservationTime;
 }
