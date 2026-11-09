@@ -17,10 +17,11 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
-import com.biojaveriana.api.specimen.dto.SpeciesCreateDTO;
+import com.biojaveriana.api.specimen.dto.SpeciesCreateRequest;
 import com.biojaveriana.api.specimen.dto.SpeciesListResponse;
 import com.biojaveriana.api.specimen.dto.SpeciesResponse;
-import com.biojaveriana.api.specimen.dto.SpeciesUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpeciesUpdateRequest;
+import com.biojaveriana.api.user.User;
 
 @ExtendWith(MockitoExtension.class)
 class SpeciesControllerTest {
@@ -41,7 +42,7 @@ class SpeciesControllerTest {
         when(speciesService.findAll(any(PageRequest.class)))
             .thenReturn(new PageImpl<>(List.of(value), PageRequest.of(1, 10), 11));
 
-        SpeciesListResponse response = controller.findAll(1, 10);
+        SpeciesListResponse response = controller.findAll(1, 10).getBody();
 
         verify(speciesService).findAll(PageRequest.of(1, 10, Sort.by("scientificName").ascending()));
         assertThat(response.content()).singleElement().extracting("id").isEqualTo(value.getId());
@@ -53,7 +54,7 @@ class SpeciesControllerTest {
         Species value = species();
         when(speciesService.findById(value.getId())).thenReturn(value);
 
-        SpeciesResponse response = controller.getSpeciesById(value.getId().toString());
+        SpeciesResponse response = controller.getSpeciesById(value.getId()).getBody();
 
         verify(speciesService).findById(value.getId());
         assertThat(response.id()).isEqualTo(value.getId());
@@ -63,11 +64,11 @@ class SpeciesControllerTest {
 
     @Test
     void create_delegatesAndMapsResponse() {
-        SpeciesCreateDTO dto = new SpeciesCreateDTO("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
+        SpeciesCreateRequest dto = new SpeciesCreateRequest("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
         Species value = species();
         when(speciesService.create(dto)).thenReturn(value);
 
-        SpeciesResponse response = controller.create(dto);
+        SpeciesResponse response = controller.create(admin(), dto).getBody();
 
         verify(speciesService).create(dto);
         assertThat(response.id()).isEqualTo(value.getId());
@@ -76,10 +77,10 @@ class SpeciesControllerTest {
     @Test
     void update_parsesIdDelegatesAndMapsResponse() {
         Species value = species();
-        SpeciesUpdateDTO dto = new SpeciesUpdateDTO("New", null, null, null);
+        SpeciesUpdateRequest dto = new SpeciesUpdateRequest("New", null, null, null);
         when(speciesService.update(value.getId(), dto)).thenReturn(value);
 
-        SpeciesResponse response = controller.update(value.getId().toString(), dto);
+        SpeciesResponse response = controller.update(value.getId(), admin(), dto).getBody();
 
         verify(speciesService).update(value.getId(), dto);
         assertThat(response.id()).isEqualTo(value.getId());
@@ -89,7 +90,7 @@ class SpeciesControllerTest {
     void delete_parsesIdAndDelegates() {
         UUID id = UUID.randomUUID();
 
-        controller.delete(id.toString());
+        controller.delete(id, admin());
 
         verify(speciesService).delete(id);
     }
@@ -102,5 +103,9 @@ class SpeciesControllerTest {
             .family("Fagaceae")
             .woodDensity(0.62)
             .build();
+    }
+
+    private static User admin() {
+        return User.builder().id(UUID.randomUUID()).build();
     }
 }

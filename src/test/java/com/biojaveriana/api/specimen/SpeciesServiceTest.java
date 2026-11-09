@@ -20,8 +20,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import com.biojaveriana.api.specimen.dto.SpeciesCreateDTO;
-import com.biojaveriana.api.specimen.dto.SpeciesUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpeciesCreateRequest;
+import com.biojaveriana.api.specimen.dto.SpeciesUpdateRequest;
 import com.biojaveriana.api.specimen.exceptions.SpeciesAlreadyExistsException;
 import com.biojaveriana.api.specimen.exceptions.SpeciesNotFoundException;
 
@@ -67,7 +67,7 @@ class SpeciesServiceTest {
 
     @Test
     void create_savesEntityWhenNamesAreAvailable() {
-        SpeciesCreateDTO dto = new SpeciesCreateDTO("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
+        SpeciesCreateRequest dto = new SpeciesCreateRequest("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
         Species saved = species();
         when(speciesRepository.existsByScientificName(dto.scientificName())).thenReturn(false);
         when(speciesRepository.existsByCommonName(dto.commonName())).thenReturn(false);
@@ -79,7 +79,7 @@ class SpeciesServiceTest {
 
     @Test
     void create_rejectsExistingScientificName() {
-        SpeciesCreateDTO dto = new SpeciesCreateDTO("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
+        SpeciesCreateRequest dto = new SpeciesCreateRequest("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
         when(speciesRepository.existsByScientificName(dto.scientificName())).thenReturn(true);
 
         assertThatThrownBy(() -> speciesService.create(dto))
@@ -90,7 +90,7 @@ class SpeciesServiceTest {
 
     @Test
     void create_rejectsExistingCommonName() {
-        SpeciesCreateDTO dto = new SpeciesCreateDTO("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
+        SpeciesCreateRequest dto = new SpeciesCreateRequest("Quercus humboldtii", "Roble", "Fagaceae", 0.62);
         when(speciesRepository.existsByScientificName(dto.scientificName())).thenReturn(false);
         when(speciesRepository.existsByCommonName(dto.commonName())).thenReturn(true);
 
@@ -104,7 +104,7 @@ class SpeciesServiceTest {
         Species value = species();
         when(speciesRepository.findById(value.getId())).thenReturn(Optional.of(value));
         when(speciesRepository.save(value)).thenReturn(value);
-        SpeciesUpdateDTO dto = new SpeciesUpdateDTO("New scientific", "New common", "New family", 0.8);
+        SpeciesUpdateRequest dto = new SpeciesUpdateRequest("New scientific", "New common", "New family", 0.8);
 
         assertThat(speciesService.update(value.getId(), dto)).isSameAs(value);
         assertThat(value.getScientificName()).isEqualTo("New scientific");
@@ -120,7 +120,7 @@ class SpeciesServiceTest {
         when(speciesRepository.findById(value.getId())).thenReturn(Optional.of(value));
         when(speciesRepository.save(value)).thenReturn(value);
 
-        speciesService.update(value.getId(), new SpeciesUpdateDTO(null, null, null, null));
+        speciesService.update(value.getId(), new SpeciesUpdateRequest(null, null, null, null));
 
         assertThat(value.getScientificName()).isEqualTo("Quercus humboldtii");
         assertThat(value.getCommonName()).isEqualTo("Roble");
@@ -133,7 +133,7 @@ class SpeciesServiceTest {
         UUID id = UUID.randomUUID();
         when(speciesRepository.findById(id)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> speciesService.update(id, new SpeciesUpdateDTO(null, null, null, null)))
+        assertThatThrownBy(() -> speciesService.update(id, new SpeciesUpdateRequest(null, null, null, null)))
             .isInstanceOf(SpeciesNotFoundException.class);
     }
 

@@ -18,10 +18,11 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 
-import com.biojaveriana.api.specimen.dto.SpecimenCreateDTO;
+import com.biojaveriana.api.specimen.dto.SpecimenCreateRequest;
 import com.biojaveriana.api.specimen.dto.SpecimenListResponse;
 import com.biojaveriana.api.specimen.dto.SpecimenResponse;
-import com.biojaveriana.api.specimen.dto.SpecimenUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpecimenUpdateRequest;
+import com.biojaveriana.api.user.User;
 
 @ExtendWith(MockitoExtension.class)
 class SpecimenControllerTest {
@@ -42,7 +43,7 @@ class SpecimenControllerTest {
         when(specimenService.findAll(any(PageRequest.class)))
             .thenReturn(new PageImpl<>(List.of(value), PageRequest.of(2, 15), 31));
 
-        SpecimenListResponse response = controller.findAll(2, 15);
+        SpecimenListResponse response = controller.findAll(2, 15).getBody();
 
         verify(specimenService).findAll(PageRequest.of(2, 15, Sort.by("id").ascending()));
         assertThat(response.content()).singleElement().extracting("id").isEqualTo(value.getId());
@@ -54,7 +55,7 @@ class SpecimenControllerTest {
         Specimen value = specimen();
         when(specimenService.findById(value.getId())).thenReturn(value);
 
-        SpecimenResponse response = controller.getSpecimenById(value.getId().toString());
+        SpecimenResponse response = controller.getSpecimenById(value.getId()).getBody();
 
         verify(specimenService).findById(value.getId());
         assertThat(response.id()).isEqualTo(value.getId());
@@ -65,13 +66,13 @@ class SpecimenControllerTest {
     @Test
     void create_delegatesAndMapsResponse() {
         Species species = species();
-        SpecimenCreateDTO dto = new SpecimenCreateDTO(
+        SpecimenCreateRequest dto = new SpecimenCreateRequest(
             species.getId(), 4.5, -74.1, 1.2, 12.0, HealthStatus.WELL, "Observation", null
         );
         Specimen value = specimen();
         when(specimenService.create(dto)).thenReturn(value);
 
-        SpecimenResponse response = controller.create(dto);
+        SpecimenResponse response = controller.create(admin(), dto).getBody();
 
         verify(specimenService).create(dto);
         assertThat(response.id()).isEqualTo(value.getId());
@@ -80,10 +81,10 @@ class SpecimenControllerTest {
     @Test
     void update_parsesIdDelegatesAndMapsResponse() {
         Specimen value = specimen();
-        SpecimenUpdateDTO dto = new SpecimenUpdateDTO(5.0, null, null, null, null, null, null);
+        SpecimenUpdateRequest dto = new SpecimenUpdateRequest(5.0, null, null, null, null, null, null);
         when(specimenService.update(value.getId(), dto)).thenReturn(value);
 
-        SpecimenResponse response = controller.update(value.getId().toString(), dto);
+        SpecimenResponse response = controller.update(value.getId(), admin(), dto).getBody();
 
         verify(specimenService).update(value.getId(), dto);
         assertThat(response.id()).isEqualTo(value.getId());
@@ -93,7 +94,7 @@ class SpecimenControllerTest {
     void delete_parsesIdAndDelegates() {
         UUID id = UUID.randomUUID();
 
-        controller.delete(id.toString());
+        controller.delete(id, admin());
 
         verify(specimenService).delete(id);
     }
@@ -120,5 +121,9 @@ class SpecimenControllerTest {
             .notes("Observation")
             .observationDate(Instant.parse("2026-01-01T00:00:00Z"))
             .build();
+    }
+
+    private static User admin() {
+        return User.builder().id(UUID.randomUUID()).build();
     }
 }

@@ -21,8 +21,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Pageable;
 
-import com.biojaveriana.api.specimen.dto.SpecimenCreateDTO;
-import com.biojaveriana.api.specimen.dto.SpecimenUpdateDTO;
+import com.biojaveriana.api.specimen.dto.SpecimenCreateRequest;
+import com.biojaveriana.api.specimen.dto.SpecimenUpdateRequest;
 import com.biojaveriana.api.specimen.exceptions.SpecimenNotFoundException;
 import com.biojaveriana.api.specimen.exceptions.SpeciesNotFoundException;
 
@@ -72,7 +72,7 @@ class SpecimenServiceTest {
     @Test
     void create_findsSpeciesAndSavesSpecimen() {
         Species species = species();
-        SpecimenCreateDTO dto = new SpecimenCreateDTO(
+        SpecimenCreateRequest dto = new SpecimenCreateRequest(
             species.getId(), 4.5, -74.1, 1.2, 12.0, HealthStatus.WELL,
             "Healthy specimen", Instant.parse("2026-01-01T00:00:00Z")
         );
@@ -87,7 +87,7 @@ class SpecimenServiceTest {
     @Test
     void create_throwsWhenSpeciesMissing() {
         UUID speciesId = UUID.randomUUID();
-        SpecimenCreateDTO dto = new SpecimenCreateDTO(
+        SpecimenCreateRequest dto = new SpecimenCreateRequest(
             speciesId, 4.5, -74.1, null, null, null, "Observation", null
         );
         when(speciesRepository.findById(speciesId)).thenReturn(Optional.empty());
@@ -103,7 +103,7 @@ class SpecimenServiceTest {
         when(specimenRepository.findById(value.getId())).thenReturn(Optional.of(value));
         when(specimenRepository.save(value)).thenReturn(value);
         Instant date = Instant.parse("2026-02-01T00:00:00Z");
-        SpecimenUpdateDTO dto = new SpecimenUpdateDTO(
+        SpecimenUpdateRequest dto = new SpecimenUpdateRequest(
             5.0, -75.0, 2.0, 14.0, HealthStatus.FAIR, "Updated", date
         );
 
@@ -123,7 +123,7 @@ class SpecimenServiceTest {
         when(specimenRepository.findById(value.getId())).thenReturn(Optional.of(value));
         when(specimenRepository.save(value)).thenReturn(value);
 
-        specimenService.update(value.getId(), new SpecimenUpdateDTO(
+        specimenService.update(value.getId(), new SpecimenUpdateRequest(
             null, null, null, null, null, null, null
         ));
 
@@ -137,7 +137,7 @@ class SpecimenServiceTest {
         UUID id = UUID.randomUUID();
         when(specimenRepository.findById(id)).thenReturn(Optional.empty());
 
-        assertThatThrownBy(() -> specimenService.update(id, new SpecimenUpdateDTO(
+        assertThatThrownBy(() -> specimenService.update(id, new SpecimenUpdateRequest(
             null, null, null, null, null, null, null
         ))).isInstanceOf(SpecimenNotFoundException.class);
     }

@@ -53,7 +53,7 @@ class UserControllerTest {
         user.setProfilePictureKey("profile.jpg");
         user.setBannerKey("banner.jpg");
 
-        UserResponse response = controller.getCurrentUser(user);
+        UserResponse response = controller.getCurrentUser(user).getBody();
 
         assertResponseMatches(response, user, "https://cdn/profile.jpg", "https://cdn/banner.jpg");
     }
@@ -63,7 +63,7 @@ class UserControllerTest {
         User user = user();
         when(userService.findById(user.getId())).thenReturn(user);
 
-        UserResponse response = controller.getUserById(user.getId().toString());
+        UserResponse response = controller.getUserById(user.getId()).getBody();
 
         verify(userService).findById(user.getId());
         assertResponseMatches(response, user, null, null);
@@ -74,7 +74,7 @@ class UserControllerTest {
         User user = user();
         when(userService.findByUsername(user.getUsername())).thenReturn(user);
 
-        UserResponse response = controller.getUserByAtUsername(user.getUsername());
+        UserResponse response = controller.getUserByAtUsername(user.getUsername()).getBody();
 
         verify(userService).findByUsername(user.getUsername());
         assertResponseMatches(response, user, null, null);
@@ -86,7 +86,7 @@ class UserControllerTest {
         when(userService.findAll(any(PageRequest.class)))
             .thenReturn(new PageImpl<>(List.of(user), PageRequest.of(2, 15, Sort.by("username").ascending()), 31));
 
-        UserListResponse response = controller.findAll(2, 15);
+        UserListResponse response = controller.findAll(2, 15).getBody();
 
         assertThat(response.content()).singleElement().extracting("id").isEqualTo(user.getId());
         verify(userService).findAll(PageRequest.of(2, 15, Sort.by("username").ascending()));
@@ -96,10 +96,10 @@ class UserControllerTest {
     @Test
     void update_delegatesParsedIdAndMapsResponse() {
         User user = user();
-        UserUpdateRequest request = new UserUpdateRequest(null, null, "updated", null, null, true);
+        UserUpdateRequest request = new UserUpdateRequest(null, null, "updated", null, null);
         when(userService.updateById(user.getId(), request)).thenReturn(user);
 
-        UserResponse response = controller.update(user.getId().toString(), request);
+        UserResponse response = controller.update(user.getId(), request).getBody();
 
         verify(userService).updateById(user.getId(), request);
         assertResponseMatches(response, user, null, null);
@@ -111,7 +111,7 @@ class UserControllerTest {
         MeUserUpdateRequest request = new MeUserUpdateRequest("New", null, null, null);
         when(userService.updateMe(user, request)).thenReturn(user);
 
-        UserResponse response = controller.updateMe(user, request);
+        UserResponse response = controller.updateMe(user, request).getBody();
 
         verify(userService).updateMe(user, request);
         assertResponseMatches(response, user, null, null);
@@ -125,7 +125,7 @@ class UserControllerTest {
             "file", "new.png", "image/png", "image".getBytes()
         );
 
-        UserResponse response = controller.uploadMedia(user, "profile-picture", file);
+        UserResponse response = controller.uploadMedia(user, "profile-picture", file).getBody();
 
         verify(objectService).delete("old.jpg");
         verify(objectService).upload(
@@ -151,7 +151,7 @@ class UserControllerTest {
         User user = user();
         user.setBannerKey("old-banner.jpg");
 
-        UserResponse response = controller.deleteMedia(user, "banner");
+        UserResponse response = controller.deleteMedia(user, "banner").getBody();
 
         verify(objectService).delete("old-banner.jpg");
         verify(userService).save(user);
@@ -205,8 +205,11 @@ class UserControllerTest {
     @Test
     void delete_delegatesParsedId() {
         UUID id = UUID.randomUUID();
+        User user = user();
+        User admin = user();
+        when(userService.findById(id)).thenReturn(user);
 
-        controller.delete(id.toString());
+        controller.delete(id, admin);
 
         verify(userService).deleteById(id);
     }

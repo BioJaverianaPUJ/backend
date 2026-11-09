@@ -90,14 +90,13 @@ class UserServiceTest {
         when(userRepository.save(user)).thenReturn(user);
 
         User result = userService.updateById(user.getId(), new UserUpdateRequest(
-            null, null, "new-user", Role.ADMIN, Gender.FEMALE, false
+            null, null, "new-user", Role.ADMIN, Gender.FEMALE
         ));
 
         assertThat(result).isSameAs(user);
         assertThat(user.getUsername()).isEqualTo("new-user");
         assertThat(user.getRole()).isEqualTo(Role.ADMIN);
         assertThat(user.getGender()).isEqualTo(Gender.FEMALE);
-        assertThat(user.isDeactivated()).isTrue();
         verify(userRepository).save(user);
     }
 
@@ -107,7 +106,7 @@ class UserServiceTest {
         when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
 
         userService.updateById(user.getId(), new UserUpdateRequest(
-            null, null, user.getUsername(), null, null, null
+            null, null, user.getUsername(), null, null
         ));
 
         verify(userRepository).save(user);
@@ -121,7 +120,7 @@ class UserServiceTest {
         when(userRepository.existsByUsername("taken")).thenReturn(true);
 
         assertThatThrownBy(() -> userService.updateById(user.getId(), new UserUpdateRequest(
-            null, null, "taken", null, null, null
+            null, null, "taken", null, null
         ))).isInstanceOf(UsernameAlreadyExistsException.class);
         verify(userRepository, never()).save(any());
     }
@@ -134,16 +133,6 @@ class UserServiceTest {
         userService.deleteById(user.getId());
 
         verify(userRepository).delete(user);
-    }
-
-    @Test
-    void disableUser_deactivatesAndSavesUser() {
-        User user = user();
-        when(userRepository.findById(user.getId())).thenReturn(Optional.of(user));
-        when(userRepository.save(user)).thenReturn(user);
-
-        assertThat(userService.disableUser(user.getId()).isDeactivated()).isTrue();
-        verify(userRepository).save(user);
     }
 
     @Test
