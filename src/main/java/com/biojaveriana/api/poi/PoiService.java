@@ -17,18 +17,16 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.biojaveriana.api.common.Pagination;
+import com.biojaveriana.api.common.exceptions.ForbiddenException;
 import com.biojaveriana.api.poi.dto.PoiCreateRequest;
 import com.biojaveriana.api.poi.dto.PoiListResponse;
 import com.biojaveriana.api.poi.dto.PoiResponse;
 import com.biojaveriana.api.poi.dto.PoiTelemetryRequest;
 import com.biojaveriana.api.poi.dto.PoiUpdateRequest;
 import com.biojaveriana.api.poi.exceptions.PoiNotFoundException;
-import com.biojaveriana.api.poi.exceptions.PoiTelemetryException;
 import com.biojaveriana.api.poi.exceptions.PoiValidationException;
 import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
-import com.biojaveriana.api.user.UserRepository;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -65,8 +63,9 @@ public class PoiService {
     public PoiResponse updatePoi(UUID poiId, User user, PoiUpdateRequest request) {
         var poi = poiRepository.findById(poiId).orElseThrow(() -> new PoiNotFoundException(poiId));
         if (!poi.getCreator().getId().equals(user.getId()) && user.getRole() != Role.ADMIN && user.getRole() != Role.SUPERADMIN) {
-            throw new com.biojaveriana.api.common.exceptions.ForbiddenException();
+            throw new ForbiddenException();
         }
+
         if (request.getName() != null) poi.setName(request.getName());
         if (request.getDescription() != null) poi.setDescription(request.getDescription());
         if (request.getVisibility() != null) poi.setVisibility(request.getVisibility());

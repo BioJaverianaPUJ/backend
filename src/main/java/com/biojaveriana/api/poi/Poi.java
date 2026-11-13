@@ -1,17 +1,19 @@
 package com.biojaveriana.api.poi;
 
 import java.time.Instant;
-import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
+import org.locationtech.jts.geom.GeometryFactory;
+import org.locationtech.jts.geom.Polygon;
+import org.locationtech.jts.io.WKTReader;
 
 import com.biojaveriana.api.user.User;
 
 import jakarta.persistence.Column;
-import jakarta.persistence.Convert;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -96,10 +98,10 @@ public class Poi {
     public Geometry toGeometry() {
         try {
             if (geometryType == PoiType.POLYGON && polygonCoordinatesWkt != null) {
-                return new org.locationtech.jts.io.WKTReader().read(polygonCoordinatesWkt);
+                return new WKTReader().read(polygonCoordinatesWkt);
             } else if (geometryType == PoiType.POINT && centerLatitude != null && centerLongitude != null) {
-                var factory = new org.locationtech.jts.geom.GeometryFactory();
-                return factory.createPoint(new org.locationtech.jts.geom.Coordinate(centerLongitude, centerLatitude));
+                var factory = new GeometryFactory();
+                return factory.createPoint(new Coordinate(centerLongitude, centerLatitude));
             }
         } catch (Exception e) {
             return null;
@@ -108,12 +110,12 @@ public class Poi {
     }
 
     public static Poi fromWkt(String wkt) {
-        var reader = new org.locationtech.jts.io.WKTReader();
+        var reader = new WKTReader();
         try {
             Geometry geometry = reader.read(wkt);
             return Poi.builder()
                 .polygonCoordinatesWkt(wkt)
-                .geometryType(geometry instanceof org.locationtech.jts.geom.Polygon ? PoiType.POLYGON : PoiType.POINT)
+                .geometryType(geometry instanceof Polygon ? PoiType.POLYGON : PoiType.POINT)
                 .build();
         } catch (Exception e) {
             throw new IllegalArgumentException("Invalid WKT geometry: " + e.getMessage(), e);
