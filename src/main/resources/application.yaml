@@ -16,6 +16,9 @@ spring:
     hibernate:
       ddl-auto: ${JPA_DDL_AUTO:update}
       show-sql: ${JPA_SHOW_SQL:true}
+    properties:
+      hibernate:
+        dialect: ${POSTGIS_DIALECT:org.hibernate.spatial.dialect.postgis.PostgisDialect}
 
   rabbitmq:
     host: ${RABBITMQ_HOST:localhost}
