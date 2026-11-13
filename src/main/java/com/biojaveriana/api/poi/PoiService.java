@@ -112,9 +112,9 @@ public class PoiService {
 
     @Transactional(readOnly = true)
     public PoiListResponse listPois(User user, int page, int size) {
-        List<PoiVisibility> visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.ROLE_BASED);
+        List<PoiVisibility> visibleTypes = List.of(PoiVisibility.PUBLIC);
         if (user.getRole() == Role.ADMIN || user.getRole() == Role.SUPERADMIN) {
-            visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.PRIVATE, PoiVisibility.ROLE_BASED);
+            visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.PRIVATE);
         }
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
         Page<Poi> pageResult = poiRepository.findByActiveTrueAndVisibilityInOrderByCreatedAtDesc(visibleTypes, pageable);
@@ -125,9 +125,9 @@ public class PoiService {
     public List<PoiResponse> recordTelemetry(User user, PoiTelemetryRequest request) {
         Instant now = Instant.now();
         Instant windowStart = now.minus(Duration.ofMinutes(TELEMETRY_DEDUPLICATION_WINDOW_MINUTES));
-        List<PoiVisibility> visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.ROLE_BASED);
+        List<PoiVisibility> visibleTypes = List.of(PoiVisibility.PUBLIC);
         if (user.getRole() == Role.ADMIN || user.getRole() == Role.SUPERADMIN) {
-            visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.PRIVATE, PoiVisibility.ROLE_BASED);
+            visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.PRIVATE);
         }
         double longitude = request.getLongitude();
         double latitude = request.getLatitude();
