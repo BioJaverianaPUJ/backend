@@ -28,8 +28,6 @@ dependencies {
 	implementation(platform("software.amazon.awssdk:bom:2.32.0"))
 	implementation("software.amazon.awssdk:s3")
 	implementation("org.locationtech.jts:jts-core:1.20.0")
-	implementation("org.locationtech.jts.io:jts-io-common:1.20.0")
-	implementation("org.hibernate.orm:hibernate-spatial")
 	compileOnly("org.projectlombok:lombok")
 	developmentOnly("org.springframework.boot:spring-boot-devtools")
 	runtimeOnly("org.postgresql:postgresql")

@@ -6,9 +6,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.locationtech.jts.geom.Coordinate;
 import org.locationtech.jts.geom.Geometry;
 import org.locationtech.jts.geom.GeometryFactory;
-import org.locationtech.jts.geom.Point;
 import org.locationtech.jts.io.WKTReader;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -130,28 +130,42 @@ public class PoiService {
         }
         double longitude = request.getLongitude();
         double latitude = request.getLatitude();
+
         List<Poi> pois = new ArrayList<>();
-        var polygonPois = poiRepository.findPoisContainingPoint(visibleTypes, "POLYGON EMPTY", longitude, latitude);
+
+        // --- Point POIs: distance check in Java (Haversine) ---
+        var pointPois = poiRepository.findByActiveTrueAndVisibilityInAndGeometryType(visibleTypes, PoiType.POINT);
+        var targetPoint = new GeometryFactory().createPoint(new Coordinate(longitude, latitude));
+        for (var poi : pointPois) {
+            if (poi.getCenterLatitude() != null && poi.getCenterLongitude() != null && poi.getRadiusMeters() != null) {
+                double distance = calculateDistance(latitude, longitude,
+                    poi.getCenterLatitude(), poi.getCenterLongitude());
+                if (distance <= poi.getRadiusMeters()) {
+                    pois.add(poi);
+                }
+            }
+        }
+
+        // --- Polygon POIs: point-in-polygon in Java (JTS) ---
+        var polygonPois = poiRepository.findByActiveTrueAndVisibilityInAndGeometryType(visibleTypes, PoiType.POLYGON);
         for (var poi : polygonPois) {
             if (poi.getPolygonCoordinatesWkt() != null) {
                 try {
                     Geometry geom = new WKTReader().read(poi.getPolygonCoordinatesWkt());
-                    Point point = new GeometryFactory().createPoint(
-                        new org.locationtech.jts.geom.Coordinate(longitude, latitude));
-                    if (geom.contains(point)) pois.add(poi);
-                } catch (Exception e) { log.warn("Failed to parse WKT for POI {}: {}", poi.getId(), e.getMessage()); }
+                    if (geom.contains(targetPoint)) {
+                        pois.add(poi);
+                    }
+                } catch (Exception e) {
+                    log.warn("Failed to parse WKT for POI {}: {}", poi.getId(), e.getMessage());
+                }
             }
         }
-        var pointPois = poiRepository.findPointPoisNearLocation(visibleTypes, longitude, latitude, Double.MAX_VALUE);
-        for (var poi : pointPois) {
-            if (poi.getGeometryType() == PoiType.POINT && poi.getRadiusMeters() != null) {
-                double distance = calculateDistance(latitude, longitude, poi.getCenterLatitude(), poi.getCenterLongitude());
-                if (distance <= poi.getRadiusMeters()) pois.add(poi);
-            }
-        }
+
+        // --- Record telemetry for discovered POIs ---
         List<PoiResponse> responses = new ArrayList<>();
         for (var poi : pois) {
-            boolean alreadyRecorded = poiTelemetryRepository.findByPoiIdAndUserIdAndEnteredAfter(poi.getId(), user.getId(), windowStart).isPresent();
+            boolean alreadyRecorded = poiTelemetryRepository
+                .findByPoiIdAndUserIdAndEnteredAfter(poi.getId(), user.getId(), windowStart).isPresent();
             if (!alreadyRecorded) {
                 var telemetry = PoiTelemetry.builder().poi(poi).user(user).enteredAt(now).build();
                 poiTelemetryRepository.save(telemetry);
