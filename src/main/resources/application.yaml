@@ -18,7 +18,7 @@ spring:
       show-sql: ${JPA_SHOW_SQL:true}
     properties:
       hibernate:
-        dialect: ${POSTGIS_DIALECT:org.hibernate.spatial.dialect.postgis.PostgisDialect}
+        dialect: ${POSTGIS_DIALECT:org.hibernate.dialect.PostgreSQLDialect}
 
   rabbitmq:
     host: ${RABBITMQ_HOST:localhost}
