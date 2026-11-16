@@ -23,13 +23,20 @@ public interface PoiRepository extends JpaRepository<Poi, UUID> {
         @Param("latitude") Double latitude
     );
 
-    @Query("SELECT p FROM Poi p WHERE p.active = true AND p.visibility IN :visibility " +
-           "AND p.geometryType = 'POINT' AND " +
-           "ST_DWithin(ST_MakePoint(p.center_longitude, p.center_latitude), ST_MakePoint(:longitude, :latitude), :radiusMeters)")
+    @Query("""
+        SELECT p FROM Poi p
+        WHERE p.active = true
+        AND p.visibility IN :visibility
+        AND p.geometryType = 'POINT'
+        AND ST_DWithin(
+                ST_MakePoint(p.centerLongitude, p.centerLatitude),
+                ST_MakePoint(:longitude, :latitude),
+                :radiusMeters)
+    """)
     List<Poi> findPointPoisNearLocation(
-        @Param("visibility") List<PoiVisibility> visibility,
-        @Param("longitude") Double longitude,
-        @Param("latitude") Double latitude,
-        @Param("radiusMeters") Double radiusMeters
+        List<PoiVisibility> visibility,
+        Double longitude,
+        Double latitude,
+        Double radiusMeters
     );
 }
