@@ -44,6 +44,7 @@ class Config:
 
     # --- S3 / RustFS ---
     S3_ENDPOINT: str = _get_env("S3_ENDPOINT", "http://localhost:9000")
+    S3_PUBLIC_ENDPOINT: str = _get_env("S3_PUBLIC_ENDPOINT", "http://localhost:9000")
     S3_BUCKET: str = _get_env("S3_BUCKET", "biojaveriana")
     S3_ACCESS_KEY: str = _get_env("S3_ACCESS_KEY", "rustfsadmin")
     S3_SECRET_KEY: str = _get_env("S3_SECRET_KEY", "rustfsadmin")

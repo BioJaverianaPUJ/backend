@@ -29,6 +29,9 @@ public class ObjectService implements S3UrlGenerator {
     @Value("${app.s3.endpoint}")
     private String endpoint;
 
+    @Value("${app.s3.public-endpoint}")
+    private String publicEndpoint;
+
     public UploadPresign createPresign(String key, String contentType) {
         var request = PutObjectRequest.builder()
             .bucket(bucket)
@@ -99,7 +102,7 @@ public class ObjectService implements S3UrlGenerator {
             return null;
         }
 
-        String base = endpoint.endsWith("/") ? endpoint.substring(0, endpoint.length() - 1) : endpoint;
+        String base = publicEndpoint.endsWith("/") ? publicEndpoint.substring(0, publicEndpoint.length() - 1) : publicEndpoint;
         return base + "/" + bucket + "/" + key;
     }
 }
