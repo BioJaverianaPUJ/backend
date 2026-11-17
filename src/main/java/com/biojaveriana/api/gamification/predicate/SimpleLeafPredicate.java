@@ -2,6 +2,9 @@ package com.biojaveriana.api.gamification.predicate;
 
 import java.util.Map;
 
+import com.biojaveriana.api.gamification.predicate.LeafPredicate;
+import com.biojaveriana.api.gamification.predicate.Predicate;
+
 /**
  * Simple leaf predicate that delegates to a registered handler.
  */
@@ -25,12 +28,12 @@ public class SimpleLeafPredicate implements LeafPredicate {
     }
 
     @Override
-    public boolean evaluate(Context context) {
+    public boolean evaluate(Predicate.Context context) {
         // Delegates to the registry for actual evaluation
         return evaluateLeaf(context);
     }
 
-    private boolean evaluateLeaf(Context context) {
+    private boolean evaluateLeaf(Predicate.Context context) {
         // The registry will resolve the actual predicate implementation
         return false;
     }

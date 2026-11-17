@@ -6,7 +6,7 @@ import java.util.UUID;
  * Leaf predicate â€” the atomic unit of evaluation.
  * Registered implementations are looked up by type name.
  */
-public interface LeafPredicate {
+public interface LeafPredicate extends Predicate {
     /**
      * Returns the type identifier for this predicate (e.g., "post_count").
      */

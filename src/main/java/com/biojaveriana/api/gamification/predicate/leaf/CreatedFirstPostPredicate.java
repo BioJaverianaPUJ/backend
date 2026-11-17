@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.biojaveriana.api.gamification.predicate.LeafPredicate;
 import com.biojaveriana.api.gamification.predicate.MapContext;
+import com.biojaveriana.api.gamification.predicate.Predicate;
 
 /**
  * Checks if the user has created at least one post.

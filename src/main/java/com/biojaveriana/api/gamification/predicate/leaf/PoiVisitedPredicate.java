@@ -5,6 +5,7 @@ import java.util.Map;
 import org.springframework.stereotype.Component;
 
 import com.biojaveriana.api.gamification.predicate.LeafPredicate;
+import com.biojaveriana.api.gamification.predicate.Predicate;
 
 /**
  * Checks if the user has a specific count of unique POIs visited.
