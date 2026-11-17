@@ -1,6 +1,10 @@
 package com.biojaveriana.api.user;
 
 import java.util.UUID;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -32,14 +36,18 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/v1/bans")
 @Validated
 @RequiredArgsConstructor
+@Tag(name = "Bans", description = "Endpoints for managing user bans and suspensions (Admin-only)")
 public class BanController {
     private final BanService banService;
 
     @PostMapping
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Create a ban", description = "Creates a new ban (temporary or permanent) for a user. Admin-only operation.")
+    @ApiResponse(responseCode = "201", description = "Ban created successfully")
+    @ApiResponse(responseCode = "400", description = "Invalid ban request data")
     public ResponseEntity<BanResponse> createBan(
-        @CurrentUser User admin,
-        @Valid @RequestBody CreateBanRequest request
+        @CurrentUser @Parameter(hidden = true) User admin,
+        @Parameter(description = "Ban creation request body", required = true) @Valid @RequestBody CreateBanRequest request
     ) {
         Ban ban;
 
@@ -66,16 +74,24 @@ public class BanController {
 
     @PatchMapping("/{id}/cancel")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<BanResponse> cancelBan(@CurrentUser User admin, @PathVariable UUID id) {
+    @Operation(summary = "Cancel a ban", description = "Cancels an existing ban. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Ban cancelled successfully")
+    @ApiResponse(responseCode = "404", description = "Ban not found")
+    public ResponseEntity<BanResponse> cancelBan(
+        @CurrentUser @Parameter(hidden = true) User admin,
+        @Parameter(description = "ID of the ban to cancel", required = true) @PathVariable UUID id
+    ) {
         Ban ban = banService.cancelBan(id);
         return ResponseEntity.ok(BanResponse.from(ban));
     }
 
     @GetMapping
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "List all bans", description = "Retrieves a paginated list of all bans. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Bans retrieved successfully")
     public ResponseEntity<BanListResponse> findAllBans(
-        @RequestParam(defaultValue = "0") @Min(0) int page,
-        @RequestParam(defaultValue = "20") @Max(100) int size
+        @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(0) int page,
+        @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "20")) @RequestParam(defaultValue = "20") @Max(100) int size
     ) {
         var pageable = PageRequest.of(
             page, size,
@@ -87,10 +103,12 @@ public class BanController {
 
     @GetMapping("/user/{userId}")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "List bans for a user", description = "Retrieves all bans for a specific user. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Bans retrieved successfully")
     public ResponseEntity<BanListResponse> findBansByUser(
-        @PathVariable UUID userId,
-        @RequestParam(defaultValue = "0") @Min(0) int page,
-        @RequestParam(defaultValue = "20") @Max(100) int size
+        @Parameter(description = "ID of the user", required = true) @PathVariable UUID userId,
+        @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(0) int page,
+        @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "20")) @RequestParam(defaultValue = "20") @Max(100) int size
     ) {
         var pageable = PageRequest.of(
             page, size,

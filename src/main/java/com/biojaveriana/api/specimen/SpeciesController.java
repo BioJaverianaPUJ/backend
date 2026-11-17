@@ -2,6 +2,11 @@ package com.biojaveriana.api.specimen;
 
 import java.util.UUID;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.HttpStatus;
@@ -37,13 +42,16 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/v1/species")
 @Validated
 @RequiredArgsConstructor
+@Tag(name = "Species", description = "Endpoints for managing biological species data (Admin write operations)")
 public class SpeciesController {
     private final SpeciesService speciesService;
 
     @GetMapping
+    @Operation(summary = "List all species", description = "Retrieves a paginated list of all species, sorted by scientific name")
+    @ApiResponse(responseCode = "200", description = "Species retrieved successfully")
     public ResponseEntity<SpeciesListResponse> findAll(
-            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
-            @RequestParam(defaultValue = "20") @Max(value = 100) int size
+            @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "20")) @RequestParam(defaultValue = "20") @Max(value = 100) int size
     ) {
         var pageable = PageRequest.of(page, size, Sort.by("scientificName").ascending());
         var speciesPage = speciesService.findAll(pageable);
@@ -51,16 +59,22 @@ public class SpeciesController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<SpeciesResponse> getSpeciesById(@PathVariable UUID id) {
+    @Operation(summary = "Get species by ID", description = "Retrieves a species by its unique ID")
+    @ApiResponse(responseCode = "200", description = "Species found")
+    @ApiResponse(responseCode = "404", description = "Species not found")
+    public ResponseEntity<SpeciesResponse> getSpeciesById(
+            @Parameter(description = "ID of the species", required = true) @PathVariable UUID id) {
         var species = speciesService.findById(id);
         return ResponseEntity.ok(SpeciesResponse.from(species));
     }
 
     @PostMapping
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Create a species", description = "Creates a new species record. Admin-only operation.")
+    @ApiResponse(responseCode = "201", description = "Species created successfully")
     public ResponseEntity<SpeciesResponse> create(
-        @CurrentUser User admin,
-        @Valid @RequestBody SpeciesCreateRequest speciesRequest
+        @CurrentUser @Parameter(hidden = true) User admin,
+        @Parameter(description = "Species creation request body", required = true) @Valid @RequestBody SpeciesCreateRequest speciesRequest
     ) {
         log.info("Creating species by admin id={}", admin.getId());
         var species = speciesService.create(speciesRequest);
@@ -69,10 +83,13 @@ public class SpeciesController {
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Update a species", description = "Updates an existing species record. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Species updated successfully")
+    @ApiResponse(responseCode = "404", description = "Species not found")
     public ResponseEntity<SpeciesResponse> update(
-        @PathVariable UUID id,
-        @CurrentUser User admin,
-        @Valid @RequestBody SpeciesUpdateRequest speciesUpdate
+        @Parameter(description = "ID of the species to update", required = true) @PathVariable UUID id,
+        @CurrentUser @Parameter(hidden = true) User admin,
+        @Parameter(description = "Species update request body", required = true) @Valid @RequestBody SpeciesUpdateRequest speciesUpdate
     ) {
         log.info("Updating species {} by admin id={}", id, admin.getId());
         var updatedSpecies = speciesService.update(id, speciesUpdate);
@@ -81,9 +98,12 @@ public class SpeciesController {
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Delete a species", description = "Permanently deletes a species record. Admin-only operation.")
+    @ApiResponse(responseCode = "204", description = "Species deleted successfully")
+    @ApiResponse(responseCode = "404", description = "Species not found")
     public ResponseEntity<Void> delete(
-        @PathVariable UUID id,
-        @CurrentUser User admin
+        @Parameter(description = "ID of the species to delete", required = true) @PathVariable UUID id,
+        @CurrentUser @Parameter(hidden = true) User admin
     ) {
         log.info("Deleting species {} by admin id={}", id, admin.getId());
         speciesService.delete(id);

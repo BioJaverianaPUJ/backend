@@ -3,6 +3,10 @@ package com.biojaveriana.api.user;
 import java.io.IOException;
 import java.util.UUID;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
@@ -39,6 +43,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/v1/users")
 @Validated
 @RequiredArgsConstructor
+@Tag(name = "Users", description = "Endpoints for user management, profile operations, and media handling")
 public class UserController {
     private static final String SUPERADMIN_USERNAME = "superadmin";
 
@@ -46,26 +51,38 @@ public class UserController {
     private final ObjectService objectService;
 
     @GetMapping("/me")
-    public ResponseEntity<UserResponse> getCurrentUser(@CurrentUser User user) {
+    @Operation(summary = "Get current user profile", description = "Retrieves the authenticated user's profile information")
+    @ApiResponse(responseCode = "200", description = "User profile retrieved successfully")
+    public ResponseEntity<UserResponse> getCurrentUser(@CurrentUser @Parameter(hidden = true) User user) {
         return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<UserResponse> getUserById(@PathVariable UUID id) {
+    @Operation(summary = "Get user by ID", description = "Retrieves a user's profile by their unique ID")
+    @ApiResponse(responseCode = "200", description = "User found")
+    @ApiResponse(responseCode = "404", description = "User not found")
+    public ResponseEntity<UserResponse> getUserById(
+            @Parameter(description = "ID of the user", required = true) @PathVariable UUID id) {
         var user = userService.findById(id);
         return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @GetMapping("/@{username}")
-    public ResponseEntity<UserResponse> getUserByAtUsername(@PathVariable String username) {
+    @Operation(summary = "Get user by username", description = "Retrieves a user's profile by their username (without @ prefix)")
+    @ApiResponse(responseCode = "200", description = "User found")
+    @ApiResponse(responseCode = "404", description = "User not found")
+    public ResponseEntity<UserResponse> getUserByAtUsername(
+            @Parameter(description = "Username (without @ prefix)", required = true) @PathVariable String username) {
         var user = userService.findByUsername(username);
         return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @GetMapping
+    @Operation(summary = "List all users", description = "Retrieves a paginated list of all users in the system")
+    @ApiResponse(responseCode = "200", description = "Users retrieved successfully")
     public ResponseEntity<UserListResponse> findAll(
-        @RequestParam(defaultValue = "0") @Min(0) int page,
-        @RequestParam(defaultValue = "20") @Max(100) int size
+            @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(0) int page,
+            @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "20")) @RequestParam(defaultValue = "20") @Max(100) int size
     ) {
         var pageable = PageRequest.of(
             page, size,
@@ -78,30 +95,45 @@ public class UserController {
 
     @PatchMapping("/{id}")
     @HasRole(value = Role.ADMIN)
-    public ResponseEntity<UserResponse> update(@PathVariable UUID id, @Valid @RequestBody UserUpdateRequest dto) {
+    @Operation(summary = "Update user (Admin)", description = "Updates a user's information. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "User updated successfully")
+    @ApiResponse(responseCode = "404", description = "User not found")
+    public ResponseEntity<UserResponse> update(
+            @Parameter(description = "ID of the user to update", required = true) @PathVariable UUID id,
+            @Parameter(description = "User update request body") @Valid @RequestBody UserUpdateRequest dto) {
         var user = userService.updateById(id, dto);
         return ResponseEntity.ok(UserResponse.from(user, objectService));
     }
 
     @PatchMapping("/me")
-    public ResponseEntity<UserResponse> updateMe(@CurrentUser User user, @Valid @RequestBody MeUserUpdateRequest dto) {
+    @Operation(summary = "Update current user profile", description = "Allows the authenticated user to update their own profile")
+    @ApiResponse(responseCode = "200", description = "Profile updated successfully")
+    public ResponseEntity<UserResponse> updateMe(
+            @CurrentUser @Parameter(hidden = true) User user,
+            @Parameter(description = "Profile update request body") @Valid @RequestBody MeUserUpdateRequest dto) {
         var updated = userService.updateMe(user, dto);
         return ResponseEntity.ok(UserResponse.from(updated, objectService));
     }
 
     @PatchMapping("/me/media")
+    @Operation(summary = "Upload user media", description = "Uploads a profile picture or banner for the authenticated user")
+    @ApiResponse(responseCode = "200", description = "Media uploaded successfully")
+    @ApiResponse(responseCode = "400", description = "Invalid media type")
     public ResponseEntity<UserResponse> uploadMedia(
-        @CurrentUser User user,
-        @RequestParam String type,
-        @RequestPart("file") @Valid MultipartFile file
+        @CurrentUser @Parameter(hidden = true) User user,
+        @Parameter(description = "Media type (profile-picture or banner)", required = true) @RequestParam String type,
+        @Parameter(description = "Media file", required = true) @RequestPart("file") @Valid MultipartFile file
     ) throws IOException {
         return ResponseEntity.ok(uploadMediaInternal(user, type, file));
     }
 
     @DeleteMapping("/me/media")
+    @Operation(summary = "Delete user media", description = "Removes the user's profile picture or banner")
+    @ApiResponse(responseCode = "200", description = "Media deleted successfully")
+    @ApiResponse(responseCode = "400", description = "Invalid media type")
     public ResponseEntity<UserResponse> deleteMedia(
-        @CurrentUser User user,
-        @RequestParam String type
+        @CurrentUser @Parameter(hidden = true) User user,
+        @Parameter(description = "Media type (profile-picture or banner)", required = true) @RequestParam String type
     ) {
         var mediaType = parseMediaType(type);
         if (mediaType == null) {
@@ -120,10 +152,12 @@ public class UserController {
 
     @PatchMapping("/@{username}/media")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Upload media for user (Admin)", description = "Uploads media on behalf of another user. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Media uploaded successfully")
     public ResponseEntity<UserResponse> uploadMediaForAdmin(
-        @PathVariable String username,
-        @RequestParam String type,
-        @RequestPart("file") @Valid MultipartFile file
+        @Parameter(description = "Username of the target user", required = true) @PathVariable String username,
+        @Parameter(description = "Media type (profile-picture or banner)", required = true) @RequestParam String type,
+        @Parameter(description = "Media file", required = true) @RequestPart("file") @Valid MultipartFile file
     ) throws IOException {
         var user = userService.findByUsername(username);
         return ResponseEntity.ok(uploadMediaInternal(user, type, file));
@@ -131,9 +165,11 @@ public class UserController {
 
     @DeleteMapping("/@{username}/media")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Delete media for user (Admin)", description = "Removes media on behalf of another user. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Media deleted successfully")
     public ResponseEntity<UserResponse> deleteMediaForAdmin(
-        @PathVariable String username,
-        @RequestParam String type
+        @Parameter(description = "Username of the target user", required = true) @PathVariable String username,
+        @Parameter(description = "Media type (profile-picture or banner)", required = true) @RequestParam String type
     ) {
         var user = userService.findByUsername(username);
 
@@ -184,9 +220,13 @@ public class UserController {
 
     @DeleteMapping("/{id}")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Delete user (Admin)", description = "Permanently deletes a user from the system. Admin-only operation.")
+    @ApiResponse(responseCode = "204", description = "User deleted successfully")
+    @ApiResponse(responseCode = "403", description = "Cannot delete superadmin user")
+    @ApiResponse(responseCode = "404", description = "User not found")
     public ResponseEntity<Void> delete(
-        @PathVariable UUID id,
-        @CurrentUser User admin
+        @Parameter(description = "ID of the user to delete", required = true) @PathVariable UUID id,
+        @CurrentUser @Parameter(hidden = true) User admin
     ) {
         var user = userService.findById(id);
         if (SUPERADMIN_USERNAME.equals(user.getUsername())) {

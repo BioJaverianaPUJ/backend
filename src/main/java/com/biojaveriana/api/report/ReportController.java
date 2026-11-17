@@ -2,6 +2,11 @@ package com.biojaveriana.api.report;
 
 import java.util.UUID;
 
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.Parameter;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.tags.Tag;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -34,30 +39,39 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/api/v1/reports")
 @Validated
 @RequiredArgsConstructor
+@Tag(name = "Reports", description = "Endpoints for managing content reports and moderation")
 public class ReportController {
     private final ReportService reportService;
 
     @PostMapping
+    @Operation(summary = "Create a report", description = "Submits a content report for review. Any authenticated user can report inappropriate content.")
+    @ApiResponse(responseCode = "201", description = "Report created successfully")
     public ResponseEntity<ReportResponse> createReport(
-            @CurrentUser User reporter,
-            @RequestBody @Valid ReportCreateRequest request) {
+            @CurrentUser @Parameter(hidden = true) User reporter,
+            @Parameter(description = "Report creation request body", required = true) @RequestBody @Valid ReportCreateRequest request) {
         log.info("Creating report by user id={}", reporter.getId());
         ReportResponse response = reportService.createReport(reporter, request);
         return ResponseEntity.status(HttpStatus.CREATED).body(response);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<ReportResponse> getReport(@PathVariable UUID id) {
+    @Operation(summary = "Get report by ID", description = "Retrieves a report by its unique ID")
+    @ApiResponse(responseCode = "200", description = "Report found")
+    @ApiResponse(responseCode = "404", description = "Report not found")
+    public ResponseEntity<ReportResponse> getReport(
+            @Parameter(description = "ID of the report", required = true) @PathVariable UUID id) {
         log.info("Getting report id={}", id);
         ReportResponse response = reportService.getReport(id);
         return ResponseEntity.ok(response);
     }
 
     @GetMapping("/by-reporter")
+    @Operation(summary = "Get reports by current user", description = "Retrieves all reports submitted by the authenticated user")
+    @ApiResponse(responseCode = "200", description = "Reports retrieved successfully")
     public ResponseEntity<ReportListResponse> getReportsByReporter(
-            @CurrentUser User reporter,
-            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
-            @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
+            @CurrentUser @Parameter(hidden = true) User reporter,
+            @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "10")) @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
         log.info("Getting reports by reporter id={}", reporter.getId());
         ReportListResponse response = reportService.getReportsByReporter(reporter, page, size);
         return ResponseEntity.ok(response);
@@ -65,10 +79,12 @@ public class ReportController {
 
     @GetMapping("/by-reported-user")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Get reports for a reported user (Admin)", description = "Retrieves all reports for a specific reported user. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Reports retrieved successfully")
     public ResponseEntity<ReportListResponse> getReportsByReportedUser(
-            @RequestParam UUID reportedUserId,
-            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
-            @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
+            @Parameter(description = "ID of the reported user", required = true) @RequestParam UUID reportedUserId,
+            @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "10")) @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
         log.info("Getting reports for reported user id={}", reportedUserId);
         ReportListResponse response = reportService.getReportsByReportedUser(reportedUserId, page, size);
         return ResponseEntity.ok(response);
@@ -76,9 +92,11 @@ public class ReportController {
 
     @GetMapping("/admin/all")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Get all reports (Admin)", description = "Retrieves all reports in the system. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Reports retrieved successfully")
     public ResponseEntity<ReportListResponse> getAllReportsForAdmin(
-            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
-            @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
+            @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "10")) @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
         log.info("Getting all reports for admin");
         ReportListResponse response = reportService.getAllReportsForAdmin(page, size);
         return ResponseEntity.ok(response);
@@ -86,9 +104,11 @@ public class ReportController {
 
     @GetMapping("/admin/pending")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Get pending reports (Admin)", description = "Retrieves all pending reports awaiting review. Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Reports retrieved successfully")
     public ResponseEntity<ReportListResponse> getPendingReportsForAdmin(
-            @RequestParam(defaultValue = "0") @Min(value = 0) int page,
-            @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
+            @Parameter(description = "Page number (0-based)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "0")) @RequestParam(defaultValue = "0") @Min(value = 0) int page,
+            @Parameter(description = "Page size (max 100)", schema = @io.swagger.v3.oas.annotations.parameters.Schema(defaultValue = "10")) @RequestParam(defaultValue = "10") @Max(value = 100) int size) {
         log.info("Getting pending reports for admin");
         ReportListResponse response = reportService.getPendingReportsForAdmin(page, size);
         return ResponseEntity.ok(response);
@@ -96,9 +116,12 @@ public class ReportController {
 
     @PutMapping("/{id}/status")
     @HasRole(value = Role.ADMIN)
+    @Operation(summary = "Update report status (Admin)", description = "Updates the status of a report (e.g., PENDING -> RESOLVED). Admin-only operation.")
+    @ApiResponse(responseCode = "200", description = "Report status updated successfully")
+    @ApiResponse(responseCode = "404", description = "Report not found")
     public ResponseEntity<ReportResponse> updateReportStatus(
-            @PathVariable UUID id,
-            @RequestBody @Valid ReportUpdateStatusRequest request) {
+            @Parameter(description = "ID of the report", required = true) @PathVariable UUID id,
+            @Parameter(description = "Report status update request body", required = true) @RequestBody @Valid ReportUpdateStatusRequest request) {
         log.info("Updating report {} status to {}", id, request.getStatus());
         ReportResponse response = reportService.updateReportStatus(id, null, request.getStatus());
         return ResponseEntity.ok(response);
