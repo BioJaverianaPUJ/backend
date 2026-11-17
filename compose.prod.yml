@@ -95,6 +95,7 @@ services:
       JWT_SECRET: M+n7MHJvcNwm6NqYcTNVRgpuGziL/jvM+BHBC7iQ1d8=
       S3_BUCKET: biojaveriana
       S3_ENDPOINT: http://rustfs:9000
+      S3_PUBLIC_ENDPOINT: https://biojaveriana-s3.downloadablefox.dev
       S3_ACCESS_KEY: rustfsadmin
       S3_SECRET_KEY: rustfsadmin
       RABBITMQ_HOST: rabbitmq
@@ -131,6 +132,7 @@ services:
       RABBITMQ_RESPONSE_QUEUE: observation.jobs.response
       RABBITMQ_RESPONSE_ROUTING_KEY: observation.jobs.response
       S3_ENDPOINT: http://rustfs:9000
+      S3_PUBLIC_ENDPOINT: https://biojaveriana-s3.downloadablefox.dev
       S3_BUCKET: biojaveriana
       S3_ACCESS_KEY: rustfsadmin
       S3_SECRET_KEY: rustfsadmin
