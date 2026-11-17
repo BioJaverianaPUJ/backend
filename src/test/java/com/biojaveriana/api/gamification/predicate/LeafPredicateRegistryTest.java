@@ -14,7 +14,6 @@ import com.biojaveriana.api.gamification.predicate.leaf.PostCountPredicate;
 import com.biojaveriana.api.gamification.predicate.leaf.CommentCountPredicate;
 
 class LeafPredicateRegistryTest {
-
     private LeafPredicateRegistry registry;
 
     @BeforeEach

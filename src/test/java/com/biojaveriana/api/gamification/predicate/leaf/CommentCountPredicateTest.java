@@ -12,7 +12,6 @@ import org.junit.jupiter.api.Test;
 import com.biojaveriana.api.gamification.predicate.MapContext;
 
 class CommentCountPredicateTest {
-
     private CommentCountPredicate predicate;
 
     @BeforeEach

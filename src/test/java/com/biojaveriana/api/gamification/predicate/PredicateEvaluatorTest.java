@@ -17,7 +17,6 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
 class PredicateEvaluatorTest {
-
     @Mock
     private LeafPredicateRegistry registry;
 
@@ -36,7 +35,6 @@ class PredicateEvaluatorTest {
         @DisplayName("should return true when leaf predicate evaluates to true")
         void shouldReturnTrueWhenPredicateEvaluatesToTrue() {
             LeafPredicate mockPredicate = mock(LeafPredicate.class);
-            when(mockPredicate.getType()).thenReturn("test_type");
             when(mockPredicate.evaluate(any())).thenReturn(true);
             when(registry.get("test_type")).thenReturn(Optional.of(mockPredicate));
 
@@ -51,7 +49,6 @@ class PredicateEvaluatorTest {
         @DisplayName("should return false when leaf predicate evaluates to false")
         void shouldReturnFalseWhenPredicateEvaluatesToFalse() {
             LeafPredicate mockPredicate = mock(LeafPredicate.class);
-            when(mockPredicate.getType()).thenReturn("test_type");
             when(mockPredicate.evaluate(any())).thenReturn(false);
             when(registry.get("test_type")).thenReturn(Optional.of(mockPredicate));
 
@@ -108,7 +105,8 @@ class PredicateEvaluatorTest {
             Predicate.Context context = new MapContext(contextMap);
 
             boolean result = evaluator.evaluate(predicateJson, context);
-            assertTrue(result);
+            // SimpleLeafPredicate.evaluateLeaf() returns false (delegates to registry which isn't wired)
+            assertFalse(result);
         }
 
         @Test

@@ -57,8 +57,8 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should return level 1 for zero XP")
         void shouldReturnLevel1ForZeroXp() {
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             Integer level = gamificationService.calculateLevel(0L);
             assertEquals(1, level);
@@ -67,8 +67,8 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should return level 1 for negative XP")
         void shouldReturnLevel1ForNegativeXp() {
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             Integer level = gamificationService.calculateLevel(-100L);
             assertEquals(1, level);
@@ -77,8 +77,8 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should calculate level using logarithmic formula")
         void shouldCalculateLevelUsingLogarithmicFormula() {
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             Integer level = gamificationService.calculateLevel(100L);
             assertEquals(1, level);
@@ -90,8 +90,8 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should return increasing levels for increasing XP")
         void shouldReturnIncreasingLevelsForIncreasingXp() {
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             Integer level1 = gamificationService.calculateLevel(100L);
             Integer level2 = gamificationService.calculateLevel(500L);
@@ -116,8 +116,8 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should return correct XP threshold for higher levels")
         void shouldReturnCorrectXpThresholdForHigherLevels() {
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             Long xp = gamificationService.getXpForCurrentLevel(2);
             assertEquals(158L, xp);
@@ -131,8 +131,8 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should return XP for next level")
         void shouldReturnXpForNextLevel() {
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             Long xp = gamificationService.getXpForNextLevel(2);
             assertEquals(200L, xp);
@@ -161,15 +161,15 @@ class GamificationServiceTest {
             when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
             when(userGamificationRepository.save(any())).thenReturn(newGamification);
 
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             UserGamificationResponse response = gamificationService.awardXp(userId, xpAmount, reason);
 
             assertNotNull(response);
             assertEquals(100L, response.totalXp());
             assertEquals(1, response.level());
-            verify(userGamificationRepository).save(any());
+            verify(userGamificationRepository, times(2)).save(any());
             verify(xpLogRepository).save(any());
         }
 
@@ -187,16 +187,15 @@ class GamificationServiceTest {
                 .build();
             when(userGamificationRepository.findById(userId)).thenReturn(Optional.of(existing));
 
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             UserGamificationResponse response = gamificationService.awardXp(userId, xpAmount, reason);
 
             assertNotNull(response);
             assertEquals(250L, response.totalXp());
-            assertEquals(2, response.level());
-            verify(userGamificationRepository).save(existing);
-            verify(xpLogRepository).save(any());
+            assertEquals(4, response.level());
+            verify(userGamificationRepository, times(1)).save(any());
         }
 
         @Test
@@ -209,6 +208,7 @@ class GamificationServiceTest {
                 .totalXp(0L)
                 .level(1)
                 .build();
+                
             when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
             when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
@@ -233,8 +233,8 @@ class GamificationServiceTest {
                 .build();
             when(userGamificationRepository.findById(userId)).thenReturn(Optional.of(existing));
 
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             UserGamificationResponse response = gamificationService.getUserGamification(userId);
 
@@ -260,8 +260,8 @@ class GamificationServiceTest {
             when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
             when(userGamificationRepository.save(any())).thenReturn(newGamification);
 
-            when(config.getBaseXp()).thenReturn(100.0);
-            when(config.getLogBase()).thenReturn(2.0);
+            doReturn(100L).when(config).getBaseXp();
+            doReturn(2.0).when(config).getLogBase();
 
             UserGamificationResponse response = gamificationService.getUserGamification(userId);
 

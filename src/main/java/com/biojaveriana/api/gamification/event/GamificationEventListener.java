@@ -12,17 +12,12 @@ import org.springframework.transaction.event.TransactionalEventListener;
 
 import com.biojaveriana.api.gamification.model.Achievement;
 import com.biojaveriana.api.gamification.model.UserAchievement;
-import com.biojaveriana.api.gamification.predicate.LeafPredicate;
 import com.biojaveriana.api.gamification.predicate.MapContext;
-import com.biojaveriana.api.gamification.predicate.Predicate;
 import com.biojaveriana.api.gamification.predicate.PredicateEvaluator;
-import com.biojaveriana.api.gamification.predicate.PredicateDeserializer;
 import com.biojaveriana.api.gamification.repository.AchievementRepository;
 import com.biojaveriana.api.gamification.repository.UserAchievementRepository;
 import com.biojaveriana.api.gamification.repository.UserGamificationRepository;
 import com.biojaveriana.api.gamification.service.GamificationService;
-
-import com.fasterxml.jackson.databind.JsonNode;
 
 /**
  * Listens for gamification events and processes achievements.
@@ -30,7 +25,6 @@ import com.fasterxml.jackson.databind.JsonNode;
  */
 @Component
 public class GamificationEventListener {
-
     private static final Logger log = LoggerFactory.getLogger(GamificationEventListener.class);
 
     private final GamificationService gamificationService;
