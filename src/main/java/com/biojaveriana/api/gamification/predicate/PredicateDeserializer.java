@@ -47,7 +47,7 @@ public class PredicateDeserializer {
         String leafType = leaf.get("type").asText();
         JsonNode predicate = leaf.get("predicate");
         Map<String, Object> args = predicateToMap(predicate);
-        return new LeafPredicateDeserializer(leafType, args);
+        return new SimpleLeafPredicate(leafType, args);
     }
 
     private static Map<String, Object> predicateToMap(JsonNode node) {

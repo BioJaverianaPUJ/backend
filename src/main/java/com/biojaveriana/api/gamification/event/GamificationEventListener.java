@@ -116,7 +116,7 @@ public class GamificationEventListener {
         }
 
         // Award XP
-        gamificationService.awardXp(userId, achievement.getXpReward(), "ACHIEVEMENT: " + achievement.getName());
+        gamificationService.awardXp(userId, (long) achievement.getXpReward(), "ACHIEVEMENT: " + achievement.getName());
 
         // Create or update UserAchievement
         UserAchievement userAchievement = userAchievementRepository

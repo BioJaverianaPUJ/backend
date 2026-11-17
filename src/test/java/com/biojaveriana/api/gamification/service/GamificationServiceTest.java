@@ -21,7 +21,7 @@ import com.biojaveriana.api.gamification.model.UserGamification;
 import com.biojaveriana.api.gamification.repository.UserGamificationRepository;
 import com.biojaveriana.api.gamification.repository.XpLogRepository;
 import com.biojaveriana.api.user.User;
-import com.biojaveriana.api.user.repository.UserRepository;
+import com.biojaveriana.api.user.UserRepository;
 
 @ExtendWith(MockitoExtension.class)
 class GamificationServiceTest {
@@ -109,7 +109,7 @@ class GamificationServiceTest {
         @Test
         @DisplayName("should return 0 for level 1")
         void shouldReturnZeroForLevel1() {
-            Integer xp = gamificationService.getXpForCurrentLevel(1);
+            Long xp = gamificationService.getXpForCurrentLevel(1);
             assertEquals(0L, xp);
         }
 
@@ -272,3 +272,5 @@ class GamificationServiceTest {
     }
 }
 
+
+}
