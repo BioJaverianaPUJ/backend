@@ -1,6 +1,7 @@
 package com.biojaveriana.api.gamification.predicate;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
  * Base class for composite predicates (AND/OR/NOT).
@@ -24,10 +25,10 @@ public abstract class CompositePredicate implements Predicate {
     }
 
     protected Predicate deserialize(JsonNode node) {
-        return PredicateDeserializer.deserialize(node);
+        return PredicateDeserializer.instance().deserialize(node);
     }
 
-    protected JsonNode serialize(com.fasterxml.jackson.databind.ObjectMapper mapper) {
+    protected JsonNode serialize(ObjectMapper mapper) {
         return mapper.valueToTree(this);
     }
 }

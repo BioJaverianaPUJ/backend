@@ -15,6 +15,7 @@ import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Builder.Default;
@@ -27,6 +28,8 @@ import lombok.Setter;
     @Index(name = "idx_user_achievements_user_id", columnList = "user_id"),
     @Index(name = "idx_user_achievements_achievement_id", columnList = "achievement_id"),
     @Index(name = "idx_user_achievements_user_achievement", columnList = "user_id,achievement_id")
+}, uniqueConstraints = {
+    @UniqueConstraint(name = "uk_user_achievements_user_achievement", columnNames = {"user_id", "achievement_id"})
 })
 @Getter
 @Setter

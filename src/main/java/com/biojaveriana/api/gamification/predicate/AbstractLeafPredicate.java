@@ -9,17 +9,19 @@ import com.fasterxml.jackson.databind.node.ObjectNode;
 
 /**
  * Base class for leaf predicates that need JSON serialization/deserialization.
+ * Uses ObjectMapper for JSON operations.
  */
 public abstract class AbstractLeafPredicate implements LeafPredicate {
-
-    private static final ObjectMapper mapper = new ObjectMapper();
 
     protected abstract void serialize(ObjectNode node);
 
     protected abstract void deserialize(JsonNode node);
 
-    protected JsonNode serialize() {
-        return PredicateDeserializer.getMapper().valueToTree(this);
+    /**
+     * Serializes this predicate to a JsonNode.
+     */
+    protected JsonNode serialize(ObjectMapper mapper) {
+        return mapper.valueToTree(this);
     }
 
     protected <T> T get(String key, Class<T> type) {

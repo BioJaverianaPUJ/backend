@@ -1,7 +1,11 @@
 package com.biojaveriana.api.gamification.exception;
 
-public class NotFoundException extends RuntimeException {
+import org.springframework.http.HttpStatus;
+
+import com.biojaveriana.api.common.exceptions.ServiceException;
+
+public class NotFoundException extends ServiceException {
     public NotFoundException(String message) {
-        super(message);
+        super(HttpStatus.NOT_FOUND, "NOT_FOUND", message);
     }
 }

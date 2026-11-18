@@ -158,7 +158,7 @@ class GamificationServiceTest {
                 .totalXp(0L)
                 .level(1)
                 .build();
-            when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
+            when(userGamificationRepository.findByIdWithPessimisticLock(userId)).thenReturn(Optional.empty());
             when(userGamificationRepository.save(any())).thenReturn(newGamification);
 
             doReturn(100L).when(config).getBaseXp();
@@ -185,7 +185,7 @@ class GamificationServiceTest {
                 .totalXp(200L)
                 .level(2)
                 .build();
-            when(userGamificationRepository.findById(userId)).thenReturn(Optional.of(existing));
+            when(userGamificationRepository.findByIdWithPessimisticLock(userId)).thenReturn(Optional.of(existing));
 
             doReturn(100L).when(config).getBaseXp();
             doReturn(2.0).when(config).getLogBase();
@@ -203,13 +203,7 @@ class GamificationServiceTest {
         void shouldThrowExceptionWhenUserNotFound() {
             UUID userId = UUID.randomUUID();
 
-            UserGamification existing = UserGamification.builder()
-                .userId(userId)
-                .totalXp(0L)
-                .level(1)
-                .build();
-                
-            when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
+            when(userGamificationRepository.findByIdWithPessimisticLock(userId)).thenReturn(Optional.empty());
             when(userRepository.findById(userId)).thenReturn(Optional.empty());
 
             assertThrows(IllegalArgumentException.class,

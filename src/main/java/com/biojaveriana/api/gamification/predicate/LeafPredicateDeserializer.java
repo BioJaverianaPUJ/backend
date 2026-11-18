@@ -21,7 +21,6 @@ public class LeafPredicateDeserializer {
     }
 
     public LeafPredicate deserialize(String type, Map<String, Object> args) {
-        // For now, return a simple wrapper; actual implementations will be in leaf package
-        return new SimpleLeafPredicate(type, args);
+        return new SimpleLeafPredicate(type, args, registry);
     }
 }

@@ -7,6 +7,8 @@ import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Optional;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
@@ -20,11 +22,14 @@ class PredicateEvaluatorTest {
     @Mock
     private LeafPredicateRegistry registry;
 
+    @Mock
+    private ObjectMapper objectMapper;
+
     private PredicateEvaluator evaluator;
 
     @BeforeEach
     void setUp() {
-        evaluator = new PredicateEvaluator(registry);
+        evaluator = new PredicateEvaluator(registry, objectMapper);
     }
 
     @Nested
@@ -82,6 +87,8 @@ class PredicateEvaluatorTest {
     @DisplayName("evaluate with JSON")
     class EvaluateJsonTests {
 
+        private final com.fasterxml.jackson.databind.ObjectMapper realMapper = new com.fasterxml.jackson.databind.ObjectMapper();
+
         @Test
         @DisplayName("should evaluate a simple leaf predicate from JSON")
         void shouldEvaluateSimpleLeafPredicateFromJson() {
@@ -92,21 +99,24 @@ class PredicateEvaluatorTest {
                         "leaf": {
                             "type": "post_count",
                             "predicate": {
-                                "target": 5,
-                                "operator": "gte"
+                                "operator": "gte",
+                                "value": 5
                             }
                         }
                     }
                 }
                 """;
-            Map<String, Object> contextMap = new LinkedHashMap<>();
-            contextMap.put("post_count", 10L);
-            contextMap.put("predicate_args", new LinkedHashMap<String, Object>());
-            Predicate.Context context = new MapContext(contextMap);
+            // Mock registry to return a predicate that evaluates to true
+            LeafPredicate mockLeaf = mock(LeafPredicate.class);
+            when(mockLeaf.evaluate(any())).thenReturn(true);
+            when(registry.get("post_count")).thenReturn(Optional.of(mockLeaf));
 
-            boolean result = evaluator.evaluate(predicateJson, context);
-            // SimpleLeafPredicate.evaluateLeaf() returns false (delegates to registry which isn't wired)
-            assertFalse(result);
+            Predicate.Context context = new MapContext(new LinkedHashMap<>());
+            // Use a real ObjectMapper for JSON parsing
+            PredicateEvaluator testEvaluator = new PredicateEvaluator(registry, realMapper);
+            boolean result = testEvaluator.evaluate(predicateJson, context);
+
+            assertTrue(result);
         }
 
         @Test
@@ -114,7 +124,8 @@ class PredicateEvaluatorTest {
         void shouldReturnFalseForInvalidJson() {
             String invalidJson = "{ invalid json }";
             Predicate.Context context = new MapContext(new LinkedHashMap<>());
-            boolean result = evaluator.evaluate(invalidJson, context);
+            PredicateEvaluator testEvaluator = new PredicateEvaluator(registry, realMapper);
+            boolean result = testEvaluator.evaluate(invalidJson, context);
             assertFalse(result);
         }
 
@@ -131,7 +142,8 @@ class PredicateEvaluatorTest {
                 }
                 """;
             Predicate.Context context = new MapContext(new LinkedHashMap<>());
-            boolean result = evaluator.evaluate(invalidJson, context);
+            PredicateEvaluator testEvaluator = new PredicateEvaluator(registry, realMapper);
+            boolean result = testEvaluator.evaluate(invalidJson, context);
             assertFalse(result);
         }
     }

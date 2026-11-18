@@ -44,7 +44,7 @@ public class GamificationService {
 
     @Transactional
     public UserGamificationResponse awardXp(UUID userId, Long xpAmount, String reason) {
-        UserGamification gamification = getOrCreateUserGamification(userId);
+        UserGamification gamification = getOrCreateUserGamificationWithLock(userId);
 
         Long oldTotalXp = gamification.getTotalXp();
         Integer oldLevel = gamification.getLevel();
@@ -102,6 +102,26 @@ public class GamificationService {
     @Transactional
     public UserGamification getOrCreateUserGamification(UUID userId) {
         return userGamificationRepository.findById(userId)
+            .orElseGet(() -> {
+                User user = userRepository.findById(userId)
+                    .orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));
+                UserGamification gamification = UserGamification.builder()
+                    .userId(userId)
+                    .user(user)
+                    .totalXp(0L)
+                    .level(1)
+                    .build();
+                return userGamificationRepository.save(gamification);
+            });
+    }
+
+    /**
+     * Gets or creates a UserGamification record with pessimistic locking
+     * to prevent concurrent read-modify-write race conditions.
+     */
+    @Transactional
+    public UserGamification getOrCreateUserGamificationWithLock(UUID userId) {
+        return userGamificationRepository.findByIdWithPessimisticLock(userId)
             .orElseGet(() -> {
                 User user = userRepository.findById(userId)
                     .orElseThrow(() -> new IllegalArgumentException("User not found: " + userId));

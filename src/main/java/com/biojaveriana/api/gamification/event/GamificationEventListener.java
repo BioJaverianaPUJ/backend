@@ -3,11 +3,14 @@ package com.biojaveriana.api.gamification.event;
 import java.time.Instant;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 import java.util.UUID;
+import java.util.concurrent.ConcurrentHashMap;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.transaction.event.TransactionalEventListener;
 
 import com.biojaveriana.api.gamification.model.Achievement;
@@ -22,6 +25,7 @@ import com.biojaveriana.api.gamification.service.GamificationService;
 /**
  * Listens for gamification events and processes achievements.
  * Uses @TransactionalEventListener to ensure data consistency.
+ * Includes idempotency via event ID deduplication to prevent duplicate awards.
  */
 @Component
 public class GamificationEventListener {
@@ -32,6 +36,11 @@ public class GamificationEventListener {
     private final UserAchievementRepository userAchievementRepository;
     private final UserGamificationRepository userGamificationRepository;
     private final PredicateEvaluator predicateEvaluator;
+
+    /**
+     * Deduplication cache: tracks processed event IDs to prevent duplicate processing.
+     */
+    private final Set<String> processedEvents = ConcurrentHashMap.newKeySet();
 
     public GamificationEventListener(
         GamificationService gamificationService,
@@ -72,7 +81,20 @@ public class GamificationEventListener {
         handleEvent(event);
     }
 
-    private void handleEvent(GamificationEvent event) {
+    /**
+     * Processes a gamification event with idempotency protection.
+     * Checks the deduplication cache to prevent duplicate processing
+     * of the same event (e.g., from message queue retries).
+     */
+    @Transactional
+    public void handleEvent(GamificationEvent event) {
+        // Deduplication: skip if this event was already processed (e.g., from message queue retries)
+        UUID eventId = event.getId();
+        if (eventId != null && !processedEvents.add(eventId.toString())) {
+            log.debug("Skipping duplicate event: {}", eventId);
+            return;
+        }
+
         String eventType = event.getEventType();
         log.debug("Processing gamification event: {} for user: {}", eventType, event.getUserId());
 
@@ -90,10 +112,11 @@ public class GamificationEventListener {
         UUID userId = event.getUserId();
         UUID achievementId = achievement.getId();
 
-        // Check if already completed
+        // Check if already completed — idempotency guard
         userAchievementRepository.findByUserIdAndAchievementId(userId, achievementId)
             .ifPresent(existing -> {
                 if (Boolean.TRUE.equals(existing.getCompleted())) {
+                    log.debug("User {} already completed achievement {}", userId, achievementId);
                     return;
                 }
             });
