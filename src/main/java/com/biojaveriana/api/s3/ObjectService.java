@@ -48,9 +48,12 @@ public class ObjectService implements S3UrlGenerator {
             .build()
         );
 
+        // Replace the internal endpoint host with the public endpoint
+        String uploadUrl = replaceHost(presigned.url().toString());
+
         return new UploadPresign(
             key,
-            presigned.url().toString(),
+            uploadUrl,
             "PUT",
             contentType,
             expiry
@@ -104,5 +107,22 @@ public class ObjectService implements S3UrlGenerator {
 
         String base = publicEndpoint.endsWith("/") ? publicEndpoint.substring(0, publicEndpoint.length() - 1) : publicEndpoint;
         return base + "/" + bucket + "/" + key;
+    }
+
+    /**
+     * Replace the host in a presigned URL with the public endpoint,
+     * preserving the path and query parameters (signature, expiry, etc.).
+     */
+    private String replaceHost(String url) {
+        int schemeEnd = url.indexOf("://");
+        if (schemeEnd == -1) {
+            return url;
+        }
+        int pathStart = url.indexOf("/", schemeEnd + 3);
+        if (pathStart == -1) {
+            return publicEndpoint + "/";
+        }
+        String pathAndQuery = url.substring(pathStart);
+        return publicEndpoint + pathAndQuery;
     }
 }
