@@ -1,7 +1,5 @@
 package com.biojaveriana.api.post;
 
-import java.time.Duration;
-import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -26,6 +24,7 @@ import com.biojaveriana.api.post.dto.UserSummaryResponse;
 import com.biojaveriana.api.post.exceptions.PostForbiddenException;
 import com.biojaveriana.api.post.exceptions.PostImageLimitException;
 import com.biojaveriana.api.post.exceptions.PostNotFoundException;
+import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.s3.UploadPresign;
 import com.biojaveriana.api.user.Role;
@@ -47,11 +46,12 @@ public class PostService {
     private final PostVoteRepository postVoteRepository;
     private final UserRepository userRepository;
     private final S3UrlGenerator s3UrlGenerator;
+    private final ObjectService objectService;
 
     @Transactional
     public UploadPresign createPresign(User user, String contentType) {
         String key = POSTS_PREFIX + user.getId() + "/" + UUID.randomUUID() + "." + getFileExtension(contentType);
-        return new UploadPresign(key, "", "PUT", contentType, Instant.now().plus(Duration.ofMinutes(5)));
+        return objectService.createPresign(key, contentType);
     }
 
     @Transactional
