@@ -4,6 +4,7 @@ import java.io.InputStream;
 import java.time.Duration;
 import java.time.Instant;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
@@ -20,14 +21,15 @@ import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignReques
 @Service
 @RequiredArgsConstructor
 public class ObjectService implements S3UrlGenerator {
+    @Qualifier("bucketLocation")
     private final S3Presigner presigner;
     private final S3Client s3Client;
 
+    @Qualifier("presignerForPublicUrl")
+    private final S3Presigner publicPresigner;
+
     @Value("${app.s3.bucket}")
     private String bucket;
-
-    @Value("${app.s3.endpoint}")
-    private String endpoint;
 
     @Value("${app.s3.public-endpoint}")
     private String publicEndpoint;
@@ -41,19 +43,16 @@ public class ObjectService implements S3UrlGenerator {
 
         var expiry = Instant.now().plus(Duration.ofMinutes(5));
 
-        var presigned = presigner.presignPutObject(
+        var presigned = publicPresigner.presignPutObject(
             PutObjectPresignRequest.builder()
             .signatureDuration(Duration.ofMinutes(5))
             .putObjectRequest(request)
             .build()
         );
 
-        // Replace the internal endpoint host with the public endpoint
-        String uploadUrl = replaceHost(presigned.url().toString());
-
         return new UploadPresign(
             key,
-            uploadUrl,
+            presigned.url().toString(),
             "PUT",
             contentType,
             expiry
@@ -107,22 +106,5 @@ public class ObjectService implements S3UrlGenerator {
 
         String base = publicEndpoint.endsWith("/") ? publicEndpoint.substring(0, publicEndpoint.length() - 1) : publicEndpoint;
         return base + "/" + bucket + "/" + key;
-    }
-
-    /**
-     * Replace the host in a presigned URL with the public endpoint,
-     * preserving the path and query parameters (signature, expiry, etc.).
-     */
-    private String replaceHost(String url) {
-        int schemeEnd = url.indexOf("://");
-        if (schemeEnd == -1) {
-            return url;
-        }
-        int pathStart = url.indexOf("/", schemeEnd + 3);
-        if (pathStart == -1) {
-            return publicEndpoint + "/";
-        }
-        String pathAndQuery = url.substring(pathStart);
-        return publicEndpoint + pathAndQuery;
     }
 }

@@ -39,6 +39,29 @@ public class S3Config {
     }
 
     @Bean
+    public S3Presigner presignerForPublicUrl(
+        @Value("${app.s3.public-endpoint}") String publicEndpoint,
+        @Value("${app.s3.region}") String region,
+        @Value("${app.s3.access-key}") String accessKey,
+        @Value("${app.s3.secret-key}") String secretKey
+    ) {
+        return S3Presigner.builder()
+            .endpointOverride(URI.create(publicEndpoint))
+            .region(Region.of(region))
+            .credentialsProvider(
+                StaticCredentialsProvider.create(
+                    AwsBasicCredentials.create(accessKey, secretKey)
+                )
+            )
+            .serviceConfiguration(
+                S3Configuration.builder()
+                    .pathStyleAccessEnabled(true)
+                    .build()
+            )
+            .build();
+    }
+
+    @Bean
     public S3Client s3Client(
             @Value("${app.s3.endpoint}") String endpoint,
             @Value("${app.s3.region}") String region,
