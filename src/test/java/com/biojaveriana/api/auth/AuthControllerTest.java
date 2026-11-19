@@ -22,6 +22,7 @@ import org.springframework.test.web.servlet.MockMvc;
 import com.biojaveriana.api.auth.dto.LoginRequest;
 import com.biojaveriana.api.auth.dto.RegistrationRequest;
 import com.biojaveriana.api.security.CurrentUserArgumentResolver;
+import com.biojaveriana.api.user.BanService;
 import com.biojaveriana.api.user.Gender;
 import com.biojaveriana.api.user.User;
 
@@ -41,6 +42,9 @@ class AuthControllerTest {
     
     @MockitoBean
     private com.biojaveriana.api.user.UserService userService;
+
+    @MockitoBean
+    private BanService banService;
 
     @MockitoBean
     private CurrentUserArgumentResolver currentUserArgumentResolver;
@@ -88,7 +92,7 @@ class AuthControllerTest {
         mockMvc.perform(post("/api/v1/auth/register")
                         .contentType(MediaType.APPLICATION_JSON)
                         .content(objectMapper.writeValueAsString(request)))
-                .andExpect(status().isOk())
+                .andExpect(status().isCreated())
                 .andExpect(jsonPath("$.email").value(request.email()))
                 .andExpect(jsonPath("$.token").value("test-token"));
     }
