@@ -4,11 +4,11 @@ import java.io.InputStream;
 import java.time.Duration;
 import java.time.Instant;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
-import lombok.RequiredArgsConstructor;
 import software.amazon.awssdk.core.sync.RequestBody;
 import software.amazon.awssdk.services.s3.S3Client;
 import software.amazon.awssdk.services.s3.model.S3Exception;
@@ -19,14 +19,21 @@ import software.amazon.awssdk.services.s3.presigner.S3Presigner;
 import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignRequest;
 
 @Service
-@RequiredArgsConstructor
 public class ObjectService implements S3UrlGenerator {
-    @Qualifier("bucketLocation")
     private final S3Presigner presigner;
     private final S3Client s3Client;
-
-    @Qualifier("presignerForPublicUrl")
     private final S3Presigner publicPresigner;
+
+    @Autowired
+    public ObjectService(
+        @Qualifier("bucketLocation") S3Presigner presigner,
+        S3Client s3Client,
+        @Qualifier("presignerForPublicUrl") S3Presigner publicPresigner
+    ) {
+        this.presigner = presigner;
+        this.s3Client = s3Client;
+        this.publicPresigner = publicPresigner;
+    }
 
     @Value("${app.s3.bucket}")
     private String bucket;
