@@ -20,19 +20,16 @@ import software.amazon.awssdk.services.s3.presigner.model.PutObjectPresignReques
 
 @Service
 public class ObjectService implements S3UrlGenerator {
-    private final S3Presigner presigner;
     private final S3Client s3Client;
-    private final S3Presigner publicPresigner;
+    private final S3Presigner presigner;
 
     @Autowired
     public ObjectService(
-        @Qualifier("bucketLocation") S3Presigner presigner,
         S3Client s3Client,
-        @Qualifier("presignerForPublicUrl") S3Presigner publicPresigner
+        @Qualifier("presignerForPublicUrl") S3Presigner presigner
     ) {
-        this.presigner = presigner;
         this.s3Client = s3Client;
-        this.publicPresigner = publicPresigner;
+        this.presigner = presigner;
     }
 
     @Value("${app.s3.bucket}")
@@ -50,7 +47,7 @@ public class ObjectService implements S3UrlGenerator {
 
         var expiry = Instant.now().plus(Duration.ofMinutes(5));
 
-        var presigned = publicPresigner.presignPutObject(
+        var presigned = presigner.presignPutObject(
             PutObjectPresignRequest.builder()
             .signatureDuration(Duration.ofMinutes(5))
             .putObjectRequest(request)
