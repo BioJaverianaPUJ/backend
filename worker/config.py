@@ -470,6 +470,32 @@ class Config:
         "Neobartsia santolinifolia",
         "Myrcianthes rhopaloides",
         "Solanum sessiliflorum",
+        # --- Censo (campus tree census) additions ---
+        # Species observed in censo/censo.csv that were missing from the list above.
+        # In alphabetical order.
+        "Acacia elata",
+        "Araucaria heterophylla",
+        "Archontophoenix cunninghamiana",
+        "Caesalpinia spinosa",
+        "Callistemon viminalis",
+        "Cecropia angustifolia",
+        "Cordyline australis",
+        "Cotoneaster multiflorus",
+        "Critoniella acuminata",
+        "Cupressus sempervirens",
+        "Cyathea caracasana",
+        "Delostoma integrifolium",
+        "Erythrina edulis",
+        "Eucalyptus cinerea",
+        "Ficus benjamina",
+        "Hyeronima macrocarpa",
+        "Inga bogotensis",
+        "Persea americana",
+        "Pinus radiata",
+        "Podocarpus oleifolius",
+        "Solanum asperolanatum",
+        "Spirotheca rhodostyla",
+        "Styrax cordatus",
     ]
     PLANT_SPECIES_LIST: list[str] = []
     TEMPERATURE: float = _get_env_float("INFERENCE_TEMPERATURE", 1.0)
