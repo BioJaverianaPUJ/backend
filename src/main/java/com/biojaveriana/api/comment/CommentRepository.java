@@ -1,5 +1,6 @@
 package com.biojaveriana.api.comment;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -34,6 +35,8 @@ public interface CommentRepository extends JpaRepository<Comment, UUID> {
     long countByPostId(UUID postId);
 
     long countByAuthorId(UUID authorId);
+
+    long countByAuthorIdAndCreatedAtGreaterThanEqual(UUID authorId, Instant createdAt);
 
     @Query("SELECT c.id FROM Comment c WHERE c.author.id = :authorId")
     List<UUID> findIdsByAuthorId(@Param("authorId") UUID authorId);

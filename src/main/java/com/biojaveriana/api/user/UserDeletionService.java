@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.biojaveriana.api.comment.CommentReactionRepository;
 import com.biojaveriana.api.comment.CommentRepository;
 import com.biojaveriana.api.gamification.repository.UserAchievementRepository;
+import com.biojaveriana.api.gamification.repository.UserMissionRepository;
 import com.biojaveriana.api.gamification.repository.UserGamificationRepository;
 import com.biojaveriana.api.gamification.repository.XpLogRepository;
 import com.biojaveriana.api.observation.ObservationJobRepository;
@@ -52,6 +53,7 @@ public class UserDeletionService {
     private final ObservationJobRepository observationJobRepository;
     private final XpLogRepository xpLogRepository;
     private final UserAchievementRepository userAchievementRepository;
+    private final UserMissionRepository userMissionRepository;
     private final UserGamificationRepository userGamificationRepository;
     private final ObjectService objectService;
     private final PasswordEncoder passwordEncoder;
@@ -108,6 +110,7 @@ public class UserDeletionService {
         observationRepository.deleteByUserId(userId);
         xpLogRepository.deleteByUserId(userId);
         userAchievementRepository.deleteByUserId(userId);
+        userMissionRepository.deleteByUserId(userId);
         userGamificationRepository.deleteByUserId(userId);
 
         userRepository.delete(user);

@@ -31,7 +31,6 @@ import com.biojaveriana.api.gamification.dto.AchievementPreviewRequest;
 import com.biojaveriana.api.gamification.dto.AchievementPreviewResponse;
 import com.biojaveriana.api.gamification.dto.AchievementResponse;
 import com.biojaveriana.api.gamification.dto.AchievementUpdateRequest;
-import com.biojaveriana.api.gamification.dto.UserAchievementResponse;
 import com.biojaveriana.api.gamification.exception.NotFoundException;
 import com.biojaveriana.api.gamification.exception.ValidationException;
 import com.biojaveriana.api.gamification.metric.Metric;

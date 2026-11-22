@@ -1,5 +1,6 @@
 package com.biojaveriana.api.comment;
 
+import java.time.Instant;
 import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
@@ -24,6 +25,9 @@ public interface CommentReactionRepository extends JpaRepository<CommentReaction
 
     @Query("SELECT COUNT(cr) FROM CommentReaction cr WHERE cr.comment.author.id = :userId")
     long countReactionsReceivedByUser(@Param("userId") UUID userId);
+
+    @Query("SELECT COUNT(cr) FROM CommentReaction cr WHERE cr.comment.author.id = :userId AND cr.createdAt >= :since")
+    long countReactionsReceivedByUserSince(@Param("userId") UUID userId, @Param("since") Instant since);
 
     @Modifying
     @Query("DELETE FROM CommentReaction cr WHERE cr.user.id = :userId")

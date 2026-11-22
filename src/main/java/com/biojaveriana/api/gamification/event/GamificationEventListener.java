@@ -6,11 +6,13 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.event.TransactionalEventListener;
 
 import com.biojaveriana.api.gamification.service.AchievementEngine;
+import com.biojaveriana.api.gamification.service.MissionEngine;
 
 /**
  * Listens for gamification domain events and delegates to the achievement
- * engine. Uses {@code @TransactionalEventListener} so that achievements are
- * evaluated after the originating transaction commits (counts are up to date).
+ * and mission engines. Uses {@code @TransactionalEventListener} so that
+ * achievements and missions are evaluated after the originating transaction
+ * commits (counts are up to date).
  *
  * <p>Failures are contained: a gamification problem must never fail the
  * action that triggered it (a post stays valid even if XP awarding breaks).
@@ -21,9 +23,11 @@ public class GamificationEventListener {
     private static final Logger log = LoggerFactory.getLogger(GamificationEventListener.class);
 
     private final AchievementEngine achievementEngine;
+    private final MissionEngine missionEngine;
 
-    public GamificationEventListener(AchievementEngine achievementEngine) {
+    public GamificationEventListener(AchievementEngine achievementEngine, MissionEngine missionEngine) {
         this.achievementEngine = achievementEngine;
+        this.missionEngine = missionEngine;
     }
 
     @TransactionalEventListener(fallbackExecution = true)
@@ -56,6 +60,12 @@ public class GamificationEventListener {
             achievementEngine.evaluateUser(event.getUserId());
         } catch (Exception e) {
             log.error("Gamification processing failed for event {} (user '{}'): {}",
+                event.getType(), event.getUserId(), e.getMessage(), e);
+        }
+        try {
+            missionEngine.evaluateUser(event.getUserId());
+        } catch (Exception e) {
+            log.error("Mission processing failed for event {} (user '{}'): {}",
                 event.getType(), event.getUserId(), e.getMessage(), e);
         }
     }

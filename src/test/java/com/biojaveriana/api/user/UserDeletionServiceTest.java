@@ -20,6 +20,7 @@ import com.biojaveriana.api.comment.CommentReactionRepository;
 import com.biojaveriana.api.comment.CommentRepository;
 import com.biojaveriana.api.gamification.repository.UserAchievementRepository;
 import com.biojaveriana.api.gamification.repository.UserGamificationRepository;
+import com.biojaveriana.api.gamification.repository.UserMissionRepository;
 import com.biojaveriana.api.gamification.repository.XpLogRepository;
 import com.biojaveriana.api.observation.ObservationJobRepository;
 import com.biojaveriana.api.observation.ObservationRepository;
@@ -79,6 +80,9 @@ class UserDeletionServiceTest {
     private UserAchievementRepository userAchievementRepository;
 
     @Mock
+    private UserMissionRepository userMissionRepository;
+
+    @Mock
     private UserGamificationRepository userGamificationRepository;
 
     @Mock
@@ -106,6 +110,7 @@ class UserDeletionServiceTest {
             observationJobRepository,
             xpLogRepository,
             userAchievementRepository,
+            userMissionRepository,
             userGamificationRepository,
             objectService,
             passwordEncoder
@@ -178,6 +183,7 @@ class UserDeletionServiceTest {
             verify(observationRepository).deleteByUserId(userId);
             verify(xpLogRepository).deleteByUserId(userId);
             verify(userAchievementRepository).deleteByUserId(userId);
+            verify(userMissionRepository).deleteByUserId(userId);
             verify(userGamificationRepository).deleteByUserId(userId);
 
             // The user row is deleted last
@@ -189,7 +195,7 @@ class UserDeletionServiceTest {
                 postImageRepository, postVoteRepository,
                 poiRepository, poiTelemetryRepository,
                 observationRepository, observationJobRepository,
-                userGamificationRepository, userRepository
+                userMissionRepository, userGamificationRepository, userRepository
             );
             inOrder.verify(commentReactionRepository).deleteByCommentIdIn(List.of(commentId));
             inOrder.verify(commentRepository).deleteByAuthorId(userId);
@@ -200,6 +206,7 @@ class UserDeletionServiceTest {
             inOrder.verify(postRepository).deleteByAuthorId(userId);
             inOrder.verify(observationJobRepository).deleteByObservationIdIn(List.of(observationId));
             inOrder.verify(observationRepository).deleteByUserId(userId);
+            inOrder.verify(userMissionRepository).deleteByUserId(userId);
             inOrder.verify(userGamificationRepository).deleteByUserId(userId);
             inOrder.verify(userRepository).delete(user);
         }
