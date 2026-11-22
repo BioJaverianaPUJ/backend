@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -24,4 +25,12 @@ public interface BanRepository extends JpaRepository<Ban, UUID> {
     Page<Ban> findByOrderByCreatedAtDesc(Pageable pageable);
 
     Page<Ban> findByUserOrderByCreatedAtDesc(User user, Pageable pageable);
+
+    @Modifying
+    @Query("DELETE FROM Ban b WHERE b.user.id = :userId")
+    void deleteByUserId(@Param("userId") UUID userId);
+
+    @Modifying
+    @Query("UPDATE Ban b SET b.createdBy = NULL WHERE b.createdBy.id = :userId")
+    void clearCreatedBy(@Param("userId") UUID userId);
 }

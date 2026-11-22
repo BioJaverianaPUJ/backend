@@ -5,6 +5,7 @@ import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Lock;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -16,4 +17,8 @@ public interface UserGamificationRepository extends JpaRepository<UserGamificati
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     @Query("SELECT ug FROM UserGamification ug WHERE ug.userId = :userId")
     Optional<UserGamification> findByIdWithPessimisticLock(@Param("userId") UUID userId);
+
+    @Modifying
+    @Query("DELETE FROM UserGamification ug WHERE ug.userId = :userId")
+    void deleteByUserId(@Param("userId") UUID userId);
 }

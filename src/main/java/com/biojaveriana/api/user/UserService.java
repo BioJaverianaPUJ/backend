@@ -6,14 +6,18 @@ import java.time.Duration;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.user.exceptions.InvalidCurrentPasswordException;
+import com.biojaveriana.api.user.exceptions.NewPasswordSameAsCurrentException;
 import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
 import com.biojaveriana.api.user.exceptions.SuperAdminRoleModificationException;
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
 import com.biojaveriana.api.user.exceptions.UsernameAlreadyExistsException;
 import com.biojaveriana.api.user.exceptions.UsernameChangeCooldownException;
+import com.biojaveriana.api.user.dto.ChangePasswordRequest;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
 import com.biojaveriana.api.user.dto.MeUserUpdateRequest;
 
@@ -27,6 +31,7 @@ public class UserService {
     private static final String SUPERADMIN_USERNAME = "superadmin";
 
     private final UserRepository userRepository;
+    private final PasswordEncoder passwordEncoder;
 
     public Page<User> findAll(Pageable pageable) {
         return userRepository.findAll(pageable);
@@ -113,6 +118,19 @@ public class UserService {
             user.setGender(dto.gender());
         }
 
+        return userRepository.save(user);
+    }
+
+    public User changePassword(User user, ChangePasswordRequest dto) {
+        if (!passwordEncoder.matches(dto.currentPassword(), user.getPasswordHash())) {
+            throw new InvalidCurrentPasswordException();
+        }
+
+        if (dto.newPassword().equals(dto.currentPassword())) {
+            throw new NewPasswordSameAsCurrentException();
+        }
+
+        user.setPasswordHash(passwordEncoder.encode(dto.newPassword()));
         return userRepository.save(user);
     }
 

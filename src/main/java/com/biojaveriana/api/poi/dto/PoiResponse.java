@@ -5,46 +5,40 @@ import java.util.UUID;
 
 import com.biojaveriana.api.poi.Poi;
 import com.biojaveriana.api.poi.PoiType;
+import com.biojaveriana.api.poi.PoiZoneType;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class PoiResponse {
-    private UUID id;
-    private UUID creatorId;
-    private String name;
-    private String description;
-    private PoiType geometryType;
-    private String polygonCoordinatesWkt;
-    private Double centerLatitude;
-    private Double centerLongitude;
-    private Double radiusMeters;
-    private String visibility;
-    private Boolean active;
-    private Instant createdAt;
-    private Instant updatedAt;
-
+public record PoiResponse(
+    UUID id,
+    UUID creatorId,
+    String name,
+    String description,
+    PoiType geometryType,
+    PoiZoneType type,
+    String polygonCoordinatesWkt,
+    Double centerLatitude,
+    Double centerLongitude,
+    Double radiusMeters,
+    String visibility,
+    Boolean active,
+    Instant createdAt,
+    Instant updatedAt
+) {
     public static PoiResponse from(Poi poi) {
-        return PoiResponse.builder()
-            .id(poi.getId())
-            .creatorId(poi.getCreator().getId())
-            .name(poi.getName())
-            .description(poi.getDescription())
-            .geometryType(poi.getGeometryType())
-            .polygonCoordinatesWkt(poi.getPolygonCoordinatesWkt())
-            .centerLatitude(poi.getCenterLatitude())
-            .centerLongitude(poi.getCenterLongitude())
-            .radiusMeters(poi.getRadiusMeters())
-            .visibility(poi.getVisibility() != null ? poi.getVisibility().name() : null)
-            .active(poi.getActive())
-            .createdAt(poi.getCreatedAt())
-            .updatedAt(poi.getUpdatedAt())
-            .build();
+        return new PoiResponse(
+            poi.getId(),
+            poi.getCreator().getId(),
+            poi.getName(),
+            poi.getDescription(),
+            poi.getGeometryType(),
+            poi.getType(),
+            poi.getPolygonCoordinatesWkt(),
+            poi.getCenterLatitude(),
+            poi.getCenterLongitude(),
+            poi.getRadiusMeters(),
+            poi.getVisibility() != null ? poi.getVisibility().name() : null,
+            poi.getActive(),
+            poi.getCreatedAt(),
+            poi.getUpdatedAt()
+        );
     }
 }

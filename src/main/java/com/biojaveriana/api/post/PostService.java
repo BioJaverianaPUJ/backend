@@ -1,5 +1,6 @@
 package com.biojaveriana.api.post;
 
+import java.time.Instant;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
@@ -62,6 +63,7 @@ public class PostService {
             throw new PostImageLimitException(MAX_IMAGES);
         }
 
+        final Instant now = Instant.now();
         var post = Post.builder()
             .author(user)
             .title(request.getTitle())
@@ -71,6 +73,8 @@ public class PostService {
             .totalDislikes(0)
             .hidden(false)
             .banned(false)
+            .createdAt(now)
+            .updatedAt(now)
             .build();
 
         post = postRepository.save(post);
