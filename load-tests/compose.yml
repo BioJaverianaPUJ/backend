@@ -1,0 +1,42 @@
+services:
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_DB: biojaveriana_loadtest
+      POSTGRES_USER: loadtest
+      POSTGRES_PASSWORD: ${LOADTEST_DB_PASSWORD:?Set LOADTEST_DB_PASSWORD in load-tests/.env}
+    ports:
+      - "${LOADTEST_POSTGRES_PORT:-15432}:5432"
+    volumes:
+      - loadtest-postgres-data:/var/lib/postgresql
+
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    environment:
+      RABBITMQ_DEFAULT_USER: ${RABBITMQ_USER:-loadtest}
+      RABBITMQ_DEFAULT_PASS: ${RABBITMQ_PASSWORD:?Set RABBITMQ_PASSWORD in load-tests/.env}
+    ports:
+      - "${LOADTEST_RABBIT_PORT:-5673}:5672"
+      - "${LOADTEST_RABBIT_MANAGEMENT_PORT:-15673}:15672"
+    volumes:
+      - loadtest-rabbitmq-data:/var/lib/rabbitmq
+
+  rustfs:
+    image: rustfs/rustfs:latest
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_TEST_ACCESS_KEY:?Set RUSTFS_TEST_ACCESS_KEY in load-tests/.env}
+      RUSTFS_SECRET_KEY: ${RUSTFS_TEST_SECRET_KEY:?Set RUSTFS_TEST_SECRET_KEY in load-tests/.env}
+      RUSTFS_VOLUMES: /data
+      RUSTFS_ADDRESS: ":9000"
+      RUSTFS_CONSOLE_ADDRESS: ":9001"
+      RUSTFS_CONSOLE_ENABLE: "true"
+    ports:
+      - "${LOADTEST_S3_PORT:-19000}:9000"
+      - "${LOADTEST_RUSTFS_CONSOLE_PORT:-19001}:9001"
+    volumes:
+      - loadtest-rustfs-data:/data
+
+volumes:
+  loadtest-postgres-data:
+  loadtest-rabbitmq-data:
+  loadtest-rustfs-data:
