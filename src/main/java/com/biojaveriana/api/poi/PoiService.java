@@ -25,6 +25,7 @@ import com.biojaveriana.api.poi.dto.PoiTelemetryRequest;
 import com.biojaveriana.api.poi.dto.PoiUpdateRequest;
 import com.biojaveriana.api.poi.exceptions.PoiNotFoundException;
 import com.biojaveriana.api.poi.exceptions.PoiValidationException;
+import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
 
@@ -40,6 +41,7 @@ public class PoiService {
 
     private final PoiRepository poiRepository;
     private final PoiTelemetryRepository poiTelemetryRepository;
+    private final EventDispatcher eventDispatcher;
 
     @Transactional
     public PoiResponse createPoi(User user, PoiCreateRequest request) {
@@ -170,6 +172,7 @@ public class PoiService {
                 var telemetry = PoiTelemetry.builder().poi(poi).user(user).enteredAt(now).build();
                 poiTelemetryRepository.save(telemetry);
                 log.info("Telemetry recorded for POI id={} by user id={}", poi.getId(), user.getId());
+                eventDispatcher.dispatchPoiVisited(user.getId(), poi.getId());
                 responses.add(PoiResponse.from(poi));
             }
         }

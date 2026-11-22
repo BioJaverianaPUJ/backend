@@ -62,3 +62,6 @@ app:
   observation-rate-limit:
     enabled: true
     cooldown-seconds: 300
+  gamification:
+    base-xp: 100
+    log-base: 2

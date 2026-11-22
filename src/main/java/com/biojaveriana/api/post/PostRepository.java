@@ -24,4 +24,6 @@ public interface PostRepository extends JpaRepository<Post, UUID> {
     Integer countByPostIdAndVoteType(@Param("postId") UUID postId, @Param("voteType") VoteType voteType);
 
     Optional<Post> findByIdAndHiddenFalseAndBannedFalse(UUID id);
+
+    long countByAuthorId(UUID authorId);
 }

@@ -15,6 +15,7 @@ import com.biojaveriana.api.observation.config.ObservationRateLimitConfig;
 import com.biojaveriana.api.observation.exceptions.ObservationRateLimitException;
 import com.biojaveriana.api.observation.exceptions.ObservationNotFoundException;
 import com.biojaveriana.api.observation.exceptions.ObservationForbiddenException;
+import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.observation.dto.ObservationCreateRequest;
 import com.biojaveriana.api.observation.dto.ObservationJobStatusResponse;
 import com.biojaveriana.api.observation.dto.ObservationListResponse;
@@ -42,6 +43,7 @@ public class ObservationService {
     private final ObservationMessageProducer messageProducer;
     private final S3UrlGenerator urlGenerator;
     private final ObservationRateLimitConfig rateLimitConfig;
+    private final EventDispatcher eventDispatcher;
 
     @Transactional
     public UploadPresign createPresign(User user, ObservationUploadPresignRequest request) {
@@ -85,6 +87,7 @@ public class ObservationService {
 
         observation = observationRepository.save(observation);
         log.info("Created observation id={}", observation.getId());
+        eventDispatcher.dispatchObservationCreated(user.getId(), observation.getId());
 
         var job = jobService.createJob(observation);
         log.info("Created job id={} for observation id={}", job.getId(), observation.getId());
