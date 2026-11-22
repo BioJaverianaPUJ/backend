@@ -14,11 +14,14 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
+import com.biojaveriana.api.comment.CommentReactionRepository;
+import com.biojaveriana.api.comment.CommentRepository;
 import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationRepository;
@@ -30,6 +33,7 @@ import com.biojaveriana.api.post.dto.PostUpdateRequest;
 import com.biojaveriana.api.post.exceptions.PostForbiddenException;
 import com.biojaveriana.api.post.exceptions.PostImageLimitException;
 import com.biojaveriana.api.post.exceptions.PostNotFoundException;
+import com.biojaveriana.api.report.ReportRepository;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.user.Gender;
@@ -64,6 +68,15 @@ class PostServiceTest {
     @Mock
     private EventDispatcher eventDispatcher;
 
+    @Mock
+    private ReportRepository reportRepository;
+
+    @Mock
+    private CommentRepository commentRepository;
+
+    @Mock
+    private CommentReactionRepository commentReactionRepository;
+
     private PostService postService;
 
     private User user;
@@ -78,7 +91,10 @@ class PostServiceTest {
             observationRepository,
             s3UrlGenerator,
             objectService,
-            eventDispatcher
+            eventDispatcher,
+            reportRepository,
+            commentRepository,
+            commentReactionRepository
         );
 
         user = User.builder()
@@ -387,6 +403,46 @@ class PostServiceTest {
 
         assertNotNull(response.observation());
         assertEquals(foreignObservation.getId(), response.observation().id());
+    }
+
+    @Test
+    @DisplayName("delete: cascades to comments, reactions, votes and reports in a foreign-key-safe order")
+    void deleteCascadesDependentData() {
+        UUID postId = UUID.randomUUID();
+        UUID commentId = UUID.randomUUID();
+        Post post = buildPost(postId, user, false, false);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(commentRepository.findIdsByPostId(postId)).thenReturn(List.of(commentId));
+
+        postService.delete(postId, user);
+
+        InOrder inOrder = inOrder(reportRepository, commentReactionRepository, commentRepository,
+            postImageRepository, postVoteRepository, postRepository);
+        inOrder.verify(commentReactionRepository).deleteByCommentIdIn(List.of(commentId));
+        inOrder.verify(reportRepository).deleteByReportedCommentIdIn(List.of(commentId));
+        inOrder.verify(reportRepository).deleteByReportedPostId(postId);
+        inOrder.verify(commentRepository).deleteByPostId(postId);
+        inOrder.verify(postImageRepository).deleteByPostId(postId);
+        inOrder.verify(postVoteRepository).deleteByPostId(postId);
+        inOrder.verify(postRepository).delete(post);
+    }
+
+    @Test
+    @DisplayName("delete: skips comment-related cleanup when the post has no comments")
+    void deleteWithoutCommentsSkipsCommentCascade() {
+        UUID postId = UUID.randomUUID();
+        Post post = buildPost(postId, user, false, false);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(commentRepository.findIdsByPostId(postId)).thenReturn(List.of());
+
+        postService.delete(postId, user);
+
+        verify(commentReactionRepository, never()).deleteByCommentIdIn(any());
+        verify(reportRepository, never()).deleteByReportedCommentIdIn(any());
+        verify(reportRepository).deleteByReportedPostId(postId);
+        verify(commentRepository).deleteByPostId(postId);
+        verify(postVoteRepository).deleteByPostId(postId);
+        verify(postRepository).delete(post);
     }
 
     private User buildUser(Role role) {

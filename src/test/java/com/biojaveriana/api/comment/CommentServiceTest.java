@@ -8,6 +8,7 @@ import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.eq;
+import static org.mockito.Mockito.inOrder;
 import static org.mockito.Mockito.lenient;
 import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
@@ -22,6 +23,7 @@ import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.data.domain.PageImpl;
@@ -36,6 +38,7 @@ import com.biojaveriana.api.comment.exceptions.CommentNotFoundException;
 import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.post.Post;
 import com.biojaveriana.api.post.PostRepository;
+import com.biojaveriana.api.report.ReportRepository;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
@@ -58,6 +61,9 @@ class CommentServiceTest {
     @Mock
     private EventDispatcher eventDispatcher;
 
+    @Mock
+    private ReportRepository reportRepository;
+
     private CommentService commentService;
     private User author;
     private User other;
@@ -68,7 +74,7 @@ class CommentServiceTest {
 
     @BeforeEach
     void setUp() {
-        commentService = new CommentService(commentRepository, commentReactionRepository, postRepository, s3UrlGenerator, eventDispatcher);
+        commentService = new CommentService(commentRepository, commentReactionRepository, postRepository, s3UrlGenerator, eventDispatcher, reportRepository);
         author = User.builder().id(UUID.randomUUID()).username("jane").role(Role.USER).build();
         other = User.builder().id(UUID.randomUUID()).username("bob").role(Role.USER).build();
         admin = User.builder().id(UUID.randomUUID()).username("admin").role(Role.ADMIN).build();
@@ -262,6 +268,38 @@ class CommentServiceTest {
 
             commentService.delete(comment.getId(), superadmin);
 
+            verify(commentRepository).delete(comment);
+        }
+
+        @Test
+        @DisplayName("deleting a comment cascades to its replies, reactions and reports")
+        void deleteCascadesDependentData() {
+            UUID replyId = UUID.randomUUID();
+            Comment comment = buildComment(UUID.randomUUID(), author, 0);
+            when(commentRepository.findByIdAndHiddenFalseAndBannedFalse(comment.getId())).thenReturn(Optional.of(comment));
+            when(commentRepository.findIdsByParentId(comment.getId())).thenReturn(List.of(replyId));
+
+            commentService.delete(comment.getId(), author);
+
+            InOrder inOrder = inOrder(commentReactionRepository, reportRepository, commentRepository);
+            inOrder.verify(commentReactionRepository).deleteByCommentIdIn(List.of(replyId, comment.getId()));
+            inOrder.verify(reportRepository).deleteByReportedCommentIdIn(List.of(replyId, comment.getId()));
+            inOrder.verify(commentRepository).deleteByParentIdIn(List.of(replyId, comment.getId()));
+            inOrder.verify(commentRepository).delete(comment);
+        }
+
+        @Test
+        @DisplayName("deleting a comment without replies still removes its reactions and reports")
+        void deleteWithoutRepliesCascadesReactionsAndReports() {
+            Comment comment = buildComment(UUID.randomUUID(), author, 0);
+            when(commentRepository.findByIdAndHiddenFalseAndBannedFalse(comment.getId())).thenReturn(Optional.of(comment));
+            when(commentRepository.findIdsByParentId(comment.getId())).thenReturn(List.of());
+
+            commentService.delete(comment.getId(), author);
+
+            verify(commentReactionRepository).deleteByCommentIdIn(List.of(comment.getId()));
+            verify(reportRepository).deleteByReportedCommentIdIn(List.of(comment.getId()));
+            verify(commentRepository, never()).deleteByParentIdIn(any());
             verify(commentRepository).delete(comment);
         }
 

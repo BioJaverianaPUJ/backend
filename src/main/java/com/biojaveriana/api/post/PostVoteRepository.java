@@ -14,6 +14,8 @@ public interface PostVoteRepository extends JpaRepository<PostVote, UUID> {
 
     void deleteByPostIdAndVoterId(UUID postId, UUID voterId);
 
+    void deleteByPostId(UUID postId);
+
     @Modifying
     @Query("DELETE FROM PostVote pv WHERE pv.voter.id = :voterId")
     void deleteByVoterId(@Param("voterId") UUID voterId);

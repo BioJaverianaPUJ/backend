@@ -139,6 +139,8 @@ class UserDeletionServiceTest {
         void shouldDeleteEverything() {
             UUID userId = UUID.randomUUID();
             UUID commentId = UUID.randomUUID();
+            UUID replyId = UUID.randomUUID();
+            UUID foreignCommentId = UUID.randomUUID();
             UUID poiId = UUID.randomUUID();
             UUID postId = UUID.randomUUID();
             UUID observationId = UUID.randomUUID();
@@ -150,6 +152,8 @@ class UserDeletionServiceTest {
             when(user.getBannerKey()).thenReturn("users/banner-key");
 
             when(commentRepository.findIdsByAuthorId(userId)).thenReturn(List.of(commentId));
+            when(commentRepository.findIdsByParentIdIn(List.of(commentId))).thenReturn(List.of(replyId));
+            when(commentRepository.findIdsByPostIdIn(List.of(postId))).thenReturn(List.of(foreignCommentId));
             when(poiRepository.findIdsByCreatorId(userId)).thenReturn(List.of(poiId));
             when(postRepository.findIdsByAuthorId(userId)).thenReturn(List.of(postId));
             when(observationRepository.findIdsByUserId(userId)).thenReturn(List.of(observationId));
@@ -166,10 +170,17 @@ class UserDeletionServiceTest {
 
             // Every related table is cleaned up
             verify(commentReactionRepository).deleteByUserId(userId);
+            verify(commentReactionRepository).deleteByCommentIdIn(List.of(replyId));
             verify(commentReactionRepository).deleteByCommentIdIn(List.of(commentId));
+            verify(commentReactionRepository).deleteByCommentIdIn(List.of(foreignCommentId));
             verify(commentRepository).deleteByParentIdIn(List.of(commentId));
             verify(commentRepository).deleteByAuthorId(userId);
+            verify(commentRepository).deleteByPostIdIn(List.of(postId));
             verify(reportRepository).deleteByReporterIdOrReportedUserId(userId);
+            verify(reportRepository).deleteByReportedCommentIdIn(List.of(replyId));
+            verify(reportRepository).deleteByReportedCommentIdIn(List.of(commentId));
+            verify(reportRepository).deleteByReportedCommentIdIn(List.of(foreignCommentId));
+            verify(reportRepository).deleteByReportedPostIdIn(List.of(postId));
             verify(banRepository).deleteByUserId(userId);
             verify(banRepository).clearCreatedBy(userId);
             verify(poiTelemetryRepository).deleteByUserId(userId);
@@ -192,15 +203,15 @@ class UserDeletionServiceTest {
             // Children are deleted before their parents
             InOrder inOrder = inOrder(
                 commentReactionRepository, commentRepository, postRepository,
-                postImageRepository, postVoteRepository,
+                postImageRepository, postVoteRepository, reportRepository,
                 poiRepository, poiTelemetryRepository,
                 observationRepository, observationJobRepository,
                 userMissionRepository, userGamificationRepository, userRepository
             );
+            inOrder.verify(commentReactionRepository).deleteByCommentIdIn(List.of(replyId));
             inOrder.verify(commentReactionRepository).deleteByCommentIdIn(List.of(commentId));
             inOrder.verify(commentRepository).deleteByAuthorId(userId);
-            inOrder.verify(poiTelemetryRepository).deleteByPoiIdIn(List.of(poiId));
-            inOrder.verify(poiRepository).deleteByCreatorId(userId);
+            inOrder.verify(commentRepository).deleteByPostIdIn(List.of(postId));
             inOrder.verify(postVoteRepository).deleteByPostIdIn(List.of(postId));
             inOrder.verify(postImageRepository).deleteByPostIdIn(List.of(postId));
             inOrder.verify(postRepository).deleteByAuthorId(userId);

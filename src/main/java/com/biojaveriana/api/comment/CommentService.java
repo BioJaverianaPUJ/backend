@@ -1,5 +1,6 @@
 package com.biojaveriana.api.comment;
 
+import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
@@ -26,6 +27,7 @@ import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.common.Pagination;
 import com.biojaveriana.api.post.Post;
 import com.biojaveriana.api.post.PostRepository;
+import com.biojaveriana.api.report.ReportRepository;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.user.User;
 
@@ -41,6 +43,7 @@ public class CommentService {
     private final PostRepository postRepository;
     private final S3UrlGenerator s3UrlGenerator;
     private final EventDispatcher eventDispatcher;
+    private final ReportRepository reportRepository;
 
     @Transactional
     public CommentResponse create(UUID postId, User user, CommentCreateRequest request) {
@@ -97,8 +100,25 @@ public class CommentService {
         if (!isAuthorOrAdmin(comment.getAuthor(), user)) {
             throw new CommentForbiddenException();
         }
+        deleteDependentData(commentId);
         commentRepository.delete(comment);
         log.info("Comment deleted id={} by user id={}", commentId, user.getId());
+    }
+
+    /**
+     * Removes everything that references the given comment, in a foreign-key-safe
+     * order: reactions and reports on it and its replies, then the replies, so
+     * the comment itself can be deleted without constraint violations.
+     */
+    private void deleteDependentData(UUID commentId) {
+        List<UUID> replyIds = commentRepository.findIdsByParentId(commentId);
+        List<UUID> affectedIds = new ArrayList<>(replyIds);
+        affectedIds.add(commentId);
+        commentReactionRepository.deleteByCommentIdIn(affectedIds);
+        reportRepository.deleteByReportedCommentIdIn(affectedIds);
+        if (!replyIds.isEmpty()) {
+            commentRepository.deleteByParentIdIn(affectedIds);
+        }
     }
 
 

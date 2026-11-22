@@ -13,6 +13,8 @@ import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.comment.CommentReactionRepository;
+import com.biojaveriana.api.comment.CommentRepository;
 import com.biojaveriana.api.common.Pagination;
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationRepository;
@@ -31,6 +33,7 @@ import com.biojaveriana.api.post.exceptions.PostForbiddenException;
 import com.biojaveriana.api.post.exceptions.PostImageLimitException;
 import com.biojaveriana.api.post.exceptions.PostNotFoundException;
 import com.biojaveriana.api.gamification.event.EventDispatcher;
+import com.biojaveriana.api.report.ReportRepository;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.s3.UploadPresign;
@@ -55,6 +58,9 @@ public class PostService {
     private final S3UrlGenerator s3UrlGenerator;
     private final ObjectService objectService;
     private final EventDispatcher eventDispatcher;
+    private final ReportRepository reportRepository;
+    private final CommentRepository commentRepository;
+    private final CommentReactionRepository commentReactionRepository;
 
     @Transactional
     public UploadPresign createPresign(User user, String contentType) {
@@ -137,9 +143,27 @@ public class PostService {
             throw new PostForbiddenException();
         }
 
-        postImageRepository.deleteByPostId(postId);
+        deleteDependentData(postId);
         postRepository.delete(post);
         log.info("Post deleted id={} by user id={}", postId, user.getId());
+    }
+
+    /**
+     * Removes everything that references the given post, in a foreign-key-safe
+     * order: reactions and reports on its comments first, then the comments,
+     * the reports on the post itself, and finally its images and votes, so the
+     * post row can be deleted without constraint violations.
+     */
+    private void deleteDependentData(UUID postId) {
+        List<UUID> commentIds = commentRepository.findIdsByPostId(postId);
+        if (!commentIds.isEmpty()) {
+            commentReactionRepository.deleteByCommentIdIn(commentIds);
+            reportRepository.deleteByReportedCommentIdIn(commentIds);
+        }
+        reportRepository.deleteByReportedPostId(postId);
+        commentRepository.deleteByPostId(postId);
+        postImageRepository.deleteByPostId(postId);
+        postVoteRepository.deleteByPostId(postId);
     }
 
     @Transactional(readOnly = true)

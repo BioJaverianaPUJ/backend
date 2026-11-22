@@ -86,7 +86,15 @@ public class UserDeletionService {
         // Delete children before parents so that foreign key constraints are satisfied.
         commentReactionRepository.deleteByUserId(userId);
         if (!commentIds.isEmpty()) {
+            // Reactions and reports on replies to the user's comments
+            List<UUID> replyIds = commentRepository.findIdsByParentIdIn(commentIds);
+            if (!replyIds.isEmpty()) {
+                commentReactionRepository.deleteByCommentIdIn(replyIds);
+                reportRepository.deleteByReportedCommentIdIn(replyIds);
+            }
+            // Reactions and reports on the user's own comments
             commentReactionRepository.deleteByCommentIdIn(commentIds);
+            reportRepository.deleteByReportedCommentIdIn(commentIds);
             commentRepository.deleteByParentIdIn(commentIds);
         }
         commentRepository.deleteByAuthorId(userId);
@@ -100,6 +108,14 @@ public class UserDeletionService {
         poiRepository.deleteByCreatorId(userId);
         postVoteRepository.deleteByVoterId(userId);
         if (!postIds.isEmpty()) {
+            // Comments (by any user) on the user's posts, with their reactions and reports
+            List<UUID> commentsOnPosts = commentRepository.findIdsByPostIdIn(postIds);
+            if (!commentsOnPosts.isEmpty()) {
+                commentReactionRepository.deleteByCommentIdIn(commentsOnPosts);
+                reportRepository.deleteByReportedCommentIdIn(commentsOnPosts);
+            }
+            reportRepository.deleteByReportedPostIdIn(postIds);
+            commentRepository.deleteByPostIdIn(postIds);
             postVoteRepository.deleteByPostIdIn(postIds);
             postImageRepository.deleteByPostIdIn(postIds);
         }

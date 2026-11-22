@@ -1,5 +1,6 @@
 package com.biojaveriana.api.report;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -39,4 +40,16 @@ public interface ReportRepository extends JpaRepository<Report, UUID> {
     @Modifying
     @Query("DELETE FROM Report r WHERE r.reporter.id = :userId OR r.reportedUser.id = :userId")
     void deleteByReporterIdOrReportedUserId(@Param("userId") UUID userId);
+
+    @Modifying
+    @Query("DELETE FROM Report r WHERE r.reportedPost.id = :reportedPostId")
+    void deleteByReportedPostId(@Param("reportedPostId") UUID reportedPostId);
+
+    @Modifying
+    @Query("DELETE FROM Report r WHERE r.reportedPost.id IN :reportedPostIds")
+    void deleteByReportedPostIdIn(@Param("reportedPostIds") Collection<UUID> reportedPostIds);
+
+    @Modifying
+    @Query("DELETE FROM Report r WHERE r.reportedComment.id IN :reportedCommentIds")
+    void deleteByReportedCommentIdIn(@Param("reportedCommentIds") Collection<UUID> reportedCommentIds);
 }

@@ -41,6 +41,18 @@ public interface CommentRepository extends JpaRepository<Comment, UUID> {
     @Query("SELECT c.id FROM Comment c WHERE c.author.id = :authorId")
     List<UUID> findIdsByAuthorId(@Param("authorId") UUID authorId);
 
+    @Query("SELECT c.id FROM Comment c WHERE c.post.id = :postId")
+    List<UUID> findIdsByPostId(@Param("postId") UUID postId);
+
+    @Query("SELECT c.id FROM Comment c WHERE c.post.id IN :postIds")
+    List<UUID> findIdsByPostIdIn(@Param("postIds") Collection<UUID> postIds);
+
+    @Query("SELECT c.id FROM Comment c WHERE c.parent.id = :parentId")
+    List<UUID> findIdsByParentId(@Param("parentId") UUID parentId);
+
+    @Query("SELECT c.id FROM Comment c WHERE c.parent.id IN :parentIds")
+    List<UUID> findIdsByParentIdIn(@Param("parentIds") Collection<UUID> parentIds);
+
     @Modifying
     @Query("DELETE FROM Comment c WHERE c.parent.id IN :parentIds")
     void deleteByParentIdIn(@Param("parentIds") Collection<UUID> parentIds);
@@ -48,4 +60,12 @@ public interface CommentRepository extends JpaRepository<Comment, UUID> {
     @Modifying
     @Query("DELETE FROM Comment c WHERE c.author.id = :authorId")
     void deleteByAuthorId(@Param("authorId") UUID authorId);
+
+    @Modifying
+    @Query("DELETE FROM Comment c WHERE c.post.id = :postId")
+    void deleteByPostId(@Param("postId") UUID postId);
+
+    @Modifying
+    @Query("DELETE FROM Comment c WHERE c.post.id IN :postIds")
+    void deleteByPostIdIn(@Param("postIds") Collection<UUID> postIds);
 }
