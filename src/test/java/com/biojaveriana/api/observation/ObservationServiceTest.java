@@ -78,6 +78,7 @@ class ObservationServiceTest {
     private User user;
     private User other;
     private User admin;
+    private User superadmin;
 
     @BeforeEach
     void setUp() {
@@ -86,6 +87,7 @@ class ObservationServiceTest {
         user = User.builder().id(UUID.randomUUID()).username("jane").role(Role.USER).build();
         other = User.builder().id(UUID.randomUUID()).username("bob").role(Role.USER).build();
         admin = User.builder().id(UUID.randomUUID()).username("admin").role(Role.ADMIN).build();
+        superadmin = User.builder().id(UUID.randomUUID()).username("super").role(Role.SUPERADMIN).build();
         lenient().when(observationRepository.save(any(Observation.class))).thenAnswer(inv -> {
             Observation o = inv.getArgument(0);
             if (o.getId() == null) {
@@ -361,6 +363,30 @@ class ObservationServiceTest {
         void nonAdminIsForbidden() {
             assertThrows(ObservationForbiddenException.class,
                 () -> observationService.listAllForAdmin(user, false, false, 0, 20));
+        }
+
+        @Test
+        @DisplayName("superadmins can list visible observations by default")
+        void superadminSeesVisibleByDefault() {
+            Observation observation = buildObservation(UUID.randomUUID(), user);
+            when(observationRepository.findByHiddenFalseOrderByCreatedAtDesc(any(Pageable.class)))
+                .thenReturn(new PageImpl<>(List.of(observation)));
+
+            ObservationListResponse response = observationService.listAllForAdmin(superadmin, false, false, 0, 20);
+
+            assertEquals(1, response.content().size());
+        }
+
+        @Test
+        @DisplayName("superadmins can filter by revisionRequested")
+        void superadminFiltersByRevisionRequested() {
+            Observation observation = buildObservation(UUID.randomUUID(), user);
+            when(observationRepository.findByRevisionRequestedTrueOrderByCreatedAtDesc(any(Pageable.class)))
+                .thenReturn(new PageImpl<>(List.of(observation)));
+
+            ObservationListResponse response = observationService.listAllForAdmin(superadmin, false, true, 0, 20);
+
+            assertEquals(1, response.content().size());
         }
 
         @Test

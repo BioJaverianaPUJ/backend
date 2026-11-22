@@ -196,7 +196,7 @@ public class ObservationService {
 
     @Transactional(readOnly = true)
     public ObservationListResponse listAllForAdmin(User user, boolean includeHidden, boolean revisionRequested, int page, int size) {
-        if (user.getRole() != Role.ADMIN) {
+        if (user.getRole() != Role.ADMIN && user.getRole() != Role.SUPERADMIN) {
             throw new ObservationForbiddenException();
         }
 
