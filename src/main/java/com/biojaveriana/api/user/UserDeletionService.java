@@ -38,8 +38,6 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class UserDeletionService {
 
-    private static final String SUPERADMIN_USERNAME = "superadmin";
-
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
     private final CommentReactionRepository commentReactionRepository;
@@ -70,7 +68,7 @@ public class UserDeletionService {
     }
 
     public void deleteAccount(User user) {
-        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+        if (user.isSuperAdmin()) {
             throw new SuperAdminDeletionException();
         }
 

@@ -120,7 +120,7 @@ class UserDeletionServiceTest {
         @DisplayName("rejects deletion of the superadmin account")
         void shouldRejectSuperAdmin() {
             User superAdmin = mock(User.class);
-            when(superAdmin.getUsername()).thenReturn("superadmin");
+            when(superAdmin.isSuperAdmin()).thenReturn(true);
 
             assertThrows(SuperAdminDeletionException.class,
                 () -> userDeletionService.deleteAccount(superAdmin));
@@ -140,7 +140,7 @@ class UserDeletionServiceTest {
 
             User user = mock(User.class);
             when(user.getId()).thenReturn(userId);
-            when(user.getUsername()).thenReturn("alice");
+            when(user.isSuperAdmin()).thenReturn(false);
             when(user.getProfilePictureKey()).thenReturn("users/profile-key");
             when(user.getBannerKey()).thenReturn("users/banner-key");
 
@@ -211,7 +211,7 @@ class UserDeletionServiceTest {
 
             User user = mock(User.class);
             when(user.getId()).thenReturn(userId);
-            when(user.getUsername()).thenReturn("bob");
+            when(user.isSuperAdmin()).thenReturn(false);
 
             when(commentRepository.findIdsByAuthorId(userId)).thenReturn(List.of());
             when(poiRepository.findIdsByCreatorId(userId)).thenReturn(List.of());
@@ -258,7 +258,7 @@ class UserDeletionServiceTest {
 
             User user = mock(User.class);
             when(user.getId()).thenReturn(userId);
-            when(user.getUsername()).thenReturn("alice");
+            when(user.isSuperAdmin()).thenReturn(false);
             when(user.getPasswordHash()).thenReturn("hash");
             when(passwordEncoder.matches("correct-password", "hash")).thenReturn(true);
 

@@ -14,16 +14,16 @@ public class UserDeactivatedException extends ServiceException {
     }
 
     public UserDeactivatedException(BanType banType, Instant expiresAt) {
+        Map<String, Object> details = expiresAt == null
+            ? Map.of("banType", banType.name().toLowerCase())
+            : Map.of("banType", banType.name().toLowerCase(), "expiresAt", expiresAt);
         super(
             HttpStatus.FORBIDDEN,
             "USER_DEACTIVATED",
             banType == BanType.PERMANENT
                 ? "You have been permanently banned from accessing this resource"
                 : "You have been temporarily banned from accessing this resource",
-            Map.of(
-                "banType", banType.name().toLowerCase(),
-                "expiresAt", expiresAt
-            )
+            details
         );
     }
 }
