@@ -70,6 +70,10 @@ app:
   gamification:
     base-xp: 100
     log-base: 2
+    mission:
+      daily-count: 2
+      weekly-count: 1
+      timezone: UTC
 
   motd:
     rotation-cron: "0 0 0 * * *"

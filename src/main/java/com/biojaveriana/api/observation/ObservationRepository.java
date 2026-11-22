@@ -1,5 +1,6 @@
 package com.biojaveriana.api.observation;
 
+import java.time.Instant;
 import java.util.List;
 import java.util.UUID;
 
@@ -23,8 +24,13 @@ public interface ObservationRepository extends JpaRepository<Observation, UUID> 
 
     long countByUserId(UUID userId);
 
+    long countByUserIdAndCreatedAtGreaterThanEqual(UUID userId, Instant createdAt);
+
     @Query("SELECT COUNT(DISTINCT o.speciesCommonName) FROM Observation o WHERE o.user.id = :userId AND o.speciesCommonName IS NOT NULL")
     long countDistinctSpeciesByUserId(@Param("userId") UUID userId);
+
+    @Query("SELECT COUNT(DISTINCT o.speciesCommonName) FROM Observation o WHERE o.user.id = :userId AND o.speciesCommonName IS NOT NULL AND o.createdAt >= :since")
+    long countDistinctSpeciesByUserIdSince(@Param("userId") UUID userId, @Param("since") Instant since);
 
     @Query("SELECT o.id FROM Observation o WHERE o.user.id = :userId")
     List<UUID> findIdsByUserId(@Param("userId") UUID userId);

@@ -37,6 +37,22 @@ public class MetricRegistry {
         return Optional.ofNullable(metrics.get(normalize(type)));
     }
 
+    /**
+     * Looks up a metric that supports time windows (used by mission
+     * predicates), returning empty if the type is unknown or not windowed.
+     */
+    public Optional<WindowedMetric> getWindowed(String type) {
+        Metric metric = type == null ? null : metrics.get(normalize(type));
+        return metric instanceof WindowedMetric windowed ? Optional.of(windowed) : Optional.empty();
+    }
+
+    /**
+     * Whether the given metric type is registered and supports time windows.
+     */
+    public boolean isWindowed(String type) {
+        return getWindowed(type).isPresent();
+    }
+
     private String normalize(String type) {
         return type.trim().toLowerCase(Locale.ROOT);
     }
