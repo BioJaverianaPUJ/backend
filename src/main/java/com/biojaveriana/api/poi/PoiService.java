@@ -47,14 +47,15 @@ public class PoiService {
     public PoiResponse createPoi(User user, PoiCreateRequest request) {
         validateCreateRequest(request);
         var poi = Poi.builder()
-            .creator(user).name(request.getName()).description(request.getDescription())
-            .geometryType(request.getGeometryType()).visibility(request.getVisibility()).active(true).build();
-        if (request.getGeometryType() == PoiType.POLYGON) {
-            poi.setPolygonCoordinatesWkt(polygonToWkt(request.getPolygonCoordinates()));
+            .creator(user).name(request.name()).description(request.description())
+            .geometryType(request.geometryType()).type(request.type())
+            .visibility(request.visibility()).active(true).build();
+        if (request.geometryType() == PoiType.POLYGON) {
+            poi.setPolygonCoordinatesWkt(polygonToWkt(request.polygonCoordinates()));
         } else {
-            poi.setCenterLatitude(request.getCenterLatitude());
-            poi.setCenterLongitude(request.getCenterLongitude());
-            poi.setRadiusMeters(request.getRadiusMeters());
+            poi.setCenterLatitude(request.centerLatitude());
+            poi.setCenterLongitude(request.centerLongitude());
+            poi.setRadiusMeters(request.radiusMeters());
         }
         poi = poiRepository.save(poi);
         log.info("POI created id={} by user id={}", poi.getId(), user.getId());
@@ -68,19 +69,20 @@ public class PoiService {
             throw new ForbiddenException();
         }
 
-        if (request.getName() != null) poi.setName(request.getName());
-        if (request.getDescription() != null) poi.setDescription(request.getDescription());
-        if (request.getVisibility() != null) poi.setVisibility(request.getVisibility());
-        if (request.getActive() != null) poi.setActive(request.getActive());
-        if (request.getPolygonCoordinates() != null && !request.getPolygonCoordinates().isEmpty()) {
+        if (request.name() != null) poi.setName(request.name());
+        if (request.description() != null) poi.setDescription(request.description());
+        if (request.visibility() != null) poi.setVisibility(request.visibility());
+        if (request.type() != null) poi.setType(request.type());
+        if (request.active() != null) poi.setActive(request.active());
+        if (request.polygonCoordinates() != null && !request.polygonCoordinates().isEmpty()) {
             poi.setGeometryType(PoiType.POLYGON);
-            poi.setPolygonCoordinatesWkt(polygonToWkt(request.getPolygonCoordinates()));
+            poi.setPolygonCoordinatesWkt(polygonToWkt(request.polygonCoordinates()));
             poi.setCenterLatitude(null); poi.setCenterLongitude(null); poi.setRadiusMeters(null);
-        } else if (request.getCenterLatitude() != null && request.getCenterLongitude() != null) {
+        } else if (request.centerLatitude() != null && request.centerLongitude() != null) {
             poi.setGeometryType(PoiType.POINT);
-            poi.setCenterLatitude(request.getCenterLatitude());
-            poi.setCenterLongitude(request.getCenterLongitude());
-            poi.setRadiusMeters(request.getRadiusMeters());
+            poi.setCenterLatitude(request.centerLatitude());
+            poi.setCenterLongitude(request.centerLongitude());
+            poi.setRadiusMeters(request.radiusMeters());
             poi.setPolygonCoordinatesWkt(null);
         }
         poi = poiRepository.save(poi);
@@ -130,8 +132,8 @@ public class PoiService {
         if (user.getRole() == Role.ADMIN || user.getRole() == Role.SUPERADMIN) {
             visibleTypes = List.of(PoiVisibility.PUBLIC, PoiVisibility.PRIVATE);
         }
-        double longitude = request.getLongitude();
-        double latitude = request.getLatitude();
+        double longitude = request.longitude();
+        double latitude = request.latitude();
 
         List<Poi> pois = new ArrayList<>();
 
@@ -180,20 +182,20 @@ public class PoiService {
     }
 
     private void validateCreateRequest(PoiCreateRequest request) {
-        if (request.getGeometryType() == PoiType.POLYGON) {
-            if (request.getPolygonCoordinates() == null || request.getPolygonCoordinates().size() < MIN_POLYGON_COORDINATES) {
+        if (request.geometryType() == PoiType.POLYGON) {
+            if (request.polygonCoordinates() == null || request.polygonCoordinates().size() < MIN_POLYGON_COORDINATES) {
                 throw new PoiValidationException("Polygon must have at least " + MIN_POLYGON_COORDINATES + " coordinates");
             }
-            var first = request.getPolygonCoordinates().get(0);
-            var last = request.getPolygonCoordinates().get(request.getPolygonCoordinates().size() - 1);
-            if (first.getLatitude() != last.getLatitude() || first.getLongitude() != last.getLongitude()) {
+            var first = request.polygonCoordinates().get(0);
+            var last = request.polygonCoordinates().get(request.polygonCoordinates().size() - 1);
+            if (first.latitude() != last.latitude() || first.longitude() != last.longitude()) {
                 throw new PoiValidationException("Polygon must be closed (first and last coordinates must match)");
             }
-        } else if (request.getGeometryType() == PoiType.POINT) {
-            if (request.getCenterLatitude() == null || request.getCenterLongitude() == null) {
+        } else if (request.geometryType() == PoiType.POINT) {
+            if (request.centerLatitude() == null || request.centerLongitude() == null) {
                 throw new PoiValidationException("Point geometry requires centerLatitude and centerLongitude");
             }
-            if (request.getRadiusMeters() == null || request.getRadiusMeters() <= 0) {
+            if (request.radiusMeters() == null || request.radiusMeters() <= 0) {
                 throw new PoiValidationException("Point geometry requires a positive radiusMeters");
             }
         }
@@ -203,7 +205,7 @@ public class PoiService {
         StringBuilder wkt = new StringBuilder("POLYGON ((");
         for (int i = 0; i < coordinates.size(); i++) {
             var coord = coordinates.get(i);
-            wkt.append(coord.getLongitude()).append(" ").append(coord.getLatitude());
+            wkt.append(coord.longitude()).append(" ").append(coord.latitude());
             if (i < coordinates.size() - 1) wkt.append(", ");
         }
         wkt.append("))");

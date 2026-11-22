@@ -64,6 +64,11 @@ public class Poi {
     @NotNull
     private PoiType geometryType;
 
+    @Enumerated(EnumType.STRING)
+    @Column(name = "type", nullable = false)
+    @NotNull
+    private PoiZoneType type;
+
     @Lob
     @Column(name = "polygon_coordinates")
     private String polygonCoordinatesWkt;

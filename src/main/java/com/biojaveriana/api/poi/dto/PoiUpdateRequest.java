@@ -6,34 +6,29 @@ import jakarta.validation.constraints.DecimalMax;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Positive;
 import com.biojaveriana.api.poi.PoiVisibility;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import com.biojaveriana.api.poi.PoiZoneType;
 
-@Getter
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder
-public class PoiUpdateRequest {
-    private String name;
+public record PoiUpdateRequest(
+    String name,
 
-    private String description;
+    String description,
 
-    private List<PoiCreateRequest.PolygonCoordinate> polygonCoordinates;
+    List<PoiCreateRequest.PolygonCoordinate> polygonCoordinates,
 
     @DecimalMin(value = "-90.0", message = "Latitude must be between -90 and 90")
     @DecimalMax(value = "90.0", message = "Latitude must be between -90 and 90")
-    private Double centerLatitude;
+    Double centerLatitude,
 
     @DecimalMin(value = "-180.0", message = "Longitude must be between -180 and 180")
     @DecimalMax(value = "180.0", message = "Longitude must be between -180 and 180")
-    private Double centerLongitude;
+    Double centerLongitude,
 
     @Positive
-    private Double radiusMeters;
+    Double radiusMeters,
 
-    private PoiVisibility visibility;
+    PoiVisibility visibility,
 
-    private Boolean active;
-}
+    PoiZoneType type,
+
+    Boolean active
+) {}

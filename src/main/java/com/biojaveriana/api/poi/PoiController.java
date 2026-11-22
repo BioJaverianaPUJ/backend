@@ -77,7 +77,7 @@ public class PoiController {
     @PostMapping("/telemetry")
     public ResponseEntity<List<PoiResponse>> recordTelemetry(@CurrentUser User user,
                                                               @Valid @RequestBody PoiTelemetryRequest request) {
-        log.info("Recording telemetry for user id={}, lat={}, lon={}", user.getId(), request.getLatitude(), request.getLongitude());
+        log.info("Recording telemetry for user id={}, lat={}, lon={}", user.getId(), request.latitude(), request.longitude());
         return ResponseEntity.ok(poiService.recordTelemetry(user, request));
     }
 }
