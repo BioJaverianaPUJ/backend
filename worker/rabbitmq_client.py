@@ -35,6 +35,9 @@ class RabbitMQClient:
                 raise
 
     def connect(self) -> None:
+        if self.connection is not None and self.connection.is_open:
+            logger.debug("Already connected, skipping duplicate connect() call")
+            return
         credentials = pika.PlainCredentials(username=config.RABBITMQ_USER, password=config.RABBITMQ_PASSWORD)
         params = pika.ConnectionParameters(host=config.RABBITMQ_HOST, port=config.RABBITMQ_PORT, credentials=credentials, heartbeat=600, blocked_connection_timeout=30, connection_attempts=3, retry_delay=5)
         try:
@@ -133,5 +136,23 @@ def get_rabbitmq_client() -> RabbitMQClient:
 
 def connect_rabbitmq() -> RabbitMQClient:
     client = get_rabbitmq_client()
+    client.connect()
+    return client
+
+
+def create_rabbitmq_client() -> RabbitMQClient:
+    """Create a fresh, dedicated RabbitMQClient with its own connection/channel.
+
+    pika's BlockingConnection is NOT thread-safe: each connection must be
+    created and driven by a single thread, and start_consuming() must run in
+    the thread that owns the connection. Sharing one client across consumer
+    threads corrupts pika's internal event dispatch (symptom: workers hang
+    and messages are never delivered to callbacks, especially when the queue
+    is empty at startup).
+
+    Use this factory inside the consumer loop in main.py so every consumer
+    thread owns its own client/connection/channel.
+    """
+    client = RabbitMQClient()
     client.connect()
     return client

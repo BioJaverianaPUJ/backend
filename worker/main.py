@@ -26,7 +26,7 @@ import pika
 from worker.config import config
 from worker.model_client import load_model
 from worker.processor import ObservationProcessor
-from worker.rabbitmq_client import connect_rabbitmq
+from worker.rabbitmq_client import connect_rabbitmq, create_rabbitmq_client
 from worker.s3_client import connect_s3
 
 logger = logging.getLogger(__name__)
@@ -98,8 +98,12 @@ def main() -> None:
 
     try:
         for i in range(config.CONSUMER_COUNT):
-            # Each consumer needs its own connection/channel to call start_consuming() concurrently
-            consumer_client = connect_rabbitmq()
+            # Each consumer needs its own dedicated connection/channel: pika's
+            # BlockingConnection is not thread-safe, and start_consuming() must
+            # run in the thread that owns the connection. connect_rabbitmq()
+            # returns a shared singleton whose single channel would be driven
+            # by all consumer threads at once (event dispatch race -> hang).
+            consumer_client = create_rabbitmq_client()
             consumer_processor = ObservationProcessor(model_client, s3_client, consumer_client)
             t = ThreadPoolExecutor(max_workers=1)
             future = t.submit(consumer_client.consume, consumer_processor.process_message, consumer_tag=f"worker-consumer-{i}")
