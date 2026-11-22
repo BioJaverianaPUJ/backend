@@ -84,4 +84,13 @@ public class User {
 
     @Column(name = "last_observation_time")
     private Instant lastObservationTime;
+
+    /**
+     * True if this is the auto-generated superadmin account.
+     * The superadmin bypasses all role checks and cannot be banned,
+     * modified, deleted, or replicated: only this account holds Role.SUPERADMIN.
+     */
+    public boolean isSuperAdmin() {
+        return role == Role.SUPERADMIN;
+    }
 }

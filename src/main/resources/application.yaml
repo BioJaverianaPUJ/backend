@@ -46,6 +46,11 @@ app:
     dead-letter-queue: "observation.jobs.dlq"
     job-expiry-hours: 24
 
+  observation:
+    retry-scan-interval-ms: 15000
+    retry-base-delay-seconds: 30
+    retry-max-delay-seconds: 600
+
   s3:
     bucket: ${S3_BUCKET:biojaveriana}
     endpoint: ${S3_ENDPOINT:http://localhost:9000}
@@ -65,3 +70,6 @@ app:
   gamification:
     base-xp: 100
     log-base: 2
+
+  motd:
+    rotation-cron: "0 0 0 * * *"

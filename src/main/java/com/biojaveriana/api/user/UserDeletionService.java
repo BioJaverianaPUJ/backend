@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.UUID;
 
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,7 @@ import com.biojaveriana.api.post.PostRepository;
 import com.biojaveriana.api.post.PostVoteRepository;
 import com.biojaveriana.api.report.ReportRepository;
 import com.biojaveriana.api.s3.ObjectService;
+import com.biojaveriana.api.user.exceptions.InvalidCurrentPasswordException;
 import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
 
 import lombok.RequiredArgsConstructor;
@@ -35,8 +37,6 @@ import lombok.extern.slf4j.Slf4j;
 @Transactional
 @RequiredArgsConstructor
 public class UserDeletionService {
-
-    private static final String SUPERADMIN_USERNAME = "superadmin";
 
     private final UserRepository userRepository;
     private final CommentRepository commentRepository;
@@ -54,9 +54,21 @@ public class UserDeletionService {
     private final UserAchievementRepository userAchievementRepository;
     private final UserGamificationRepository userGamificationRepository;
     private final ObjectService objectService;
+    private final PasswordEncoder passwordEncoder;
+
+    /**
+     * Deletes the caller's own account after verifying their password.
+     * Throws {@link InvalidCurrentPasswordException} if the password does not match.
+     */
+    public void deleteMyAccount(User user, String password) {
+        if (!passwordEncoder.matches(password, user.getPasswordHash())) {
+            throw new InvalidCurrentPasswordException();
+        }
+        deleteAccount(user);
+    }
 
     public void deleteAccount(User user) {
-        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+        if (user.isSuperAdmin()) {
             throw new SuperAdminDeletionException();
         }
 

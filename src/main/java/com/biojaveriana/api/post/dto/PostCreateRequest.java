@@ -1,5 +1,7 @@
 package com.biojaveriana.api.post.dto;
 
+import java.util.UUID;
+
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -19,7 +21,7 @@ public class PostCreateRequest {
     @NotBlank(message = "Description is required")
     private String description;
 
-    private String observation;
+    private UUID observationId;
 
     private String[] imageKeys;
 }

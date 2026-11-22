@@ -35,4 +35,8 @@ public interface ObservationRepository extends JpaRepository<Observation, UUID> 
     @Modifying
     @Query("DELETE FROM Observation o WHERE o.user.id = :userId")
     void deleteByUserId(@Param("userId") UUID userId);
+
+    @Modifying
+    @Query("UPDATE Observation o SET o.specimen = NULL WHERE o.specimen.species.id = :speciesId")
+    void clearSpecimenBySpeciesId(@Param("speciesId") UUID speciesId);
 }

@@ -28,8 +28,6 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserService {
 
-    private static final String SUPERADMIN_USERNAME = "superadmin";
-
     private final UserRepository userRepository;
     private final PasswordEncoder passwordEncoder;
 
@@ -50,7 +48,7 @@ public class UserService {
     public User updateById(UUID id, UserUpdateRequest dto) {
         var user = findById(id);
 
-        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+        if (user.isSuperAdmin()) {
             throw new SuperAdminRoleModificationException();
         }
 
@@ -64,6 +62,9 @@ public class UserService {
         }
 
         if (dto.role() != null) {
+            if (dto.role() == Role.SUPERADMIN) {
+                throw new SuperAdminRoleModificationException();
+            }
             user.setRole(dto.role());
         }
 
@@ -76,7 +77,7 @@ public class UserService {
 
     public void deleteById(UUID id) {
         var user = findById(id);
-        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
+        if (user.isSuperAdmin()) {
             throw new SuperAdminDeletionException();
         }
 

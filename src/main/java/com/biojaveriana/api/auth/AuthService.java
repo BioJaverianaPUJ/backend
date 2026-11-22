@@ -39,7 +39,9 @@ public class AuthService {
     }
 
     public Session register(RegistrationRequest request) {
-        if (userRepository.existsByUsername(request.username())) {
+        // "superadmin" is reserved for the auto-generated superadmin account
+        if ("superadmin".equalsIgnoreCase(request.username())
+            || userRepository.existsByUsername(request.username())) {
             throw new UsernameAlreadyExistsException(request.username());
         }
 

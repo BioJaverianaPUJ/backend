@@ -6,6 +6,7 @@ import static org.mockito.ArgumentMatchers.eq;
 import static org.mockito.Mockito.*;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 import org.junit.jupiter.api.BeforeEach;
@@ -17,8 +18,13 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import com.biojaveriana.api.gamification.event.EventDispatcher;
+import com.biojaveriana.api.observation.Observation;
+import com.biojaveriana.api.observation.ObservationRepository;
+import com.biojaveriana.api.observation.exceptions.ObservationForbiddenException;
+import com.biojaveriana.api.observation.exceptions.ObservationNotFoundException;
 import com.biojaveriana.api.post.dto.PostCreateRequest;
 import com.biojaveriana.api.post.dto.PostResponse;
+import com.biojaveriana.api.post.dto.PostUpdateRequest;
 import com.biojaveriana.api.post.exceptions.PostImageLimitException;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
@@ -43,6 +49,9 @@ class PostServiceTest {
     private UserRepository userRepository;
 
     @Mock
+    private ObservationRepository observationRepository;
+
+    @Mock
     private S3UrlGenerator s3UrlGenerator;
 
     @Mock
@@ -62,6 +71,7 @@ class PostServiceTest {
             postImageRepository,
             postVoteRepository,
             userRepository,
+            observationRepository,
             s3UrlGenerator,
             objectService,
             eventDispatcher
@@ -85,7 +95,6 @@ class PostServiceTest {
         PostCreateRequest request = PostCreateRequest.builder()
             .title("Araña bajo la roca")
             .description("Found a spider under a rock in the mangrove")
-            .observation("Spotted at 10:30 AM")
             .build();
 
         when(postRepository.save(any(Post.class))).thenAnswer(inv -> {
@@ -145,5 +154,118 @@ class PostServiceTest {
 
         assertThrows(PostImageLimitException.class, () -> postService.create(user, request));
         verify(postRepository, never()).save(any(Post.class));
+    }
+
+    @Test
+    @DisplayName("create: linking an own observation embeds its summary in the response")
+    void createShouldLinkOwnObservation() {
+        Observation observation = buildObservation(user);
+        when(observationRepository.findById(observation.getId()))
+            .thenReturn(Optional.of(observation));
+        when(postRepository.save(any(Post.class))).thenAnswer(inv -> {
+            Post post = inv.getArgument(0);
+            post.setId(UUID.randomUUID());
+            return post;
+        });
+
+        PostCreateRequest request = PostCreateRequest.builder()
+            .title("With observation")
+            .description("Linked to an observation")
+            .observationId(observation.getId())
+            .build();
+
+        PostResponse response = postService.create(user, request);
+
+        ArgumentCaptor<Post> captor = ArgumentCaptor.forClass(Post.class);
+        verify(postRepository).save(captor.capture());
+        assertSame(observation, captor.getValue().getObservation());
+
+        assertNotNull(response.observation());
+        assertEquals(observation.getId(), response.observation().id());
+    }
+
+    @Test
+    @DisplayName("create: unknown observation id is rejected before saving")
+    void createShouldRejectUnknownObservation() {
+        UUID unknownObservationId = UUID.randomUUID();
+        when(observationRepository.findById(unknownObservationId)).thenReturn(Optional.empty());
+
+        PostCreateRequest request = PostCreateRequest.builder()
+            .title("Bad observation")
+            .description("Points to a missing observation")
+            .observationId(unknownObservationId)
+            .build();
+
+        assertThrows(ObservationNotFoundException.class, () -> postService.create(user, request));
+        verify(postRepository, never()).save(any(Post.class));
+    }
+
+    @Test
+    @DisplayName("create: observation owned by another user is rejected before saving")
+    void createShouldRejectForeignObservation() {
+        User other = User.builder()
+            .id(UUID.randomUUID())
+            .username("john")
+            .email("john@example.com")
+            .passwordHash("hash")
+            .firstName("John")
+            .lastName("Doe")
+            .gender(Gender.OTHER)
+            .role(Role.USER)
+            .build();
+        Observation foreignObservation = buildObservation(other);
+        when(observationRepository.findById(foreignObservation.getId()))
+            .thenReturn(Optional.of(foreignObservation));
+
+        PostCreateRequest request = PostCreateRequest.builder()
+            .title("Foreign observation")
+            .description("Tries to link someone else's observation")
+            .observationId(foreignObservation.getId())
+            .build();
+
+        assertThrows(ObservationForbiddenException.class, () -> postService.create(user, request));
+        verify(postRepository, never()).save(any(Post.class));
+    }
+
+    @Test
+    @DisplayName("update: observationId re-links the post to a new observation")
+    void updateShouldReLinkObservation() {
+        UUID postId = UUID.randomUUID();
+        Post existing = Post.builder()
+            .id(postId)
+            .author(user)
+            .title("Old title")
+            .description("Old description")
+            .totalLikes(0)
+            .totalDislikes(0)
+            .hidden(false)
+            .banned(false)
+            .build();
+        when(postRepository.findById(postId)).thenReturn(Optional.of(existing));
+        when(postRepository.save(any(Post.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        Observation observation = buildObservation(user);
+        when(observationRepository.findById(observation.getId()))
+            .thenReturn(Optional.of(observation));
+
+        PostResponse response = postService.update(postId, user,
+            PostUpdateRequest.builder().observationId(observation.getId()).build());
+
+        assertSame(observation, existing.getObservation());
+        assertNotNull(response.observation());
+        assertEquals(observation.getId(), response.observation().id());
+    }
+
+    private Observation buildObservation(User owner) {
+        return Observation.builder()
+            .id(UUID.randomUUID())
+            .user(owner)
+            .referencePictureKey("observations/" + owner.getId() + "/ref.jpg")
+            .latitude(1.25)
+            .longitude(-86.25)
+            .checked(true)
+            .hidden(false)
+            .revisionRequested(false)
+            .build();
     }
 }

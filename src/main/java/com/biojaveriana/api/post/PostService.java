@@ -14,6 +14,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.common.Pagination;
+import com.biojaveriana.api.observation.Observation;
+import com.biojaveriana.api.observation.ObservationRepository;
+import com.biojaveriana.api.observation.exceptions.ObservationForbiddenException;
+import com.biojaveriana.api.observation.exceptions.ObservationNotFoundException;
+import com.biojaveriana.api.post.dto.ObservationSummaryResponse;
 import com.biojaveriana.api.post.dto.PostCreateRequest;
 import com.biojaveriana.api.post.dto.PostImageResponse;
 import com.biojaveriana.api.post.dto.PostListResponse;
@@ -47,6 +52,7 @@ public class PostService {
     private final PostImageRepository postImageRepository;
     private final PostVoteRepository postVoteRepository;
     private final UserRepository userRepository;
+    private final ObservationRepository observationRepository;
     private final S3UrlGenerator s3UrlGenerator;
     private final ObjectService objectService;
     private final EventDispatcher eventDispatcher;
@@ -68,7 +74,9 @@ public class PostService {
             .author(user)
             .title(request.getTitle())
             .description(request.getDescription())
-            .observation(request.getObservation())
+            .observation(request.getObservationId() != null
+                ? resolveObservation(request.getObservationId(), user)
+                : null)
             .totalLikes(0)
             .totalDislikes(0)
             .hidden(false)
@@ -112,8 +120,8 @@ public class PostService {
         if (request.getDescription() != null) {
             post.setDescription(request.getDescription());
         }
-        if (request.getObservation() != null) {
-            post.setObservation(request.getObservation());
+        if (request.getObservationId() != null) {
+            post.setObservation(resolveObservation(request.getObservationId(), user));
         }
 
         post = postRepository.save(post);
@@ -316,7 +324,9 @@ public class PostService {
                     : null),
             post.getTitle(),
             post.getDescription(),
-            post.getObservation(),
+            post.getObservation() != null
+                ? ObservationSummaryResponse.from(post.getObservation(), s3UrlGenerator)
+                : null,
             images,
             post.getTotalLikes(),
             post.getTotalDislikes(),
@@ -348,6 +358,9 @@ public class PostService {
                             : null),
                     post.getTitle(),
                     firstImageUrl,
+                    post.getObservation() != null
+                        ? ObservationSummaryResponse.from(post.getObservation(), s3UrlGenerator)
+                        : null,
                     post.getTotalLikes(),
                     post.getTotalDislikes(),
                     post.getBanned(),
@@ -360,6 +373,16 @@ public class PostService {
             content,
             Pagination.from(postPage)
         );
+    }
+
+    private Observation resolveObservation(UUID observationId, User user) {
+        var observation = observationRepository.findById(observationId)
+            .orElseThrow(() -> new ObservationNotFoundException(observationId));
+
+        if (!observation.getUser().getId().equals(user.getId()) && user.getRole() != Role.ADMIN) {
+            throw new ObservationForbiddenException();
+        }
+        return observation;
     }
 
     private String getFileExtension(String contentType) {

@@ -21,6 +21,7 @@ import org.springframework.web.multipart.MultipartFile;
 import com.biojaveriana.api.security.CurrentUser;
 import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.dto.ChangePasswordRequest;
+import com.biojaveriana.api.user.dto.DeleteAccountRequest;
 import com.biojaveriana.api.user.dto.MeUserUpdateRequest;
 import com.biojaveriana.api.user.dto.UserListResponse;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
@@ -99,9 +100,12 @@ public class UserController {
     }
 
     @DeleteMapping("/me")
-    public ResponseEntity<Void> deleteMyAccount(@CurrentUser User user) {
+    public ResponseEntity<Void> deleteMyAccount(
+        @CurrentUser User user,
+        @Valid @RequestBody DeleteAccountRequest dto
+    ) {
         log.info("Deleting user {} by their own request", user.getId());
-        userDeletionService.deleteAccount(user);
+        userDeletionService.deleteMyAccount(user, dto.password());
         return ResponseEntity.noContent().build();
     }
 

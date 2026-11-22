@@ -16,6 +16,11 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 
 import tools.jackson.databind.JsonNode;
 import tools.jackson.databind.json.JsonMapper;
@@ -254,17 +259,22 @@ class AchievementServiceTest {
         @Test
         @DisplayName("should return all when active is null")
         void shouldReturnAllWhenActiveNull() {
-            when(achievementRepository.findAll()).thenReturn(List.of(built("a", "A", 1, null), built("b", "B", 2, null)));
-            assertEquals(2, achievementService.listAchievements(null).size());
+            Pageable pageable = PageRequest.of(0, 20, Sort.by("createdAt").descending());
+            when(achievementRepository.findAll(pageable))
+                .thenReturn(new PageImpl<>(List.of(built("a", "A", 1, null), built("b", "B", 2, null)), pageable, 2));
+            assertEquals(2, achievementService.listAchievements(null, pageable).getContent().size());
         }
 
         @Test
         @DisplayName("should filter by active")
         void shouldFilterByActive() {
-            when(achievementRepository.findByActiveOrderByCreatedAtDesc(true)).thenReturn(List.of(built("a", "A", 1, null)));
-            assertEquals(1, achievementService.listAchievements(true).size());
-            when(achievementRepository.findByActiveOrderByCreatedAtDesc(false)).thenReturn(List.of());
-            assertEquals(0, achievementService.listAchievements(false).size());
+            Pageable pageable = PageRequest.of(0, 20, Sort.by("createdAt").descending());
+            when(achievementRepository.findByActiveOrderByCreatedAtDesc(true, pageable))
+                .thenReturn(new PageImpl<>(List.of(built("a", "A", 1, null)), pageable, 1));
+            assertEquals(1, achievementService.listAchievements(true, pageable).getContent().size());
+            when(achievementRepository.findByActiveOrderByCreatedAtDesc(false, pageable))
+                .thenReturn(new PageImpl<>(List.of(), pageable, 0));
+            assertEquals(0, achievementService.listAchievements(false, pageable).getContent().size());
         }
     }
 
@@ -280,13 +290,14 @@ class AchievementServiceTest {
             UserAchievement ua = UserAchievement.builder()
                 .id(UUID.randomUUID()).achievement(a).userId(userId)
                 .completed(true).completedAt(Instant.now()).xpAwarded(50L).build();
-            when(achievementRepository.findByActiveTrue()).thenReturn(List.of(a));
+            Pageable pageable = PageRequest.of(0, 20, Sort.by("createdAt").descending());
+            when(achievementRepository.findByActiveTrue(pageable)).thenReturn(new PageImpl<>(List.of(a), pageable, 1));
             when(userAchievementRepository.findByUserId(userId)).thenReturn(List.of(ua));
 
-            List<AchievementProgressResponse> responses = achievementService.getUserAchievementProgress(userId);
+            Page<AchievementProgressResponse> page = achievementService.getUserAchievementProgress(userId, pageable);
 
-            assertEquals(1, responses.size());
-            AchievementProgressResponse r = responses.get(0);
+            assertEquals(1, page.getContent().size());
+            AchievementProgressResponse r = page.getContent().get(0);
             assertEquals("first-post", r.slug());
             assertTrue(r.completed());
             assertEquals(50L, r.xpAwarded());
@@ -306,13 +317,14 @@ class AchievementServiceTest {
             UUID userId = UUID.randomUUID();
             Achievement a = built("five-posts", "Five Posts", 20,
                 "{\"metric\":\"posts\",\"op\":\"gte\",\"value\":10}");
-            when(achievementRepository.findByActiveTrue()).thenReturn(List.of(a));
+            Pageable pageable = PageRequest.of(0, 20, Sort.by("createdAt").descending());
+            when(achievementRepository.findByActiveTrue(pageable)).thenReturn(new PageImpl<>(List.of(a), pageable, 1));
             when(userAchievementRepository.findByUserId(userId)).thenReturn(List.of());
 
-            List<AchievementProgressResponse> responses = achievementService.getUserAchievementProgress(userId);
+            Page<AchievementProgressResponse> page = achievementService.getUserAchievementProgress(userId, pageable);
 
-            assertEquals(1, responses.size());
-            AchievementProgressResponse r = responses.get(0);
+            assertEquals(1, page.getContent().size());
+            AchievementProgressResponse r = page.getContent().get(0);
             assertFalse(r.completed());
             assertNull(r.completedAt());
             assertNull(r.xpAwarded());
@@ -325,8 +337,10 @@ class AchievementServiceTest {
         @DisplayName("should return only completed")
         void shouldReturnOnlyCompleted() {
             UUID userId = UUID.randomUUID();
-            when(userAchievementRepository.findByUserIdAndCompletedTrue(userId)).thenReturn(List.of());
-            assertTrue(achievementService.getCompletedAchievements(userId).isEmpty());
+            Pageable pageable = PageRequest.of(0, 20, Sort.by("completedAt").descending());
+            when(userAchievementRepository.findByUserIdAndCompletedTrue(userId, pageable))
+                .thenReturn(new PageImpl<>(List.of(), pageable, 0));
+            assertTrue(achievementService.getCompletedAchievements(userId, pageable).getContent().isEmpty());
         }
     }
 

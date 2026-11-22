@@ -1,5 +1,6 @@
 package com.biojaveriana.api.observation.rabbitmq;
 
+import java.time.Duration;
 import java.time.Instant;
 import java.util.UUID;
 
@@ -8,6 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.biojaveriana.api.observation.JobStatus;
 import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.observation.ObservationJob;
 import com.biojaveriana.api.observation.ObservationJobRepository;
@@ -31,6 +33,12 @@ public class ObservationMessageConsumer {
 
     @Value("${app.rabbitmq.response-queue:observation.jobs.response}")
     private String responseQueue;
+
+    @Value("${app.observation.retry-base-delay-seconds:30}")
+    private long retryBaseDelaySeconds;
+
+    @Value("${app.observation.retry-max-delay-seconds:600}")
+    private long retryMaxDelaySeconds;
 
     @RabbitListener(queues = "${app.rabbitmq.response-queue:observation.jobs.response}")
     @Transactional
@@ -65,7 +73,7 @@ public class ObservationMessageConsumer {
             observationRepository.save(observation);
 
             // Mark job as completed
-            job.setStatus(com.biojaveriana.api.observation.JobStatus.COMPLETED);
+            job.setStatus(JobStatus.COMPLETED);
             job.setErrorMessage(null);
             job.setUpdatedAt(Instant.now());
             observationJobRepository.save(job);
@@ -78,16 +86,25 @@ public class ObservationMessageConsumer {
             job.setUpdatedAt(Instant.now());
 
             if (job.shouldRetry()) {
-                job.setStatus(com.biojaveriana.api.observation.JobStatus.PENDING);
-                log.info("Retrying observation job {} (attempt {}/{})", observationId, job.getRetryCount(), job.getMaxRetries());
-                // Re-publish via producer - but we need to avoid circular dependency
-                // The job will be picked up by a separate retry mechanism
+                job.setStatus(JobStatus.PENDING);
+                job.setNextRetryAt(Instant.now().plus(retryBackoff(job.getRetryCount())));
+                log.info("Scheduling retry for observation job {} (attempt {}/{}) at {}",
+                        observationId, job.getRetryCount(), job.getMaxRetries(), job.getNextRetryAt());
             } else {
-                job.setStatus(com.biojaveriana.api.observation.JobStatus.FAILED);
+                job.setStatus(JobStatus.FAILED);
                 log.error("Observation job {} failed after {} retries", observationId, job.getMaxRetries());
             }
 
             observationJobRepository.save(job);
         }
+    }
+
+    /**
+     * Exponential backoff between retry attempts: base * 2^(retryCount - 1), capped.
+     * The {@code ObservationJobRetryScheduler} picks the job up once the time has passed.
+     */
+    private Duration retryBackoff(int retryCount) {
+        long delaySeconds = retryBaseDelaySeconds * (1L << Math.max(0, retryCount - 1));
+        return Duration.ofSeconds(Math.min(delaySeconds, retryMaxDelaySeconds));
     }
 }

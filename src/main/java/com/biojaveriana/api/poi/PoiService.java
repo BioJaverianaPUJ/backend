@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.time.Instant;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import org.locationtech.jts.geom.Coordinate;
@@ -188,7 +189,7 @@ public class PoiService {
             }
             var first = request.polygonCoordinates().get(0);
             var last = request.polygonCoordinates().get(request.polygonCoordinates().size() - 1);
-            if (first.latitude() != last.latitude() || first.longitude() != last.longitude()) {
+            if (!Objects.equals(first.latitude(), last.latitude()) || !Objects.equals(first.longitude(), last.longitude())) {
                 throw new PoiValidationException("Polygon must be closed (first and last coordinates must match)");
             }
         } else if (request.geometryType() == PoiType.POINT) {

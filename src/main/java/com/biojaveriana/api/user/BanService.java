@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.user.exceptions.BanNotFoundException;
+import com.biojaveriana.api.user.exceptions.SuperAdminBanException;
 import com.biojaveriana.api.user.exceptions.UserDeactivatedException;
 import com.biojaveriana.api.user.exceptions.UserNotFoundException;
 
@@ -26,6 +27,10 @@ public class BanService {
     public Ban createTemporalBan(UUID userId, String reason, Instant expiresAt, UUID createdBy) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new UserNotFoundException(userId));
+
+        if (user.isSuperAdmin()) {
+            throw new SuperAdminBanException();
+        }
 
         if (reason == null || reason.isBlank()) {
             throw new IllegalArgumentException("Ban reason cannot be blank");
@@ -53,6 +58,10 @@ public class BanService {
     public Ban createPermanentBan(UUID userId, String reason, UUID createdBy) {
         User user = userRepository.findById(userId)
             .orElseThrow(() -> new UserNotFoundException(userId));
+
+        if (user.isSuperAdmin()) {
+            throw new SuperAdminBanException();
+        }
 
         if (reason == null || reason.isBlank()) {
             throw new IllegalArgumentException("Ban reason cannot be blank");
@@ -86,6 +95,14 @@ public class BanService {
     }
 
     public void checkActiveBan(UUID userId) {
+        User user = userRepository.findById(userId)
+            .orElseThrow(() -> new UserNotFoundException(userId));
+
+        // The superadmin is exempt from bans
+        if (user.isSuperAdmin()) {
+            return;
+        }
+
         Optional<Ban> activeBan = findActiveBanByUserId(userId);
         activeBan.ifPresent(ban -> {
             if (ban.getBanType() == BanType.TEMPORAL && ban.getExpiresAt() != null
