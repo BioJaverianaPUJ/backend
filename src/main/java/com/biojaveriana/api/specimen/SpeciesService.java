@@ -3,12 +3,14 @@ package com.biojaveriana.api.specimen;
 import java.util.UUID;
 
 import jakarta.validation.Valid;
+import com.biojaveriana.api.observation.ObservationRepository;
 import com.biojaveriana.api.specimen.dto.SpeciesCreateRequest;
 import com.biojaveriana.api.specimen.dto.SpeciesUpdateRequest;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.specimen.exceptions.SpeciesNotFoundException;
 import com.biojaveriana.api.specimen.exceptions.SpeciesAlreadyExistsException;
@@ -18,7 +20,9 @@ import lombok.RequiredArgsConstructor;
 @Service
 @RequiredArgsConstructor
 public class SpeciesService {
-    public final SpeciesRepository speciesRepository;
+    private final SpeciesRepository speciesRepository;
+    private final SpecimenRepository specimenRepository;
+    private final ObservationRepository observationRepository;
 
     public Page<Species> findAll(Pageable pageable) {
         return speciesRepository.findAll(pageable);
@@ -64,11 +68,15 @@ public class SpeciesService {
         return speciesRepository.save(species);
     }
 
+    @Transactional
     public void delete(UUID id) {
         if (!speciesRepository.existsById(id)) {
             throw new SpeciesNotFoundException(id);
         }
 
+        // Delete children before parents so that foreign key constraints are satisfied.
+        observationRepository.clearSpecimenBySpeciesId(id);
+        specimenRepository.deleteBySpeciesId(id);
         speciesRepository.deleteById(id);
     }
 }
