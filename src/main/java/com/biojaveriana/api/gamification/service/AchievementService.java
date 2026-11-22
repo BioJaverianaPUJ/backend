@@ -11,6 +11,8 @@ import java.util.stream.Collectors;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -144,11 +146,11 @@ public class AchievementService {
     }
 
     @Transactional(readOnly = true)
-    public List<AchievementResponse> listAchievements(Boolean active) {
-        List<Achievement> achievements = active != null
-            ? achievementRepository.findByActiveOrderByCreatedAtDesc(active)
-            : achievementRepository.findAll();
-        return achievements.stream().map(a -> AchievementResponse.from(a, jsonMapper)).toList();
+    public Page<AchievementResponse> listAchievements(Boolean active, Pageable pageable) {
+        Page<Achievement> page = active != null
+            ? achievementRepository.findByActiveOrderByCreatedAtDesc(active, pageable)
+            : achievementRepository.findAll(pageable);
+        return page.map(a -> AchievementResponse.from(a, jsonMapper));
     }
 
     /**
@@ -159,11 +161,9 @@ public class AchievementService {
      * with a null progress.
      */
     @Transactional(readOnly = true)
-    public List<AchievementProgressResponse> getUserAchievementProgress(UUID userId) {
-        List<Achievement> achievements = achievementRepository.findByActiveTrue();
-        if (achievements.isEmpty()) {
-            return List.of();
-        }
+    public Page<AchievementProgressResponse> getUserAchievementProgress(UUID userId, Pageable pageable) {
+        Page<Achievement> achievementsPage = achievementRepository.findByActiveTrue(pageable);
+        List<Achievement> achievements = achievementsPage.getContent();
 
         Map<UUID, UserAchievement> completedByAchievement = userAchievementRepository.findByUserId(userId).stream()
             .filter(ua -> Boolean.TRUE.equals(ua.getCompleted()))
@@ -181,7 +181,7 @@ public class AchievementService {
             }
         }
 
-        return achievements.stream().map(achievement -> {
+        return achievementsPage.map(achievement -> {
             UserAchievement ua = completedByAchievement.get(achievement.getId());
             PredicateProgress progress = null;
             PredicateNode predicate = readPredicate(achievement);
@@ -196,12 +196,13 @@ public class AchievementService {
                 ua != null ? ua.getXpAwarded() : null,
                 progress
             );
-        }).toList();
+        });
     }
 
     @Transactional(readOnly = true)
-    public List<UserAchievementResponse> getCompletedAchievements(UUID userId) {
-        return userAchievementRepository.findByUserIdAndCompletedTrue(userId).stream().map(this::toResponse).toList();
+    public Page<UserAchievementResponse> getCompletedAchievements(UUID userId, Pageable pageable) {
+        return userAchievementRepository.findByUserIdAndCompletedTrue(userId, pageable)
+            .map(this::toResponse);
     }
 
     /**

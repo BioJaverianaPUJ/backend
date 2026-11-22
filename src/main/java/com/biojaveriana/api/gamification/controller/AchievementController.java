@@ -1,9 +1,11 @@
 package com.biojaveriana.api.gamification.controller;
 
-import java.util.List;
 import java.util.UUID;
 
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Sort;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,12 +17,13 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biojaveriana.api.gamification.dto.AchievementCreateRequest;
+import com.biojaveriana.api.gamification.dto.AchievementListResponse;
 import com.biojaveriana.api.gamification.dto.AchievementPreviewRequest;
 import com.biojaveriana.api.gamification.dto.AchievementPreviewResponse;
-import com.biojaveriana.api.gamification.dto.AchievementProgressResponse;
+import com.biojaveriana.api.gamification.dto.AchievementProgressListResponse;
 import com.biojaveriana.api.gamification.dto.AchievementResponse;
 import com.biojaveriana.api.gamification.dto.AchievementUpdateRequest;
-import com.biojaveriana.api.gamification.dto.UserAchievementResponse;
+import com.biojaveriana.api.gamification.dto.UserAchievementListResponse;
 import com.biojaveriana.api.gamification.dto.UserGamificationResponse;
 import com.biojaveriana.api.gamification.service.AchievementEngine;
 import com.biojaveriana.api.gamification.service.AchievementService;
@@ -30,26 +33,24 @@ import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
 
+import jakarta.validation.constraints.Max;
+import jakarta.validation.constraints.Min;
+import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
+
 /**
  * Controller for achievement management (admin CRUD + predicate dry-run) and
  * per-user achievement views.
  */
+@Slf4j
 @RestController
 @RequestMapping("/api/v1/achievements")
+@Validated
+@RequiredArgsConstructor
 public class AchievementController {
     private final AchievementService achievementService;
     private final AchievementEngine achievementEngine;
     private final GamificationService gamificationService;
-
-    public AchievementController(
-        AchievementService achievementService,
-        AchievementEngine achievementEngine,
-        GamificationService gamificationService
-    ) {
-        this.achievementService = achievementService;
-        this.achievementEngine = achievementEngine;
-        this.gamificationService = gamificationService;
-    }
 
     @PostMapping
     @HasRole(Role.ADMIN)
@@ -90,8 +91,14 @@ public class AchievementController {
     }
 
     @GetMapping
-    public ResponseEntity<List<AchievementResponse>> listAchievements(@RequestParam(required = false) Boolean active) {
-        return ResponseEntity.ok(achievementService.listAchievements(active));
+    public ResponseEntity<AchievementListResponse> listAchievements(
+        @RequestParam(required = false) Boolean active,
+        @RequestParam(defaultValue = "0") @Min(0) int page,
+        @RequestParam(defaultValue = "20") @Max(100) int size
+    ) {
+        var pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
+        var achievementPage = achievementService.listAchievements(active, pageable);
+        return ResponseEntity.ok(AchievementListResponse.from(achievementPage));
     }
 
     /**
@@ -99,16 +106,28 @@ public class AchievementController {
      * and completion state.
      */
     @GetMapping("/me")
-    public ResponseEntity<List<AchievementProgressResponse>> getMyAchievementProgress(@CurrentUser User user) {
-        return ResponseEntity.ok(achievementService.getUserAchievementProgress(user.getId()));
+    public ResponseEntity<AchievementProgressListResponse> getMyAchievementProgress(
+        @CurrentUser User user,
+        @RequestParam(defaultValue = "0") @Min(0) int page,
+        @RequestParam(defaultValue = "20") @Max(100) int size
+    ) {
+        var pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
+        var progressPage = achievementService.getUserAchievementProgress(user.getId(), pageable);
+        return ResponseEntity.ok(AchievementProgressListResponse.from(progressPage));
     }
 
     /**
      * Earned-only view: achievements the user has completed.
      */
     @GetMapping("/me/completed")
-    public ResponseEntity<List<UserAchievementResponse>> getMyCompletedAchievements(@CurrentUser User user) {
-        return ResponseEntity.ok(achievementService.getCompletedAchievements(user.getId()));
+    public ResponseEntity<UserAchievementListResponse> getMyCompletedAchievements(
+        @CurrentUser User user,
+        @RequestParam(defaultValue = "0") @Min(0) int page,
+        @RequestParam(defaultValue = "20") @Max(100) int size
+    ) {
+        var pageable = PageRequest.of(page, size, Sort.by("completedAt").descending());
+        var completedPage = achievementService.getCompletedAchievements(user.getId(), pageable);
+        return ResponseEntity.ok(UserAchievementListResponse.from(completedPage));
     }
 
     /**

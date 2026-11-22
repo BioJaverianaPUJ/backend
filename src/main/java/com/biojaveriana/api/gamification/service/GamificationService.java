@@ -9,7 +9,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.biojaveriana.api.gamification.config.GamificationConfig;
 import com.biojaveriana.api.gamification.dto.UserGamificationResponse;
-import com.biojaveriana.api.gamification.dto.XpLogResponse;
 import com.biojaveriana.api.gamification.model.UserGamification;
 import com.biojaveriana.api.gamification.model.XpLog;
 import com.biojaveriana.api.gamification.repository.UserGamificationRepository;
@@ -138,9 +137,8 @@ public class GamificationService {
     }
 
     @Transactional(readOnly = true)
-    public Page<XpLogResponse> getXpHistory(UUID userId, Pageable pageable) {
-        return xpLogRepository.findByUserIdOrderByCreatedAtDesc(userId, pageable)
-            .map(XpLogResponse::from);
+    public Page<XpLog> getXpHistory(UUID userId, Pageable pageable) {
+        return xpLogRepository.findByUserIdOrderByCreatedAtDesc(userId, pageable);
     }
 
     @Transactional
