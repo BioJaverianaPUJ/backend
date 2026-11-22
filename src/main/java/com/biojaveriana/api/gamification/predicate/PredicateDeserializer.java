@@ -3,11 +3,9 @@ package com.biojaveriana.api.gamification.predicate;
 import java.util.Map;
 import java.util.LinkedHashMap;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-
-import jakarta.annotation.PostConstruct;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
@@ -15,15 +13,14 @@ import org.springframework.stereotype.Component;
 
 /**
  * Deserializes JSON representation of predicates back to Java objects.
- * Uses the injected ObjectMapper to respect Spring's Jackson configuration.
+ * Uses the injected JsonMapper to respect Spring's Jackson configuration.
  */
 @Component
 public class PredicateDeserializer {
-
     private static ApplicationContext applicationContext;
 
     @Autowired
-    private ObjectMapper objectMapper;
+    private JsonMapper JsonMapper;
 
     @Autowired
     private LeafPredicateRegistry registry;
@@ -33,8 +30,8 @@ public class PredicateDeserializer {
     }
 
     @Autowired
-    public PredicateDeserializer(ObjectMapper objectMapper, LeafPredicateRegistry registry) {
-        this.objectMapper = objectMapper;
+    public PredicateDeserializer(JsonMapper JsonMapper, LeafPredicateRegistry registry) {
+        this.JsonMapper = JsonMapper;
         this.registry = registry;
     }
 
@@ -122,7 +119,7 @@ public class PredicateDeserializer {
     private Map<String, Object> predicateToMap(JsonNode node) {
         Map<String, Object> map = new LinkedHashMap<>();
         if (node.isObject()) {
-            node.fields().forEachRemaining(entry -> {
+            node.properties().forEach(entry -> {
                 map.put(entry.getKey(), toJavaValue(entry.getValue()));
             });
         }
@@ -148,6 +145,6 @@ public class PredicateDeserializer {
      * Convenience method to deserialize JSON string to JsonNode.
      */
     public JsonNode readTree(String json) throws JacksonException {
-        return objectMapper.readTree(json);
+        return JsonMapper.readTree(json);
     }
 }

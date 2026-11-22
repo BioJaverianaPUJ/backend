@@ -1,15 +1,12 @@
 package com.biojaveriana.api.gamification.predicate;
 
-import java.util.Map;
-import java.util.UUID;
-
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
+import tools.jackson.databind.node.ObjectNode;
 
 /**
  * Base class for leaf predicates that need JSON serialization/deserialization.
- * Uses ObjectMapper for JSON operations.
+ * Uses JsonMapper for JSON operations.
  */
 public abstract class AbstractLeafPredicate implements LeafPredicate {
 
@@ -20,7 +17,7 @@ public abstract class AbstractLeafPredicate implements LeafPredicate {
     /**
      * Serializes this predicate to a JsonNode.
      */
-    protected JsonNode serialize(ObjectMapper mapper) {
+    protected JsonNode serialize(JsonMapper mapper) {
         return mapper.valueToTree(this);
     }
 

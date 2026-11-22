@@ -1,12 +1,8 @@
 package com.biojaveriana.api.gamification.predicate.leaf;
 
-import java.util.Map;
-import java.util.Optional;
-
 import org.springframework.stereotype.Component;
 
 import com.biojaveriana.api.gamification.predicate.LeafPredicate;
-import com.biojaveriana.api.gamification.predicate.MapContext;
 import com.biojaveriana.api.gamification.predicate.Predicate;
 
 /**
@@ -14,7 +10,6 @@ import com.biojaveriana.api.gamification.predicate.Predicate;
  */
 @Component
 public class CreatedFirstPostPredicate implements LeafPredicate {
-
     public static final String TYPE = "created_first_post";
 
     @Override

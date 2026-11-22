@@ -12,7 +12,6 @@ import com.biojaveriana.api.gamification.predicate.Predicate;
  */
 @Component
 public class PoiVisitedPredicate implements LeafPredicate {
-
     public static final String TYPE = "poi_visited_count";
 
     @Override

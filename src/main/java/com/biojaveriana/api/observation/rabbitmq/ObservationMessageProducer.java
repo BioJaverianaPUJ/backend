@@ -17,14 +17,14 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class ObservationMessageProducer {
     private final RabbitTemplate rabbitTemplate;
-    private final JsonMapper objectMapper;
+    private final JsonMapper JsonMapper;
 
     @Value("${app.rabbitmq.exchange:observation.jobs.exchange}")
     private String exchange;
 
     public void sendMessage(ObservationMessage message) {
         try {
-            String body = objectMapper.writeValueAsString(message);
+            String body = JsonMapper.writeValueAsString(message);
             rabbitTemplate.convertAndSend(exchange, "observation.jobs", body);
             log.info("Published observation job for observationId={}", message.getObservationId());
         } catch (JacksonException e) {

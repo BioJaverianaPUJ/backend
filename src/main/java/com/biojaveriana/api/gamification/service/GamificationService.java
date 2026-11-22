@@ -47,8 +47,6 @@ public class GamificationService {
         UserGamification gamification = getOrCreateUserGamificationWithLock(userId);
 
         Long oldTotalXp = gamification.getTotalXp();
-        Integer oldLevel = gamification.getLevel();
-
         Long newTotalXp = oldTotalXp + xpAmount;
         Integer newLevel = calculateLevel(newTotalXp);
 

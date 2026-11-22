@@ -3,9 +3,9 @@ package com.biojaveriana.api.gamification.predicate;
 import java.util.Map;
 import java.util.Optional;
 
-import com.fasterxml.jackson.core.JacksonException;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.core.JacksonException;
+import tools.jackson.databind.JsonNode;
+import tools.jackson.databind.json.JsonMapper;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -22,11 +22,11 @@ public class PredicateEvaluator {
     private static final Logger log = LoggerFactory.getLogger(PredicateEvaluator.class);
 
     private final LeafPredicateRegistry registry;
-    private final ObjectMapper objectMapper;
+    private final JsonMapper JsonMapper;
 
-    public PredicateEvaluator(LeafPredicateRegistry registry, ObjectMapper objectMapper) {
+    public PredicateEvaluator(LeafPredicateRegistry registry, JsonMapper JsonMapper) {
         this.registry = registry;
-        this.objectMapper = objectMapper;
+        this.JsonMapper = JsonMapper;
     }
 
     /**
@@ -49,7 +49,7 @@ public class PredicateEvaluator {
      */
     public boolean evaluate(String predicateJson, Predicate.Context context) {
         try {
-            JsonNode node = objectMapper.readTree(predicateJson);
+            JsonNode node = JsonMapper.readTree(predicateJson);
             return evaluateNode(node, context);
         } catch (JacksonException e) {
             log.error("Failed to evaluate predicate: {}", predicateJson, e);
@@ -120,7 +120,7 @@ public class PredicateEvaluator {
             log.warn("Leaf node is not a valid object");
             return false;
         }
-        
+
         JsonNode typeNode = leafNode.get("type");
         if (typeNode == null || typeNode.isNull()) {
             log.warn("Leaf node missing 'type' field");
@@ -157,7 +157,7 @@ public class PredicateEvaluator {
     private Map<String, Object> predicateToMap(JsonNode node) {
         Map<String, Object> map = new java.util.LinkedHashMap<>();
         if (node != null && node.isObject()) {
-            node.fields().forEachRemaining(entry -> {
+            node.properties().forEach(entry -> {
                 map.put(entry.getKey(), toJavaValue(entry.getValue()));
             });
         }

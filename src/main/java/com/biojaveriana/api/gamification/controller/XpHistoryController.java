@@ -20,7 +20,6 @@ import com.biojaveriana.api.gamification.service.GamificationService;
 @RestController
 @RequestMapping("/api/v1/gamification")
 public class XpHistoryController {
-
     private final GamificationService gamificationService;
 
     public XpHistoryController(GamificationService gamificationService) {

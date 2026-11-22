@@ -12,7 +12,6 @@ import com.biojaveriana.api.gamification.predicate.Predicate;
  */
 @Component
 public class ReactionCountPredicate implements LeafPredicate {
-
     public static final String TYPE = "reaction_count";
 
     @Override

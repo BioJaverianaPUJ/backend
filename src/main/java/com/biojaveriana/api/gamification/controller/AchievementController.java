@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -21,6 +20,8 @@ import com.biojaveriana.api.gamification.dto.AchievementResponse;
 import com.biojaveriana.api.gamification.dto.AchievementUpdateRequest;
 import com.biojaveriana.api.gamification.dto.UserAchievementResponse;
 import com.biojaveriana.api.gamification.service.AchievementService;
+import com.biojaveriana.api.security.HasRole;
+import com.biojaveriana.api.user.Role;
 
 /**
  * Controller for achievement management (admin CRUD).
@@ -28,7 +29,6 @@ import com.biojaveriana.api.gamification.service.AchievementService;
 @RestController
 @RequestMapping("/api/v1/achievements")
 public class AchievementController {
-
     private final AchievementService achievementService;
 
     public AchievementController(AchievementService achievementService) {
@@ -40,10 +40,9 @@ public class AchievementController {
      * Creates a new achievement (admin only).
      */
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<AchievementResponse> createAchievement(
-        @RequestBody AchievementCreateRequest request
-    ) {
+            @RequestBody AchievementCreateRequest request) {
         AchievementResponse response = achievementService.createAchievement(request);
         return ResponseEntity.status(201).body(response);
     }
@@ -53,11 +52,10 @@ public class AchievementController {
      * Updates an achievement (admin only).
      */
     @PutMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<AchievementResponse> updateAchievement(
-        @PathVariable UUID id,
-        @RequestBody AchievementUpdateRequest request
-    ) {
+            @PathVariable UUID id,
+            @RequestBody AchievementUpdateRequest request) {
         AchievementResponse response = achievementService.updateAchievement(id, request);
         return ResponseEntity.ok(response);
     }
@@ -67,7 +65,7 @@ public class AchievementController {
      * Deletes an achievement (admin only).
      */
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @HasRole(value = Role.ADMIN)
     public ResponseEntity<Void> deleteAchievement(@PathVariable UUID id) {
         achievementService.deleteAchievement(id);
         return ResponseEntity.noContent().build();
@@ -99,8 +97,7 @@ public class AchievementController {
      */
     @GetMapping
     public ResponseEntity<List<AchievementResponse>> listAchievements(
-        @RequestParam(required = false) Boolean active
-    ) {
+            @RequestParam(required = false) Boolean active) {
         List<AchievementResponse> responses = achievementService.listAchievements(active);
         return ResponseEntity.ok(responses);
     }

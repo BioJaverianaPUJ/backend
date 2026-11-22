@@ -4,10 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.*;
 
 import java.util.LinkedHashMap;
-import java.util.Map;
 import java.util.Optional;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
+import tools.jackson.databind.json.JsonMapper;
 
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -23,13 +22,13 @@ class PredicateEvaluatorTest {
     private LeafPredicateRegistry registry;
 
     @Mock
-    private ObjectMapper objectMapper;
+    private JsonMapper JsonMapper;
 
     private PredicateEvaluator evaluator;
 
     @BeforeEach
     void setUp() {
-        evaluator = new PredicateEvaluator(registry, objectMapper);
+        evaluator = new PredicateEvaluator(registry, JsonMapper);
     }
 
     @Nested
@@ -87,7 +86,7 @@ class PredicateEvaluatorTest {
     @DisplayName("evaluate with JSON")
     class EvaluateJsonTests {
 
-        private final com.fasterxml.jackson.databind.ObjectMapper realMapper = new com.fasterxml.jackson.databind.ObjectMapper();
+        private final tools.jackson.databind.json.JsonMapper realMapper = tools.jackson.databind.json.JsonMapper.builder().build();
 
         @Test
         @DisplayName("should evaluate a simple leaf predicate from JSON")
@@ -112,7 +111,7 @@ class PredicateEvaluatorTest {
             when(registry.get("post_count")).thenReturn(Optional.of(mockLeaf));
 
             Predicate.Context context = new MapContext(new LinkedHashMap<>());
-            // Use a real ObjectMapper for JSON parsing
+            // Use a real JsonMapper for JSON parsing
             PredicateEvaluator testEvaluator = new PredicateEvaluator(registry, realMapper);
             boolean result = testEvaluator.evaluate(predicateJson, context);
 

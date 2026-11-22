@@ -12,7 +12,6 @@ import com.biojaveriana.api.gamification.predicate.Predicate;
  */
 @Component
 public class CommentCountPredicate implements LeafPredicate {
-
     public static final String TYPE = "comment_count";
 
     @Override

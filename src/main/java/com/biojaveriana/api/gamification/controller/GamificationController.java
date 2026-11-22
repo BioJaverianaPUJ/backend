@@ -17,7 +17,6 @@ import com.biojaveriana.api.gamification.service.GamificationService;
 @RestController
 @RequestMapping("/api/v1/gamification")
 public class GamificationController {
-
     private final GamificationService gamificationService;
 
     public GamificationController(GamificationService gamificationService) {

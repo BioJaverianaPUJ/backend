@@ -14,7 +14,6 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class LeafPredicateRegistry {
-
     private static final Logger log = LoggerFactory.getLogger(LeafPredicateRegistry.class);
 
     private final Map<String, LeafPredicate> predicates = new HashMap<>();

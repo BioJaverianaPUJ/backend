@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @Component
 @RequiredArgsConstructor
 public class ObservationMessageConsumer {
-    private final JsonMapper objectMapper;
+    private final JsonMapper JsonMapper;
     private final ObservationRepository observationRepository;
     private final ObservationJobRepository observationJobRepository;
     private final SpecimenMatcherService specimenMatcherService;
@@ -37,7 +37,7 @@ public class ObservationMessageConsumer {
     public void handleResponse(String payload) {
         ObservationMessageResponse response;
         try {
-            response = objectMapper.readValue(payload, ObservationMessageResponse.class);
+            response = JsonMapper.readValue(payload, ObservationMessageResponse.class);
         } catch (JacksonException e) {
             log.error("Failed to deserialize observation response", e);
             return;

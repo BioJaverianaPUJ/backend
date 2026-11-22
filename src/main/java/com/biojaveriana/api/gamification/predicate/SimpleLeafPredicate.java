@@ -8,7 +8,6 @@ import java.util.Map;
  * implementation lookup.
  */
 public class SimpleLeafPredicate implements LeafPredicate {
-
     private final String type;
     private final Map<String, Object> args;
     private final LeafPredicateRegistry registry;

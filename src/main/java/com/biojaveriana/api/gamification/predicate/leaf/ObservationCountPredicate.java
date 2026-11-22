@@ -12,7 +12,6 @@ import com.biojaveriana.api.gamification.predicate.Predicate;
  */
 @Component
 public class ObservationCountPredicate implements LeafPredicate {
-
     public static final String TYPE = "observation_count";
 
     @Override
