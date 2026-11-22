@@ -14,6 +14,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InOrder;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import com.biojaveriana.api.comment.CommentReactionRepository;
 import com.biojaveriana.api.comment.CommentRepository;
@@ -29,6 +30,7 @@ import com.biojaveriana.api.post.PostRepository;
 import com.biojaveriana.api.post.PostVoteRepository;
 import com.biojaveriana.api.report.ReportRepository;
 import com.biojaveriana.api.s3.ObjectService;
+import com.biojaveriana.api.user.exceptions.InvalidCurrentPasswordException;
 import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
 
 @ExtendWith(MockitoExtension.class)
@@ -82,6 +84,9 @@ class UserDeletionServiceTest {
     @Mock
     private ObjectService objectService;
 
+    @Mock
+    private PasswordEncoder passwordEncoder;
+
     private UserDeletionService userDeletionService;
 
     @BeforeEach
@@ -102,7 +107,8 @@ class UserDeletionServiceTest {
             xpLogRepository,
             userAchievementRepository,
             userGamificationRepository,
-            objectService
+            objectService,
+            passwordEncoder
         );
     }
 
@@ -223,6 +229,48 @@ class UserDeletionServiceTest {
             verify(observationJobRepository, never()).deleteByObservationIdIn(any());
             verify(postImageRepository, never()).findS3KeysByPostIdIn(any());
 
+            verify(userRepository).delete(user);
+        }
+    }
+
+    @Nested
+    @DisplayName("deleteMyAccount")
+    class DeleteMyAccountTests {
+
+        @Test
+        @DisplayName("rejects deletion when the password does not match")
+        void shouldRejectWrongPassword() {
+            User user = mock(User.class);
+            when(user.getPasswordHash()).thenReturn("hash");
+            when(passwordEncoder.matches("wrong-password", "hash")).thenReturn(false);
+
+            assertThrows(InvalidCurrentPasswordException.class,
+                () -> userDeletionService.deleteMyAccount(user, "wrong-password"));
+
+            verifyNoInteractions(userRepository);
+            verifyNoInteractions(objectService);
+        }
+
+        @Test
+        @DisplayName("deletes the account when the password matches")
+        void shouldDeleteAccountWithCorrectPassword() {
+            UUID userId = UUID.randomUUID();
+
+            User user = mock(User.class);
+            when(user.getId()).thenReturn(userId);
+            when(user.getUsername()).thenReturn("alice");
+            when(user.getPasswordHash()).thenReturn("hash");
+            when(passwordEncoder.matches("correct-password", "hash")).thenReturn(true);
+
+            when(commentRepository.findIdsByAuthorId(userId)).thenReturn(List.of());
+            when(poiRepository.findIdsByCreatorId(userId)).thenReturn(List.of());
+            when(postRepository.findIdsByAuthorId(userId)).thenReturn(List.of());
+            when(observationRepository.findIdsByUserId(userId)).thenReturn(List.of());
+            when(observationRepository.findReferencePictureKeysByUserId(userId)).thenReturn(List.of());
+
+            userDeletionService.deleteMyAccount(user, "correct-password");
+
+            verify(passwordEncoder).matches("correct-password", "hash");
             verify(userRepository).delete(user);
         }
     }
