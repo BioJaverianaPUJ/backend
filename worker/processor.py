@@ -56,7 +56,7 @@ class ObservationProcessor:
 
             if not s3_key:
                 logger.error("Message missing s3Key for observation %s", observation_id)
-                self._publish_error(ch, observation_id, "Missing s3Key in message")
+                self._publish_error(ch, method, observation_id, "Missing s3Key in message")
                 return
 
             logger.info("Processing observation %s: downloading image from S3 (%s)", observation_id, s3_key)
@@ -102,11 +102,12 @@ class ObservationProcessor:
                 "Failed to process observation %s: %s",
                 observation_id, e, exc_info=True,
             )
-            self._publish_error(ch, observation_id, str(e))
+            self._publish_error(ch, method, observation_id, str(e))
 
     def _publish_error(
         self,
         ch: pika.channel.Channel,
+        method: Any,
         observation_id: str,
         error_message: str,
     ) -> None:

@@ -58,6 +58,13 @@ public class ObservationJob {
     @Column(name = "expires_at", nullable = false)
     private Instant expiresAt;
 
+    /**
+     * When the failed job should be re-published to the queue. Null means the job is
+     * either not waiting for a retry (initial publish or final failure) or already queued.
+     */
+    @Column(name = "next_retry_at")
+    private Instant nextRetryAt;
+
     @CreationTimestamp
     @Column(name = "created_at", nullable = false, updatable = false)
     private Instant createdAt;
