@@ -5,12 +5,12 @@ import java.util.UUID;
 
 import org.hibernate.annotations.ColumnDefault;
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.JdbcTypeCode;
 import org.hibernate.annotations.UpdateTimestamp;
+import org.hibernate.type.SqlTypes;
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.EnumType;
-import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -52,7 +52,7 @@ public class Achievement {
     @Column(name = "event_type", nullable = false, length = 100)
     private String eventType;
 
-    @Lob
+    @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "predicate_json", columnDefinition = "jsonb")
     private String predicateJson;
 
