@@ -27,7 +27,6 @@ import com.biojaveriana.api.common.Pagination;
 import com.biojaveriana.api.post.Post;
 import com.biojaveriana.api.post.PostRepository;
 import com.biojaveriana.api.s3.S3UrlGenerator;
-import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
 
 import lombok.RequiredArgsConstructor;
@@ -205,7 +204,7 @@ public class CommentService {
     }
 
     private boolean isAuthorOrAdmin(User commentAuthor, User user) {
-        return commentAuthor.getId().equals(user.getId()) || user.getRole() == Role.ADMIN;
+        return commentAuthor.getId().equals(user.getId()) || user.isAdminOrAbove();
     }
 
 

@@ -93,4 +93,14 @@ public class User {
     public boolean isSuperAdmin() {
         return role == Role.SUPERADMIN;
     }
+
+    /**
+     * True if this user holds the ADMIN or SUPERADMIN role.
+     * Centralizes the "admin or higher" permission check in the service layer so
+     * the superadmin keeps bypassing every admin-gated action (mirrors the
+     * SUPERADMIN bypass in RoleGuardInterceptor).
+     */
+    public boolean isAdminOrAbove() {
+        return role == Role.ADMIN || role == Role.SUPERADMIN;
+    }
 }

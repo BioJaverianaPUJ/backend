@@ -34,7 +34,6 @@ import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.s3.UploadPresign;
-import com.biojaveriana.api.user.Role;
 import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.user.UserRepository;
 
@@ -110,7 +109,7 @@ public class PostService {
         var post = postRepository.findById(postId)
             .orElseThrow(() -> new PostNotFoundException(postId));
 
-        if (!post.getAuthor().getId().equals(user.getId()) && user.getRole() != Role.ADMIN) {
+        if (!post.getAuthor().getId().equals(user.getId()) && !user.isAdminOrAbove()) {
             throw new PostForbiddenException();
         }
 
@@ -134,7 +133,7 @@ public class PostService {
         var post = postRepository.findById(postId)
             .orElseThrow(() -> new PostNotFoundException(postId));
 
-        if (!post.getAuthor().getId().equals(user.getId()) && user.getRole() != Role.ADMIN) {
+        if (!post.getAuthor().getId().equals(user.getId()) && !user.isAdminOrAbove()) {
             throw new PostForbiddenException();
         }
 
@@ -149,7 +148,7 @@ public class PostService {
             .orElseThrow(() -> new PostNotFoundException(postId));
 
         if (post.getBanned()) {
-            if (user.getRole() != Role.ADMIN && !post.getAuthor().getId().equals(user.getId())) {
+            if (!user.isAdminOrAbove() && !post.getAuthor().getId().equals(user.getId())) {
                 throw new PostNotFoundException(postId);
             }
         }
@@ -163,7 +162,7 @@ public class PostService {
         Pageable pageable = PageRequest.of(page, size, Sort.by("createdAt").descending());
         Page<Post> postPage;
 
-        if (user.getRole() == Role.ADMIN) {
+        if (user.isAdminOrAbove()) {
             postPage = postRepository.findAll(pageable);
         } else {
             postPage = postRepository.findByHiddenFalseAndBannedFalseOrderByCreatedAtDesc(pageable);
@@ -179,7 +178,7 @@ public class PostService {
 
         if (currentUser.getId().equals(authorId)) {
             postPage = postRepository.findByAuthorIdAndHiddenFalseAndBannedFalseOrderByCreatedAtDesc(authorId, pageable);
-        } else if (currentUser.getRole() == Role.ADMIN) {
+        } else if (currentUser.isAdminOrAbove()) {
             postPage = postRepository.findByAuthorOrderByCreatedAtDesc(
                 userRepository.findById(authorId).orElseThrow(() -> new com.biojaveriana.api.user.exceptions.UserNotFoundException(authorId)),
                 pageable
@@ -273,7 +272,7 @@ public class PostService {
 
     @Transactional
     public PostResponse toggleHidden(UUID postId, User user) {
-        if (user.getRole() != Role.ADMIN) {
+        if (!user.isAdminOrAbove()) {
             throw new PostForbiddenException();
         }
         var post = postRepository.findById(postId)
@@ -286,7 +285,7 @@ public class PostService {
 
     @Transactional
     public PostResponse toggleBanned(UUID postId, User user) {
-        if (user.getRole() != Role.ADMIN) {
+        if (!user.isAdminOrAbove()) {
             throw new PostForbiddenException();
         }
         var post = postRepository.findById(postId)
@@ -379,7 +378,7 @@ public class PostService {
         var observation = observationRepository.findById(observationId)
             .orElseThrow(() -> new ObservationNotFoundException(observationId));
 
-        if (!observation.getUser().getId().equals(user.getId()) && user.getRole() != Role.ADMIN) {
+        if (!observation.getUser().getId().equals(user.getId()) && !user.isAdminOrAbove()) {
             throw new ObservationForbiddenException();
         }
         return observation;

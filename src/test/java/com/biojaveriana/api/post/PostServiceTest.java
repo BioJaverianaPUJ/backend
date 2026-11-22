@@ -16,6 +16,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.observation.Observation;
@@ -25,7 +27,9 @@ import com.biojaveriana.api.observation.exceptions.ObservationNotFoundException;
 import com.biojaveriana.api.post.dto.PostCreateRequest;
 import com.biojaveriana.api.post.dto.PostResponse;
 import com.biojaveriana.api.post.dto.PostUpdateRequest;
+import com.biojaveriana.api.post.exceptions.PostForbiddenException;
 import com.biojaveriana.api.post.exceptions.PostImageLimitException;
+import com.biojaveriana.api.post.exceptions.PostNotFoundException;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.user.Gender;
@@ -254,6 +258,161 @@ class PostServiceTest {
         assertSame(observation, existing.getObservation());
         assertNotNull(response.observation());
         assertEquals(observation.getId(), response.observation().id());
+    }
+
+    @Test
+    @DisplayName("toggleHidden: a superadmin can hide or unhide any post")
+    void superadminCanToggleHidden() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        UUID postId = UUID.randomUUID();
+        Post post = buildPost(postId, user, false, false);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(postRepository.save(any(Post.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        PostResponse response = postService.toggleHidden(postId, superadmin);
+
+        assertTrue(response.hidden());
+    }
+
+    @Test
+    @DisplayName("toggleHidden: a regular user is rejected before any repository access")
+    void regularUserCannotToggleHidden() {
+        UUID postId = UUID.randomUUID();
+
+        assertThrows(PostForbiddenException.class, () -> postService.toggleHidden(postId, user));
+
+        verify(postRepository, never()).findById(any(UUID.class));
+    }
+
+    @Test
+    @DisplayName("toggleBanned: a superadmin can ban or unban any post")
+    void superadminCanToggleBanned() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        UUID postId = UUID.randomUUID();
+        Post post = buildPost(postId, user, false, false);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(post));
+        when(postRepository.save(any(Post.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        PostResponse response = postService.toggleBanned(postId, superadmin);
+
+        assertTrue(response.banned());
+    }
+
+    @Test
+    @DisplayName("update: a superadmin can update a post authored by someone else")
+    void superadminCanUpdateForeignPost() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        UUID postId = UUID.randomUUID();
+        Post foreignPost = buildPost(postId, user, false, false);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(foreignPost));
+        when(postRepository.save(any(Post.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        PostResponse response = postService.update(postId, superadmin,
+            PostUpdateRequest.builder().title("Moderated title").build());
+
+        assertEquals("Moderated title", response.title());
+    }
+
+    @Test
+    @DisplayName("delete: a superadmin can delete a post authored by someone else")
+    void superadminCanDeleteForeignPost() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        UUID postId = UUID.randomUUID();
+        Post foreignPost = buildPost(postId, user, false, false);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(foreignPost));
+
+        postService.delete(postId, superadmin);
+
+        verify(postImageRepository).deleteByPostId(postId);
+        verify(postRepository).delete(foreignPost);
+    }
+
+    @Test
+    @DisplayName("list: a superadmin sees the full moderation feed, including hidden and banned posts")
+    void superadminListSeesAllPosts() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        when(postRepository.findAll(any(Pageable.class))).thenReturn(Page.empty());
+
+        postService.list(superadmin, 0, 50);
+
+        verify(postRepository).findAll(any(Pageable.class));
+        verify(postRepository, never()).findByHiddenFalseAndBannedFalseOrderByCreatedAtDesc(any(Pageable.class));
+    }
+
+    @Test
+    @DisplayName("getById: a superadmin can view a banned post authored by someone else")
+    void superadminCanViewBannedPost() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        UUID postId = UUID.randomUUID();
+        Post bannedPost = buildPost(postId, user, false, true);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(bannedPost));
+
+        PostResponse response = postService.getById(postId, superadmin);
+
+        assertTrue(response.banned());
+    }
+
+    @Test
+    @DisplayName("getById: a regular user who is not the author cannot view a banned post")
+    void regularUserCannotViewForeignBannedPost() {
+        UUID postId = UUID.randomUUID();
+        Post bannedPost = buildPost(postId, user, false, true);
+        when(postRepository.findById(postId)).thenReturn(Optional.of(bannedPost));
+        User other = buildUser(Role.USER);
+
+        assertThrows(PostNotFoundException.class, () -> postService.getById(postId, other));
+    }
+
+    @Test
+    @DisplayName("create: a superadmin can link another user's observation")
+    void superadminCanLinkForeignObservation() {
+        User superadmin = buildUser(Role.SUPERADMIN);
+        User other = buildUser(Role.USER);
+        Observation foreignObservation = buildObservation(other);
+        when(observationRepository.findById(foreignObservation.getId()))
+            .thenReturn(Optional.of(foreignObservation));
+        when(postRepository.save(any(Post.class))).thenAnswer(inv -> {
+            Post post = inv.getArgument(0);
+            post.setId(UUID.randomUUID());
+            return post;
+        });
+
+        PostCreateRequest request = PostCreateRequest.builder()
+            .title("Superadmin post")
+            .description("Links someone else's observation")
+            .observationId(foreignObservation.getId())
+            .build();
+
+        PostResponse response = postService.create(superadmin, request);
+
+        assertNotNull(response.observation());
+        assertEquals(foreignObservation.getId(), response.observation().id());
+    }
+
+    private User buildUser(Role role) {
+        return User.builder()
+            .id(UUID.randomUUID())
+            .username("user-" + role.name().toLowerCase())
+            .email("user-" + role.name().toLowerCase() + "@example.com")
+            .passwordHash("hash")
+            .firstName("Test")
+            .lastName("User")
+            .gender(Gender.OTHER)
+            .role(role)
+            .build();
+    }
+
+    private Post buildPost(UUID id, User author, boolean hidden, boolean banned) {
+        return Post.builder()
+            .id(id)
+            .author(author)
+            .title("title")
+            .description("description")
+            .totalLikes(0)
+            .totalDislikes(0)
+            .hidden(hidden)
+            .banned(banned)
+            .build();
     }
 
     private Observation buildObservation(User owner) {

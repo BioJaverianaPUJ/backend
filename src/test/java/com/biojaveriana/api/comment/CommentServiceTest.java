@@ -62,6 +62,7 @@ class CommentServiceTest {
     private User author;
     private User other;
     private User admin;
+    private User superadmin;
     private Post post;
     private UUID postId;
 
@@ -71,6 +72,7 @@ class CommentServiceTest {
         author = User.builder().id(UUID.randomUUID()).username("jane").role(Role.USER).build();
         other = User.builder().id(UUID.randomUUID()).username("bob").role(Role.USER).build();
         admin = User.builder().id(UUID.randomUUID()).username("admin").role(Role.ADMIN).build();
+        superadmin = User.builder().id(UUID.randomUUID()).username("super").role(Role.SUPERADMIN).build();
         postId = UUID.randomUUID();
         post = Post.builder().id(postId).author(author).title("title").description("description").build();
         lenient().when(commentRepository.save(any(Comment.class))).thenAnswer(inv -> {
@@ -209,6 +211,17 @@ class CommentServiceTest {
         }
 
         @Test
+        @DisplayName("a superadmin can update any comment")
+        void superadminCanUpdate() {
+            Comment comment = buildComment(UUID.randomUUID(), author, 0);
+            when(commentRepository.findByIdAndHiddenFalseAndBannedFalse(comment.getId())).thenReturn(Optional.of(comment));
+
+            CommentResponse response = commentService.update(comment.getId(), superadmin, new CommentUpdateRequest("moderated"));
+
+            assertEquals("moderated", response.content());
+        }
+
+        @Test
         @DisplayName("another user cannot update the comment")
         void otherUserCannotUpdate() {
             Comment comment = buildComment(UUID.randomUUID(), author, 0);
@@ -237,6 +250,17 @@ class CommentServiceTest {
             when(commentRepository.findByIdAndHiddenFalseAndBannedFalse(comment.getId())).thenReturn(Optional.of(comment));
 
             commentService.delete(comment.getId(), author);
+
+            verify(commentRepository).delete(comment);
+        }
+
+        @Test
+        @DisplayName("a superadmin can delete any comment")
+        void superadminCanDelete() {
+            Comment comment = buildComment(UUID.randomUUID(), author, 0);
+            when(commentRepository.findByIdAndHiddenFalseAndBannedFalse(comment.getId())).thenReturn(Optional.of(comment));
+
+            commentService.delete(comment.getId(), superadmin);
 
             verify(commentRepository).delete(comment);
         }
@@ -399,6 +423,19 @@ class CommentServiceTest {
 
             CommentResponse response = commentService.toggleBanned(comment.getId(), admin);
 
+            assertTrue(response.banned());
+        }
+
+        @Test
+        @DisplayName("a superadmin can moderate any comment")
+        void superadminCanModerate() {
+            Comment comment = buildComment(UUID.randomUUID(), author, 0);
+            when(commentRepository.findByIdAndHiddenFalseAndBannedFalse(comment.getId())).thenReturn(Optional.of(comment));
+
+            commentService.toggleHidden(comment.getId(), superadmin);
+            assertTrue(comment.getHidden());
+
+            CommentResponse response = commentService.toggleBanned(comment.getId(), superadmin);
             assertTrue(response.banned());
         }
 
