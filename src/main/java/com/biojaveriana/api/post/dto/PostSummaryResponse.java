@@ -11,6 +11,7 @@ public record PostSummaryResponse(
     UserSummaryResponse author,
     String title,
     String firstImageUrl,
+    ObservationSummaryResponse observation,
     Integer totalLikes,
     Integer totalDislikes,
     Boolean banned,
@@ -34,6 +35,9 @@ public record PostSummaryResponse(
                     : null),
             post.getTitle(),
             firstImageUrl,
+            post.getObservation() != null
+                ? ObservationSummaryResponse.from(post.getObservation(), urlGenerator)
+                : null,
             post.getTotalLikes(),
             post.getTotalDislikes(),
             post.getBanned(),

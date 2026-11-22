@@ -6,8 +6,11 @@ import java.util.List;
 import java.util.UUID;
 
 import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.OnDelete;
+import org.hibernate.annotations.OnDeleteAction;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.biojaveriana.api.observation.Observation;
 import com.biojaveriana.api.user.User;
 
 import jakarta.persistence.Column;
@@ -50,8 +53,10 @@ public class Post {
     @Column(name = "description", nullable = false, columnDefinition = "TEXT")
     private String description;
 
-    @Column(name = "observation")
-    private String observation;
+    @ManyToOne(fetch = FetchType.LAZY, optional = true)
+    @OnDelete(action = OnDeleteAction.SET_NULL)
+    @JoinColumn(name = "observation_id", nullable = true, foreignKey = @ForeignKey(name = "fk_post_observation"))
+    private Observation observation;
 
     @Default
     @Column(name = "total_likes", nullable = false)

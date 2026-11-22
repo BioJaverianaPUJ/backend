@@ -14,7 +14,7 @@ public record PostResponse(
     UserSummaryResponse author,
     String title,
     String description,
-    String observation,
+    ObservationSummaryResponse observation,
     List<PostImageResponse> images,
     Integer totalLikes,
     Integer totalDislikes,
@@ -54,7 +54,9 @@ public record PostResponse(
                     : null),
             post.getTitle(),
             post.getDescription(),
-            post.getObservation(),
+            post.getObservation() != null
+                ? ObservationSummaryResponse.from(post.getObservation(), urlGenerator)
+                : null,
             images,
             post.getTotalLikes(),
             post.getTotalDislikes(),
