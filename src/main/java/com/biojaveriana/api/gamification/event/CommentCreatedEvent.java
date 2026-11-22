@@ -19,7 +19,7 @@ public class CommentCreatedEvent extends GamificationEvent {
     }
 
     @Override
-    public String getEventType() {
-        return "COMMENT_CREATED";
+    public GamificationEventType getType() {
+        return GamificationEventType.COMMENT_CREATED;
     }
 }

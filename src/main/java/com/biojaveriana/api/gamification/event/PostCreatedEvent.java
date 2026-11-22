@@ -19,7 +19,7 @@ public class PostCreatedEvent extends GamificationEvent {
     }
 
     @Override
-    public String getEventType() {
-        return "POST_CREATED";
+    public GamificationEventType getType() {
+        return GamificationEventType.POST_CREATED;
     }
 }

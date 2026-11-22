@@ -1,0 +1,66 @@
+> Task :compileJava UP-TO-DATE
+> Task :processResources UP-TO-DATE
+> Task :classes UP-TO-DATE
+> Task :resolveMainClassName
+
+> Task :bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.0)
+
+2026-11-22T11:12:44.015-05:00  INFO 40004 --- [api] [  restartedMain] com.biojaveriana.api.ApiApplication      : Starting ApiApplication using Java 25.0.4.1 with PID 40004 (C:\Users\zackd\Documents\bio-javeriana\backend\build\classes\java\main started by zackd in C:\Users\zackd\Documents\bio-javeriana\backend)
+2026-11-22T11:12:44.017-05:00  INFO 40004 --- [api] [  restartedMain] com.biojaveriana.api.ApiApplication      : No active profile set, falling back to 1 default profile: "default"
+2026-11-22T11:12:44.054-05:00  INFO 40004 --- [api] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2026-11-22T11:12:44.054-05:00  INFO 40004 --- [api] [  restartedMain] .e.DevToolsPropertyDefaultsPostProcessor : For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2026-11-22T11:12:44.762-05:00  INFO 40004 --- [api] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-11-22T11:12:44.845-05:00  INFO 40004 --- [api] [  restartedMain] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 77 ms. Found 18 JPA repository interfaces.
+2026-11-22T11:12:45.321-05:00  INFO 40004 --- [api] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8000 (http)
+2026-11-22T11:12:45.330-05:00  INFO 40004 --- [api] [  restartedMain] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-11-22T11:12:45.330-05:00  INFO 40004 --- [api] [  restartedMain] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.22]
+2026-11-22T11:12:45.366-05:00  INFO 40004 --- [api] [  restartedMain] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1310 ms
+2026-11-22T11:12:45.558-05:00  INFO 40004 --- [api] [  restartedMain] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-11-22T11:12:45.599-05:00  INFO 40004 --- [api] [  restartedMain] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.4.1.Final
+2026-11-22T11:12:45.934-05:00  INFO 40004 --- [api] [  restartedMain] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-11-22T11:12:45.959-05:00  INFO 40004 --- [api] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-11-22T11:12:46.066-05:00  INFO 40004 --- [api] [  restartedMain] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection org.postgresql.jdbc.PgConnection@2eb5dad3
+2026-11-22T11:12:46.067-05:00  INFO 40004 --- [api] [  restartedMain] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-11-22T11:12:46.090-05:00  WARN 40004 --- [api] [  restartedMain] org.hibernate.orm.deprecation            : HHH90000025: PostgreSQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-11-22T11:12:46.113-05:00  INFO 40004 --- [api] [  restartedMain] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:postgresql://192.168.5.28:5432/postgres]
+	Database driver: PostgreSQL JDBC Driver
+	Database dialect: PostgreSQLDialect
+	Database version: 18.6
+	Default catalog/schema: postgres/public
+	Autocommit mode: undefined/unknown
+	Isolation level: READ_COMMITTED [default READ_COMMITTED]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-11-22T11:12:47.171-05:00  INFO 40004 --- [api] [  restartedMain] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-11-22T11:12:47.302-05:00  INFO 40004 --- [api] [  restartedMain] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-11-22T11:12:47.362-05:00  INFO 40004 --- [api] [  restartedMain] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-11-22T11:12:48.760-05:00  WARN 40004 --- [api] [  restartedMain] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2026-11-22T11:12:49.251-05:00  INFO 40004 --- [api] [  restartedMain] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2026-11-22T11:12:49.327-05:00  INFO 40004 --- [api] [  restartedMain] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8000 (http) with context path '/'
+2026-11-22T11:12:49.329-05:00  INFO 40004 --- [api] [  restartedMain] o.s.a.r.c.CachingConnectionFactory       : Attempting to connect to: [192.168.5.28:5672]
+2026-11-22T11:12:49.378-05:00  INFO 40004 --- [api] [  restartedMain] o.s.a.r.c.CachingConnectionFactory       : Created new connection: rabbitConnectionFactory#75f54bf6:0/SimpleConnection@45c845b2 [delegate=amqp://rabbitmq@192.168.5.28:5672/, localPort=64536]
+2026-11-22T11:12:49.431-05:00  INFO 40004 --- [api] [  restartedMain] com.biojaveriana.api.ApiApplication      : Started ApiApplication in 5.715 seconds (process running for 6.116)
+2026-11-22T11:12:49.576-05:00  INFO 40004 --- [api] [  restartedMain] c.b.api.config.SuperAdminInitializer     : Superadmin account already exists with username: superadmin
+2026-11-22T11:12:58.572-05:00  INFO 40004 --- [api] [nio-8000-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-11-22T11:12:58.572-05:00  INFO 40004 --- [api] [nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-11-22T11:12:58.574-05:00  INFO 40004 --- [api] [nio-8000-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-11-22T11:13:02.941-05:00  INFO 40004 --- [api] [nio-8000-exec-2] c.b.a.g.service.AchievementEngine        : Awarded achievement 'First Post' (50 xp) to user '233a0128-2a78-4232-a86b-140336e306e3'
+2026-11-22T11:13:07.189-05:00  WARN 40004 --- [api] [nio-8000-exec-5] ration$PageModule$WarningLoggingModifier : Serializing PageImpl instances as-is is not supported, meaning that there is no guarantee about the stability of the resulting JSON structure!
+	For a stable JSON structure, please use Spring Data's PagedModel (globally via @EnableSpringDataWebSupport(pageSerializationMode = VIA_DTO))
+	or Spring HATEOAS and Spring Data's PagedResourcesAssembler as documented in https://docs.spring.io/spring-data/commons/reference/repositories/core-extensions.html#core.web.pageables.
+
+2026-11-22T11:13:10.404-05:00  INFO 40004 --- [api] [nio-8000-exec-7] com.biojaveriana.api.post.PostService    : Post created id=37545f3c-2684-4dec-a270-2ce194752f71 by user id=233a0128-2a78-4232-a86b-140336e306e3
+2026-11-22T11:13:19.868-05:00  INFO 40004 --- [api] [nio-8000-exec-1] com.biojaveriana.api.post.PostService    : Post created id=3e3e9f65-1be0-45e8-98f1-24c37e8c72a0 by user id=233a0128-2a78-4232-a86b-140336e306e3
+2026-11-22T11:13:19.929-05:00  INFO 40004 --- [api] [nio-8000-exec-1] c.b.a.g.service.AchievementEngine        : Awarded achievement 'Two Posts' (30 xp) to user '233a0128-2a78-4232-a86b-140336e306e3'

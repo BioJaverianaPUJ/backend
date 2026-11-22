@@ -19,7 +19,7 @@ public class ObservationCreatedEvent extends GamificationEvent {
     }
 
     @Override
-    public String getEventType() {
-        return "OBSERVATION_CREATED";
+    public GamificationEventType getType() {
+        return GamificationEventType.OBSERVATION_CREATED;
     }
 }

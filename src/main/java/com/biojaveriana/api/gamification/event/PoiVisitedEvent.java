@@ -3,7 +3,7 @@ package com.biojaveriana.api.gamification.event;
 import java.util.UUID;
 
 /**
- * Event fired when a user visits a POI.
+ * Event fired when a user visits (records telemetry for) a POI.
  */
 public class PoiVisitedEvent extends GamificationEvent {
 
@@ -19,7 +19,7 @@ public class PoiVisitedEvent extends GamificationEvent {
     }
 
     @Override
-    public String getEventType() {
-        return "POI_VISITED";
+    public GamificationEventType getType() {
+        return GamificationEventType.POI_VISITED;
     }
 }

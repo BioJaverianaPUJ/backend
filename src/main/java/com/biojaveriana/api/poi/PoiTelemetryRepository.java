@@ -20,4 +20,7 @@ public interface PoiTelemetryRepository extends JpaRepository<PoiTelemetry, UUID
         @Param("userId") UUID userId,
         @Param("after") Instant after
     );
+
+    @Query("SELECT COUNT(DISTINCT t.poi) FROM PoiTelemetry t WHERE t.user.id = :userId")
+    long countDistinctPoiByUserId(@Param("userId") UUID userId);
 }

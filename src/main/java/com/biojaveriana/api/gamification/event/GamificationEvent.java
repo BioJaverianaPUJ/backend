@@ -6,7 +6,7 @@ import org.springframework.context.ApplicationEvent;
 
 /**
  * Base event for gamification-related domain events.
- * Includes a unique ID for event deduplication to prevent duplicate processing.
+ * A unique id is attached to each event for potential deduplication.
  */
 public abstract class GamificationEvent extends ApplicationEvent {
 
@@ -20,7 +20,7 @@ public abstract class GamificationEvent extends ApplicationEvent {
     }
 
     /**
-     * Returns a unique identifier for this event, used for deduplication.
+     * Returns a unique identifier for this event.
      */
     public UUID getId() {
         return id;
@@ -31,14 +31,7 @@ public abstract class GamificationEvent extends ApplicationEvent {
     }
 
     /**
-     * Returns the event type string for matching with achievement definitions.
+     * Returns the type of this event, used to match against achievement metrics.
      */
-    public abstract String getEventType();
-
-    /**
-     * Returns additional context data for predicate evaluation.
-     */
-    public java.util.Map<String, Object> getAdditionalContext() {
-        return new java.util.HashMap<>();
-    }
+    public abstract GamificationEventType getType();
 }

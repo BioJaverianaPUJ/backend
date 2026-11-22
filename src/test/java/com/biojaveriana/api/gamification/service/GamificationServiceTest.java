@@ -22,6 +22,7 @@ import com.biojaveriana.api.gamification.repository.UserGamificationRepository;
 import com.biojaveriana.api.gamification.repository.XpLogRepository;
 import com.biojaveriana.api.user.User;
 import com.biojaveriana.api.user.UserRepository;
+import jakarta.persistence.EntityManager;
 
 @ExtendWith(MockitoExtension.class)
 class GamificationServiceTest {
@@ -38,6 +39,9 @@ class GamificationServiceTest {
     @Mock
     private GamificationConfig config;
 
+    @Mock
+    private EntityManager entityManager;
+
     private GamificationService gamificationService;
 
     @BeforeEach
@@ -45,226 +49,118 @@ class GamificationServiceTest {
         gamificationService = new GamificationService(
             userGamificationRepository,
             xpLogRepository,
+            config,
             userRepository,
-            config
+            entityManager
         );
+        lenient().doReturn(100L).when(config).getBaseXp();
+        lenient().doReturn(2.0).when(config).getLogBase();
     }
 
     @Nested
-    @DisplayName("calculateLevel")
-    class CalculateLevelTests {
-
+    @DisplayName("XP thresholds")
+    class XpThresholdTests {
         @Test
-        @DisplayName("should return level 1 for zero XP")
-        void shouldReturnLevel1ForZeroXp() {
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            Integer level = gamificationService.calculateLevel(0L);
-            assertEquals(1, level);
+        @DisplayName("level 1 starts at 0 XP")
+        void level1StartsAtZero() {
+            assertEquals(0L, gamificationService.getXpForCurrentLevel(1));
         }
 
         @Test
-        @DisplayName("should return level 1 for negative XP")
-        void shouldReturnLevel1ForNegativeXp() {
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            Integer level = gamificationService.calculateLevel(-100L);
-            assertEquals(1, level);
+        @DisplayName("level 2 threshold is baseXp")
+        void level2ThresholdIsBaseXp() {
+            assertEquals(100L, gamificationService.getXpForCurrentLevel(2));
         }
 
         @Test
-        @DisplayName("should calculate level using logarithmic formula")
-        void shouldCalculateLevelUsingLogarithmicFormula() {
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            Integer level = gamificationService.calculateLevel(100L);
-            assertEquals(1, level);
-
-            Integer level2 = gamificationService.calculateLevel(200L);
-            assertEquals(3, level2);
+        @DisplayName("level 3 threshold is baseXp*(1+logBase)")
+        void level3Threshold() {
+            assertEquals(300L, gamificationService.getXpForCurrentLevel(3));
         }
 
         @Test
-        @DisplayName("should return increasing levels for increasing XP")
-        void shouldReturnIncreasingLevelsForIncreasingXp() {
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            Integer level1 = gamificationService.calculateLevel(100L);
-            Integer level2 = gamificationService.calculateLevel(500L);
-            Integer level3 = gamificationService.calculateLevel(1000L);
-
-            assertTrue(level2 > level1);
-            assertTrue(level3 > level2);
+        @DisplayName("next-level XP is the following threshold")
+        void nextLevelXp() {
+            assertEquals(100L, gamificationService.getXpForNextLevel(1));
+            assertEquals(300L, gamificationService.getXpForNextLevel(2));
         }
     }
-
-    @Nested
-    @DisplayName("getXpForCurrentLevel")
-    class GetXpForCurrentLevelTests {
-
-        @Test
-        @DisplayName("should return 0 for level 1")
-        void shouldReturnZeroForLevel1() {
-            Long xp = gamificationService.getXpForCurrentLevel(1);
-            assertEquals(0L, xp);
-        }
-
-        @Test
-        @DisplayName("should return correct XP threshold for higher levels")
-        void shouldReturnCorrectXpThresholdForHigherLevels() {
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            Long xp = gamificationService.getXpForCurrentLevel(2);
-            assertEquals(158L, xp);
-        }
-    }
-
-    @Nested
-    @DisplayName("getXpForNextLevel")
-    class GetXpForNextLevelTests {
-
-        @Test
-        @DisplayName("should return XP for next level")
-        void shouldReturnXpForNextLevel() {
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            Long xp = gamificationService.getXpForNextLevel(2);
-            assertEquals(200L, xp);
-        }
 
     @Nested
     @DisplayName("awardXp")
     class AwardXpTests {
-
         @Test
-        @DisplayName("should create new gamification record when user does not exist")
-        void shouldCreateNewGamificationRecordWhenUserDoesNotExist() {
+        @DisplayName("should create a new gamification record and log XP")
+        void shouldCreateNewRecord() {
             UUID userId = UUID.randomUUID();
-            Long xpAmount = 100L;
-            String reason = "Test achievement";
-
             User user = mock(User.class);
             when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+            when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
 
-            UserGamification newGamification = UserGamification.builder()
-                .userId(userId)
-                .user(user)
-                .totalXp(0L)
-                .level(1)
-                .build();
-            when(userGamificationRepository.findByIdWithPessimisticLock(userId)).thenReturn(Optional.empty());
-            when(userGamificationRepository.save(any())).thenReturn(newGamification);
+            UserGamificationResponse response = gamificationService.awardXp(userId, 50L, "Test");
 
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            UserGamificationResponse response = gamificationService.awardXp(userId, xpAmount, reason);
-
-            assertNotNull(response);
-            assertEquals(100L, response.totalXp());
+            assertEquals(50L, response.totalXp());
             assertEquals(1, response.level());
-            verify(userGamificationRepository, times(2)).save(any());
+            verify(entityManager).persist(any(UserGamification.class));
             verify(xpLogRepository).save(any());
         }
 
         @Test
-        @DisplayName("should update existing gamification record")
-        void shouldUpdateExistingGamificationRecord() {
+        @DisplayName("should accumulate XP and recompute level on an existing record")
+        void shouldAccumulateXp() {
             UUID userId = UUID.randomUUID();
-            Long xpAmount = 50L;
-            String reason = "Test update";
+            UserGamification existing = UserGamification.builder().userId(userId).totalXp(250L).level(2).build();
+            when(userGamificationRepository.findById(userId)).thenReturn(Optional.of(existing));
 
-            UserGamification existing = UserGamification.builder()
-                .userId(userId)
-                .totalXp(200L)
-                .level(2)
-                .build();
-            when(userGamificationRepository.findByIdWithPessimisticLock(userId)).thenReturn(Optional.of(existing));
+            UserGamificationResponse response = gamificationService.awardXp(userId, 100L, "Test");
 
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            UserGamificationResponse response = gamificationService.awardXp(userId, xpAmount, reason);
-
-            assertNotNull(response);
-            assertEquals(250L, response.totalXp());
-            assertEquals(4, response.level());
-            verify(userGamificationRepository, times(1)).save(any());
+            assertEquals(350L, response.totalXp());
+            assertEquals(3, response.level());
         }
 
         @Test
-        @DisplayName("should throw exception when user not found")
-        void shouldThrowExceptionWhenUserNotFound() {
+        @DisplayName("should throw when user not found")
+        void shouldThrowWhenUserNotFound() {
             UUID userId = UUID.randomUUID();
-
-            when(userGamificationRepository.findByIdWithPessimisticLock(userId)).thenReturn(Optional.empty());
+            when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
             when(userRepository.findById(userId)).thenReturn(Optional.empty());
-
-            assertThrows(IllegalArgumentException.class,
-                () -> gamificationService.awardXp(userId, 100L, "Test"));
+            assertThrows(IllegalArgumentException.class, () -> gamificationService.awardXp(userId, 10L, "Test"));
         }
     }
 
     @Nested
     @DisplayName("getUserGamification")
     class GetUserGamificationTests {
-
         @Test
-        @DisplayName("should return existing gamification data")
-        void shouldReturnExistingGamificationData() {
+        @DisplayName("should return existing gamification with username")
+        void shouldReturnExisting() {
             UUID userId = UUID.randomUUID();
-
-            UserGamification existing = UserGamification.builder()
-                .userId(userId)
-                .totalXp(500L)
-                .level(4)
-                .build();
-            when(userGamificationRepository.findById(userId)).thenReturn(Optional.of(existing));
-
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
-
-            UserGamificationResponse response = gamificationService.getUserGamification(userId);
-
-            assertNotNull(response);
-            assertEquals(500L, response.totalXp());
-            assertEquals(4, response.level());
-        }
-
-        @Test
-        @DisplayName("should create new gamification record when not found")
-        void shouldCreateNewGamificationRecordWhenNotFound() {
-            UUID userId = UUID.randomUUID();
-
             User user = mock(User.class);
+            when(user.getUsername()).thenReturn("alice");
+            UserGamification existing = UserGamification.builder().userId(userId).totalXp(500L).level(4).build();
+            when(userGamificationRepository.findById(userId)).thenReturn(Optional.of(existing));
             when(userRepository.findById(userId)).thenReturn(Optional.of(user));
 
-            UserGamification newGamification = UserGamification.builder()
-                .userId(userId)
-                .user(user)
-                .totalXp(0L)
-                .level(1)
-                .build();
-            when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
-            when(userGamificationRepository.save(any())).thenReturn(newGamification);
+            UserGamificationResponse response = gamificationService.getUserGamification(userId);
 
-            doReturn(100L).when(config).getBaseXp();
-            doReturn(2.0).when(config).getLogBase();
+            assertEquals(500L, response.totalXp());
+            assertEquals(4, response.level());
+            assertEquals("alice", response.username());
+        }
+
+        @Test
+        @DisplayName("should create a new record when missing")
+        void shouldCreateWhenMissing() {
+            UUID userId = UUID.randomUUID();
+            User user = mock(User.class);
+            when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+            when(userGamificationRepository.findById(userId)).thenReturn(Optional.empty());
 
             UserGamificationResponse response = gamificationService.getUserGamification(userId);
 
-            assertNotNull(response);
             assertEquals(0L, response.totalXp());
             assertEquals(1, response.level());
+            verify(entityManager).persist(any(UserGamification.class));
         }
     }
-}
-
-
 }

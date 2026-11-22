@@ -3,7 +3,8 @@ package com.biojaveriana.api.gamification.event;
 import java.util.UUID;
 
 /**
- * Event fired when a user receives a reaction on their comment.
+ * Event fired when a user receives a reaction on one of their comments.
+ * The event user is the comment author (the reaction recipient).
  */
 public class CommentReactionReceivedEvent extends GamificationEvent {
 
@@ -25,7 +26,7 @@ public class CommentReactionReceivedEvent extends GamificationEvent {
     }
 
     @Override
-    public String getEventType() {
-        return "COMMENT_REACTION_RECEIVED";
+    public GamificationEventType getType() {
+        return GamificationEventType.COMMENT_REACTION_RECEIVED;
     }
 }

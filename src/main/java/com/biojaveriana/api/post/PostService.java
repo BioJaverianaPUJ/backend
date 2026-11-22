@@ -24,6 +24,7 @@ import com.biojaveriana.api.post.dto.UserSummaryResponse;
 import com.biojaveriana.api.post.exceptions.PostForbiddenException;
 import com.biojaveriana.api.post.exceptions.PostImageLimitException;
 import com.biojaveriana.api.post.exceptions.PostNotFoundException;
+import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.s3.ObjectService;
 import com.biojaveriana.api.s3.S3UrlGenerator;
 import com.biojaveriana.api.s3.UploadPresign;
@@ -47,6 +48,7 @@ public class PostService {
     private final UserRepository userRepository;
     private final S3UrlGenerator s3UrlGenerator;
     private final ObjectService objectService;
+    private final EventDispatcher eventDispatcher;
 
     @Transactional
     public UploadPresign createPresign(User user, String contentType) {
@@ -87,6 +89,7 @@ public class PostService {
         }
 
         log.info("Post created id={} by user id={}", post.getId(), user.getId());
+        eventDispatcher.dispatchPostCreated(user.getId(), post.getId());
         return toResponse(post, null);
     }
 

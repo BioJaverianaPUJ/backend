@@ -49,9 +49,6 @@ public class Achievement {
     @Column(name = "xp_reward", nullable = false)
     private Integer xpReward;
 
-    @Column(name = "event_type", nullable = false, length = 100)
-    private String eventType;
-
     @JdbcTypeCode(SqlTypes.JSON)
     @Column(name = "predicate_json", columnDefinition = "jsonb")
     private String predicateJson;

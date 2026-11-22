@@ -22,6 +22,7 @@ import com.biojaveriana.api.comment.dto.ReactionSummaryResponse;
 import com.biojaveriana.api.comment.dto.UserSummaryResponse;
 import com.biojaveriana.api.comment.exceptions.CommentForbiddenException;
 import com.biojaveriana.api.comment.exceptions.CommentNotFoundException;
+import com.biojaveriana.api.gamification.event.EventDispatcher;
 import com.biojaveriana.api.common.Pagination;
 import com.biojaveriana.api.post.Post;
 import com.biojaveriana.api.post.PostRepository;
@@ -40,6 +41,7 @@ public class CommentService {
     private final CommentReactionRepository commentReactionRepository;
     private final PostRepository postRepository;
     private final S3UrlGenerator s3UrlGenerator;
+    private final EventDispatcher eventDispatcher;
 
     @Transactional
     public CommentResponse create(UUID postId, User user, CommentCreateRequest request) {
@@ -73,6 +75,7 @@ public class CommentService {
 
         comment = commentRepository.save(comment);
         log.info("Comment created id={} on post id={} by user id={}", comment.getId(), postId, user.getId());
+        eventDispatcher.dispatchCommentCreated(user.getId(), comment.getId());
         return toResponse(comment, null);
     }
 
@@ -128,6 +131,7 @@ public class CommentService {
         comment.setTotalReactions(comment.getTotalReactions() + 1);
         comment = commentRepository.save(comment);
         log.info("Comment reaction created commentId={} userId={} emoji={}", commentId, user.getId(), emoji);
+        eventDispatcher.dispatchCommentReactionReceived(comment.getAuthor().getId(), comment.getId(), reaction.getId());
         return toResponse(comment, null);
     }
 

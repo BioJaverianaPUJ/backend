@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.UUID;
 
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.Authentication;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -16,118 +15,112 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.biojaveriana.api.gamification.dto.AchievementCreateRequest;
+import com.biojaveriana.api.gamification.dto.AchievementPreviewRequest;
+import com.biojaveriana.api.gamification.dto.AchievementPreviewResponse;
+import com.biojaveriana.api.gamification.dto.AchievementProgressResponse;
 import com.biojaveriana.api.gamification.dto.AchievementResponse;
 import com.biojaveriana.api.gamification.dto.AchievementUpdateRequest;
 import com.biojaveriana.api.gamification.dto.UserAchievementResponse;
+import com.biojaveriana.api.gamification.dto.UserGamificationResponse;
+import com.biojaveriana.api.gamification.service.AchievementEngine;
 import com.biojaveriana.api.gamification.service.AchievementService;
+import com.biojaveriana.api.gamification.service.GamificationService;
+import com.biojaveriana.api.security.CurrentUser;
 import com.biojaveriana.api.security.HasRole;
 import com.biojaveriana.api.user.Role;
+import com.biojaveriana.api.user.User;
 
 /**
- * Controller for achievement management (admin CRUD).
+ * Controller for achievement management (admin CRUD + predicate dry-run) and
+ * per-user achievement views.
  */
 @RestController
 @RequestMapping("/api/v1/achievements")
 public class AchievementController {
     private final AchievementService achievementService;
+    private final AchievementEngine achievementEngine;
+    private final GamificationService gamificationService;
 
-    public AchievementController(AchievementService achievementService) {
+    public AchievementController(
+        AchievementService achievementService,
+        AchievementEngine achievementEngine,
+        GamificationService gamificationService
+    ) {
         this.achievementService = achievementService;
+        this.achievementEngine = achievementEngine;
+        this.gamificationService = gamificationService;
     }
 
-    /**
-     * POST /api/v1/achievements
-     * Creates a new achievement (admin only).
-     */
     @PostMapping
-    @HasRole(value = Role.ADMIN)
-    public ResponseEntity<AchievementResponse> createAchievement(
-            @RequestBody AchievementCreateRequest request) {
-        AchievementResponse response = achievementService.createAchievement(request);
-        return ResponseEntity.status(201).body(response);
+    @HasRole(Role.ADMIN)
+    public ResponseEntity<AchievementResponse> createAchievement(@RequestBody AchievementCreateRequest request) {
+        return ResponseEntity.status(201).body(achievementService.createAchievement(request));
     }
 
-    /**
-     * PUT /api/v1/achievements/{id}
-     * Updates an achievement (admin only).
-     */
     @PutMapping("/{id}")
-    @HasRole(value = Role.ADMIN)
-    public ResponseEntity<AchievementResponse> updateAchievement(
-            @PathVariable UUID id,
-            @RequestBody AchievementUpdateRequest request) {
-        AchievementResponse response = achievementService.updateAchievement(id, request);
-        return ResponseEntity.ok(response);
+    @HasRole(Role.ADMIN)
+    public ResponseEntity<AchievementResponse> updateAchievement(@PathVariable UUID id, @RequestBody AchievementUpdateRequest request) {
+        return ResponseEntity.ok(achievementService.updateAchievement(id, request));
     }
 
-    /**
-     * DELETE /api/v1/achievements/{id}
-     * Deletes an achievement (admin only).
-     */
     @DeleteMapping("/{id}")
-    @HasRole(value = Role.ADMIN)
+    @HasRole(Role.ADMIN)
     public ResponseEntity<Void> deleteAchievement(@PathVariable UUID id) {
         achievementService.deleteAchievement(id);
         return ResponseEntity.noContent().build();
     }
 
     /**
-     * GET /api/v1/achievements/{id}
-     * Gets an achievement by ID.
+     * Admin dry-run: evaluate a candidate predicate against a user's current metrics.
      */
+    @PostMapping("/preview")
+    @HasRole(Role.ADMIN)
+    public ResponseEntity<AchievementPreviewResponse> preview(@RequestBody AchievementPreviewRequest request) {
+        return ResponseEntity.ok(achievementService.preview(request));
+    }
+
     @GetMapping("/{id}")
     public ResponseEntity<AchievementResponse> getAchievement(@PathVariable UUID id) {
-        AchievementResponse response = achievementService.getAchievement(id);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(achievementService.getAchievement(id));
     }
 
-    /**
-     * GET /api/v1/achievements/slug/{slug}
-     * Gets an achievement by slug.
-     */
     @GetMapping("/slug/{slug}")
     public ResponseEntity<AchievementResponse> getAchievementBySlug(@PathVariable String slug) {
-        AchievementResponse response = achievementService.getAchievementBySlug(slug);
-        return ResponseEntity.ok(response);
+        return ResponseEntity.ok(achievementService.getAchievementBySlug(slug));
     }
 
-    /**
-     * GET /api/v1/achievements
-     * Lists all achievements (optionally filtered by active status).
-     */
     @GetMapping
-    public ResponseEntity<List<AchievementResponse>> listAchievements(
-            @RequestParam(required = false) Boolean active) {
-        List<AchievementResponse> responses = achievementService.listAchievements(active);
-        return ResponseEntity.ok(responses);
+    public ResponseEntity<List<AchievementResponse>> listAchievements(@RequestParam(required = false) Boolean active) {
+        return ResponseEntity.ok(achievementService.listAchievements(active));
     }
 
     /**
-     * GET /api/v1/achievements/me
-     * Gets the current user's achievements.
+     * Progression view: every active achievement with the user's live progress
+     * and completion state.
      */
     @GetMapping("/me")
-    public ResponseEntity<List<UserAchievementResponse>> getMyAchievements(Authentication authentication) {
-        UUID userId = extractUserId(authentication);
-        List<UserAchievementResponse> responses = achievementService.getUserAchievements(userId);
-        return ResponseEntity.ok(responses);
+    public ResponseEntity<List<AchievementProgressResponse>> getMyAchievementProgress(@CurrentUser User user) {
+        return ResponseEntity.ok(achievementService.getUserAchievementProgress(user.getId()));
     }
 
     /**
-     * GET /api/v1/achievements/me/completed
-     * Gets the current user's completed achievements.
+     * Earned-only view: achievements the user has completed.
      */
     @GetMapping("/me/completed")
-    public ResponseEntity<List<UserAchievementResponse>> getMyCompletedAchievements(Authentication authentication) {
-        UUID userId = extractUserId(authentication);
-        List<UserAchievementResponse> responses = achievementService.getCompletedAchievements(userId);
-        return ResponseEntity.ok(responses);
+    public ResponseEntity<List<UserAchievementResponse>> getMyCompletedAchievements(@CurrentUser User user) {
+        return ResponseEntity.ok(achievementService.getCompletedAchievements(user.getId()));
     }
 
-    private UUID extractUserId(Authentication authentication) {
-        if (authentication == null || authentication.getName() == null) {
-            throw new IllegalArgumentException("Authentication required");
-        }
-        return UUID.fromString(authentication.getName());
+    /**
+     * Admin: re-evaluates every active achievement for a user (awarding XP for
+     * anything newly satisfied) and returns the user's updated gamification
+     * summary. Use this to backfill XP for activity that predates an
+     * achievement.
+     */
+    @PostMapping("/evaluate")
+    @HasRole(Role.ADMIN)
+    public ResponseEntity<UserGamificationResponse> evaluate(@RequestParam("userId") UUID userId) {
+        achievementEngine.evaluateUser(userId);
+        return ResponseEntity.ok(gamificationService.getUserGamification(userId));
     }
 }

@@ -19,4 +19,7 @@ public interface CommentReactionRepository extends JpaRepository<CommentReaction
     void deleteByCommentIdAndUserId(UUID commentId, UUID userId);
 
     boolean existsByCommentIdAndUserId(UUID commentId, UUID userId);
+
+    @Query("SELECT COUNT(cr) FROM CommentReaction cr WHERE cr.comment.author.id = :userId")
+    long countReactionsReceivedByUser(@Param("userId") UUID userId);
 }
