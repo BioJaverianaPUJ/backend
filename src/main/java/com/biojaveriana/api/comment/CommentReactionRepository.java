@@ -1,10 +1,12 @@
 package com.biojaveriana.api.comment;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -22,4 +24,12 @@ public interface CommentReactionRepository extends JpaRepository<CommentReaction
 
     @Query("SELECT COUNT(cr) FROM CommentReaction cr WHERE cr.comment.author.id = :userId")
     long countReactionsReceivedByUser(@Param("userId") UUID userId);
+
+    @Modifying
+    @Query("DELETE FROM CommentReaction cr WHERE cr.user.id = :userId")
+    void deleteByUserId(@Param("userId") UUID userId);
+
+    @Modifying
+    @Query("DELETE FROM CommentReaction cr WHERE cr.comment.id IN :commentIds")
+    void deleteByCommentIdIn(@Param("commentIds") Collection<UUID> commentIds);
 }

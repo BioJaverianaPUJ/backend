@@ -1,5 +1,6 @@
 package com.biojaveriana.api.comment;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
@@ -7,6 +8,7 @@ import java.util.UUID;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -32,4 +34,15 @@ public interface CommentRepository extends JpaRepository<Comment, UUID> {
     long countByPostId(UUID postId);
 
     long countByAuthorId(UUID authorId);
+
+    @Query("SELECT c.id FROM Comment c WHERE c.author.id = :authorId")
+    List<UUID> findIdsByAuthorId(@Param("authorId") UUID authorId);
+
+    @Modifying
+    @Query("DELETE FROM Comment c WHERE c.parent.id IN :parentIds")
+    void deleteByParentIdIn(@Param("parentIds") Collection<UUID> parentIds);
+
+    @Modifying
+    @Query("DELETE FROM Comment c WHERE c.author.id = :authorId")
+    void deleteByAuthorId(@Param("authorId") UUID authorId);
 }

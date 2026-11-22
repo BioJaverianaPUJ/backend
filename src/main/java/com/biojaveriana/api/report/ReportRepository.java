@@ -7,6 +7,7 @@ import java.util.UUID;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
@@ -34,4 +35,8 @@ public interface ReportRepository extends JpaRepository<Report, UUID> {
 
     @Query("SELECT r FROM Report r WHERE r.reporter.id = :reporterId AND r.reportedComment.id = :reportedCommentId AND r.status = :status")
     Optional<Report> findByReporterIdAndReportedCommentIdAndStatus(@Param("reporterId") UUID reporterId, @Param("reportedCommentId") UUID reportedCommentId, @Param("status") ReportStatus status);
+
+    @Modifying
+    @Query("DELETE FROM Report r WHERE r.reporter.id = :userId OR r.reportedUser.id = :userId")
+    void deleteByReporterIdOrReportedUserId(@Param("userId") UUID userId);
 }

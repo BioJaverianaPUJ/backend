@@ -20,12 +20,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.biojaveriana.api.security.CurrentUser;
 import com.biojaveriana.api.security.HasRole;
+import com.biojaveriana.api.user.dto.ChangePasswordRequest;
 import com.biojaveriana.api.user.dto.MeUserUpdateRequest;
 import com.biojaveriana.api.user.dto.UserListResponse;
 import com.biojaveriana.api.user.dto.UserUpdateRequest;
 import com.biojaveriana.api.user.dto.UserResponse;
 import com.biojaveriana.api.s3.ObjectService;
-import com.biojaveriana.api.user.exceptions.SuperAdminDeletionException;
 import com.biojaveriana.api.user.exceptions.InvalidMediaTypeException;
 
 import jakarta.validation.Valid;
@@ -40,9 +40,9 @@ import lombok.extern.slf4j.Slf4j;
 @Validated
 @RequiredArgsConstructor
 public class UserController {
-    private static final String SUPERADMIN_USERNAME = "superadmin";
 
     private final UserService userService;
+    private final UserDeletionService userDeletionService;
     private final ObjectService objectService;
 
     @GetMapping("/me")
@@ -87,6 +87,22 @@ public class UserController {
     public ResponseEntity<UserResponse> updateMe(@CurrentUser User user, @Valid @RequestBody MeUserUpdateRequest dto) {
         var updated = userService.updateMe(user, dto);
         return ResponseEntity.ok(UserResponse.from(updated, objectService));
+    }
+
+    @PatchMapping("/me/password")
+    public ResponseEntity<UserResponse> changePassword(
+        @CurrentUser User user,
+        @Valid @RequestBody ChangePasswordRequest dto
+    ) {
+        var updated = userService.changePassword(user, dto);
+        return ResponseEntity.ok(UserResponse.from(updated, objectService));
+    }
+
+    @DeleteMapping("/me")
+    public ResponseEntity<Void> deleteMyAccount(@CurrentUser User user) {
+        log.info("Deleting user {} by their own request", user.getId());
+        userDeletionService.deleteAccount(user);
+        return ResponseEntity.noContent().build();
     }
 
     @PatchMapping("/me/media")
@@ -189,12 +205,9 @@ public class UserController {
         @CurrentUser User admin
     ) {
         var user = userService.findById(id);
-        if (SUPERADMIN_USERNAME.equals(user.getUsername())) {
-            throw new SuperAdminDeletionException();
-        }
 
         log.info("Deleting user {} by admin id={}", id, admin.getId());
-        userService.deleteById(id);
+        userDeletionService.deleteAccount(user);
         return ResponseEntity.noContent().build();
     }
 }
