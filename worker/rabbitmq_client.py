@@ -56,6 +56,13 @@ class RabbitMQClient:
             logger.info("Bound queue %s to exchange %s", config.RABBITMQ_INPUT_QUEUE, config.RABBITMQ_EXCHANGE)
             self.channel.queue_bind(queue=config.RABBITMQ_RESPONSE_QUEUE, exchange=config.RABBITMQ_EXCHANGE, routing_key=config.RABBITMQ_RESPONSE_QUEUE)
             logger.info("Bound queue %s to exchange %s", config.RABBITMQ_RESPONSE_QUEUE, config.RABBITMQ_EXCHANGE)
+            # Dead-letter queues: messages nacked without requeue land here
+            # instead of vanishing, so failed jobs stay visible in the
+            # RabbitMQ management UI for diagnosis.
+            for dlq in (f"{config.RABBITMQ_INPUT_QUEUE}.dlq", f"{config.RABBITMQ_RESPONSE_QUEUE}.dlq"):
+                self._declare_queue_if_not_exists(queue_name=dlq, durable=True)
+                self.channel.queue_bind(queue=dlq, exchange=config.RABBITMQ_EXCHANGE, routing_key=dlq)
+                logger.info("Bound dead-letter queue %s to exchange %s", dlq, config.RABBITMQ_EXCHANGE)
             self._connection_attempts = 0
             logger.info("Connected to RabbitMQ at %s:%d", config.RABBITMQ_HOST, config.RABBITMQ_PORT)
         except pika.exceptions.AMQPConnectionError as e:
@@ -106,11 +113,25 @@ class RabbitMQClient:
                 callback(ch, method, properties, body, *args, **kwargs)
             except json.JSONDecodeError as e:
                 logger.error("Invalid JSON in message for observation %s: %s", observation_id, e)
-                ch.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
+                self._safe_nack(ch, method, observation_id)
             except Exception as e:
                 logger.error("Error processing observation %s: %s", observation_id, e, exc_info=True)
-                ch.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
+                self._safe_nack(ch, method, observation_id)
         return wrapper
+
+    @staticmethod
+    def _safe_nack(ch, method, observation_id: str) -> None:
+        """Nack without requeue, tolerating a dead channel.
+
+        If the connection dropped while the callback was running, the nack
+        itself would raise and kill the consumer thread. Let it fail quietly
+        instead: the broker requeues unacked messages when the connection
+        closes, and the reconnect loop in main.py resumes consuming.
+        """
+        try:
+            ch.basic_nack(delivery_tag=method.delivery_tag, requeue=False)
+        except pika.exceptions.AMQPError as e:
+            logger.error("Failed to nack message for observation %s (channel likely dead): %s", observation_id, e)
 
     def close(self) -> None:
         try:

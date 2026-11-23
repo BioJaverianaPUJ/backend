@@ -36,6 +36,8 @@ class S3Client:
                 region_name=config.S3_REGION,
                 config=boto3.session.Config(
                     s3={"addressing_style": "path" if config.S3_FORCE_PATH_STYLE else "virtual"},
+                    connect_timeout=10,
+                    read_timeout=120,
                 ),
             )
             # Verify connection
